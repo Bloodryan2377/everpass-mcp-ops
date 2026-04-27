@@ -11,6 +11,15 @@ This repo is the central place to track the Claude Code MCP + Zapier + GitHub wi
 
 The code of record is the live Claude Code config on my Windows box; this repo is the human-readable mirror.
 
+## Refresh contract (read first)
+
+If you are about to ask for, run, or claim a "full refresh":
+
+- The canonical inventory of every cockpit / dashboard data source — wired, bridged, manual, or gap — is in [DASHBOARD_SOURCES.md](DASHBOARD_SOURCES.md). If a source is not in that file, it is not in the refresh.
+- The rules for what "refresh" actually means, the required per-source report block, and the diagnostic for stale cockpit cards are in [REFRESH_CONTRACT.md](REFRESH_CONTRACT.md). Claude is bound by it; the user is empowered to call violations.
+
+These two files exist because past "full refresh" claims masked invisible surfaces (Outlook bridge, OneDrive, Obsidian, NotebookLM, Contract Master, Deal Brain) and the cockpit drifted while reports said "up to date."
+
 ## Current environment
 
 - **Claude Code on Windows**, configured with user-scoped environment variables (e.g., `GITHUB_PERSONAL_ACCESS_TOKEN`).
@@ -36,4 +45,4 @@ These are the lightweight end-to-end checks I run after any MCP or credential ch
 - **Google Sheets:** `add_row` to `EverPass – MCP Logs` → `Sheet1` (headers `date | event | status`), then `update_row` on the same row; confirm both mutations land.
 - **Gmail:** search within `label:"EverPass"`, open a message, create a draft reply, confirm the draft appears in Gmail UI.
 
-See [MCP_SETUP.md](MCP_SETUP.md) for the detailed technical layout and [TODO.md](TODO.md) for the next-step backlog.
+See [MCP_SETUP.md](MCP_SETUP.md) for the detailed technical layout, [DASHBOARD_SOURCES.md](DASHBOARD_SOURCES.md) for the canonical source inventory, [REFRESH_CONTRACT.md](REFRESH_CONTRACT.md) for the refresh rules, and [TODO.md](TODO.md) for the next-step backlog.

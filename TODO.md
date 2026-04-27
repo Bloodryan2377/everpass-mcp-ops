@@ -1,6 +1,16 @@
 # TODO
 
-Backlog of next-step workflow ideas for the EverPass MCP stack. Unordered — promote to a dated plan when picked up.
+Backlog of next-step workflow ideas for the EverPass MCP stack. The "Source coverage" block is prioritized — those gaps are the documented reason the cockpit goes stale (see `DASHBOARD_SOURCES.md`). Everything below it is unordered.
+
+## Source coverage (priority — close the gaps that cause cockpit drift)
+
+- [ ] **Outlook bridge audit.** Verify Outlook (`rblood@everpass.com`) → Gmail forward → filter `to:@everpass.com` → label `EverPass` end-to-end. Confirm the filter matches forwarded copies even when the original sender is not `@everpass.com` (the Harris Hoffberg / WBD failure mode). If not, fix the filter or add a sender-side rule.
+- [ ] **OneDrive MCP wiring.** No OneDrive read path exists today. Pick an approach (Microsoft Graph MCP, a Zapier OneDrive bridge, or a OneDrive → Dropbox sync of the canonical folders) and wire it. Update `DASHBOARD_SOURCES.md` row 7 from `gap` to `wired`/`bridged` once verified.
+- [ ] **Contract Master path pin.** Locate the canonical Contract Master workbook, document its exact path in `DASHBOARD_SOURCES.md` row 10, then wire (likely follows the OneDrive task).
+- [ ] **Deal Brain path pin.** Same as Contract Master — locate, pin in row 11, wire.
+- [ ] **Obsidian vault ingest.** Decide whether to (a) sync the vault to a wired surface (Dropbox or wired OneDrive) or (b) export-on-change to Gmail under `EverPass`. Update row 8.
+- [ ] **NotebookLM signal capture.** No public API. Establish a manual-but-disciplined export route (paste digest into Gmail `EverPass` label, or into a tracked Dropbox doc) so signal stops dying inside NotebookLM. Update row 9 verification step.
+- [ ] **Identify the cockpit renderer.** The Mobile Command Center UI is not produced by this repo (`DASHBOARD_SOURCES.md` row 12). Find the system rendering it and what storage it polls; pin that storage to a wired surface, or stop treating cockpit dates as ground truth.
 
 ## End-to-end workflows
 
