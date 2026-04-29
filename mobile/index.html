@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+
+<title>EverPass</title>
+
+<!-- iOS / iPadOS home screen web app -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="EverPass">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0a0b0f">
+<meta name="color-scheme" content="dark">
+
+<!-- Manifest (PWA / Android / Chromium) -->
+<link rel="manifest" href="manifest.json">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="icons/favicon.png">
+
+<!-- Apple touch icons -->
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180.png">
+
+<style>
+  :root {
+    --bg:        #0a0b0f;
+    --bg-2:      #11131a;
+    --panel:     #161924;
+    --panel-2:   #1d2130;
+    --border:    #262b3d;
+    --ink:       #f1f2f6;
+    --ink-2:     #aab0c0;
+    --muted:     #6b7287;
+    --gold:      #e6c36e;
+    --gold-hi:   #ffde8c;
+    --good:      #6ee7a7;
+    --warn:      #ffb86b;
+    --bad:       #ff7a7a;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", Segoe UI, Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: contain;
+  }
+  body {
+    min-height: 100dvh;
+    padding:
+      max(env(safe-area-inset-top), 14px)
+      max(env(safe-area-inset-right), 16px)
+      max(env(safe-area-inset-bottom), 18px)
+      max(env(safe-area-inset-left), 16px);
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(230,195,110,0.08), transparent 60%),
+      radial-gradient(900px 600px at 50% 110%, rgba(230,195,110,0.04), transparent 60%),
+      var(--bg);
+  }
+  .wrap {
+    max-width: 560px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  header.brand {
+    display: flex; align-items: center; gap: 12px;
+    padding: 6px 4px 10px;
+  }
+  .logo {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background:
+      radial-gradient(circle at 50% 50%, #1d2130 0 36%, transparent 38%),
+      radial-gradient(circle at 50% 50%, transparent 0 38%, var(--gold) 38% 44%, transparent 46%),
+      var(--bg-2);
+    border: 1px solid var(--border);
+    display: grid; place-items: center;
+    color: var(--gold-hi);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.02);
+  }
+  .title { display: flex; flex-direction: column; }
+  .title .name { font-weight: 700; letter-spacing: 0.3px; }
+  .title .sub  { color: var(--ink-2); font-size: 12px; margin-top: 2px; }
+
+  .card {
+    background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.02);
+  }
+  .card h2 { font-size: 15px; margin: 0 0 8px; color: var(--gold-hi); letter-spacing: 0.3px; }
+  .card p  { margin: 0; color: var(--ink-2); font-size: 14px; line-height: 1.5; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+  }
+  .stat .k { color: var(--muted); font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; }
+  .stat .v { color: var(--ink); font-size: 18px; font-weight: 700; margin-top: 4px; }
+  .stat .v.good { color: var(--good); }
+  .stat .v.warn { color: var(--warn); }
+
+  .actions { display: grid; gap: 10px; }
+  .btn {
+    -webkit-appearance: none; appearance: none;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--ink);
+    font: inherit; font-weight: 600; font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .06s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:active { transform: scale(0.99); }
+  .btn .chev { color: var(--muted); }
+  .btn.primary {
+    background: linear-gradient(180deg, #2a2410 0%, #1a160a 100%);
+    border-color: #5a4a1f;
+    color: var(--gold-hi);
+  }
+  .btn.primary .chev { color: var(--gold); }
+
+  .footer {
+    color: var(--muted);
+    font-size: 11px;
+    text-align: center;
+    padding-top: 6px;
+    line-height: 1.6;
+  }
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(110,231,167,0.12);
+    color: var(--good);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+  }
+  .pill.warn { background: rgba(255,184,107,0.12); color: var(--warn); }
+
+  /* Standalone mode tweaks */
+  @media all and (display-mode: standalone) {
+    body { padding-top: max(env(safe-area-inset-top), 24px); }
+    .footer .install-hint { display: none; }
+  }
+
+  /* Larger iPad layout */
+  @media (min-width: 768px) {
+    .wrap { max-width: 720px; }
+    .grid { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="brand">
+      <div class="logo" aria-hidden="true">E</div>
+      <div class="title">
+        <span class="name">EverPass</span>
+        <span class="sub">Mobile dashboard <span id="mode-pill" class="pill">PWA shell</span></span>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Welcome back</h2>
+      <p>This is the EverPass mobile shell, configured for iPhone &amp; iPad home-screen install. Tap below to open the live dashboard, or save this page to your home screen and launch it as a web app.</p>
+    </section>
+
+    <section class="card">
+      <div class="grid">
+        <div class="stat"><div class="k">Status</div><div class="v good">Online</div></div>
+        <div class="stat"><div class="k">Pipeline</div><div class="v">Ready</div></div>
+        <div class="stat"><div class="k">Alerts</div><div class="v warn">0</div></div>
+        <div class="stat"><div class="k">Build</div><div class="v" id="build-stamp">—</div></div>
+      </div>
+    </section>
+
+    <nav class="actions" aria-label="Primary">
+      <a class="btn primary" href="https://dashboard.everpasspipeline.com/mobile/" rel="noopener">
+        <span>Open EverPass Dashboard</span>
+        <span class="chev">›</span>
+      </a>
+      <a class="btn" href="https://dashboard.everpasspipeline.com/" rel="noopener">
+        <span>Open Desktop Dashboard</span>
+        <span class="chev">›</span>
+      </a>
+      <button class="btn" id="reload-btn" type="button">
+        <span>Reload</span>
+        <span class="chev">↻</span>
+      </button>
+    </nav>
+
+    <p class="footer">
+      <span class="install-hint">Tip: in Safari, tap <b>Share</b> → <b>Add to Home Screen</b> to install.<br></span>
+      EverPass · home-screen ready
+    </p>
+  </div>
+
+<script>
+  // Lightweight build stamp so you can confirm "redesigned version" is loading.
+  (function () {
+    var stamp = document.getElementById('build-stamp');
+    if (stamp) {
+      var d = new Date();
+      var iso = d.toISOString().slice(0, 10);
+      stamp.textContent = iso;
+    }
+    var modePill = document.getElementById('mode-pill');
+    if (modePill && window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) {
+      modePill.textContent = 'Standalone';
+    } else if (modePill && window.navigator.standalone === true) {
+      modePill.textContent = 'Standalone';
+    }
+    var reload = document.getElementById('reload-btn');
+    if (reload) reload.addEventListener('click', function () { location.reload(); });
+  })();
+</script>
+</body>
+</html>
