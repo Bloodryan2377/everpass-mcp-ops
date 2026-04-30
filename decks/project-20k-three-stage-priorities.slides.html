@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Project 20K — Three-Stage Operating Priorities</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --ink: #0e1116;
+    --ink-2: #2a2f37;
+    --muted: #5b6472;
+    --line: #e6e8ec;
+    --accent: #0a5cff;
+    --accent-soft: #eaf0ff;
+    --green: #0a8a4a;
+    --amber: #b7791f;
+    --red: #b00020;
+    --bg: #ffffff;
+    --chip: #f3f5f8;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; background: #eef0f3; color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  .deck { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 32px 16px; }
+  .slide {
+    width: 1280px; height: 720px; background: var(--bg);
+    border: 1px solid var(--line); border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(14,17,22,.04), 0 8px 24px rgba(14,17,22,.06);
+    padding: 56px 64px 48px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .slide::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--accent);
+  }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600;
+  }
+  h1 { font-size: 56px; line-height: 1.05; letter-spacing: -.02em; margin: 12px 0 0; }
+  h2 { font-size: 36px; line-height: 1.1; letter-spacing: -.015em; margin: 8px 0 0; }
+  h3 { font-size: 18px; margin: 0 0 6px; letter-spacing: -.005em; }
+  p, li { font-size: 16px; line-height: 1.45; color: var(--ink-2); }
+  .lede { font-size: 20px; color: var(--ink-2); max-width: 980px; line-height: 1.4; }
+  .footer {
+    position: absolute; left: 64px; right: 64px; bottom: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase;
+  }
+  .footer .num { font-variant-numeric: tabular-nums; }
+  .header-row { display: flex; align-items: baseline; justify-content: space-between; }
+  .stage-tag {
+    display: inline-block; padding: 4px 10px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent); font-size: 12px;
+    font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .goal {
+    margin-top: 14px; padding: 12px 16px; background: #f8fafc;
+    border-left: 3px solid var(--accent); border-radius: 4px;
+    font-size: 16px; color: var(--ink-2); max-width: 1080px;
+  }
+  .goal strong { color: var(--ink); }
+  .grid {
+    margin-top: 24px; display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 14px 22px; flex: 1;
+  }
+  .grid.three { grid-template-columns: repeat(3, 1fr); }
+  .card {
+    border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px;
+    display: flex; flex-direction: column; gap: 8px; background: #fff;
+  }
+  .team {
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--muted); font-weight: 700;
+  }
+  .priority { font-size: 16px; color: var(--ink); line-height: 1.4; font-weight: 500; }
+  .priority + .priority { margin-top: 4px; padding-top: 8px; border-top: 1px dashed var(--line); }
+  .meta {
+    margin-top: 4px; font-size: 13px; color: var(--muted); line-height: 1.4;
+  }
+  .meta b { color: var(--ink-2); font-weight: 600; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; flex: 1; margin-top: 24px; }
+  .col h3 { font-size: 20px; }
+  .pill {
+    display: inline-block; padding: 3px 9px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .pill.red    { background: #fbe9ec; color: var(--red); }
+  .pill.amber  { background: #fdf3e0; color: var(--amber); }
+  .pill.green  { background: #e6f4ec; color: var(--green); }
+  ul.clean { list-style: none; padding: 0; margin: 8px 0 0; }
+  ul.clean li {
+    padding: 10px 0; border-bottom: 1px solid var(--line);
+    font-size: 16px; color: var(--ink-2);
+  }
+  ul.clean li:last-child { border-bottom: none; }
+  ul.clean li b { color: var(--ink); font-weight: 600; }
+  .kicker { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .frame-grid {
+    margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px; flex: 1;
+  }
+  .frame {
+    border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px;
+    background: #fff; display: flex; flex-direction: column; gap: 4px;
+  }
+  .frame .lbl { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .frame .val { font-size: 15px; color: var(--ink-2); line-height: 1.4; }
+  .legend { font-size: 12px; color: var(--muted); margin-top: 16px; }
+  /* PDF page break + sizing */
+  @page { size: 1280px 720px; margin: 0; }
+  @media print {
+    html, body { background: #fff; margin: 0; padding: 0; }
+    .deck { gap: 0; padding: 0; display: block; }
+    .slide {
+      box-shadow: none; border: none; border-radius: 0;
+      width: 1280px; height: 720px;
+      page-break-inside: avoid; break-inside: avoid;
+      page-break-before: always; break-before: page;
+      margin: 0;
+    }
+    .slide:first-of-type {
+      page-break-before: auto; break-before: auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 1. TITLE -->
+  <section class="slide" id="s1">
+    <span class="eyebrow">Project 20K · Internal Operating Deck</span>
+    <h1>Three Stages.<br/>One Plan to Win Week One.</h1>
+    <p class="lede" style="margin-top:24px;">
+      Simplifying the breakout work into how we sell it, how we deliver it, and how we service the customer
+      from sale through September. A working presentation for today's session — not a status report.
+    </p>
+    <div style="flex:1"></div>
+    <div style="display:flex; gap:36px; align-items:baseline;">
+      <div>
+        <div class="team">Working session</div>
+        <div style="font-size:18px; color:var(--ink); font-weight:600; margin-top:4px;">Decisions, owners, and the few priorities that matter now</div>
+      </div>
+    </div>
+    <div class="footer"><span>Project 20K · EverPass</span><span class="num">01 / 09</span></div>
+  </section>
+
+  <!-- 2. WHY SIMPLIFY NOW -->
+  <section class="slide" id="s2">
+    <span class="eyebrow">Framing</span>
+    <h2>Why we are simplifying the work today</h2>
+    <p class="lede" style="margin-top:18px;">
+      The six-theme breakout was a useful prioritization lens. It is too busy as an operating structure.
+      We collapse it into three stages so each team leaves with one or two priorities — not a list.
+    </p>
+    <div class="grid three" style="margin-top:28px;">
+      <div class="card">
+        <div class="team">Stage 1 · Sell &amp; Market</div>
+        <div class="priority">How we generate demand, set expectations, and protect the narrative.</div>
+      </div>
+      <div class="card">
+        <div class="team">Stage 2 · Deliver</div>
+        <div class="priority">How orders, hardware, BYOD, integrators, and product readiness clear at scale.</div>
+      </div>
+      <div class="card">
+        <div class="team">Stage 3 · Service through September</div>
+        <div class="priority">How CX, streaming readiness, and support hold from sale through preseason and Week 1.</div>
+      </div>
+    </div>
+    <div class="legend">
+      Positioning constraint preserved: EverPass remains complementary to existing venue infrastructure across marketing, install, fulfillment, and partner motion.
+    </div>
+    <div class="footer"><span>Why simplify · Three stages</span><span class="num">02 / 09</span></div>
+  </section>
+
+  <!-- 3. STAGE 1 — SELL / MARKET -->
+  <section class="slide" id="s3">
+    <div class="header-row">
+      <div>
+        <span class="stage-tag">Stage 1</span>
+        <h2 style="margin-top:10px;">How we sell it &amp; market it</h2>
+      </div>
+      <div class="kicker">Demand · Expectations · Narrative</div>
+    </div>
+    <div class="goal">
+      <strong>Goal:</strong> Drive scalable SMB demand with consistent expectations and a narrative we can defend —
+      without outpacing operational throughput.
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="team">Marketing / GTM</div>
+        <div class="priority">Define a segmented offer ladder by tier and stand up a measurable awareness lift for SMBs that don't yet know EverPass carries Sunday Ticket.</div>
+        <div class="meta"><b>Decide today:</b> which segments, which channels, which lift metric.</div>
+      </div>
+      <div class="card">
+        <div class="team">Sales</div>
+        <div class="priority">Align sales pace with delivered operational throughput; install a written gate for large-deal and partner exceptions.</div>
+        <div class="meta"><b>Decide today:</b> who signs the written exception, and what makes one warranted.</div>
+      </div>
+      <div class="card">
+        <div class="team">CX / Support</div>
+        <div class="priority">Standardize expectation-setting language across owned, DirecTV, Charter, and integrator touchpoints so the brand promise lands the same way everywhere.</div>
+        <div class="meta"><b>Decide today:</b> single owner of the expectation script across channels.</div>
+      </div>
+      <div class="card">
+        <div class="team">Exec / PMO</div>
+        <div class="priority">Lock one canonical hardware narrative and run a weekly top-3 cadence so priorities stop shifting mid-week.</div>
+        <div class="meta"><b>Decide today:</b> who owns the canonical narrative; what gets cut to keep the top-3 honest.</div>
+      </div>
+    </div>
+    <div class="footer"><span>Stage 1 · Sell &amp; Market</span><span class="num">03 / 09</span></div>
+  </section>
+
+  <!-- 4. STAGE 2 — DELIVER -->
+  <section class="slide" id="s4">
+    <div class="header-row">
+      <div>
+        <span class="stage-tag">Stage 2</span>
+        <h2 style="margin-top:10px;">How we deliver it</h2>
+      </div>
+      <div class="kicker">Order-to-fulfill · Hardware &amp; BYOD · Integrator execution</div>
+    </div>
+    <div class="goal">
+      <strong>Goal:</strong> Make the buy-to-fulfill path scale before preseason. Sequence product, hardware, and partner work
+      so activation demand in the 6–8 weeks before Week 1 doesn't break the system.
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="team">Ops / Fulfillment</div>
+        <div class="priority">Stress-test order-to-fulfillment at the planned scale range before July; stand up an ops dashboard by stage, owner, and next action with exception reporting and SLAs.</div>
+        <div class="meta"><b>Decide today:</b> the test scenarios, the SLA targets, and the single source of truth for status.</div>
+      </div>
+      <div class="card">
+        <div class="team">Product / Engineering</div>
+        <div class="priority">Publish pre-Week-1 feature sequencing; ship sync, login, and navigation reliability fixes before preseason demos.</div>
+        <div class="meta"><b>Decide today:</b> what is in the pre-Week-1 cut, and what is parked without re-litigation.</div>
+      </div>
+      <div class="card">
+        <div class="team">Partnerships / Integrator</div>
+        <div class="priority">Name a dedicated partner owner; build an integrator-centric fulfillment plan with capacity visibility and incentives that match real workflows.</div>
+        <div class="meta"><b>Decide today:</b> the partner owner, and the regions where integrator capacity is the binding constraint.</div>
+      </div>
+      <div class="card">
+        <div class="team">Finance / RevOps</div>
+        <div class="priority">Lock shared definitions of <i>sold</i>, <i>activated</i>, and <i>live</i>; tie unified reporting to revenue so every team reads from the same numbers.</div>
+        <div class="meta"><b>Decide today:</b> the three definitions, in writing, with one approver.</div>
+      </div>
+    </div>
+    <div class="footer"><span>Stage 2 · Deliver</span><span class="num">04 / 09</span></div>
+  </section>
+
+  <!-- 5. STAGE 3 — SERVICE THROUGH SEPTEMBER -->
+  <section class="slide" id="s5">
+    <div class="header-row">
+      <div>
+        <span class="stage-tag">Stage 3</span>
+        <h2 style="margin-top:10px;">How we service the customer from sale through September</h2>
+      </div>
+      <div class="kicker">CX continuity · Streaming readiness · Week-One defense</div>
+    </div>
+    <div class="goal">
+      <strong>Goal:</strong> Hold the customer experience across every seam — order, install, onboarding, support — and treat
+      streaming readiness as its own gate. Week-one technical issues are the most likely PR spiral.
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="team">CX / Support</div>
+        <div class="priority">Assign one end-to-end CX owner across order → install → onboarding → support; stand up a support → product → marketing feedback loop with a follow-the-sun support posture.</div>
+        <div class="meta"><b>Decide today:</b> the named owner team, and the cadence the feedback loop runs at.</div>
+      </div>
+      <div class="card">
+        <div class="team">Product / Engineering</div>
+        <div class="priority">Treat streaming readiness as a separate gate from the broader product roadmap; define week-one issue triage and on-call ownership before preseason demos.</div>
+        <div class="meta"><b>Decide today:</b> what counts as ready-to-stream, separate from ready-overall.</div>
+      </div>
+      <div class="card">
+        <div class="team">Ops / Fulfillment</div>
+        <div class="priority">Close the seam between order and onboarding with exception reporting and SLAs the support team can actually act on.</div>
+        <div class="meta"><b>Decide today:</b> which exceptions auto-page support vs. wait for the daily review.</div>
+      </div>
+      <div class="card">
+        <div class="team">Marketing / GTM</div>
+        <div class="priority">Build a communications-readiness response playbook covering external narrative attacks and partner-channel issues, ready to deploy before preseason.</div>
+        <div class="meta"><b>Decide today:</b> who approves a public response, and within what window.</div>
+      </div>
+    </div>
+    <div class="footer"><span>Stage 3 · Service through September</span><span class="num">05 / 09</span></div>
+  </section>
+
+  <!-- 6. DECISION FRAMING — METRIC / THRESHOLD / OWNER / FALLBACK -->
+  <section class="slide" id="s6">
+    <span class="eyebrow">Decision logic the team needs to close today</span>
+    <h2>For each artery, define the four boxes — don't guess them.</h2>
+    <p class="lede" style="margin-top:14px;">
+      We are not setting numbers in this deck. The session's job is to fill in the metric, the threshold,
+      the owner, and the fallback for each artery. If a row doesn't have all four, it isn't ready.
+    </p>
+    <div class="frame-grid">
+      <div class="frame">
+        <div class="lbl">Artery</div>
+        <div class="val"><b>CX continuity</b><br/>Streaming readiness<br/>Fulfillment throughput</div>
+      </div>
+      <div class="frame">
+        <div class="lbl">Metric</div>
+        <div class="val">What we will measure that proves the artery is healthy. Team to define.</div>
+      </div>
+      <div class="frame">
+        <div class="lbl">Threshold &amp; owner</div>
+        <div class="val">The level at which we act, and the single name accountable for the call. Team to define.</div>
+      </div>
+      <div class="frame">
+        <div class="lbl">Fallback path</div>
+        <div class="val">What we do when the threshold is missed. Pre-agreed, written, not improvised. Team to define.</div>
+      </div>
+    </div>
+    <div class="legend">
+      No invented numbers in this deck. The deliverable from today is a filled-in version of these four columns for each artery.
+    </div>
+    <div class="footer"><span>Decision framing</span><span class="num">06 / 09</span></div>
+  </section>
+
+  <!-- 7. ARTERIES VS PAPER CUTS -->
+  <section class="slide" id="s7">
+    <span class="eyebrow">What must win now</span>
+    <h2>Arteries vs. paper cuts</h2>
+    <div class="two-col">
+      <div class="col">
+        <h3><span class="pill red">Arteries</span> &nbsp; Failure here = overall failure</h3>
+        <ul class="clean">
+          <li><b>CX continuity</b> across order, install, onboarding, and support — one owner, no seams.</li>
+          <li><b>Streaming readiness</b> as its own gate, distinct from the full product roadmap.</li>
+          <li><b>Fulfillment throughput</b> proven by stress test before July, with SLAs and exception reporting.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><span class="pill amber">Paper cuts</span> &nbsp; Real, but cannot displace arteries</h3>
+        <ul class="clean">
+          <li>Device-flow complexity and demo-kit edge cases.</li>
+          <li>Dashboard polish beyond the minimum operating view.</li>
+          <li>Long-tail product gaps not on the pre-Week-1 cut.</li>
+          <li>BYOD edge paths beyond the agreed maturity gates.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legend">
+      Rule of the room: a paper cut never displaces an artery. If it tries to, escalate via the written exception gate, not in standing meetings.
+    </div>
+    <div class="footer"><span>Arteries vs. paper cuts</span><span class="num">07 / 09</span></div>
+  </section>
+
+  <!-- 8. CROSS-STAGE DECISIONS TO MAKE TODAY -->
+  <section class="slide" id="s8">
+    <span class="eyebrow">Decisions on the table now</span>
+    <h2>Cross-stage decisions to close today</h2>
+    <ul class="clean" style="margin-top:18px;">
+      <li><b>One CX owner.</b> Name the team accountable end-to-end across order → install → onboarding → support. No co-owners.</li>
+      <li><b>Streaming-ready definition.</b> Agree what counts as ready-to-stream, separate from ready-overall, and who signs it off.</li>
+      <li><b>Pre-Week-1 product cut.</b> Confirm the feature list that ships before preseason demos. Everything else is parked, in writing.</li>
+      <li><b>Written exception gate.</b> Decide who approves large-deal or partner exceptions and what makes one warranted — replace standing-meeting negotiation with a written record.</li>
+      <li><b>Shared revenue definitions.</b> Lock <i>sold</i>, <i>activated</i>, and <i>live</i> so reporting reconciles across Sales, Ops, and Finance.</li>
+      <li><b>Response playbook owner.</b> Name the team that owns the external narrative response plan and partner-response kit before preseason.</li>
+    </ul>
+    <div class="footer"><span>Decisions today</span><span class="num">08 / 09</span></div>
+  </section>
+
+  <!-- 9. WORKING DECISIONS / WHAT GETS PARKED -->
+  <section class="slide" id="s9">
+    <span class="eyebrow">Close the loop</span>
+    <h2>What we decide. What we park. What teams owe by next session.</h2>
+    <div class="two-col" style="margin-top:18px;">
+      <div class="col">
+        <h3><span class="pill green">Decided today</span></h3>
+        <ul class="clean">
+          <li>Three-stage operating model replaces the six-theme view as the working structure.</li>
+          <li>Each team carries one or two priorities per stage — no exceptions.</li>
+          <li>Arteries are non-negotiable; paper cuts cannot displace them.</li>
+          <li>Decisions are written, async-first; standing meetings ratify, they do not negotiate.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><span class="pill amber">Parked, in writing</span></h3>
+        <ul class="clean">
+          <li>Anything outside the pre-Week-1 product cut.</li>
+          <li>BYOD paths beyond the agreed maturity gates.</li>
+          <li>Dashboard polish beyond the minimum operating view.</li>
+          <li>Channel and integrator expansion beyond the named regions.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legend" style="margin-top:18px;">
+      Each team owes by next session: filled-in metric / threshold / owner / fallback for its artery, and confirmation of its 1–2 stage priorities.
+    </div>
+    <div class="footer"><span>Working decisions · Parked · Owed</span><span class="num">09 / 09</span></div>
+  </section>
+
+</div>
+</body>
+</html>
