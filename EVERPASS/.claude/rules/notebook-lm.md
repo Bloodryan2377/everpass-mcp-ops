@@ -4,7 +4,7 @@ description: Path-scoped rules for NotebookLM-related artifacts (sweep outputs, 
 paths:
   - "**/NotebookLM*/**"
   - "**/notebooklm*/**"
-  - "EVERPASS TOOLS/AI Related/NotebookLM*/**"
+  - "EVERPASS TOOLS/NotebookLM/**"
 ---
 
 # NotebookLM — Edit Rules
