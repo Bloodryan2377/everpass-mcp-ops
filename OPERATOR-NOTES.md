@@ -58,14 +58,33 @@ runtime.
   authoritative dashboard governance.
 - Any `.bak*` / `_archive/**` file — historical, untouchable, do not "fix" stale paths inside.
 
+## Stale-path scanner
+
+`scripts/scan-stale-paths.sh` — find dead path references in active infra (settings,
+hooks, CLAUDE.md, skill SKILL.md, project shell/PowerShell scripts). Default pattern is
+`EVERPASS/Dashboard/`; pass extra fixed-string patterns as args.
+
+Scope: `~/.claude/{CLAUDE.md,settings.json,settings.local.json,hooks/,skills/}`,
+`EVERPASS/.claude/**`, `EVERPASS/**/CLAUDE.md`, `EVERPASS/**/settings*.json`,
+`EVERPASS/**/*.{sh,ps1,cmd}`. Excludes `_archive/`, `system-audits/`, `*.bak*`,
+`*.baseline-*`, `*.jsonl`, `recent-memory.md`, `morning-brief*`, `nightly-pipeline-report*`,
+`~/.claude/{plans,projects,todos,memory,...}`. Uses `find` + `xargs grep` (Git Bash grep
+3.0 has a `--include`/`--exclude` interaction bug).
+
+Exit codes: `0` clean · `1` hits printed as `file:line: text` · `2` setup error.
+
+Run before any infra change and after a sweep to confirm migrations land.
+
 ## Verification one-liners
 
 ```bash
 # Live validation
 bash "C:/Users/ryan/OneDrive - EverPass Media/EVERPASS/EVERPASS TOOLS/Dashboard/.claude/validate-dashboard-js.sh"
 
-# Stale-path scan (active infra only — should return zero hits outside .bak/_archive/recent-memory/morning-brief/system-audits)
-# Run from EVERPASS root and visually filter archive/log noise.
+# Stale-path scan (active infra only). Exit 0 = clean, 1 = stale paths, 2 = setup error.
+bash "C:/Users/ryan/code/everpass-mcp-ops/scripts/scan-stale-paths.sh"
+# Add extra patterns:
+bash "C:/Users/ryan/code/everpass-mcp-ops/scripts/scan-stale-paths.sh" "EVERPASS/Dashboard/" "Desktop/EVERPASS/"
 
 # Freshness gate (12h rule)
 python "C:/Users/ryan/OneDrive - EverPass Media/EVERPASS/EVERPASS TOOLS/Scripts/freshness_enforcer.py"
