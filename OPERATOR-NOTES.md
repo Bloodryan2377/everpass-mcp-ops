@@ -75,6 +75,21 @@ Exit codes: `0` clean · `1` hits printed as `file:line: text` · `2` setup erro
 
 Run before any infra change and after a sweep to confirm migrations land.
 
+### Resolved stale refs (2026-05-04 sweep)
+
+Scanner-driven cleanup of legacy `EVERPASS/Dashboard/` refs in adjacent user-content
+surfaces:
+
+- `~/.claude/skills/dashboard-framing-updates/SKILL.md` → canonical `EVERPASS TOOLS/Dashboard/`
+- `~/.claude/skills/economics-to-notebooklm/SKILL.md` → canonical `EVERPASS TOOLS/Dashboard/`
+- `EVERPASS/.claude/settings.local.json` — `find` permission updated to canonical;
+  dead `Desktop/EVERPASS/Dashboard/` `file` permission removed.
+
+Excluded from scanner scope (historical workspace dumps, not active infra):
+`~/.claude/skills/full-pipeline-refresh-workspace/{skill-snapshot,iteration-1}/`.
+
+Scanner now exits `0` against the live tree.
+
 ## Verification one-liners
 
 ```bash

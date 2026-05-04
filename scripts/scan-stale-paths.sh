@@ -49,6 +49,7 @@ EXCLUDE_DIR_NAMES=(
   _archive system-audits node_modules .git
   plans projects todos shell-snapshots statsig memory ide sessions locks
   __pycache__ morning-briefs nightly-pipeline-reports
+  skill-snapshot iteration-1
 )
 
 EXCLUDE_NAME_GLOBS=(
