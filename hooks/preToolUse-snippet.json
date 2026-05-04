@@ -1,0 +1,35 @@
+[
+  {
+    "_comment": "pre-pipeline-refresh: blocks pipeline-refresh commands when OneDrive is not running or network is unreachable.",
+    "matcher": "Bash|PowerShell",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash -c 'CMD=\"$CLAUDE_TOOL_ARG_command\"; if echo \"$CMD\" | grep -qiE \"pipeline.*refresh|refresh.*pipeline|full-pipeline-refresh\"; then if ! tasklist 2>/dev/null | grep -qi OneDrive; then echo \"{\\\"decision\\\":\\\"block\\\",\\\"reason\\\":\\\"pre-pipeline-refresh: OneDrive process not running. Pipeline refresh requires OneDrive sync. Start OneDrive then retry.\\\"}\"; exit 0; fi; if ! ping -n 1 -w 1500 8.8.8.8 >/dev/null 2>&1; then echo \"{\\\"decision\\\":\\\"block\\\",\\\"reason\\\":\\\"pre-pipeline-refresh: Network unreachable. Pipeline refresh requires online access.\\\"}\"; exit 0; fi; echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PreToolUse\\\",\\\"additionalContext\\\":\\\"pre-pipeline-refresh: OneDrive + network OK; proceeding.\\\"}}\"; else echo \"{}\"; fi'",
+        "shell": "bash"
+      }
+    ]
+  },
+  {
+    "_comment": "pre-dashboard-publish: runs freshness_enforcer.py before any publish/deploy command; blocks on FAIL (rc=2).",
+    "matcher": "Bash|PowerShell",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash -c 'CMD=\"$CLAUDE_TOOL_ARG_command\"; if echo \"$CMD\" | grep -qiE \"\\\\bpublish\\\\b|\\\\bdeploy\\\\b|netlify deploy|netlify publish\"; then ENF=\"C:/Users/ryan/OneDrive - EverPass Media/EVERPASS/EVERPASS TOOLS/Scripts/freshness_enforcer.py\"; if [ -f \"$ENF\" ]; then python \"$ENF\" >/dev/null 2>&1; RC=$?; if [ \"$RC\" = \"2\" ]; then echo \"{\\\"decision\\\":\\\"block\\\",\\\"reason\\\":\\\"pre-dashboard-publish: freshness_enforcer.py FAILED (rc=2). User-facing artifacts are stale (>12h). Refresh before publish or override interactively.\\\"}\"; exit 0; fi; echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PreToolUse\\\",\\\"additionalContext\\\":\\\"pre-dashboard-publish: freshness_enforcer rc=$RC (0=PASS, 1=WARN); proceeding.\\\"}}\"; else echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PreToolUse\\\",\\\"additionalContext\\\":\\\"pre-dashboard-publish: freshness_enforcer.py NOT FOUND at $ENF; proceeding without gate.\\\"}}\"; fi; else echo \"{}\"; fi'",
+        "shell": "bash"
+      }
+    ]
+  },
+  {
+    "_comment": "pre-external-share: blocks external-share-style commands when target path contains _archive/ or a DRAFT tag.",
+    "matcher": "Bash|PowerShell|Edit|Write",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash -c 'INPUT=\"$CLAUDE_TOOL_INPUT\"; if echo \"$INPUT\" | grep -qiE \"(curl|scp|rsync|netlify deploy|netlify publish|gmail.send|drive share|firecrawl scrape|upload|attach)\" && echo \"$INPUT\" | grep -qiE \"(_archive/|/_archive |_archive\\\\\\\\|DRAFT[_ -]|_DRAFT_)\"; then echo \"{\\\"decision\\\":\\\"block\\\",\\\"reason\\\":\\\"pre-external-share: refusing to share/upload archived (_archive/) or DRAFT-tagged content. Confirm with Ryan before proceeding, or stage a clean (non-archive, non-draft) copy first.\\\"}\"; else echo \"{}\"; fi'",
+        "shell": "bash"
+      }
+    ]
+  }
+]
