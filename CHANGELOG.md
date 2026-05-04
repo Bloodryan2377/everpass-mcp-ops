@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## 2026-05-04 — Dashboard JS validator wrapper + canonical path fix
+
+Resolves a noisy hook target identified after the verification pass: the global PostToolUse hook (`matcher: Edit|Write`, trigger phrase "Pipeline Decision-Making Dashboard") referenced `EVERPASS TOOLS/Dashboard/.claude/validate-dashboard-js.sh`, which did not exist. The canonical validator lives at `_support/tooling/.claude/validate-dashboard-js.sh` and additionally hard-coded a stale `EVERPASS/Dashboard/...` path (missing the `EVERPASS TOOLS/` segment), so it silently no-op'd against the live HTML.
+
+### Changes
+| File | Change |
+|---|---|
+| `EVERPASS TOOLS/Dashboard/.claude/validate-dashboard-js.sh` | **New** thin defensive wrapper at the path the hook expects. Delegates to the canonical script when present, exits 0 cleanly otherwise (no false failures). |
+| `EVERPASS TOOLS/Dashboard/_support/tooling/.claude/validate-dashboard-js.sh` | Replaced hard-coded stale `DASH=` with `${DASHBOARD_HTML:-<correct EVERPASS TOOLS path>}` so the wrapper can pass the live path and the script also works standalone. |
+
+### Behavior
+- Hook trigger → wrapper runs → canonical validator exec'd against the live dashboard → 7,825-byte JS+structure check (21 load-bearing arrays + Node `--check` per `<script>` block).
+- Live dashboard validates clean (`rc=0`, "Dashboard JS integrity check passed").
+- Wrapper degrades gracefully: missing dashboard HTML or missing canonical script → emits info context and exits 0 instead of failing the edit chain.
+
+### Verification
+- `python -c "json.load(open('~/.claude/settings.json'))"` → settings.json valid
+- `bash .../Dashboard/.claude/validate-dashboard-js.sh` → rc=0, integrity check passed
+- Both files mirrored to this tracking repo
+
+---
+
 ## 2026-05-04 — Claude Code infrastructure scaffold
 
 Audit-reviewed implementation of path-scoped rules + per-subtree CLAUDE.md hierarchy + tasks scaffold + operational hooks. Platform-neutral; forward-compatible with Antigravity.
