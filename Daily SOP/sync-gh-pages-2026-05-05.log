@@ -1,0 +1,11 @@
+=== GH-PAGES SYNC START Tue 05/05/2026 15:49:33.31 
+CWD=C:\Users\ryan\Projects\everpass-mcp-ops 
+3ac11c8b735f89fdb54fc58afdb821e08bce1989
+--- pushing main to gh-pages (force) --- 
+git: 'credential-manager-core' is not a git command. See 'git --help'.
+remote: This repository moved. Please use the new location:        
+remote:   https://github.com/Bloodryan2377/everpass-mcp-ops.git        
+To https://github.com/bloodryan2377/everpass-mcp-ops.git
+ + facd53e...3ac11c8 main -> gh-pages (forced update)
+GH_PAGES_PUSH_EXIT=0 
+=== GH-PAGES SYNC END Tue 05/05/2026 15:49:36.54 

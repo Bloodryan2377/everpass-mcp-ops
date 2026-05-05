@@ -12,3 +12,123 @@ MIRROR_EXIT=0
 JOB2_EXIT=0 
  
 --- JOB 3: git push --- 
+warning: in the working copy of 'Daily SOP/Mirror-Mobile-Shell.cmd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Daily SOP/final-push-mobile-2026-05-05.cmd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Daily SOP/kill-hung-git.cmd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Daily SOP/master-final-2026-05-05.cmd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Daily SOP/mirror-mobile-shell-2026-05-05.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/manifest.webmanifest', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/scripts/answers.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/scripts/app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/scripts/cockpit.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/scripts/daily-s.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/scripts/data.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/scripts/dispatch.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/scripts/live.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/scripts/results.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/styles/answers.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/styles/cockpit.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/styles/core.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/styles/dispatch.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/styles/live.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/styles/results.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mobile/sw.js', LF will be replaced by CRLF the next time Git touches it
+[main 3ac11c8] Auto: mirror mobile shell + refresh data 2026-05-05
+ 28 files changed, 5729 insertions(+)
+ create mode 100644 Daily SOP/Mirror-Mobile-Shell.cmd
+ create mode 100644 Daily SOP/final-2026-05-05.log
+ create mode 100644 Daily SOP/final-push-mobile-2026-05-05.cmd
+ create mode 100644 Daily SOP/kill-hung-git.cmd
+ create mode 100644 Daily SOP/master-final-2026-05-05.cmd
+ create mode 100644 Daily SOP/mirror-mobile-shell-2026-05-05.py
+ create mode 100644 mobile/icons/apple-touch-icon-180.png
+ create mode 100644 mobile/icons/favicon-32.png
+ create mode 100644 mobile/icons/icon-192.png
+ create mode 100644 mobile/icons/icon-512.png
+ create mode 100644 mobile/icons/maskable-512.png
+ create mode 100644 mobile/index.html
+ create mode 100644 mobile/manifest.webmanifest
+ create mode 100644 mobile/scripts/answers.js
+ create mode 100644 mobile/scripts/app.js
+ create mode 100644 mobile/scripts/cockpit.js
+ create mode 100644 mobile/scripts/daily-s.js
+ create mode 100644 mobile/scripts/data.js
+ create mode 100644 mobile/scripts/dispatch.js
+ create mode 100644 mobile/scripts/live.js
+ create mode 100644 mobile/scripts/results.js
+ create mode 100644 mobile/styles/answers.css
+ create mode 100644 mobile/styles/cockpit.css
+ create mode 100644 mobile/styles/core.css
+ create mode 100644 mobile/styles/dispatch.css
+ create mode 100644 mobile/styles/live.css
+ create mode 100644 mobile/styles/results.css
+ create mode 100644 mobile/sw.js
+git: 'credential-manager-core' is not a git command. See 'git --help'.
+remote: This repository moved. Please use the new location:        
+remote:   https://github.com/Bloodryan2377/everpass-mcp-ops.git        
+To https://github.com/bloodryan2377/everpass-mcp-ops.git
+   30adbe3..3ac11c8  main -> main
+PUSH_EXIT=0
+JOB3_EXIT=0 
+ 
+--- JOB 4: netlify deploy --- 
+C:\Users\ryan\AppData\Roaming\npm\netlify
+C:\Users\ryan\AppData\Roaming\npm\netlify.cmd
+C:\Users\ryan\AppData\Roaming\npm\netlify
+C:\Users\ryan\AppData\Roaming\npm\netlify.cmd
+No project linked. Auto-creating a new project (team: Ryan Blood - Content EverPass)...
+Creating new site with random name
+​
+Netlify Build                                                 
+────────────────────────────────────────────────────────────────
+​
+> Version
+  @netlify/build 35.13.1
+​
+> Flags
+  deployId: 69fa72f973fe939eb3fbb76e
+​
+> Current directory
+  C:\Users\ryan\Projects\everpass-mcp-ops\Daily SOP
+​
+> Config file
+  No config file was defined: using default values.
+​
+> Context
+  production
+
+Deploying to Netlify
+────────────────────────────────────────────────────────────────
+
+[32mDeploy path: [39mC:\Users\ryan\OneDrive - EverPass Media\EVERPASS\EVERPASS TOOLS\Dashboard\dashboard-deploy
+
+[33m⠋[39m Uploading blobs to deploy store...
+
+[32m√[39m Finished uploading blobs to deploy store
+[33m⠋[39m Hashing files...
+[33m⠋[39m Looking for a functions cache...
+[32m√[39m No cached functions were found
+[32m√[39m Finished hashing 
+[33m⠋[39m CDN diffing files...
+[32m√[39m CDN requesting 93 files
+[33m⠋[39m Uploading 94 files
+[32m√[39m Finished uploading 94 assets
+[33m⠋[39m Waiting for deploy to go live...
+[32m√[39m Deploy is live!
+​
+Netlify Build Complete                                        
+────────────────────────────────────────────────────────────────
+​
+(Netlify Build completed in 8.3s)
+
+🚀 Deploy complete
+────────────────────────────────────────────────────────────────
+
+Production URL: <https://genuine-raindrop-635262.netlify.app>
+Unique deploy URL: <https://69fa72f973fe939eb3fbb76e--genuine-raindrop-635262.netlify.app>
+
+Build logs: <https://app.netlify.com/projects/genuine-raindrop-635262/deploys/69fa72f973fe939eb3fbb76e>
+Function logs: <https://app.netlify.com/projects/genuine-raindrop-635262/logs/functions>
+Edge function logs: <https://app.netlify.com/projects/genuine-raindrop-635262/logs/edge-functions>
+NETLIFY_EXIT=0 

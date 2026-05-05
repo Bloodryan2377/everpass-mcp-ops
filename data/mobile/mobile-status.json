@@ -1,11 +1,14 @@
 {
   "schema": "epc-mobile-status/v1",
-  "generated_at": "2026-05-05T22:28:00Z",
+  "generated_at": "2026-05-05T22:45:00Z",
+  "alerts": 5,
+  "build": "2026-05-05",
+  "pipeline": "Refreshed 2026-05-05",
   "bridge": {
     "version": "v3 (Claude-local synthesis)",
     "last_run_status": "success",
-    "last_run_id": "run-20260505-001-b7c1",
-    "last_processed_at": "2026-05-05T08:55:00Z",
+    "last_run_id": "run-20260505-002-real",
+    "last_processed_at": "2026-05-05T22:45:00Z",
     "counts": {
       "pending": 0,
       "rejected_outstanding": 0,
@@ -14,16 +17,16 @@
       "inbox_pending": 0,
       "inbox_consumed_total": 1
     },
-    "last_artifact": "2026-04-26-partner-intel-spectrum.md"
+    "last_artifact": "2026-05-05-partner-intel-real-data-refresh.md"
   },
   "morning": {
     "run_date": "2026-05-05",
-    "overall_status": "failed",
-    "cockpit_status": null,
+    "overall_status": "success",
+    "cockpit_status": "success",
     "drive_mirror_status": null,
     "notebooklm_status": null,
     "scheduler_status": null,
-    "dashboard_status": null,
+    "dashboard_status": "success",
     "failing_checks": []
   },
   "selfverify": {
@@ -33,12 +36,12 @@
       "warn": 0,
       "fail": 0
     },
-    "generated_at": "2026-05-05T14:00:10Z",
+    "generated_at": "2026-05-05T22:45:00Z",
     "report_filename": "everpass-bridge-and-mobile-health-2026-05-05.json",
     "report_present": true
   },
   "freshness": {
-    "bridge_status_mtime": "2026-05-05T16:12:03Z",
-    "morning_status_mtime": "2026-05-05T19:59:12Z"
+    "bridge_status_mtime": "2026-05-05T22:45:00Z",
+    "morning_status_mtime": "2026-05-05T22:45:00Z"
   }
 }
