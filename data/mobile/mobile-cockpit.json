@@ -1,119 +1,137 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-05T22:45:00Z",
+  "generated_at": "2026-05-05T23:40:36Z",
   "morning_brief": {
     "available": true,
     "date": "2026-05-05",
-    "source_mtime": "2026-05-05T22:45:00Z",
+    "source_mtime": "2026-05-05T23:40:36Z",
     "preview_truncated": false,
-    "preview": "# EverPass Morning Brief — Tuesday, May 5, 2026\n\n## Critical / Time-Sensitive\n1. **Charter / Taylor — NBA scope verified.** NBC commercial grant does NOT include NBA per 2026-05-05 three-source verification. Drafted reply pending Ryan's send.\n2. **Charter amended agreement — deadline June 15, 2026.** Section I.1 BTS extension. All workstreams gate on signing. Owner: Ryan Blood.\n3. **Charter Program Status DELAYED.** Sales 7/9, Control Pro 7/13. Three leadership decisions pending: cross-functional owner (ASAP), CSV bridge (mid-May), conjoined Fire Stick sales (before June).\n4. **Pricing Sheet 5.4.26 v2 applied across Outputs + NFLST + PSP.** Partner-insights flagged for verification.\n5. **Victory+ NWSL amendment EXECUTED 2026-05-02 via DocuSign.** Closed.\n\n## Today's Schedule (May 5)\n- 12:00 PM — NHL/EVERPASS Tech Call (Joseph Loreski)\n- 1:00-2:30 PM — Management Sync (Alex Kaplan, 18 attendees, CT Conference Room)\n- 2:30 PM — Weekly Touch Base\n- 3:00 PM — FW: EverPass 2026/2027 Launch (Charter, Ligocki organizing, 85 attendees)\n\n## Tomorrow's Schedule (May 6)\n- 10:30 AM — DAZN catch up (Dan Gardiner)\n- 11:00 AM — Apple/EverPass Integration Bi-Weekly (Daniel Hegeman)\n- 11:30 AM — Marketing/Content catchup\n- 12:30 PM — Weekly Catchup\n\n## Active Partner Pulse (top intent)\n- Charter: pending Ryan's NBA scope reply to Taylor + June 15 amendment deadline\n- DIRECTV: legal/PR only posture; no commercial response\n- NBCU: NBA NOT in existing commercial grant; side letter required if expansion needed\n- Victory+: closed this week (NWSL amendment signed)\n- NESN/Disney/Monumental/YES: incoming responses owed\n\n## Recent Activity (last 7d)\n8 partner-domain emails captured. Charter dominant inbound. Victory+ closed. Monumental DocuSign in flight.",
+    "preview": "# EverPass Morning Brief — Tuesday, May 5, 2026\n\n## Critical / Time-Sensitive\n1. **Charter / Taylor — NBA scope verified.** Ryan drafted reply at 01:43Z; awaiting his send. NBC commercial grant verified does NOT include NBA per 2026-05-05 three-source confirmation.\n2. **Charter amended agreement — deadline June 15, 2026.** Section I.1 BTS extension. Multiple workstreams gate on signing.\n3. **Charter Program Status DELAYED.** NFL ST Sales 7/9, Spectrum TV Control Pro 7/13. Three leadership decisions pending.\n4. **DIRECTV — legal route + PR only.** Not actively responding commercially per Ryan's directive.\n5. **Victory+ NWSL amendment EXECUTED 2026-05-02 via DocuSign.** Closed.\n\n## Today's Schedule (May 5)\n- 12:00 PM — NHL/EVERPASS Tech Call (Joseph Loreski)\n- 12:00 PM — NHL/EVERPASS Tech touch base\n- 1:00-2:30 PM — Management Sync (Alex Kaplan, CT Conference Room)\n- 2:30 PM — Weekly Touch Base\n- 3:00 PM — FW: EverPass 2026/2027 Launch (Charter, Ligocki organizing)\n\n## Tomorrow's Schedule (May 6)\n- 10:30 AM — DAZN catch up (Dan Gardiner)\n- 11:00 AM — Apple/EverPass Integration Bi-Weekly (Daniel Hegeman)\n- 11:30 AM — Marketing/Content catchup\n- 12:30 PM — Weekly Catchup\n\n## Active Partner Pulse\n- Charter dominant inbound (Taylor 5/5 NBA scope question pending Ryan's send + extension confirmation)\n- NESN owes-response (Plaehn 5/5)\n- Monumental DocuSign in flight\n- Victory+ closed this week\n- Disney/ESPN, NBCU, YES all active\n\n## Pricing\n2026-05-04 v2 pricing sheet applied to Price Book FY27 Outputs. NFLST Early Bird (12 cells) + 8-Pay formulas (/9 → /8) updated. Partner-insights flagged across Charter, DIRECTV, Comcast, NBCU, Disney, YTTV.",
     "critical_count": 5,
     "critical": [
       {
         "title": "Charter / Taylor — NBA scope verified, draft response pending Ryan's send",
-        "body": "NBC commercial grant verified does NOT include NBA per 2026-05-05 three-source verification. Ryan drafted reply 2026-05-05 01:43Z. Awaiting his send to Taylor Holden."
+        "body": "NBC commercial grant verified does NOT include NBA per 2026-05-05 three-source confirmation (Aug 7 2023 Term Sheet Section 4 + Exhibits A/B; NBCU's own Jul 14 2025 amendment proposal explicitly added NBA to a new Schedule 1; Apr 11 2026 internal status confirms NBA Tuesday games lack a commercial venue home). Ryan drafted reply 2026-05-05 01:43Z; awaiting his send to Taylor Holden."
       },
       {
-        "title": "Charter amended agreement deadline — June 15, 2026",
-        "body": "Negotiation period extended Apr 29 from May 15 to June 15 (Section I.1 BTS dated July 5, 2025). Ryan owns. Multiple workstreams gate on signing."
+        "title": "Charter amended agreement — deadline June 15, 2026",
+        "body": "Negotiation period extended Apr 29 from May 15 to June 15 (Section I.1 BTS dated Jul 5 2025). Ryan owns. Multiple workstreams gate on signing: NFL ST sales delayed 6/1 to 7/9, Spectrum TV Control Pro delayed 6/15 to 7/13. ATX API GO/NO-GO same day as deal deadline."
       },
       {
-        "title": "Charter Program Status — DELAYED",
-        "body": "NFL ST Sales delayed 6/1 to 7/9. Spectrum TV Control Pro delayed 6/15 to 7/13. ATX API GO/NO-GO same day as deal deadline (June 15). 3 leadership decisions pending: cross-functional NFL ST owner (ASAP), CSV bridge approve (mid-May), conjoined STVA + EP Fire Stick sales (before June)."
+        "title": "Charter Program Status DELAYED — leadership decisions pending",
+        "body": "Three decisions pending: cross-functional NFL ST owner (ASAP), CSV bridge approve (mid-May), conjoined STVA + EP Fire Stick sales (before June). Owner: Ryan Blood for amended agreement."
       },
       {
-        "title": "DIRECTV — Legal route + PR only",
-        "body": "No active commercial response. Pricing rack rates do NOT need to be quoted to DIRECTV per Ryan's 2026-05-05 directive. SymphonyAI demand letter due 2026-05-01 was the open Kelley Drye matter."
+        "title": "DIRECTV — legal route + PR only (no commercial response)",
+        "body": "Per Ryan's 2026-05-05 directive: not actively responding commercially. Pricing rack rates do NOT need to be quoted. Active workstreams: legal route + PR only. SymphonyAI demand letter and audit posture handled by Kelley Drye."
       },
       {
-        "title": "Pricing Sheet 5.4.26 v2 applied",
-        "body": "New 2026 NFLST rack + Early Bird + 8-Pay (was 9-Pay) flowing through Price Book FY27 Outputs sheet. 12 Early Bird value updates + 12 formula divisor updates (/9 to /8) + 7 NFLST sheet writes + PSP $25.48 update. Charter / DIRECTV / Comcast / NBCU / Disney / YTTV partner-insights flagged for verification."
+        "title": "Victory+ NWSL amendment EXECUTED 2026-05-02 via DocuSign",
+        "body": "Mary Karol DocuSign completion 2026-05-02. NWSL amendment fully executed. CLOSED. Move to monitoring; no longer critical."
       }
     ]
   },
   "deals": [
     {
       "partner": "Charter",
-      "state": "Distribution / Active",
-      "next_action": "Amended agreement deadline 6/15/2026. Spectrum TV Control Pro delayed 7/13. Fire Stick joint sales alignment needed before 5/21 STVA launch. Most recent inbound: Holden 5/5 Peacock/NBCSN commercial exclusivity Q. Owner: Ryan Blood.",
+      "state": "Active / Distribution",
+      "next_action": "Awaiting Ryan's NBA-scope-verified reply to Taylor Holden. Amended agreement deadline 6/15/2026. Spectrum TV Control Pro delayed 7/13. Fire Stick joint sales alignment needed before 5/21 STVA launch.",
       "deadline": "2026-06-15"
     },
     {
       "partner": "Victory+",
-      "state": "EXECUTED 2026-05-02",
-      "next_action": "NWSL AMENDMENT EXECUTED via DocuSign (Mary Karol). Move to completed this week.",
-      "deadline": ""
-    },
-    {
-      "partner": "NESN",
-      "state": "RSN / Active",
-      "next_action": "Plaehn 5/5 inbound chasing response. Term sheet v7 in NESN court since Apr 19.",
-      "deadline": ""
-    },
-    {
-      "partner": "Disney/ESPN",
-      "state": "Content / Active",
-      "next_action": "Altman 5/5 schedule outbound. EVO pricing gap + DAI impression share blank still open.",
-      "deadline": ""
-    },
-    {
-      "partner": "NBCU / Peacock",
-      "state": "Content / Active",
-      "next_action": "Upfront reminder 5/5 inbound. NBA scope confirmed NOT in commercial grant. Side letter / amendment required for any NBA commercial offering.",
-      "deadline": ""
-    },
-    {
-      "partner": "Monumental",
-      "state": "RSN / Near close",
-      "next_action": "Bernheimer DocuSign sent 4/29; follow-up 5/1.",
-      "deadline": ""
-    },
-    {
-      "partner": "YES Network",
-      "state": "RSN / Active",
-      "next_action": "Feneque 4/29 inbound on Exhibit B device multiplier.",
-      "deadline": ""
-    },
-    {
-      "partner": "Netflix Boxing",
-      "state": "Content / Near close",
-      "next_action": "Fury event report status unknown.",
-      "deadline": ""
-    },
-    {
-      "partner": "AccuWeather",
-      "state": "FAST / Active",
-      "next_action": "Executable draft was 1 day overdue.",
-      "deadline": ""
-    },
-    {
-      "partner": "NBA League Pass",
-      "state": "Content / Active",
-      "next_action": "#REF! errors in Pricing tab need repair.",
-      "deadline": ""
-    },
-    {
-      "partner": "YouTube TV",
-      "state": "Distribution / Pre-contract",
-      "next_action": "Critical path to Aug 2026 NFL kickoff.",
-      "deadline": "2026-08-01"
-    },
-    {
-      "partner": "CHSN",
-      "state": "RSN / Live",
-      "next_action": "Steady-state loss.",
-      "deadline": ""
-    },
-    {
-      "partner": "Marquee/Sinclair",
-      "state": "RSN / Active",
-      "next_action": "Sinclair redlines Apr 3.",
+      "state": "Closed / NWSL Executed",
+      "next_action": "NWSL amendment fully executed via DocuSign 2026-05-02. Move to monitoring.",
       "deadline": ""
     },
     {
       "partner": "DIRECTV",
-      "state": "Legal / PR only",
-      "next_action": "No active commercial response. Pricing rack rates not quoted to DIRECTV per 2026-05-05 directive. SymphonyAI demand letter Kelley Drye matter.",
+      "state": "Legal Route Only",
+      "next_action": "Not actively responding commercially. Legal + PR posture only per 2026-05-05 directive. Pricing rack rates NOT to be quoted.",
+      "deadline": ""
+    },
+    {
+      "partner": "NESN",
+      "state": "Active / RSN",
+      "next_action": "Plaehn 5/5 inbound chasing response on term sheet v7. Term sheet has been in NESN court since Apr 19.",
+      "deadline": ""
+    },
+    {
+      "partner": "Disney / ESPN",
+      "state": "Active / Content",
+      "next_action": "Altman 5/5 outbound on schedule. McIntosh Track A/B direction still overdue. EVO pricing gap and DAI impression share blank still open.",
+      "deadline": ""
+    },
+    {
+      "partner": "NBCU / Peacock",
+      "state": "Active / Content",
+      "next_action": "Upfront reminder 5/5 inbound. NBA confirmed NOT in commercial grant per 2026-05-05 verification. Side letter or amendment required for any NBA commercial offering.",
+      "deadline": ""
+    },
+    {
+      "partner": "Monumental",
+      "state": "Near Close / RSN",
+      "next_action": "DocuSign sent 4/29 by Bernheimer; follow-up 5/1. Tech integration in progress; Jul 2026 launch target.",
+      "deadline": ""
+    },
+    {
+      "partner": "YES Network",
+      "state": "Active / RSN",
+      "next_action": "Feneque 4/29 inbound on Exhibit B device multiplier discussion (3 fix options).",
+      "deadline": ""
+    },
+    {
+      "partner": "Netflix Boxing",
+      "state": "Near Close / Content",
+      "next_action": "Fury event report status; $500K Mayweather/Pacquiao cancellation fee — counter as MG credit.",
+      "deadline": ""
+    },
+    {
+      "partner": "AccuWeather",
+      "state": "Active / FAST",
+      "next_action": "Executable draft was 1 day overdue. Two-track deal (Weather API + 24/7 FAST channel) targeting late-May launch. Open: AW concurrence on narrowed Exhibit B Section 3 suspension.",
+      "deadline": ""
+    },
+    {
+      "partner": "NBA League Pass",
+      "state": "Active / Content",
+      "next_action": "#REF! errors in Pricing tab rows 101-102, 120 must be repaired before final pricing. AWS vs Uplynk ingest decision blocking.",
+      "deadline": ""
+    },
+    {
+      "partner": "YouTube TV",
+      "state": "Pre-Contract / Distribution",
+      "next_action": "Critical path to August 2026 NFL kickoff. Pending YTTV: SKU pricing + date, device/DRM matrix, EPG feed.",
+      "deadline": ""
+    },
+    {
+      "partner": "CHSN",
+      "state": "Live / RSN",
+      "next_action": "Steady-state loss vs forecast. Go/No-Go pending; price elasticity plateau above $75/mo.",
+      "deadline": ""
+    },
+    {
+      "partner": "Marquee / Sinclair",
+      "state": "Active / RSN",
+      "next_action": "April 3 Sinclair redlines vs execution copy under review. Decide 2026 vs 2027 timing; package with CHSN.",
+      "deadline": ""
+    },
+    {
+      "partner": "WBD",
+      "state": "Active",
+      "next_action": "Hoffberg rate card overdue 15+ days. Reassess WBD posture in light of WBD-Paramount shareholder vote outcome.",
+      "deadline": ""
+    },
+    {
+      "partner": "Apple",
+      "state": "Live",
+      "next_action": "Bi-weekly integration cadence with Hegeman. Monitor.",
+      "deadline": ""
+    },
+    {
+      "partner": "DAZN",
+      "state": "Exploratory",
+      "next_action": "Catch up tomorrow with Dan Gardiner. Project Gladiator boxing/FIFA+.",
       "deadline": ""
     }
   ],
@@ -341,7 +359,7 @@
       "failed": 0
     },
     "last_answered_at": "2026-04-26T15:35:00Z",
-    "feed_generated_at": "2026-05-05T22:45:00Z"
+    "feed_generated_at": "2026-05-05T23:30:00Z"
   },
   "meetings": {
     "today": {
@@ -422,7 +440,7 @@
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-05-05T22:45:00Z",
+    "cockpit_data_mtime": "2026-05-05T23:40:36Z",
     "bridge_cache_mtime": "2026-05-05T22:45:00Z",
     "meetings_today_mtime": "2026-05-05T22:45:00Z"
   }
