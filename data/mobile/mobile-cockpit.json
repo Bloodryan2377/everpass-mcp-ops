@@ -1,10 +1,10 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-05T23:40:36Z",
+  "generated_at": "2026-05-05T23:44:12Z",
   "morning_brief": {
     "available": true,
     "date": "2026-05-05",
-    "source_mtime": "2026-05-05T23:40:36Z",
+    "source_mtime": "2026-05-05T23:44:12Z",
     "preview_truncated": false,
     "preview": "# EverPass Morning Brief — Tuesday, May 5, 2026\n\n## Critical / Time-Sensitive\n1. **Charter / Taylor — NBA scope verified.** Ryan drafted reply at 01:43Z; awaiting his send. NBC commercial grant verified does NOT include NBA per 2026-05-05 three-source confirmation.\n2. **Charter amended agreement — deadline June 15, 2026.** Section I.1 BTS extension. Multiple workstreams gate on signing.\n3. **Charter Program Status DELAYED.** NFL ST Sales 7/9, Spectrum TV Control Pro 7/13. Three leadership decisions pending.\n4. **DIRECTV — legal route + PR only.** Not actively responding commercially per Ryan's directive.\n5. **Victory+ NWSL amendment EXECUTED 2026-05-02 via DocuSign.** Closed.\n\n## Today's Schedule (May 5)\n- 12:00 PM — NHL/EVERPASS Tech Call (Joseph Loreski)\n- 12:00 PM — NHL/EVERPASS Tech touch base\n- 1:00-2:30 PM — Management Sync (Alex Kaplan, CT Conference Room)\n- 2:30 PM — Weekly Touch Base\n- 3:00 PM — FW: EverPass 2026/2027 Launch (Charter, Ligocki organizing)\n\n## Tomorrow's Schedule (May 6)\n- 10:30 AM — DAZN catch up (Dan Gardiner)\n- 11:00 AM — Apple/EverPass Integration Bi-Weekly (Daniel Hegeman)\n- 11:30 AM — Marketing/Content catchup\n- 12:30 PM — Weekly Catchup\n\n## Active Partner Pulse\n- Charter dominant inbound (Taylor 5/5 NBA scope question pending Ryan's send + extension confirmation)\n- NESN owes-response (Plaehn 5/5)\n- Monumental DocuSign in flight\n- Victory+ closed this week\n- Disney/ESPN, NBCU, YES all active\n\n## Pricing\n2026-05-04 v2 pricing sheet applied to Price Book FY27 Outputs. NFLST Early Bird (12 cells) + 8-Pay formulas (/9 → /8) updated. Partner-insights flagged across Charter, DIRECTV, Comcast, NBCU, Disney, YTTV.",
     "critical_count": 5,
@@ -440,7 +440,7 @@
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-05-05T23:40:36Z",
+    "cockpit_data_mtime": "2026-05-05T23:44:12Z",
     "bridge_cache_mtime": "2026-05-05T22:45:00Z",
     "meetings_today_mtime": "2026-05-05T22:45:00Z"
   }
