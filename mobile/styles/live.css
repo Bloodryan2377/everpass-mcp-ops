@@ -1,0 +1,305 @@
+/* ============================================================
+   EverPass Mobile Command Center — Live Q&A panel
+   Premium dark edition 2026 · matches cockpit/dispatch language
+   ============================================================ */
+
+/* ── Section header ───────────────────────────────────────────── */
+.live-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.live-title {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.1px;
+  color: var(--c-fg);
+}
+
+/* Live pulse indicator beside the title */
+.live-header::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  flex: none;
+  box-shadow: 0 0 0 3px var(--c-accent-dim);
+  animation: live-pulse 2s ease-in-out infinite;
+}
+
+@keyframes live-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px var(--c-accent-dim); }
+  50%       { box-shadow: 0 0 0 6px transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-header::before { animation: none; }
+}
+
+.live-meta {
+  font-size: 11px;
+  color: var(--c-fg-faint);
+  white-space: nowrap;
+}
+
+/* ── Status banner ────────────────────────────────────────────── */
+.live-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--c-fg-mute);
+  background: color-mix(in srgb, var(--c-warn) 9%, var(--c-bg-elev));
+  border: 1px solid color-mix(in srgb, var(--c-warn) 32%, transparent);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.live-banner::before {
+  content: '⚠';
+  color: var(--c-warn);
+  font-size: 14px;
+  flex: none;
+  margin-top: 1px;
+}
+
+/* ── Live list ────────────────────────────────────────────────── */
+.live-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Live item card ───────────────────────────────────────────── */
+.live-item {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--c-shadow-sm);
+  transition: border-color 0.1s;
+}
+
+@media (hover: hover) {
+  .live-item:hover { border-color: var(--c-border-strong); }
+}
+
+/* ── Item head — meta row ─────────────────────────────────────── */
+.live-item-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.live-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  font-size: 11px;
+  color: var(--c-fg-faint);
+  flex: 1;
+  min-width: 0;
+}
+
+.live-speaker {
+  color: var(--c-fg);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 10px;
+}
+
+.live-meeting {
+  color: var(--c-fg-mute);
+  font-size: 11px;
+}
+
+.live-time {
+  color: var(--c-fg-faint);
+  font-size: 11px;
+}
+
+/* ── Source tag pill ──────────────────────────────────────────── */
+.live-source-tag {
+  flex: none;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--c-bg-elev-2);
+  border: 1px solid var(--c-border);
+  color: var(--c-fg-mute);
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+.live-source-tag[data-kind='rag'] {
+  color: var(--c-success);
+  background: color-mix(in srgb, var(--c-success) 10%, transparent);
+  border-color: color-mix(in srgb, var(--c-success) 30%, transparent);
+}
+
+.live-source-tag[data-kind='partner-insights'] {
+  color: var(--c-accent);
+  background: var(--c-accent-dim);
+  border-color: color-mix(in srgb, var(--c-accent) 30%, transparent);
+}
+
+.live-source-tag[data-kind='stub'] {
+  color: var(--c-warn);
+  background: color-mix(in srgb, var(--c-warn) 8%, transparent);
+  border-color: color-mix(in srgb, var(--c-warn) 30%, transparent);
+}
+
+/* ── Q & A text ───────────────────────────────────────────────── */
+.live-q {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-fg);
+  line-height: 1.4;
+  letter-spacing: -0.1px;
+}
+
+.live-a {
+  font-size: 13px;
+  color: var(--c-fg-mute);
+  line-height: 1.55;
+  padding-left: 12px;
+  border-left: 2px solid var(--c-border-strong);
+}
+
+/* ── Sources accordion ────────────────────────────────────────── */
+.live-sources {
+  font-size: 11px;
+  color: var(--c-fg-faint);
+  border-top: 1px solid var(--c-border);
+  padding-top: 8px;
+  margin-top: -2px;
+}
+
+.live-sources summary {
+  cursor: pointer;
+  color: var(--c-fg-mute);
+  user-select: none;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.live-sources summary::before {
+  content: '▸';
+  font-size: 9px;
+  color: var(--c-fg-faint);
+  transition: transform 0.15s;
+}
+
+details[open] .live-sources summary::before,
+.live-sources[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.live-sources summary:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.live-source-list {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.live-source-list li {
+  display: flex;
+  gap: 6px;
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+.live-source-type {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-fg-mute);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.live-source-body {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-fg-faint);
+  word-break: break-all;
+}
+
+/* ── Skeleton loading ─────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -300px 0; }
+  100% { background-position: 300px 0; }
+}
+
+.live-skeleton {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--c-shadow-sm);
+}
+
+.live-skeleton .skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--c-bg-elev-2) 25%,
+    var(--c-bg-elev-3) 50%,
+    var(--c-bg-elev-2) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+/* ── Tablet (≥768px) ──────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .live-list { gap: 14px; }
+  .live-item { padding: 18px 20px; }
+  .live-q { font-size: 16px; }
+  .live-a { font-size: 14px; }
+}
+
+/* ── iPad Pro (≥1024px) — two-column list ─────────────────────── */
+@media (min-width: 1024px) {
+  .live-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .live-header { margin-bottom: 18px; }
+}

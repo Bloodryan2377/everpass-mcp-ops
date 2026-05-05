@@ -1,0 +1,510 @@
+/* ============================================================
+   EverPass Mobile Command Center — Answers panel
+   Premium dark edition 2026 · matches cockpit/dispatch language
+   ============================================================ */
+
+/* ── Summary strip ────────────────────────────────────────────── */
+.answers-summary-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.answers-summary-strip .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  color: var(--c-fg-mute);
+  letter-spacing: 0.15px;
+}
+
+.answers-summary-strip .chip strong {
+  font-weight: 700;
+  color: var(--c-fg);
+}
+
+.answers-summary-strip .chip-ok {
+  border-color: color-mix(in srgb, var(--c-success) 38%, transparent);
+  color: var(--c-success);
+}
+
+.answers-summary-strip .chip-ok strong { color: var(--c-success); }
+
+.answers-summary-strip .chip-warn {
+  border-color: color-mix(in srgb, var(--c-warn) 38%, transparent);
+  color: var(--c-warn);
+}
+
+.answers-summary-strip .chip-warn strong { color: var(--c-warn); }
+
+.answers-summary-strip .chip-danger {
+  border-color: color-mix(in srgb, var(--c-danger) 38%, transparent);
+  color: var(--c-danger);
+}
+
+.answers-summary-strip .chip-danger strong { color: var(--c-danger); }
+
+.answers-summary-strip .chip-meta {
+  margin-left: auto;
+  color: var(--c-fg-faint);
+  font-style: italic;
+}
+
+/* ── Answer list ──────────────────────────────────────────────── */
+.answers-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Answer item card ─────────────────────────────────────────── */
+.answers-item {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-border-strong);
+  border-radius: var(--r-lg);
+  padding: 14px 42px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--c-shadow-sm);
+  transition: background 0.1s ease, border-color 0.1s ease;
+}
+
+/* Expand chevron */
+.answers-item::after {
+  content: '›';
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  color: var(--c-fg-faint);
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.15s ease;
+}
+
+.answers-item[aria-expanded='true']::after {
+  transform: rotate(90deg);
+  color: var(--c-accent);
+}
+
+/* Status-based left border + ambient tint */
+.answers-item[data-status='answered'] {
+  border-left-color: var(--c-success);
+}
+.answers-item[data-status='pending'] {
+  border-left-color: var(--c-warn);
+}
+.answers-item[data-status='failed'] {
+  border-left-color: var(--c-danger);
+}
+.answers-item[data-status='expired'] {
+  border-left-color: var(--c-fg-faint);
+  opacity: 0.78;
+}
+
+/* Hover lift on pointer devices */
+@media (hover: hover) {
+  .answers-item:hover {
+    background: color-mix(in srgb, var(--c-bg-elev) 80%, var(--c-bg-elev-2));
+    border-color: var(--c-border-strong);
+    border-left-color: inherit;
+  }
+}
+
+.answers-item:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+/* ── Item head ────────────────────────────────────────────────── */
+.answers-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.answers-title {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--c-fg);
+  letter-spacing: -0.1px;
+}
+
+.answers-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--c-fg-mute);
+}
+
+/* ── Status badge — pill with tinted background ───────────────── */
+.answers-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  background: var(--c-bg-elev-2);
+  border: 1px solid var(--c-border);
+  color: var(--c-fg-mute);
+}
+
+.answers-status.ok {
+  background: color-mix(in srgb, var(--c-success) 14%, transparent);
+  border-color: color-mix(in srgb, var(--c-success) 32%, transparent);
+  color: var(--c-success);
+}
+
+.answers-status.warn {
+  background: color-mix(in srgb, var(--c-warn) 12%, transparent);
+  border-color: color-mix(in srgb, var(--c-warn) 32%, transparent);
+  color: var(--c-warn);
+}
+
+.answers-status.danger {
+  background: color-mix(in srgb, var(--c-danger) 12%, transparent);
+  border-color: color-mix(in srgb, var(--c-danger) 32%, transparent);
+  color: var(--c-danger);
+}
+
+/* ── Meta tag pills ───────────────────────────────────────────── */
+.answers-source,
+.answers-partner,
+.answers-priority,
+.answers-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--c-bg-elev-2);
+  border: 1px solid var(--c-border);
+  font-size: 10px;
+  color: var(--c-fg-mute);
+}
+
+/* ── Source glyph ─────────────────────────────────────────────── */
+.answers-source-glyph {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  color: var(--c-fg-mute);
+}
+
+.answers-item[data-source='bridge-emit']      .answers-source-glyph { color: var(--c-success); }
+.answers-item[data-source='manual-email']     .answers-source-glyph { color: var(--c-warn); }
+.answers-item[data-source='freeform-cli']     .answers-source-glyph { color: var(--c-fg-mute); }
+.answers-item[data-source='mobile-dispatch']  .answers-source-glyph { color: var(--c-accent); }
+.answers-item[data-source='cockpit-ask']      .answers-source-glyph { color: var(--c-accent); }
+.answers-item[data-source='cockpit-ask-live'] .answers-source-glyph {
+  color: var(--c-accent-2, #b266ff);
+  font-weight: 800;
+}
+
+/* ── Priority ─────────────────────────────────────────────────── */
+.answers-priority.pri-high {
+  color: var(--c-danger);
+  border-color: color-mix(in srgb, var(--c-danger) 40%, transparent);
+}
+
+/* ── Desired output badge (Live Ask Brain) ────────────────────── */
+.answers-desired-output {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  background: color-mix(in srgb, var(--c-accent-2, #b266ff) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-accent-2, #b266ff) 40%, transparent);
+  color: var(--c-accent-2, #b266ff);
+}
+
+/* ── Question / answer snippets ──────────────────────────────── */
+.answers-question {
+  font-size: 13px;
+  color: var(--c-fg);
+  line-height: 1.45;
+  border-left: 2px solid var(--c-border-strong);
+  padding-left: 10px;
+  margin-right: 4px;
+}
+
+.answers-answer {
+  font-size: 12.5px;
+  color: var(--c-fg-mute);
+  line-height: 1.5;
+  margin-right: 4px;
+}
+
+.answers-pending-note {
+  font-size: 11px;
+  color: var(--c-fg-faint);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ── Detail panel (expanded) ──────────────────────────────────── */
+.answers-detail {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px solid var(--c-border);
+}
+
+.answers-item[aria-expanded='true'] .answers-detail {
+  display: flex;
+}
+
+.answers-detail-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--c-fg-faint);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.answers-detail-question {
+  font-size: 13px;
+  color: var(--c-fg);
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.answers-detail-answer {
+  font-size: 12.5px;
+  color: var(--c-fg-mute);
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.answers-detail-pipelines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.pipeline-chip {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--c-border);
+  background: var(--c-bg-elev-2);
+  color: var(--c-fg-mute);
+  letter-spacing: 0.2px;
+}
+
+.answers-detail-times {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 11px;
+  color: var(--c-fg-mute);
+}
+
+.answers-detail-time .label {
+  color: var(--c-fg-faint);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-right: 4px;
+}
+
+.answers-detail-time .rel {
+  color: var(--c-fg-faint);
+  font-style: italic;
+}
+
+/* ── Bridge artifact files ────────────────────────────────────── */
+.answers-files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--c-fg-faint);
+}
+
+.answers-file {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--c-bg-elev-2);
+  border: 1px solid var(--c-border);
+  word-break: break-all;
+}
+
+.answers-file-out { color: var(--c-success); }
+
+/* ── Follow-up button ─────────────────────────────────────────── */
+.answers-detail-followup {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.answers-followup-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--r-md);
+  text-decoration: none;
+  background: var(--c-bg-elev-2);
+  border: 1px solid var(--c-border-strong);
+  color: var(--c-fg);
+  min-height: 38px;
+  transition: border-color 0.1s, color 0.1s;
+}
+
+.answers-followup-btn::before { content: '↩'; }
+
+.answers-followup-btn:hover,
+.answers-followup-btn:focus-visible {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+  background: var(--c-accent-dim);
+}
+
+/* ── Optimistic item (just submitted) ─────────────────────────── */
+.answers-item-optimistic {
+  border-left-color: var(--c-warn);
+  background: color-mix(in srgb, var(--c-warn) 5%, var(--c-bg-elev));
+}
+
+.answers-item-optimistic .answers-pending-note {
+  color: var(--c-warn);
+  font-style: normal;
+}
+
+/* ── Empty / error states ─────────────────────────────────────── */
+.answers-empty,
+.answers-error {
+  background: var(--c-bg-elev);
+  border: 1px dashed var(--c-border-strong);
+  border-radius: var(--r-lg);
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.answers-empty-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: var(--c-fg);
+}
+
+.answers-empty-body {
+  font-size: 13px;
+  color: var(--c-fg-mute);
+  line-height: 1.55;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.answers-empty-hint {
+  margin-top: 12px;
+  font-size: 10.5px;
+  color: var(--c-fg-faint);
+  font-family: var(--font-mono);
+  background: var(--c-code-bg);
+  padding: 4px 8px;
+  border-radius: var(--r-sm);
+  display: inline-block;
+}
+
+.answers-foot-hint {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--c-fg-faint);
+  line-height: 1.5;
+}
+
+/* ── Skeleton loading ─────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -300px 0; }
+  100% { background-position: 300px 0; }
+}
+
+.answers-skeleton {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: var(--c-shadow-sm);
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--c-bg-elev-2) 25%,
+    var(--c-bg-elev-3) 50%,
+    var(--c-bg-elev-2) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.skeleton-line.sk-title  { width: 60%; height: 14px; }
+.skeleton-line.sk-wide   { width: 80%; }
+.skeleton-line.sk-medium { width: 55%; }
+.skeleton-line.sk-short  { width: 32%; }
+
+/* ── Tablet (≥768px) ──────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .answers-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .answers-item {
+    padding: 16px 44px 16px 18px;
+  }
+
+  .answers-summary-strip { margin-bottom: 18px; }
+}
+
+/* ── iPad Pro (≥1024px) ───────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .answers-list { gap: 16px; }
+  .answers-item { padding: 18px 48px 18px 20px; }
+}

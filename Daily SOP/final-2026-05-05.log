@@ -1,0 +1,14 @@
+=== MASTER START Tue 05/05/2026 15:44:48.89 
+ 
+--- JOB 1: kill hung git --- 
+KILL_DONE
+JOB1_EXIT=128 
+ 
+--- JOB 2: mirror mobile shell --- 
+SRC=C:\Users\ryan\OneDrive - EverPass Media\EVERPASS\EVERPASS TOOLS\Dashboard\dashboard-deploy\mobile
+DST=C:\Users\ryan\Projects\everpass-mcp-ops\mobile
+MIRROR_DONE
+MIRROR_EXIT=0
+JOB2_EXIT=0 
+ 
+--- JOB 3: git push --- 

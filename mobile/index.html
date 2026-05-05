@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <title>EverPass Command Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
+  <meta name="description" content="EverPass Mobile Command Center — cockpit, dispatch, and results from your phone." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#0c111e" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4f6fc" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="EverPass" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon-180.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+
+  <link rel="stylesheet" href="./styles/core.css" />
+  <link rel="stylesheet" href="./styles/cockpit.css" />
+  <link rel="stylesheet" href="./styles/dispatch.css" />
+  <link rel="stylesheet" href="./styles/results.css" />
+  <link rel="stylesheet" href="./styles/live.css" />
+  <link rel="stylesheet" href="./styles/answers.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" role="banner">
+    <div class="topbar-row">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">EP</span>
+        <span class="brand-text">
+          <span class="brand-title">Command Center</span>
+          <span class="brand-sub" id="topbar-subline">EverPass</span>
+        </span>
+      </div>
+      <!-- Daily S: morning clearance SOP (2026-04-27).
+           Rollback = remove button, #ds-sheet, .ds-* CSS, scripts/daily-s.js. -->
+      <button type="button" class="ds-trigger" id="ds-trigger"
+              aria-haspopup="dialog" aria-controls="ds-sheet" aria-expanded="false"
+              title="Daily S — morning clearance">
+        <span class="ds-trigger-dot" id="ds-trigger-dot" data-state="unknown" aria-hidden="true"></span>
+        <span class="ds-trigger-label">Daily S</span>
+      </button>
+      <button class="btn btn-ghost btn-icon" id="refresh-btn" aria-label="Refresh data" title="Refresh">
+        <span aria-hidden="true">⟳</span>
+      </button>
+    </div>
+    <div class="status-strip" id="status-strip" aria-live="polite"></div>
+  </header>
+
+  <!-- Daily S bottom sheet (2026-04-27).
+       Opens via #ds-trigger or Shift+S. Reads freshness-status.json. -->
+  <div id="ds-backdrop" class="ds-backdrop" hidden></div>
+  <aside id="ds-sheet" class="ds-sheet" role="dialog" aria-modal="false"
+         aria-labelledby="ds-sheet-title" data-open="false" hidden>
+    <div class="ds-sheet-handle" aria-hidden="true"></div>
+    <div class="ds-sheet-head">
+      <div class="ds-sheet-head-text">
+        <div class="ds-sheet-title" id="ds-sheet-title">Daily S</div>
+        <div class="ds-sheet-sub">Morning clearance for Live Ask, Deal Brain, and cockpit health</div>
+      </div>
+      <button type="button" class="ds-sheet-close" id="ds-sheet-close"
+              aria-label="Close Daily S">&times;</button>
+    </div>
+    <div class="ds-sheet-body" id="ds-sheet-body">
+      <div class="ds-row">
+        <span class="ds-row-dot" data-state="unknown"></span>
+        <div class="ds-row-text">
+          <span class="ds-row-label">Loading</span>
+          <span class="ds-row-value">Reading freshness-status.json…</span>
+        </div>
+      </div>
+    </div>
+    <ol class="ds-checklist" aria-label="Morning clearance checklist">
+      <li>Check the freshness status first.</li>
+      <li>Confirm contracts and financials are current enough for deal/econ work.</li>
+      <li>If using Live Ask Brain, verify it is ready before sending a high-stakes Ask.</li>
+      <li>If freshness is stale, refresh the pipeline before trusting answer outputs.</li>
+      <li>Use Standard Ask when Live Ask readiness is limited.</li>
+      <li>Treat any missing status as a prompt to verify manually.</li>
+    </ol>
+    <div class="ds-sheet-foot">
+      <a class="ds-foot-action" href="#/answers" id="ds-foot-answers"
+         title="Open the Answers tab">Open Answers</a>
+      <button type="button" class="ds-foot-action" id="ds-foot-freshness"
+              title="Log per-source freshness detail to the browser console">Freshness detail</button>
+    </div>
+  </aside>
+
+  <main id="main" class="main" role="main">
+    <section id="view-cockpit" class="view" data-view="cockpit" hidden></section>
+    <section id="view-dispatch" class="view" data-view="dispatch" hidden></section>
+    <section id="view-answers" class="view" data-view="answers" hidden></section>
+    <section id="view-results" class="view" data-view="results" hidden></section>
+    <section id="view-live" class="view" data-view="live" hidden></section>
+  </main>
+
+  <nav class="tabbar" role="navigation" aria-label="Primary">
+    <a class="tab" href="#/cockpit" data-tab="cockpit">
+      <span class="tab-icon" aria-hidden="true">◎</span>
+      <span class="tab-label">Cockpit</span>
+    </a>
+    <a class="tab" href="#/dispatch" data-tab="dispatch">
+      <span class="tab-icon" aria-hidden="true">↑</span>
+      <span class="tab-label">Dispatch</span>
+    </a>
+    <a class="tab" href="#/answers" data-tab="answers">
+      <span class="tab-icon" aria-hidden="true">✦</span>
+      <span class="tab-label">Answers</span>
+    </a>
+    <a class="tab" href="#/results" data-tab="results">
+      <span class="tab-icon" aria-hidden="true">☰</span>
+      <span class="tab-label">Results</span>
+    </a>
+    <a class="tab" href="#/live" data-tab="live">
+      <span class="tab-icon" aria-hidden="true">◉</span>
+      <span class="tab-label">Live</span>
+    </a>
+  </nav>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="./scripts/data.js"></script>
+  <script src="./scripts/cockpit.js"></script>
+  <script src="./scripts/dispatch.js"></script>
+  <script src="./scripts/answers.js"></script>
+  <script src="./scripts/results.js"></script>
+  <script src="./scripts/live.js"></script>
+  <script src="./scripts/daily-s.js"></script>
+  <script src="./scripts/app.js"></script>
+</body>
+</html>
