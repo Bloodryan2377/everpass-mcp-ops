@@ -1,0 +1,203 @@
+{
+  "schema": "epc-mobile-dispatch-options/v1",
+  "generated_at": "2026-05-05T21:29:35Z",
+  "request_kinds": [],
+  "partners": [
+    {
+      "id": "accuweather",
+      "title": "Accuweather",
+      "type_label": "Content property"
+    },
+    {
+      "id": "amazon",
+      "title": "Amazon",
+      "type_label": "Content property"
+    },
+    {
+      "id": "apple",
+      "title": "Apple",
+      "type_label": "Content property"
+    },
+    {
+      "id": "bravesvision",
+      "title": "Bravesvision",
+      "type_label": "Content property"
+    },
+    {
+      "id": "charter",
+      "title": "Charter",
+      "type_label": "Content property"
+    },
+    {
+      "id": "chsn",
+      "title": "Chsn",
+      "type_label": "Content property"
+    },
+    {
+      "id": "comcast",
+      "title": "Comcast",
+      "type_label": "Content property"
+    },
+    {
+      "id": "cw-sports",
+      "title": "Cw Sports",
+      "type_label": "Content property"
+    },
+    {
+      "id": "dazn",
+      "title": "Dazn",
+      "type_label": "Content property"
+    },
+    {
+      "id": "deltatre",
+      "title": "Deltatre",
+      "type_label": "Content property"
+    },
+    {
+      "id": "directv",
+      "title": "Directv",
+      "type_label": "Content property"
+    },
+    {
+      "id": "disney",
+      "title": "Disney",
+      "type_label": "Content property"
+    },
+    {
+      "id": "fanduel",
+      "title": "Fanduel",
+      "type_label": "Content property"
+    },
+    {
+      "id": "fox",
+      "title": "Fox",
+      "type_label": "Content property"
+    },
+    {
+      "id": "ion-sports",
+      "title": "Ion Sports",
+      "type_label": "Content property"
+    },
+    {
+      "id": "ism",
+      "title": "Ism",
+      "type_label": "Content property"
+    },
+    {
+      "id": "lg",
+      "title": "Lg",
+      "type_label": "Content property"
+    },
+    {
+      "id": "marquee",
+      "title": "Marquee",
+      "type_label": "Content property"
+    },
+    {
+      "id": "mediacom",
+      "title": "Mediacom",
+      "type_label": "Content property"
+    },
+    {
+      "id": "mlb",
+      "title": "Mlb",
+      "type_label": "Content property"
+    },
+    {
+      "id": "monumental",
+      "title": "Monumental",
+      "type_label": "Content property"
+    },
+    {
+      "id": "msg-gotham",
+      "title": "Msg Gotham",
+      "type_label": "Content property"
+    },
+    {
+      "id": "nba",
+      "title": "Nba",
+      "type_label": "Content property"
+    },
+    {
+      "id": "nbcu",
+      "title": "Nbcu",
+      "type_label": "Content property"
+    },
+    {
+      "id": "nesn",
+      "title": "Nesn",
+      "type_label": "Content property"
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "type_label": "Content property"
+    },
+    {
+      "id": "nfl",
+      "title": "Nfl",
+      "type_label": "Content property"
+    },
+    {
+      "id": "nhl",
+      "title": "Nhl",
+      "type_label": "Content property"
+    },
+    {
+      "id": "paramount",
+      "title": "Paramount",
+      "type_label": "Content property"
+    },
+    {
+      "id": "samsung",
+      "title": "Samsung",
+      "type_label": "Content property"
+    },
+    {
+      "id": "spectrum",
+      "title": "Spectrum",
+      "type_label": "Content property"
+    },
+    {
+      "id": "touchtunes",
+      "title": "Touchtunes",
+      "type_label": "Content property"
+    },
+    {
+      "id": "ufc",
+      "title": "Ufc",
+      "type_label": "Content property"
+    },
+    {
+      "id": "versant",
+      "title": "Versant",
+      "type_label": "Content property"
+    },
+    {
+      "id": "victory",
+      "title": "Victory",
+      "type_label": "Content property"
+    },
+    {
+      "id": "wbd",
+      "title": "Wbd",
+      "type_label": "Content property"
+    },
+    {
+      "id": "yes",
+      "title": "Yes",
+      "type_label": "Content property"
+    },
+    {
+      "id": "yttv",
+      "title": "Yttv",
+      "type_label": "Content property"
+    }
+  ],
+  "priority_levels": [
+    "high",
+    "normal",
+    "low"
+  ],
+  "inbox_path_hint": "OneDrive\\EVERPASS\\EVERPASS TOOLS\\AI Related\\ChatGPT_Inbox\\"
+}
