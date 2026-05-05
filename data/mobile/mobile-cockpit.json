@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-05T21:29:35Z",
+  "generated_at": "2026-05-05T22:28:00Z",
   "morning_brief": {
     "available": true,
     "date": "2026-05-04",
@@ -299,7 +299,137 @@
     ],
     "last_extracted_at": "2026-04-26T04:03:20Z"
   },
-  "bridge_signals": [],
+  "bridge_signals": [
+    {
+      "title": "[Charter] Re: [EXTERNAL] Re: Charter | EverPass Extension",
+      "summary": "Quick question: is EverPass the only place for commercial customers to get the Peacock / NBCSN exclusive games (eg T-Wolves Spurs tonight)? Under impression NBCSN is resi-only due to your exclusive deal w/ NBC for sports on Peacock.",
+      "key_points": [
+        "exclusivity",
+        "extension",
+        "commercial"
+      ],
+      "produced_at": "2026-05-05T00:40:25Z",
+      "source": "outlook",
+      "partner": "Charter",
+      "ryan_owes_response": true,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADhsRIRAAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    },
+    {
+      "title": "[NESN] Everpass - NESN/SNP",
+      "summary": "Ryan, hi. Any sense as to when we'll see a response? Peter Plaehn, SVP Affiliate Distribution, NESN & SportsNet Pittsburgh.",
+      "key_points": [
+        "term sheet",
+        "response"
+      ],
+      "produced_at": "2026-05-05T17:08:42Z",
+      "source": "outlook",
+      "partner": "NESN",
+      "ryan_owes_response": true,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADhsRI4AAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    },
+    {
+      "title": "[Disney/ESPN] RE: ESPN+ for Business Schedule: 5/4-7/5",
+      "summary": "Title updates for this week's Softball championships and a canceled game picked up on linear. Will continue to update as changes come.",
+      "key_points": [
+        "schedule"
+      ],
+      "produced_at": "2026-05-05T19:08:21Z",
+      "source": "outlook",
+      "partner": "Disney/ESPN",
+      "ryan_owes_response": false,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADhsRJCAAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    },
+    {
+      "title": "[Charter] Re: [EXTERNAL] Re: Charter | EverPass Extension",
+      "summary": "No worries, induction day is tomorrow. Can't give exact ETA but we've made good progress. Hopefully something by the end of the week.",
+      "key_points": [
+        "extension",
+        "ETA"
+      ],
+      "produced_at": "2026-05-05T00:21:48Z",
+      "source": "outlook",
+      "partner": "Charter",
+      "ryan_owes_response": false,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADhsRIPAAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    },
+    {
+      "title": "[NBCU] REMINDER TO STREAM | NBCUniversal Upfront: May 11th",
+      "summary": "Reminder: NBCUniversal Upfront streaming May 11th. Follow social channels for updates.",
+      "key_points": [
+        "upfront"
+      ],
+      "produced_at": "2026-05-05T14:03:01Z",
+      "source": "outlook",
+      "partner": "NBCU",
+      "ryan_owes_response": false,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADhsRIkAAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    },
+    {
+      "title": "[Monumental] Re: Everpass/Monumental Tech & Marketing Follow Up",
+      "summary": "No worries (if you did I missed it and I apologize). Thanks buddy! Sent from Outlook for iOS.",
+      "key_points": [
+        "tech",
+        "marketing"
+      ],
+      "produced_at": "2026-05-01T00:21:43Z",
+      "source": "outlook",
+      "partner": "Monumental",
+      "ryan_owes_response": false,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADfHF8FAAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    },
+    {
+      "title": "[Charter] Charter | EverPass Extension",
+      "summary": "Per our conversation earlier today: EverPass and Charter hereby agree to extend the negotiation period referenced in Section I.1 of the Binding Term Sheet entered into July 5, 2025.",
+      "key_points": [
+        "term sheet",
+        "extension",
+        "negotiation"
+      ],
+      "produced_at": "2026-04-29T17:36:01Z",
+      "source": "outlook",
+      "partner": "Charter",
+      "ryan_owes_response": false,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADfHF6qAAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    },
+    {
+      "title": "[Monumental] Re: Everpass/Monumental Tech & Marketing Follow Up",
+      "summary": "FYI a docusign went out this morning. Let me know if you did not receive it (may have gone to spam). Happy to resend if there was an issue.",
+      "key_points": [
+        "docusign",
+        "agreement"
+      ],
+      "produced_at": "2026-04-29T20:07:30Z",
+      "source": "outlook",
+      "partner": "Monumental",
+      "ryan_owes_response": true,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADfHF6%2BAAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    },
+    {
+      "title": "[Victory+] Re: Victory+ / EverPass Structure Alignment",
+      "summary": "NWSL has approved. LFG.",
+      "key_points": [
+        "nwsl",
+        "approval"
+      ],
+      "produced_at": "2026-04-27T21:50:04Z",
+      "source": "outlook",
+      "partner": "Victory+",
+      "ryan_owes_response": true,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADdaA%2BeAAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    },
+    {
+      "title": "[YES] RE: [EXT] Re: [EXT] RE: YES-EverPass Partnership (as of 4.29.25)",
+      "summary": "Sounds good, yes I should be around next week. Would love to see you and catch up.",
+      "key_points": [
+        "partnership"
+      ],
+      "produced_at": "2026-04-29T15:52:58Z",
+      "source": "outlook",
+      "partner": "YES",
+      "ryan_owes_response": false,
+      "web_link": "https://outlook.office365.com/owa/?ItemID=AAMkADdjYjdiZmU2LTk0ODUtNDE3Yy04OGVhLTk0ODk5MTVjOGQwYgBGAAAAAAAvc17nWGIuQ6gcYsbZxLmVBwCGMuO7q%2FrSTLWfddc9%2FjHpAAAAAAEMAACGMuO7q%2FrSTLWfddc9%2FjHpAADfHF6hAAA%3D&exvsurl=1&viewmodel=ReadMessageItem"
+    }
+  ],
   "asks": {
     "available": true,
     "total": 12,
@@ -315,7 +445,7 @@
       "failed": 0
     },
     "last_answered_at": "2026-04-26T15:35:00Z",
-    "feed_generated_at": "2026-05-05T21:29:35Z"
+    "feed_generated_at": "2026-05-05T22:28:00Z"
   },
   "meetings": {
     "today": {
