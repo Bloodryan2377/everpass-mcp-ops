@@ -1,0 +1,64 @@
+{
+  "schema": "epc-outlook-recent/v1",
+  "generated_at": "2026-05-06T14:35:00Z",
+  "window": "last 24h + fresh signals",
+  "source": "Outlook / Zapier MCP",
+  "total": 5,
+  "items": [
+    {
+      "partner": "Apple",
+      "from": "calendarserver01+d7d18013@apple.com",
+      "from_name": "Daniel Hegeman (Apple calendar)",
+      "subject": "Event update: Apple/Everpass Integration Bi-Weekly",
+      "received": "2026-05-06T13:45:48Z",
+      "snippet": "Event Update — Apple/Everpass Integration Bi-Weekly. Organizer: Daniel Hegeman. Location: Virtual Conference One-Time Room. Join: appleinc.webex.com",
+      "ryan_owes_response": false,
+      "classification": "calendar_update"
+    },
+    {
+      "partner": "NESN",
+      "from": "pplaehn@NESN.COM",
+      "from_name": "Peter Plaehn (SVP Affiliate Distribution, NESN/SNP)",
+      "subject": "Everpass - NESN/SNP",
+      "received": "2026-05-05T17:08:42Z",
+      "snippet": "Ryan, hi. Any sense as to when we'll see a response?",
+      "ryan_owes_response": true,
+      "classification": "partner_chase",
+      "urgency": "HIGH — second chase; term sheet in NESN court since 4/12"
+    },
+    {
+      "partner": "NBCU",
+      "from": "together@nbcuni.com",
+      "from_name": "NBCUniversal",
+      "subject": "REMINDER TO STREAM | NBCUniversal Upfront: May 11th",
+      "received": "2026-05-05T14:03:01Z",
+      "snippet": "Follow our social media accounts to stay connected. Upfront streaming May 11th.",
+      "ryan_owes_response": false,
+      "classification": "marketing"
+    },
+    {
+      "partner": "DAZN",
+      "from": "Dan.Gardiner@dazn.com",
+      "from_name": "Dan Gardiner (DAZN)",
+      "subject": "RE: DAZN catch up",
+      "received": "2026-05-05T13:33:46Z",
+      "snippet": "No worries Ryan – pushed to tomorrow.",
+      "ryan_owes_response": false,
+      "classification": "meeting_reschedule",
+      "note": "Confirmed for 5/7 10:30 AM"
+    },
+    {
+      "partner": "AccuWeather",
+      "from": "Patrick.McCormack@accuweather.com",
+      "from_name": "Patrick McCormack (AccuWeather)",
+      "subject": "Re: AccuWeather Check In",
+      "received": "2026-05-05T01:50:09Z",
+      "snippet": "I want to check in to see if we can schedule a meeting to close out the remaining issues. Are you available for a call on Friday, 5/8 between 9:00am-10:30am PT? Or 12:30pm-1:30pm PT?",
+      "ryan_owes_response": true,
+      "classification": "scheduling_chase",
+      "urgency": "HIGH — executable draft 11 days overdue; Ryan owes Fri 5/8 confirm"
+    }
+  ],
+  "ryan_owes_count": 2,
+  "ryan_owes_partners": ["NESN","AccuWeather"]
+}
