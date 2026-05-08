@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-dispatch-options/v1",
-  "generated_at": "2026-05-08T19:46:40Z",
+  "generated_at": "2026-05-08T19:57:49Z",
   "request_kinds": [
     {
       "id": "partner-intel-pull",
