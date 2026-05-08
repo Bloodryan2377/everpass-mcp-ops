@@ -1,35 +1,30 @@
 {
   "schema": "epc-mobile-status/v1",
-  "generated_at": "2026-05-08T18:14:48Z",
+  "generated_at": "2026-05-08T19:46:40Z",
   "bridge": {
     "version": "v3 (Claude-local synthesis)",
     "last_run_status": "success",
-    "last_run_id": "run-20260507-001-d3b2",
-    "last_processed_at": "2026-05-07T08:55:00Z",
+    "last_run_id": "run-20260508-001-c4a7",
+    "last_processed_at": "2026-05-08T08:55:00Z",
     "counts": {
       "pending": 0,
       "rejected_outstanding": 0,
       "archived_today": 0,
       "archived_total": 6,
-      "inbox_pending": 0
+      "inbox_pending": 0,
+      "inbox_consumed_total": 1
     },
     "last_artifact": "2026-04-26-partner-intel-spectrum.md"
   },
   "morning": {
-    "run_date": "2026-05-07",
-    "overall_status": "failed",
-    "cockpit_status": "failed",
-    "drive_mirror_status": "failed",
-    "notebooklm_status": "partial",
+    "run_date": "2026-05-08",
+    "overall_status": "success",
+    "cockpit_status": "success",
+    "drive_mirror_status": "success",
+    "notebooklm_status": "success",
     "scheduler_status": "success",
     "dashboard_status": "success",
-    "failing_checks": [
-      "brief_dated_file_today",
-      "brief_canonical_today",
-      "drive_stable_mirror",
-      "drive_dated_mirror",
-      "notebooklm_sync"
-    ]
+    "failing_checks": []
   },
   "selfverify": {
     "overall": "WARN",
@@ -43,7 +38,7 @@
     "report_present": true
   },
   "freshness": {
-    "bridge_status_mtime": "2026-05-07T16:06:37Z",
-    "morning_status_mtime": "2026-05-08T01:00:06Z"
+    "bridge_status_mtime": "2026-05-08T16:04:16Z",
+    "morning_status_mtime": "2026-05-08T17:24:07Z"
   }
 }

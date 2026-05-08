@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-dispatch-options/v1",
-  "generated_at": "2026-05-08T18:14:48Z",
+  "generated_at": "2026-05-08T19:46:40Z",
   "request_kinds": [
     {
       "id": "partner-intel-pull",
@@ -272,6 +272,16 @@
       "id": "yttv",
       "title": "YouTube TV (YTTV)",
       "type_label": "Distribution partner"
+    },
+    {
+      "id": "nfl",
+      "title": "Nfl",
+      "type_label": "Content property"
+    },
+    {
+      "id": "spectrum",
+      "title": "Spectrum",
+      "type_label": "Content property"
     }
   ],
   "priority_levels": [
