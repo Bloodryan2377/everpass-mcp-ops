@@ -1,131 +1,151 @@
 {
   "schema": "epc-mobile-dispatch-options/v1",
-  "generated_at": "2026-05-05T22:28:00Z",
-  "request_kinds": [],
+  "generated_at": "2026-05-08T18:14:48Z",
+  "request_kinds": [
+    {
+      "id": "partner-intel-pull",
+      "label": "Partner intel",
+      "description": "Pull recent signals across SharePoint + Outlook + OneDrive for one partner.",
+      "target_artifact_kind": "partner-intel",
+      "expected_target_skill": "partner-insights",
+      "needs_partner": true,
+      "default_window": "last 14 days"
+    },
+    {
+      "id": "contract-delta-pull",
+      "label": "Contract delta",
+      "description": "Compare the latest contract draft against the prior version; flag substantive changes.",
+      "target_artifact_kind": "contract-delta",
+      "expected_target_skill": "contract-delta-review",
+      "needs_partner": true,
+      "default_window": "since last executed version"
+    },
+    {
+      "id": "governance-comparison-pull",
+      "label": "Governance comparison",
+      "description": "Compare a clause type (MFN, MG, exclusivity) across multiple partners.",
+      "target_artifact_kind": "governance-comparison",
+      "expected_target_skill": "governance-comparison",
+      "needs_partner": false,
+      "default_window": ""
+    },
+    {
+      "id": "meeting-summary-pull",
+      "label": "Meeting summary",
+      "description": "Summarize a recent meeting / call thread for a partner with action items.",
+      "target_artifact_kind": "meeting-summary",
+      "expected_target_skill": "meeting-summary",
+      "needs_partner": true,
+      "default_window": "last 7 days"
+    },
+    {
+      "id": "morning-brief-pull",
+      "label": "Morning brief supplement",
+      "description": "Generate a supplemental morning brief covering overnight signals.",
+      "target_artifact_kind": "morning-brief-supplement",
+      "expected_target_skill": "morning-brief-supplement",
+      "needs_partner": false,
+      "default_window": "since last brief"
+    },
+    {
+      "id": "freeform-research",
+      "label": "Freeform brain analysis",
+      "description": "Open-ended analytical request; specify what you want and the bounds.",
+      "target_artifact_kind": "cockpit-brain-answer",
+      "expected_target_skill": "morning-brief-supplement",
+      "needs_partner": false,
+      "default_window": ""
+    }
+  ],
   "partners": [
     {
       "id": "accuweather",
-      "title": "Accuweather",
+      "title": "AccuWeather",
       "type_label": "Content property"
     },
     {
       "id": "amazon",
-      "title": "Amazon",
+      "title": "Amazon (Prime Video Sports)",
       "type_label": "Content property"
     },
     {
       "id": "apple",
-      "title": "Apple",
+      "title": "Apple (Apple TV)",
       "type_label": "Content property"
     },
     {
       "id": "bravesvision",
-      "title": "Bravesvision",
-      "type_label": "Content property"
-    },
-    {
-      "id": "charter",
-      "title": "Charter",
+      "title": "BravesVision",
       "type_label": "Content property"
     },
     {
       "id": "chsn",
-      "title": "Chsn",
-      "type_label": "Content property"
-    },
-    {
-      "id": "comcast",
-      "title": "Comcast",
+      "title": "CHSN (Chicago Sports Network)",
       "type_label": "Content property"
     },
     {
       "id": "cw-sports",
-      "title": "Cw Sports",
-      "type_label": "Content property"
-    },
-    {
-      "id": "dazn",
-      "title": "Dazn",
-      "type_label": "Content property"
-    },
-    {
-      "id": "deltatre",
-      "title": "Deltatre",
-      "type_label": "Content property"
-    },
-    {
-      "id": "directv",
-      "title": "Directv",
+      "title": "CW Sports (Nexstar)",
       "type_label": "Content property"
     },
     {
       "id": "disney",
-      "title": "Disney",
-      "type_label": "Content property"
-    },
-    {
-      "id": "fanduel",
-      "title": "Fanduel",
+      "title": "Disney / ESPN / TWDC",
       "type_label": "Content property"
     },
     {
       "id": "fox",
-      "title": "Fox",
+      "title": "FOX",
+      "type_label": "Content property"
+    },
+    {
+      "id": "fanduel",
+      "title": "FanDuel",
       "type_label": "Content property"
     },
     {
       "id": "ion-sports",
-      "title": "Ion Sports",
-      "type_label": "Content property"
-    },
-    {
-      "id": "ism",
-      "title": "Ism",
-      "type_label": "Content property"
-    },
-    {
-      "id": "lg",
-      "title": "Lg",
-      "type_label": "Content property"
-    },
-    {
-      "id": "marquee",
-      "title": "Marquee",
-      "type_label": "Content property"
-    },
-    {
-      "id": "mediacom",
-      "title": "Mediacom",
+      "title": "Ion Sports (E.W. Scripps)",
       "type_label": "Content property"
     },
     {
       "id": "mlb",
-      "title": "Mlb",
-      "type_label": "Content property"
-    },
-    {
-      "id": "monumental",
-      "title": "Monumental",
+      "title": "MLB",
       "type_label": "Content property"
     },
     {
       "id": "msg-gotham",
-      "title": "Msg Gotham",
+      "title": "MSG Networks (MSG-Gotham)",
+      "type_label": "Content property"
+    },
+    {
+      "id": "marquee",
+      "title": "Marquee Sports Network (Chicago Cubs / Sinclair)",
+      "type_label": "Content property"
+    },
+    {
+      "id": "monumental",
+      "title": "Monumental (MSE)",
       "type_label": "Content property"
     },
     {
       "id": "nba",
-      "title": "Nba",
+      "title": "NBA (NBA League Pass)",
       "type_label": "Content property"
     },
     {
       "id": "nbcu",
-      "title": "Nbcu",
+      "title": "NBCU / Peacock",
       "type_label": "Content property"
     },
     {
       "id": "nesn",
-      "title": "Nesn",
+      "title": "NESN (New England Sports Network)",
+      "type_label": "Content property"
+    },
+    {
+      "id": "nhl",
+      "title": "NHL",
       "type_label": "Content property"
     },
     {
@@ -134,64 +154,124 @@
       "type_label": "Content property"
     },
     {
-      "id": "nfl",
-      "title": "Nfl",
-      "type_label": "Content property"
-    },
-    {
-      "id": "nhl",
-      "title": "Nhl",
-      "type_label": "Content property"
-    },
-    {
       "id": "paramount",
-      "title": "Paramount",
+      "title": "Paramount (Paramount Skydance)",
       "type_label": "Content property"
     },
     {
-      "id": "samsung",
-      "title": "Samsung",
+      "id": "possible-core-content",
+      "title": "Possible Core Content (content-pipeline catch-all)",
       "type_label": "Content property"
     },
     {
-      "id": "spectrum",
-      "title": "Spectrum",
-      "type_label": "Content property"
-    },
-    {
-      "id": "touchtunes",
-      "title": "Touchtunes",
+      "id": "sportsnet",
+      "title": "SportsNet (Spectrum Sports LA)",
       "type_label": "Content property"
     },
     {
       "id": "ufc",
-      "title": "Ufc",
+      "title": "UFC (via UpShow, Inc.)",
+      "type_label": "Content property"
+    },
+    {
+      "id": "upshow",
+      "title": "UpShow, Inc.",
       "type_label": "Content property"
     },
     {
       "id": "versant",
-      "title": "Versant",
+      "title": "Versant (NBCU Cable Spin / Golf Channel + ALC)",
       "type_label": "Content property"
     },
     {
       "id": "victory",
-      "title": "Victory",
+      "title": "Victory+",
       "type_label": "Content property"
     },
     {
       "id": "wbd",
-      "title": "Wbd",
+      "title": "Warner Bros. Discovery (WBD)",
       "type_label": "Content property"
     },
     {
       "id": "yes",
-      "title": "Yes",
+      "title": "YES Network (Yankees)",
       "type_label": "Content property"
     },
     {
+      "id": "lg",
+      "title": "LG",
+      "type_label": "Device partner"
+    },
+    {
+      "id": "roku",
+      "title": "Roku",
+      "type_label": "Device partner"
+    },
+    {
+      "id": "samsung",
+      "title": "Samsung",
+      "type_label": "Device partner"
+    },
+    {
+      "id": "charter",
+      "title": "Charter (Spectrum Management Holding Company, LLC)",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "comcast",
+      "title": "Comcast",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "dazn",
+      "title": "DAZN",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "directv",
+      "title": "DIRECTV (DIRECTV, LLC)",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "dish",
+      "title": "DISH",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "deltatre",
+      "title": "Deltatre (Endeavor Streaming / UpShow)",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "dronetv-engage",
+      "title": "DroneTV Engage",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "ism",
+      "title": "ISM (ISM Connect)",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "mediacom",
+      "title": "Mediacom",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "netcomtv",
+      "title": "NetComTV",
+      "type_label": "Distribution partner"
+    },
+    {
+      "id": "touchtunes",
+      "title": "TouchTunes",
+      "type_label": "Distribution partner"
+    },
+    {
       "id": "yttv",
-      "title": "Yttv",
-      "type_label": "Content property"
+      "title": "YouTube TV (YTTV)",
+      "type_label": "Distribution partner"
     }
   ],
   "priority_levels": [

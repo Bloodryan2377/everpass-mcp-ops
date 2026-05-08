@@ -1,0 +1,620 @@
+{
+  "schema": "epc-freshness/v1",
+  "generated_at": "2026-05-08T17:47:02+00:00",
+  "rule": "user-facing artifacts must be <= 12h old; warn at 6h",
+  "thresholds_hours": {
+    "fresh_max": 6,
+    "stale_min_exclusive": 12
+  },
+  "duration_s": 0.08,
+  "ran_rebuilds": true,
+  "totals": {
+    "total": 22,
+    "fresh": 22,
+    "warn": 0,
+    "stale": 0,
+    "missing": 0
+  },
+  "user_facing_red": [],
+  "user_facing_amber": [],
+  "backend_facing_red": [],
+  "backend_facing_amber": [],
+  "overall": "PASS",
+  "backend_overall": "PASS",
+  "artifacts": [
+    {
+      "key": "cockpit_data_json",
+      "category": "cockpit",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\cockpit-data.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 0.3821061458333333,
+        "as_of": "2026-05-08T17:24:06+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 0.38212793805555556,
+        "as_of": "2026-05-08T17:24:06+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "meetings_today_json",
+      "category": "cockpit",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\meetings-today.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 0.3811656855555556,
+        "as_of": "2026-05-08T17:24:10+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 0.3811871969444445,
+        "as_of": "2026-05-08T17:24:10+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "meetings_tomorrow_json",
+      "category": "cockpit",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\meetings-tomorrow.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 0.3805191952777778,
+        "as_of": "2026-05-08T17:24:12+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 0.38053714666666666,
+        "as_of": "2026-05-08T17:24:12+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "morning_status_json",
+      "category": "cockpit",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\morning-status.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 0.38183620583333333,
+        "as_of": "2026-05-08T17:24:07+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 0.38185387916666663,
+        "as_of": "2026-05-08T17:24:07+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "wiki_updates_json",
+      "category": "cockpit",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\wiki-updates.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 0.3804772838888889,
+        "as_of": "2026-05-08T17:24:12+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 0.38049495722222226,
+        "as_of": "2026-05-08T17:24:12+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "outlook_emails_json",
+      "category": "cockpit",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\outlook-emails.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.9974436058333334,
+        "as_of": "2026-05-08T15:47:11+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.9974573883333333,
+        "as_of": "2026-05-08T15:47:11+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "outlook_recent_json",
+      "category": "cockpit",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\outlook-recent.json",
+      "user_facing": false,
+      "manual_only": true,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 21.699023480555557,
+        "as_of": "2026-05-07T20:05:06+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 21.699036984444444,
+        "as_of": "2026-05-07T20:05:06+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 72.0,
+        "stale_min_exclusive": 168.0,
+        "is_override": true
+      }
+    },
+    {
+      "key": "cockpit_state_json",
+      "category": "cockpit",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\cockpit-state.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 0.38031550472222225,
+        "as_of": "2026-05-08T17:24:13+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 0.38032928666666665,
+        "as_of": "2026-05-08T17:24:13+00:00"
+      },
+      "manual_action": null,
+      "notes": "Cockpit RED-tier health check reads this. Auto-rebuilt by freshness enforcer + cockpit.cmd builder chain.",
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "contracts_full_normalized_csv",
+      "category": "data",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\DATA_EXPORTS\\contracts_full_normalized.csv",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 3.7815351652777776,
+        "as_of": "2026-05-08T14:00:08+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 3.781548670555556,
+        "as_of": "2026-05-08T14:00:08+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "contracts_registry_csv",
+      "category": "data",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\DATA_EXPORTS\\contracts_registry.csv",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 3.781535632222222,
+        "as_of": "2026-05-08T14:00:08+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 3.7815491375,
+        "as_of": "2026-05-08T14:00:08+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "financials_full_normalized_csv",
+      "category": "data",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\DATA_EXPORTS\\financials_full_normalized.csv",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.9993982977777778,
+        "as_of": "2026-05-08T15:47:04+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.9994118030555557,
+        "as_of": "2026-05-08T15:47:04+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "contract_master_data_json",
+      "category": "contracts",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\contract-master-data.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.9991448597222221,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.9991580866666665,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "manual_action": null,
+      "notes": "xlsx -> JSON detail export (everpass-contract-master/v1). Source: Contract Master.xlsx.",
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "contract_master_summary_json",
+      "category": "contracts",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\contract-master-summary.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.999143433611111,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.9991566605555555,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "manual_action": null,
+      "notes": "xlsx -> JSON summary export (everpass-contract-summary/v1). Source: Contract Master.xlsx.",
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "contract_master_manifest_json",
+      "category": "contracts",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\DATA_EXPORTS\\contract_master_manifest.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.9993057633333335,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.9993187122222222,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "manual_action": null,
+      "notes": "Tier 0 snapshot anchor (epc-contract-master-snapshot/v1). Cockpit reads this for the 'Contracts data as of' badge.",
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "deal_brain_summary_json",
+      "category": "contracts",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\DATA_EXPORTS\\deal_brain_summary.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.9993132638888889,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.9993187122222222,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "manual_action": null,
+      "notes": "Per-partner Deal Brain rollup (epc-deal-brain-summary/v1). Future Ask deal-fact answerer reads this for cheap partner lookups.",
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "mobile_answers_json",
+      "category": "mobile",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\data\\mobile\\mobile-answers.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.9990978591666666,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.9991030294444443,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "mobile_cockpit_json",
+      "category": "mobile",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\data\\mobile\\mobile-cockpit.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 3.778544978333333,
+        "as_of": "2026-05-08T14:00:19+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 3.778550148611111,
+        "as_of": "2026-05-08T14:00:19+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "bridge_status_json",
+      "category": "bridge",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\chatgpt-bridge\\bridge-status.json",
+      "user_facing": false,
+      "manual_only": true,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.7127216391666666,
+        "as_of": "2026-05-08T16:04:16+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.7127270869444444,
+        "as_of": "2026-05-08T16:04:16+00:00"
+      },
+      "manual_action": "ChatGPT bridge daily drain runs 8:55 AM via the `chatgpt-bridge-daily-drain` scheduled task. If this artifact is stale (>36h), check that task's last-run/result.",
+      "notes": "Daily-cadence backend artifact. Refreshed by chatgpt-bridge-daily-drain (8:55 AM). Per-artifact thresholds (fresh<=24h, stale>36h) align with that cadence; not user-facing, never affects cockpit/mobile chip color.",
+      "thresholds_hours": {
+        "fresh_max": 24.0,
+        "stale_min_exclusive": 36.0,
+        "is_override": true
+      }
+    },
+    {
+      "key": "ask_index_json",
+      "category": "bridge",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\ask\\ask_index.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.9991023233333332,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.9991038622222221,
+        "as_of": "2026-05-08T15:47:05+00:00"
+      },
+      "manual_action": null,
+      "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "partner_email_state",
+      "category": "intake",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\MeetingPipeline\\state\\partner_email_prod.processed.json",
+      "user_facing": false,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.9982411283333332,
+        "as_of": "2026-05-08T15:47:08+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.998242246111111,
+        "as_of": "2026-05-08T15:47:08+00:00"
+      },
+      "manual_action": null,
+      "notes": "State file updates only when the watcher ticks AND the inbox has new files. Stale state with empty inbox is OK; stale state with files in inbox is a real backlog.",
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "watcher_log",
+      "category": "intake",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\MeetingPipeline\\logs\\outlook_prod_watchers.log",
+      "user_facing": false,
+      "manual_only": false,
+      "optional": true,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 1.998241691388889,
+        "as_of": "2026-05-08T15:47:08+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 1.9982425241666668,
+        "as_of": "2026-05-08T15:47:08+00:00"
+      },
+      "manual_action": null,
+      "notes": "Log mtime advances on every tick. If watcher is scheduled, this is a heartbeat.",
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "exports_manifest_json",
+      "category": "exports",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\exports\\exports-manifest.json",
+      "user_facing": false,
+      "manual_only": false,
+      "optional": true,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 3.2832073230555556,
+        "as_of": "2026-05-08T14:30:03+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 3.283207878611111,
+        "as_of": "2026-05-08T14:30:03+00:00"
+      },
+      "manual_action": null,
+      "notes": "Export chain manifest (everpass-exports-manifest/v1). Rebuilt by build_exports.py from wiki/partners/ + Partner Insights/ + contract-master-data.json. Outputs: briefs/, obsidian/, notebooklm/ under AI Related/exports/. Per-artifact thresholds (fresh<=24h, stale>36h) match the once-daily build cadence.",
+      "thresholds_hours": {
+        "fresh_max": 24.0,
+        "stale_min_exclusive": 36.0,
+        "is_override": true
+      }
+    }
+  ]
+}

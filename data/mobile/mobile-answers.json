@@ -1,0 +1,358 @@
+{
+  "schema": "epc-mobile-answers/v1",
+  "generated_at": "2026-05-08T18:14:48Z",
+  "summary": {
+    "total": 12,
+    "shown": 12,
+    "counts": {
+      "pending": 0,
+      "answered": 5,
+      "failed": 7,
+      "expired": 0
+    },
+    "counts_24h": {
+      "answered": 0,
+      "pending": 0,
+      "failed": 0
+    },
+    "last_answered_at": "2026-04-26T15:35:00Z"
+  },
+  "items": [
+    {
+      "id": "ask-20260427-brn-b1e726",
+      "created_at": "2026-04-27T09:51:35Z",
+      "answered_at": null,
+      "source": "cockpit-ask-live",
+      "status": "failed",
+      "kind": "live-ask-brain",
+      "kind_label": "Live Ask Brain",
+      "partner": null,
+      "priority": "normal",
+      "desired_output": "wiki-note",
+      "context_hint": null,
+      "question_snippet": "**Mode:** Live Ask Brain (NotebookLM-style; clarify-then-route-then-answer). **Question:** live-ask-smoke-deal: what is our rights posture with WBD on Sunday Ticket vs Amazon? Specifically interested in any clauses that might limit our flex",
+      "answer_snippet": "",
+      "answer_kind": null,
+      "answer_filename": null,
+      "request_filename": "2026-04-27-live-ask-brain-live-ask-smoke-deal-e282.md",
+      "request_correlation_id": "cl-20260427-live-ask-smoke-deal-883abc",
+      "answer_correlation_id": null,
+      "pipelines_invoked": [
+        "cockpit-ask",
+        "live-ask-brain",
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [
+        "2026-04-27-live-ask-brain-live-ask-smoke-deal-e282.md"
+      ],
+      "bridge_answer_filenames": []
+    },
+    {
+      "id": "ask-20260427-brn-0eaad3",
+      "created_at": "2026-04-27T09:51:35Z",
+      "answered_at": null,
+      "source": "cockpit-ask-live",
+      "status": "failed",
+      "kind": "live-ask-brain",
+      "kind_label": "Live Ask Brain",
+      "partner": null,
+      "priority": "normal",
+      "desired_output": "wiki-note",
+      "context_hint": null,
+      "question_snippet": "**Mode:** Live Ask Brain (NotebookLM-style; clarify-then-route-then-answer). **Question:** live-ask-smoke-econ: what's our downside if WBD subs are 15% below plan next season under current deal economics? Walk me through the variance impact",
+      "answer_snippet": "",
+      "answer_kind": null,
+      "answer_filename": null,
+      "request_filename": "2026-04-27-live-ask-brain-live-ask-smoke-econ-23bd.md",
+      "request_correlation_id": "cl-20260427-live-ask-smoke-econ-de7c97",
+      "answer_correlation_id": null,
+      "pipelines_invoked": [
+        "cockpit-ask",
+        "live-ask-brain",
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [
+        "2026-04-27-live-ask-brain-live-ask-smoke-econ-23bd.md"
+      ],
+      "bridge_answer_filenames": []
+    },
+    {
+      "id": "ask-20260427-brn-6aa38b",
+      "created_at": "2026-04-27T09:51:35Z",
+      "answered_at": null,
+      "source": "cockpit-ask-live",
+      "status": "failed",
+      "kind": "live-ask-brain",
+      "kind_label": "Live Ask Brain",
+      "partner": null,
+      "priority": "normal",
+      "desired_output": "reply-email",
+      "context_hint": null,
+      "question_snippet": "**Mode:** Live Ask Brain (NotebookLM-style; clarify-then-route-then-answer). **Pasted email (Outlook headers will be stripped by the prompt):**",
+      "answer_snippet": "",
+      "answer_kind": null,
+      "answer_filename": null,
+      "request_filename": "2026-04-27-live-ask-brain-live-ask-smoke-email-cabb.md",
+      "request_correlation_id": "cl-20260427-live-ask-smoke-email-7594b6",
+      "answer_correlation_id": null,
+      "pipelines_invoked": [
+        "cockpit-ask",
+        "live-ask-brain",
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [
+        "2026-04-27-live-ask-brain-live-ask-smoke-email-cabb.md"
+      ],
+      "bridge_answer_filenames": []
+    },
+    {
+      "id": "ask-20260427-cka-2bf090",
+      "created_at": "2026-04-27T07:50:00Z",
+      "answered_at": null,
+      "source": "cockpit-ask",
+      "status": "failed",
+      "kind": "freeform-research",
+      "kind_label": "Freeform Research",
+      "partner": null,
+      "priority": "low",
+      "desired_output": null,
+      "context_hint": null,
+      "question_snippet": "ask-watcher smoke test 2026-04-27 — DO NOT ACTION. This is a watcher promotion test only; expected to be rejected as a smoke by chatgpt-inbox-process-local.",
+      "answer_snippet": "",
+      "answer_kind": null,
+      "answer_filename": null,
+      "request_filename": "2026-04-27-freeform-research-watcher-smoke-a1b2.md",
+      "request_correlation_id": "cl-20260427-watcher-smoke-a1b2c3",
+      "answer_correlation_id": null,
+      "pipelines_invoked": [
+        "cockpit-ask",
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [
+        "2026-04-27-freeform-research-watcher-smoke-a1b2.md"
+      ],
+      "bridge_answer_filenames": []
+    },
+    {
+      "id": "ask-20260427-cka-ad10ef",
+      "created_at": "2026-04-27T06:57:26Z",
+      "answered_at": null,
+      "source": "cockpit-ask",
+      "status": "failed",
+      "kind": "freeform-research",
+      "kind_label": "Freeform Research",
+      "partner": null,
+      "priority": "normal",
+      "desired_output": null,
+      "context_hint": null,
+      "question_snippet": "smoke test 2026-04-27 cockpit-ask UX pass; do not action; expected to be rejected as a smoke",
+      "answer_snippet": "",
+      "answer_kind": null,
+      "answer_filename": null,
+      "request_filename": "2026-04-26-freeform-research-ask-b81b.md",
+      "request_correlation_id": "cl-20260426-freeform-research-9e1f50",
+      "answer_correlation_id": null,
+      "pipelines_invoked": [
+        "cockpit-ask",
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [
+        "2026-04-26-freeform-research-ask-b81b.md"
+      ],
+      "bridge_answer_filenames": []
+    },
+    {
+      "id": "ask-20260426-brg-bee467",
+      "created_at": "2026-04-26T23:37:30Z",
+      "answered_at": null,
+      "source": "bridge-emit",
+      "status": "failed",
+      "kind": "meeting-summary-pull",
+      "kind_label": "Meeting Summary Pull",
+      "partner": "spectrum",
+      "priority": "normal",
+      "desired_output": null,
+      "context_hint": null,
+      "question_snippet": "Pull cross-system signals (SharePoint, Outlook, OneDrive, contracts) for spectrum that intersect with the 'Mobile-day smoke' meeting. Cross-reference the processed Plaud markdown referenced below; surface anything that materially adds to or",
+      "answer_snippet": "",
+      "answer_kind": null,
+      "answer_filename": null,
+      "request_filename": "2026-04-26-meeting-summary-pull-spectrum-02e60e.md",
+      "request_correlation_id": "cl-20260426-spectrum-02e60e",
+      "answer_correlation_id": null,
+      "pipelines_invoked": [
+        "plaud",
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [
+        "2026-04-26-meeting-summary-pull-spectrum-02e60e.md"
+      ],
+      "bridge_answer_filenames": []
+    },
+    {
+      "id": "ask-20260426-cli-7cbd8f",
+      "created_at": "2026-04-26T23:36:59Z",
+      "answered_at": null,
+      "source": "freeform-cli",
+      "status": "failed",
+      "kind": "freeform-research",
+      "kind_label": "Freeform Research",
+      "partner": null,
+      "priority": "normal",
+      "desired_output": null,
+      "context_hint": null,
+      "question_snippet": "smoke test 2026-04-26 ignore",
+      "answer_snippet": "",
+      "answer_kind": null,
+      "answer_filename": null,
+      "request_filename": "2026-04-26-freeform-research-smoke-test-2026-04-26-ignore-1f1d3b.md",
+      "request_correlation_id": "cl-20260426-smoke-test-2026-04-26-ignore-1f1d3b",
+      "answer_correlation_id": null,
+      "pipelines_invoked": [
+        "ask-cli",
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [
+        "2026-04-26-freeform-research-smoke-test-2026-04-26-ignore-1f1d3b.md"
+      ],
+      "bridge_answer_filenames": []
+    },
+    {
+      "id": "ask-20260426-unk-8c272f",
+      "created_at": "2026-04-26T15:35:00Z",
+      "answered_at": "2026-04-26T15:35:00Z",
+      "source": "unknown",
+      "status": "answered",
+      "kind": "meeting-summary",
+      "kind_label": null,
+      "partner": "nesn",
+      "priority": null,
+      "desired_output": null,
+      "context_hint": null,
+      "question_snippet": "",
+      "answer_snippet": "NESN reaffirmed two-year flat preference and asked for a Friday one-pager on 3.25x flat vs. escalator alternatives; April 30 launch remains contingent on Gate 3 clearance.",
+      "answer_kind": "meeting-summary",
+      "answer_filename": "2026-04-26-meeting-summary-nesn.md",
+      "request_filename": null,
+      "request_correlation_id": null,
+      "answer_correlation_id": "cg-20260426-nesn-fixture0004",
+      "pipelines_invoked": [
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [],
+      "bridge_answer_filenames": [
+        "2026-04-26-meeting-summary-nesn.md"
+      ]
+    },
+    {
+      "id": "ask-20260426-unk-e37a69",
+      "created_at": "2026-04-26T12:34:56Z",
+      "answered_at": "2026-04-26T12:34:56Z",
+      "source": "unknown",
+      "status": "answered",
+      "kind": "governance-comparison",
+      "kind_label": null,
+      "partner": null,
+      "priority": null,
+      "desired_output": null,
+      "context_hint": null,
+      "question_snippet": "",
+      "answer_snippet": "",
+      "answer_kind": "governance-comparison",
+      "answer_filename": "2026-04-26-governance-comparison-mfn.json",
+      "request_filename": null,
+      "request_correlation_id": null,
+      "answer_correlation_id": "cg-20260426-mfn-fixture0005",
+      "pipelines_invoked": [
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [],
+      "bridge_answer_filenames": [
+        "2026-04-26-governance-comparison-mfn.json"
+      ]
+    },
+    {
+      "id": "ask-20260426-unk-3e3a73",
+      "created_at": "2026-04-26T11:15:00Z",
+      "answered_at": "2026-04-26T11:15:00Z",
+      "source": "unknown",
+      "status": "answered",
+      "kind": "contract-delta",
+      "kind_label": null,
+      "partner": "espn_twdc",
+      "priority": null,
+      "desired_output": null,
+      "context_hint": null,
+      "question_snippet": "",
+      "answer_snippet": "TWDC counsel returned three changes to the carriage exhibit overnight; two are cosmetic, one redefines how marquee events count toward the minimum window, which materially affects scheduling flexibility for EverPass.",
+      "answer_kind": "contract-delta",
+      "answer_filename": "2026-04-26-contract-delta-twdc.md",
+      "request_filename": null,
+      "request_correlation_id": null,
+      "answer_correlation_id": "cg-20260426-twdc-fixture0003",
+      "pipelines_invoked": [
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [],
+      "bridge_answer_filenames": [
+        "2026-04-26-contract-delta-twdc.md"
+      ]
+    },
+    {
+      "id": "ask-20260426-unk-2b951f",
+      "created_at": "2026-04-26T09:16:51Z",
+      "answered_at": "2026-04-26T09:42:00Z",
+      "source": "unknown",
+      "status": "answered",
+      "kind": "partner-intel-pull",
+      "kind_label": "Partner Intel Pull",
+      "partner": "spectrum",
+      "priority": "normal",
+      "desired_output": null,
+      "context_hint": null,
+      "question_snippet": "Pull the last 14 days of Spectrum signals across SharePoint + Outlook + OneDrive. Cover pricing posture, MFN clause status, MG movement, and any new asks. Cite specific SharePoint document titles or Outlook subject lines + dates. Ryan-voice",
+      "answer_snippet": "Spectrum's RSN (SportsNet) deal is the live thread; v2 term sheet went out 2026-02-07 and has gone unanswered for ~10 weeks; rate card still blank everywhere; the only signal in the last 14 days is a Taylor Holden status-check call on 2026-04-16 that got rescheduled to next morni",
+      "answer_kind": "partner-intel",
+      "answer_filename": "2026-04-26-partner-intel-spectrum.md",
+      "request_filename": "2026-04-26-partner-intel-pull-spectrum.md",
+      "request_correlation_id": "cl-20260426-spectrum-e68b39",
+      "answer_correlation_id": "cg-20260426-spectrum-e68b39",
+      "pipelines_invoked": [
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [
+        "2026-04-26-partner-intel-pull-spectrum.md"
+      ],
+      "bridge_answer_filenames": [
+        "2026-04-26-partner-intel-spectrum.md"
+      ]
+    },
+    {
+      "id": "ask-20260426-unk-8ae2c2",
+      "created_at": "2026-04-26T06:30:00Z",
+      "answered_at": "2026-04-26T06:30:00Z",
+      "source": "unknown",
+      "status": "answered",
+      "kind": "morning-brief-supplement",
+      "kind_label": null,
+      "partner": null,
+      "priority": null,
+      "desired_output": null,
+      "context_hint": null,
+      "question_snippet": "",
+      "answer_snippet": "Three new partner signals overnight worth adding to the morning view: NESN flagged a counter on pricing escalator, ESPN/TWDC sent revised carriage exhibit comments, and Spectrum ad-sales pushed the DAI one-pager request.",
+      "answer_kind": "morning-brief-supplement",
+      "answer_filename": "2026-04-26-morning-brief-supplement-overnight.md",
+      "request_filename": null,
+      "request_correlation_id": null,
+      "answer_correlation_id": "cg-20260426-mbsupp-fixture0002",
+      "pipelines_invoked": [
+        "chatgpt-bridge"
+      ],
+      "bridge_request_ids": [],
+      "bridge_answer_filenames": [
+        "2026-04-26-morning-brief-supplement-overnight.md"
+      ]
+    }
+  ]
+}
