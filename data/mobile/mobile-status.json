@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-status/v1",
-  "generated_at": "2026-05-09T02:56:56Z",
+  "generated_at": "2026-05-09T04:43:24Z",
   "bridge": {
     "version": "v3 (Claude-local synthesis)",
     "last_run_status": "success",
@@ -39,6 +39,6 @@
   },
   "freshness": {
     "bridge_status_mtime": "2026-05-08T16:04:16Z",
-    "morning_status_mtime": "2026-05-09T02:56:39Z"
+    "morning_status_mtime": "2026-05-09T04:13:36Z"
   }
 }

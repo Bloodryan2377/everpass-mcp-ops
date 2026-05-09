@@ -1,64 +1,50 @@
 {
   "schema": "epc-meetings/v1",
-  "date": "2026-05-06",
-  "generated_at": "2026-05-06T14:35:00Z",
-  "source": "Outlook / Zapier MCP",
-  "items": [
+  "date": "2026-05-08",
+  "available": true,
+  "meetings": [
     {
-      "meeting_id": "m_apple_biweekly_2026_05_06",
-      "start_local": "11:00 AM",
-      "end_local": "11:30 AM",
-      "timezone": "EDT",
-      "title": "Apple/EverPass Integration Bi-Weekly",
-      "partner": "Apple",
-      "organizer": "Daniel Hegeman (Apple)",
-      "attendees_external": ["Daniel Hegeman","Dave Janes","Joseph Barnao","Kelly Criscione","Nader Azad","Paul MacDougall","Rohan Bassi","Stephanie Hallowell"],
-      "attendees_internal": ["Ryan Blood","Horacio Prieto","Noah Fischbach","Ryan Karstad","Tabare Caorsi","Angie Hutcheson","Gaston Rabaiotti","Yuri Alvarez"],
-      "location": "Webex (appleinc)",
-      "prep": ["Bi-weekly integration cadence","F1 Miami GP feed delivered 5/3 (start time change handled)","Calendar update from Hegeman received 5/6 13:45Z — confirmed on"],
-      "canceled": false
-    },
-    {
-      "meeting_id": "m_weekly_catchup_2026_05_06",
-      "start_local": "12:30 PM",
-      "end_local": "1:00 PM",
-      "timezone": "EDT",
-      "title": "Weekly Catchup",
+      "meeting_id": "m_cd6364c0",
+      "start_local": "15:00",
+      "title": "April Product Demo",
       "partner": null,
-      "organizer": "Ryan Blood",
-      "attendees_internal": ["Melissa Herrington"],
-      "location": "Microsoft Teams",
-      "prep": ["Standing 1:1"],
-      "canceled": false
-    },
-    {
-      "meeting_id": "m_marketing_content_2026_05_06",
-      "start_local": "3:00 PM",
-      "end_local": "3:30 PM",
-      "timezone": "EDT",
-      "title": "Marketing/Content catchup",
-      "partner": null,
-      "organizer": "Ryan Blood",
-      "attendees_internal": ["Christi DeVed","Mackenzie Matheson"],
-      "location": "Microsoft Teams",
-      "prep": ["Standing marketing sync"],
-      "canceled": false
-    },
-    {
-      "meeting_id": "m_mybundle_2026_05_06",
-      "start_local": "3:30 PM",
-      "end_local": "4:00 PM",
-      "timezone": "EDT",
-      "title": "MyBundle <> EverPass",
-      "partner": "MyBundle",
-      "organizer": "Jason Cohen (MyBundle)",
-      "attendees_external": ["Jason Cohen","Sophie Zehentner"],
-      "attendees_internal": ["Ryan Blood","Nick Clessuras"],
-      "location": "",
       "prep": [],
-      "canceled": true,
-      "canceled_note": "Canceled by organizer (Jason Cohen)"
+      "source_calendar": "Outlook",
+      "is_cancelled": false,
+      "location": "Microsoft Teams Meeting"
+    },
+    {
+      "meeting_id": "m_3fbd72c3",
+      "start_local": "16:00",
+      "title": "LG/EP - catchup",
+      "partner": null,
+      "prep": [],
+      "source_calendar": "Outlook",
+      "is_cancelled": false,
+      "location": "Microsoft Teams Meeting"
+    },
+    {
+      "meeting_id": "m_87de535c",
+      "start_local": "14:00",
+      "title": "Canceled: NFST Readiness Meeting",
+      "partner": null,
+      "prep": [],
+      "source_calendar": "Outlook",
+      "is_cancelled": true,
+      "location": ""
+    },
+    {
+      "meeting_id": "m_662d94bb",
+      "start_local": "14:00",
+      "title": "NFLST Readiness Meeting",
+      "partner": null,
+      "prep": [],
+      "source_calendar": "Outlook",
+      "is_cancelled": false,
+      "location": "Microsoft Teams Meeting"
     }
   ],
-  "notes": "Amy Schiller OOO through today (May 6)."
+  "generated_at": "2026-05-09T02:56:00Z",
+  "source": "claude-scheduled-zapier-mcp",
+  "errors": []
 }

@@ -350,8 +350,20 @@
     const strip = document.getElementById('status-strip');
     strip.innerHTML = '';
 
-    // Freshness chip leads — single chain-wide signal that mirrors the
-    // desktop topbar chip. Prepended so it's the first thing the eye lands on.
+    // 2026-05-08 GUARDRAIL: dedicated mobile-data freshness pill leads. Reads
+    // mobile-cockpit.json.generated_at directly so a stale build pipeline
+    // surfaces RED here even when the chain-wide freshness chip is GREEN.
+    // Spec: GREEN <2h / AMBER 2-12h / RED >24h.
+    const cockpitCache = global.EPMCData.getCached('cockpit');
+    const mf = global.EPMCData.mobileDataFreshness(cockpitCache);
+    const mchip = el('span', {
+      class: `chip dot ${mf.kind}`,
+      text: mf.text,
+      attrs: { title: mf.title, 'aria-label': 'Mobile data freshness: ' + mf.title },
+    });
+    strip.appendChild(mchip);
+
+    // Freshness chip — chain-wide signal that mirrors the desktop topbar chip.
     const f = freshnessChip(freshness);
     const fchip = el('span', {
       class: `chip dot ${f.kind}`,
