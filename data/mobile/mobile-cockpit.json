@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-08T19:57:49Z",
+  "generated_at": "2026-05-09T02:56:56Z",
   "morning_brief": {
     "available": true,
     "date": "2026-05-08",
@@ -189,7 +189,7 @@
         "priority_hint": "high"
       }
     ],
-    "last_extracted_at": "2026-05-08T19:57:41Z"
+    "last_extracted_at": "2026-05-09T02:56:35Z"
   },
   "bridge_signals": [
     {
@@ -320,7 +320,7 @@
       "failed": 0
     },
     "last_answered_at": "2026-04-26T15:35:00Z",
-    "feed_generated_at": "2026-05-08T19:57:49Z"
+    "feed_generated_at": "2026-05-09T02:56:56Z"
   },
   "meetings": {
     "today": {
@@ -328,36 +328,36 @@
       "available": true,
       "items": [
         {
-          "meeting_id": "m_2e55fa92",
-          "start_local": "14:00",
-          "title": "Canceled: NFST Readiness Meeting",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "Calendar"
-        },
-        {
-          "meeting_id": "m_2c71e627",
-          "start_local": "14:00",
-          "title": "NFLST Readiness Meeting",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "Calendar"
-        },
-        {
-          "meeting_id": "m_98ae7e68",
+          "meeting_id": "m_cd6364c0",
           "start_local": "15:00",
           "title": "April Product Demo",
           "partner": null,
           "prep": [],
-          "source_calendar": "Calendar"
+          "source_calendar": "Outlook"
         },
         {
-          "meeting_id": "m_21a38935",
+          "meeting_id": "m_3fbd72c3",
           "start_local": "16:00",
           "title": "LG/EP - catchup",
           "partner": null,
           "prep": [],
-          "source_calendar": "Calendar"
+          "source_calendar": "Outlook"
+        },
+        {
+          "meeting_id": "m_87de535c",
+          "start_local": "14:00",
+          "title": "Canceled: NFST Readiness Meeting",
+          "partner": null,
+          "prep": [],
+          "source_calendar": "Outlook"
+        },
+        {
+          "meeting_id": "m_662d94bb",
+          "start_local": "14:00",
+          "title": "NFLST Readiness Meeting",
+          "partner": null,
+          "prep": [],
+          "source_calendar": "Outlook"
         }
       ]
     },
@@ -425,8 +425,8 @@
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-05-08T19:57:44Z",
+    "cockpit_data_mtime": "2026-05-09T02:56:38Z",
     "bridge_cache_mtime": "2026-05-08T16:04:16Z",
-    "meetings_today_mtime": "2026-05-08T19:57:46Z"
+    "meetings_today_mtime": "2026-05-09T02:56:00Z"
   }
 }
