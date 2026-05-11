@@ -1,9 +1,210 @@
 {
   "schema": "epc-meetings/v1",
-  "date": "2026-05-09",
-  "available": false,
-  "meetings": [],
-  "generated_at": "2026-05-09T02:56:00Z",
   "source": "claude-scheduled-zapier-mcp",
+  "generated_at": "2026-05-11T14:38:02.275455Z",
+  "tz": "US/Eastern",
+  "date": "2026-05-12",
+  "meetings": [
+    {
+      "subject": "Hold",
+      "start_local": "11:00",
+      "end_local": "12:45",
+      "start_iso": "2026-05-12T11:00:00-04:00",
+      "end_iso": "2026-05-12T12:45:00-04:00",
+      "date_local": "2026-05-12",
+      "location": "",
+      "attendees": [],
+      "attendees_count": 0,
+      "is_cancelled": false,
+      "tz": "US/Eastern"
+    },
+    {
+      "subject": "Management Sync",
+      "start_local": "13:00",
+      "end_local": "14:30",
+      "start_iso": "2026-05-12T13:00:00-04:00",
+      "end_iso": "2026-05-12T14:30:00-04:00",
+      "date_local": "2026-05-12",
+      "location": "CT - Conference Room",
+      "attendees": [
+        {
+          "name": "Alex Kaplan",
+          "address": "AKaplan@EverPass.com"
+        },
+        {
+          "name": "Bryan Icenhower",
+          "address": "bicenhower@EverPass.com"
+        },
+        {
+          "name": "Tim Marangola",
+          "address": "tmarangola@EverPass.com"
+        },
+        {
+          "name": "Amy Schiller",
+          "address": "aschiller@EverPass.com"
+        },
+        {
+          "name": "Stephen Tucker",
+          "address": "STucker@EverPass.com"
+        },
+        {
+          "name": "Alex Chan",
+          "address": "AChan@EverPass.com"
+        },
+        {
+          "name": "Christi DeVed",
+          "address": "cdeved@EverPass.com"
+        },
+        {
+          "name": "Kate Frydryk",
+          "address": "kfrydryk@EverPass.com"
+        },
+        {
+          "name": "Matt Gibbs",
+          "address": "mgibbs@EverPass.com"
+        },
+        {
+          "name": "Nick Clessuras",
+          "address": "nclessuras@EverPass.com"
+        },
+        {
+          "name": "Noah Fischbach",
+          "address": "NFischbach@EverPass.com"
+        },
+        {
+          "name": "Tabare Caorsi",
+          "address": "tcaorsi@EverPass.com"
+        },
+        {
+          "name": "Suzanne Malmloff-Pawula",
+          "address": "smalmloffpawula@everpass.com"
+        },
+        {
+          "name": "Horacio Prieto",
+          "address": "hprieto@everpass.com"
+        },
+        {
+          "name": "Ryan Blood",
+          "address": "rblood@EverPass.com"
+        },
+        {
+          "name": "Susan Swanson",
+          "address": "sswanson@EverPass.com"
+        },
+        {
+          "name": "Joshua Horowitz",
+          "address": "jhorowitz@EverPass.com"
+        }
+      ],
+      "attendees_count": 17,
+      "is_cancelled": false,
+      "tz": "US/Eastern"
+    },
+    {
+      "subject": "EverPass + AccuWeather Agreement",
+      "start_local": "14:00",
+      "end_local": "14:30",
+      "start_iso": "2026-05-12T14:00:00-04:00",
+      "end_iso": "2026-05-12T14:30:00-04:00",
+      "date_local": "2026-05-12",
+      "location": "https://accuweather.zoom.us/j/89460251783?from=addon",
+      "attendees": [
+        {
+          "name": "Patrick McCormack",
+          "address": "Patrick.McCormack@accuweather.com"
+        },
+        {
+          "name": "Ryan Blood",
+          "address": "rblood@EverPass.com"
+        },
+        {
+          "name": "Johanna Fessler",
+          "address": "Johanna.Fessler@accuweather.com"
+        }
+      ],
+      "attendees_count": 3,
+      "is_cancelled": false,
+      "tz": "US/Eastern"
+    },
+    {
+      "subject": "Weekly Touch Base",
+      "start_local": "14:30",
+      "end_local": "15:00",
+      "start_iso": "2026-05-12T14:30:00-04:00",
+      "end_iso": "2026-05-12T15:00:00-04:00",
+      "date_local": "2026-05-12",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        {
+          "name": "Mary Karol",
+          "address": "mkarol@EverPass.com"
+        },
+        {
+          "name": "Amy Schiller",
+          "address": "aschiller@EverPass.com"
+        }
+      ],
+      "attendees_count": 2,
+      "is_cancelled": false,
+      "tz": "US/Eastern"
+    },
+    {
+      "subject": "FW: EverPass 2026/2027 Launch",
+      "start_local": "15:00",
+      "end_local": "16:00",
+      "start_iso": "2026-05-12T15:00:00-04:00",
+      "end_iso": "2026-05-12T16:00:00-04:00",
+      "date_local": "2026-05-12",
+      "location": "https://charteruc.webex.com/charteruc/j.php?MTID=m607b0fbdbcb6e29d5abe4af50e3012b2",
+      "attendees": [
+        {
+          "name": "Charter/Spectrum attendees",
+          "address": "multiple@charter.com"
+        },
+        {
+          "name": "Ryan Blood",
+          "address": "rblood@EverPass.com"
+        },
+        {
+          "name": "Kate Frydryk",
+          "address": "kfrydryk@EverPass.com"
+        },
+        {
+          "name": "Trung Luu",
+          "address": "tluu@EverPass.com"
+        },
+        {
+          "name": "Angie Hutcheson",
+          "address": "ahutcheson@everpass.com"
+        },
+        {
+          "name": "Álvaro Rameau",
+          "address": "arameau@everpass.com"
+        }
+      ],
+      "attendees_count": 80,
+      "is_cancelled": false,
+      "tz": "US/Eastern"
+    },
+    {
+      "subject": "Weekly Catchup",
+      "start_local": "17:00",
+      "end_local": "17:30",
+      "start_iso": "2026-05-12T17:00:00-04:00",
+      "end_iso": "2026-05-12T17:30:00-04:00",
+      "date_local": "2026-05-12",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        {
+          "name": "Melissa Herrington",
+          "address": "mherrington@EverPass.com"
+        }
+      ],
+      "attendees_count": 1,
+      "is_cancelled": false,
+      "tz": "US/Eastern"
+    }
+  ],
+  "count": 6,
   "errors": []
 }

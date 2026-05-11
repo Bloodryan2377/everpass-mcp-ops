@@ -1,11 +1,11 @@
 {
   "schema": "epc-mobile-status/v1",
-  "generated_at": "2026-05-09T05:57:17Z",
+  "generated_at": "2026-05-11T14:56:47Z",
   "bridge": {
     "version": "v3 (Claude-local synthesis)",
     "last_run_status": "success",
-    "last_run_id": "run-20260508-001-c4a7",
-    "last_processed_at": "2026-05-08T08:55:00Z",
+    "last_run_id": "run-20260510-001-f7a3",
+    "last_processed_at": "2026-05-10T08:55:00Z",
     "counts": {
       "pending": 0,
       "rejected_outstanding": 0,
@@ -17,7 +17,7 @@
     "last_artifact": "2026-04-26-partner-intel-spectrum.md"
   },
   "morning": {
-    "run_date": "2026-05-08",
+    "run_date": "2026-05-11",
     "overall_status": "success",
     "cockpit_status": "success",
     "drive_mirror_status": "success",
@@ -27,18 +27,18 @@
     "failing_checks": []
   },
   "selfverify": {
-    "overall": "WARN",
+    "overall": "FAIL",
     "counts": {
-      "pass": 38,
+      "pass": 35,
       "warn": 1,
-      "fail": 0
+      "fail": 1
     },
-    "generated_at": "2026-05-08T14:00:18Z",
-    "report_filename": "everpass-bridge-and-mobile-health-2026-05-08.json",
+    "generated_at": "2026-05-11T14:00:02Z",
+    "report_filename": "everpass-bridge-and-mobile-health-2026-05-11.json",
     "report_present": true
   },
   "freshness": {
-    "bridge_status_mtime": "2026-05-08T16:04:16Z",
-    "morning_status_mtime": "2026-05-09T05:57:17Z"
+    "bridge_status_mtime": "2026-05-10T16:04:20Z",
+    "morning_status_mtime": "2026-05-11T14:56:46Z"
   }
 }

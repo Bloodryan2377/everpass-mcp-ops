@@ -1,35 +1,14 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-09T05:57:17Z",
+  "generated_at": "2026-05-11T14:56:47Z",
   "morning_brief": {
     "available": true,
-    "date": "2026-05-08",
-    "source_mtime": "2026-05-08T15:16:47Z",
+    "date": "2026-05-11",
+    "source_mtime": "2026-05-11T12:31:02Z",
     "preview_truncated": true,
-    "preview": "# EverPass Morning Brief — Friday, May 08, 2026\n\n---\n\n## Critical / Time-Sensitive\n\n1. **Samsung CTV Launch — T-12 Days (2026-05-20)** | Separate Agreement drafted, NOT executed. 12 days to launch. Execute agreement immediately — no launch without signed contract.\n\n2. **Charter Exhibit A + B — OVERDUE (23 Days + 7 Days)** | Exhibit A (NFLST pricing) due 2026-04-15 (23 days overdue). Exhibit B (Company Approved Offers) due 2026-05-01 (7 days overdue). Both undelivered creates breach exposure; blocks Chili's co-sell pitch. Deliver today.\n\n3. **TWDC/ESPN — McIntosh Track A/B Direction OVERDUE 16 Days** | Danielle McIntosh direction was due 2026-04-22. No response logged. NFL ~10% ESPN equity stake changes leverage; licensed content ($2M-$5M) vs. DMVPD fallback (~$33M-$40M) decision needed. Escalate today.\n\n4. **Comcast Amendment No. 1 — Lapsed 2026-04-15 (23 Days)** | Amendment requires updated NFLST retail pricing + Base Referral Fees (Exhibit A). Deadline passed; deal in limbo. Restart with new effective date.\n\n5. **NBCU / Peacock — CRITICAL Mortality Risk** | ~15 months to term expiration (2027-07-31). NotebookLM flags CRITICAL. No new intelligence since April 11. Initiate renewal now; time compression will worsen leverage.\n\n**RESOLVED SINCE LAST BRIEF:** Victory+ NWSL Amendment — SIGNED 2026-05-07 (Ryan confirmed in Today's Focus). Material legal exposure resolved after 15+ days unsigned.\n\n---\n\n## Active Deal Status\n\n| Partner | Status | Current State | Next Action | Deadline |\n|---------|--------|---------------|-------------|----------|\n| Charter | Active | Exhibit A + B overdue; 3 diligence Qs (venue universe, multiplier methodology, sub-category calibration); Reversion Election clause active; Chili co-sell ready | Deliver Exhibit A + B; send diligence responses | A: LAPSED 4/15; B: LAPSED 5/1; F&B tiers: 5/15 |\n| ESPN / TWDC | Active | Apr 13 draft resolves: HDCP (720p L3 OK), venue auth (FCO+hardware), casino tiers; Rate Card MFN + DAI % still open; NFL ~10% ESPN equity stake confirmed | Escalate McIntosh Track A/B; finalize DAI %; confirm Rate Card MFN | McIntosh OVERDUE 16 days |\n| DIRECTV | Pre-Litigation | SymphonyAI audit demand open; false claims in Mar 18 press release documented | Legal response to demand letter | Ongoing |\n| Victory+ | Active — SIGNED | NWSL amendment SIGNED 2026-05-07. NWSL operational. | Monitor post-execution obligations | Resolved |\n| Comcast | TBD | Amendment No. 1 lapsed 4/15; bounty model/self-provisioning/ST inclusion undefined | Deliver NFLST pricing Exhibit A; restart amendment | LAPSED 23 days |\n| NBCU / Peacock | Active | CRITICAL mortality risk; term expires 2027-07-31 (~15 months) | Initiate renewal immediately | Term exp: 2027-07-31 |\n| WBD | Active | Long-form agreement confirmed (Harri Hoffberg counterpart per W19) | Send rate card; advance long-form draft | Rate card outstanding |\n| Netflix Boxing | Near Close | Event report overdue ~22 days (was due 2026-04-16) | Deliver event report | OVERDUE 22 days |\n| Marquee / Sinclair | Active | Paused; Go/No-Go; Sinclair removed packaging via Apr 3 redline | Make Go/No-Go decision | Decision required |\n| NBA League Pass | Active | Financial model discrepancies; draft delayed; Apr 11 action items open | Resolve financial gaps; advance draft | Active |\n| NHL | Active | No new activity since 2026-04-11 | Follow up | No current deadline |\n| CHSN | Live | Unresolved deadlines per Apr 11 extraction | Review CHSN action items | Active |\n| Monumental | Near Close | Last activity 2026-04-11; term sheet final | Advance to execution | Near close |\n| NESN | Active | Follow-up window elapsed 2026-04-19; Peter Plaehn thread active 2026-05-07 (via Zapier Inbox) | Re-engage — thread is live | OVERDUE |\n| MSG | Active | NTD clauses open; term length + launch date TBD | Advance redline | March 2027 launch target |\n| YouTube TV | Active / Pre-Contract | 3 action items added tracker row 47 (5/6 pipeline) | Advance contract | Pre-contract |",
-    "critical_count": 5,
-    "critical": [
-      {
-        "title": "Samsung CTV Launch — T-12 Days (2026-05-20)",
-        "body": "| Separate Agreement drafted, NOT executed. 12 days to launch. Execute agreement immediately — no launch without signed contract."
-      },
-      {
-        "title": "Charter Exhibit A + B — OVERDUE (23 Days + 7 Days)",
-        "body": "| Exhibit A (NFLST pricing) due 2026-04-15 (23 days overdue). Exhibit B (Company Approved Offers) due 2026-05-01 (7 days overdue). Both undelivered creates breach exposure; blocks Chili's co-sell pitch. Deliver today."
-      },
-      {
-        "title": "TWDC/ESPN — McIntosh Track A/B Direction OVERDUE 16 Days",
-        "body": "| Danielle McIntosh direction was due 2026-04-22. No response logged. NFL ~10% ESPN equity stake changes leverage; licensed content ($2M-$5M) vs. DMVPD fallback (~$33M-$40M) decision needed. Escalate today."
-      },
-      {
-        "title": "Comcast Amendment No. 1 — Lapsed 2026-04-15 (23 Days)",
-        "body": "| Amendment requires updated NFLST retail pricing + Base Referral Fees (Exhibit A). Deadline passed; deal in limbo. Restart with new effective date."
-      },
-      {
-        "title": "NBCU / Peacock — CRITICAL Mortality Risk",
-        "body": "| ~15 months to term expiration (2027-07-31). NotebookLM flags CRITICAL. No new intelligence since April 11. Initiate renewal now; time compression will worsen leverage."
-      }
-    ]
+    "preview": "# EverPass Morning Brief — Monday, May 11, 2026\n\n**Generated:** 05:17 ET  |  **Calendar:** 0 events  |  **Pipeline:** STALE 5+ days (auto-pipeline down)  |  **NLM:** W19 (2026-05-04, 40/40)\n\n---\n\n## Critical / Time-Sensitive\n\n**1. SAMSUNG CTV — T-10 DAYS UNSIGNED** (launch 2026-05-20)\n- Separate Agreement sent April 4. Chi Tung silent 39+ days.\n- Draft Option B ready: EVERPASS TOOLS/Cockpit/_support/drafts/samsung-escalation-20260509.md\n- ACTION TODAY: Send Option B — escalate to Annie O'Brien (a1.obrien@samsung.com), CC Chi Tung (chi.tung@samsung.com). Annie introduced Chi Feb 2026. Send now or miss launch window.\n\n**2. CHARTER EXHIBIT A+B — LANGE TRIGGER TOMORROW (5/12 AM)**\n- Exhibit A: 26 days overdue (due April 15). Exhibit B: 10 days overdue (due May 1).\n- Taylor Holden said \"end of week\" on 5/5 — still no counter.\n- Draft ready: EVERPASS TOOLS/Cockpit/_support/drafts/charter-exhibit-ab-chase-20260509.md\n- ACTION: If no Holden reply by 5/12 AM, Kaplan pings David Lange (David.Lange@charter.com) directly.\n- Charter Hospitality/F&B pricing tiers also due May 15.\n\n**3. NESN — PLAEHN DEADLINE WEDNESDAY (5/13)**\n- Bob Plaehn chased Ryan twice on 5/5. Owe reply on NESN v7.\n- \"Reputational drag\" warning if no response. 5 business days from 5/5 = 5/12 cutoff.\n- Draft ready: EVERPASS TOOLS/Cockpit/_support/drafts/nesn-plaehn-response-20260509.md\n- ACTION: Reply today. Verify Plaehn email before send.\n\n**4. TWDC/ESPN — COLE SILENT 5 DAYS** (McIntosh Track A)\n- Ryan sent offer in Word format per Cole request on 5/6. No reply.\n- Track B (separate TWDC McIntosh items) also 17+ days overdue.\n- Draft ready: EVERPASS TOOLS/Cockpit/_support/drafts/twdc-cole-followup-20260509.md\n- ACTION: Send Cole followup today. Verify Matthew Cole email domain before send.\n\n**5. DIRECTV — DEMAND LETTER / C&D STATUS** (Kelley Drye)\n- $65M+ Second Payment demand + gross underpayments ($3,544,623 / net $2,032,864).\n- C&Ds targeting: (1) DIRECTV corporate; (2) PCG/Pacific Concepts Group (George Cain, CEO — largest DIRECTV commercial dealer).\n- SymphonyAI audit demand letter is SEPARATE from the C&Ds.\n- Draft status check: EVERPASS TOOLS/Cockpit/_support/drafts/directv-santolli-status-check-20260509.md\n- ACTION: Status check to Brie Santolli (BSantolli@KelleyDrye.com), CC Michael Lynch + AKaplan.\n\n---",
+    "critical_count": 0,
+    "critical": []
   },
   "deals": [
     {
@@ -106,7 +85,7 @@
     }
   ],
   "partner_todos": {
-    "total": 181,
+    "total": 189,
     "items": [
       {
         "id": "intel:amazon:fully-executed-commercial-premises-license-in-place-everpass",
@@ -189,7 +168,7 @@
         "priority_hint": "high"
       }
     ],
-    "last_extracted_at": "2026-05-09T05:57:11Z"
+    "last_extracted_at": "2026-05-11T14:56:43Z"
   },
   "bridge_signals": [
     {
@@ -320,113 +299,89 @@
       "failed": 0
     },
     "last_answered_at": "2026-04-26T15:35:00Z",
-    "feed_generated_at": "2026-05-09T05:57:17Z"
+    "feed_generated_at": "2026-05-11T14:56:47Z"
   },
   "meetings": {
     "today": {
-      "date": "2026-05-08",
+      "date": "2026-05-11",
       "available": true,
       "items": [
         {
-          "meeting_id": "m_cd6364c0",
-          "start_local": "15:00",
-          "title": "April Product Demo",
+          "meeting_id": null,
+          "start_local": "12:00",
+          "title": null,
           "partner": null,
           "prep": [],
-          "source_calendar": "Outlook"
+          "source_calendar": null
         },
         {
-          "meeting_id": "m_3fbd72c3",
-          "start_local": "16:00",
-          "title": "LG/EP - catchup",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "Outlook"
-        },
-        {
-          "meeting_id": "m_87de535c",
+          "meeting_id": null,
           "start_local": "14:00",
-          "title": "Canceled: NFST Readiness Meeting",
+          "title": null,
           "partner": null,
           "prep": [],
-          "source_calendar": "Outlook"
-        },
-        {
-          "meeting_id": "m_662d94bb",
-          "start_local": "14:00",
-          "title": "NFLST Readiness Meeting",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "Outlook"
+          "source_calendar": null
         }
       ]
     },
     "tomorrow": {
-      "date": "2026-05-09",
+      "date": "2026-05-12",
       "available": true,
       "items": [
         {
-          "meeting_id": "m_37a933db",
-          "start_local": "11:30",
-          "title": "Content Pipeline",
-          "partner": "Victory+",
+          "meeting_id": null,
+          "start_local": "11:00",
+          "title": null,
+          "partner": null,
           "prep": [],
-          "source_calendar": "Calendar"
+          "source_calendar": null
         },
         {
-          "meeting_id": "m_9f60dd6c",
+          "meeting_id": null,
           "start_local": "13:00",
-          "title": "Marketing/Content catchup",
+          "title": null,
           "partner": null,
           "prep": [],
-          "source_calendar": "Calendar"
+          "source_calendar": null
         },
         {
-          "meeting_id": "m_2e55fa92",
+          "meeting_id": null,
           "start_local": "14:00",
-          "title": "Canceled: NFST Readiness Meeting",
+          "title": null,
           "partner": null,
           "prep": [],
-          "source_calendar": "Calendar"
+          "source_calendar": null
         },
         {
-          "meeting_id": "m_2c71e627",
-          "start_local": "14:00",
-          "title": "NFLST Readiness Meeting",
+          "meeting_id": null,
+          "start_local": "14:30",
+          "title": null,
           "partner": null,
           "prep": [],
-          "source_calendar": "Calendar"
+          "source_calendar": null
         },
         {
-          "meeting_id": "m_7bba2117",
-          "start_local": "14:00",
-          "title": "EverPass Mediacom Discussion",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "Calendar"
-        },
-        {
-          "meeting_id": "m_98ae7e68",
+          "meeting_id": null,
           "start_local": "15:00",
-          "title": "April Product Demo",
+          "title": null,
           "partner": null,
           "prep": [],
-          "source_calendar": "Calendar"
+          "source_calendar": null
         },
         {
-          "meeting_id": "m_21a38935",
-          "start_local": "16:00",
-          "title": "LG/EP - catchup",
+          "meeting_id": null,
+          "start_local": "17:00",
+          "title": null,
           "partner": null,
           "prep": [],
-          "source_calendar": "Calendar"
+          "source_calendar": null
         }
       ]
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-05-09T05:57:16Z",
-    "bridge_cache_mtime": "2026-05-08T16:04:16Z",
-    "meetings_today_mtime": "2026-05-09T02:56:00Z"
+    "cockpit_data_mtime": "2026-05-11T14:56:46Z",
+    "bridge_cache_mtime": "2026-05-10T16:04:20Z",
+    "meetings_today_mtime": "2026-05-11T14:38:02Z"
   }
 }
