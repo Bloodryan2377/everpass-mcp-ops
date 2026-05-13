@@ -1,210 +1,220 @@
 {
   "schema": "epc-meetings/v1",
   "source": "claude-scheduled-zapier-mcp",
-  "generated_at": "2026-05-11T14:38:02.275455Z",
-  "tz": "US/Eastern",
-  "date": "2026-05-12",
+  "generated_at_utc": "2026-05-13T17:39:44Z",
+  "generated_at_local": "2026-05-13T13:39:44-0400",
+  "errors": [],
+  "date": "2026-05-14",
+  "count": 9,
   "meetings": [
     {
-      "subject": "Hold",
-      "start_local": "11:00",
-      "end_local": "12:45",
-      "start_iso": "2026-05-12T11:00:00-04:00",
-      "end_iso": "2026-05-12T12:45:00-04:00",
-      "date_local": "2026-05-12",
-      "location": "",
-      "attendees": [],
-      "attendees_count": 0,
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "subject": "EverPass Mediacom Discussion",
+      "start_local": "12:00",
+      "end_local": "12:30",
+      "start_utc": "2026-05-14T16:00:00Z",
+      "end_utc": "2026-05-14T16:30:00Z",
+      "local_date": "2026-05-14",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        "Mark Finch",
+        "Ryan Blood",
+        "Tapan Dandnaik",
+        "Penny Kurdyla"
+      ],
+      "attendee_count": 4,
+      "is_cancelled": false
     },
     {
-      "subject": "Management Sync",
-      "start_local": "13:00",
-      "end_local": "14:30",
-      "start_iso": "2026-05-12T13:00:00-04:00",
-      "end_iso": "2026-05-12T14:30:00-04:00",
-      "date_local": "2026-05-12",
+      "subject": "Cross Functional Standup",
+      "start_local": "12:00",
+      "end_local": "12:30",
+      "start_utc": "2026-05-14T16:00:00Z",
+      "end_utc": "2026-05-14T16:30:00Z",
+      "local_date": "2026-05-14",
       "location": "CT - Conference Room",
       "attendees": [
-        {
-          "name": "Alex Kaplan",
-          "address": "AKaplan@EverPass.com"
-        },
-        {
-          "name": "Bryan Icenhower",
-          "address": "bicenhower@EverPass.com"
-        },
-        {
-          "name": "Tim Marangola",
-          "address": "tmarangola@EverPass.com"
-        },
-        {
-          "name": "Amy Schiller",
-          "address": "aschiller@EverPass.com"
-        },
-        {
-          "name": "Stephen Tucker",
-          "address": "STucker@EverPass.com"
-        },
-        {
-          "name": "Alex Chan",
-          "address": "AChan@EverPass.com"
-        },
-        {
-          "name": "Christi DeVed",
-          "address": "cdeved@EverPass.com"
-        },
-        {
-          "name": "Kate Frydryk",
-          "address": "kfrydryk@EverPass.com"
-        },
-        {
-          "name": "Matt Gibbs",
-          "address": "mgibbs@EverPass.com"
-        },
-        {
-          "name": "Nick Clessuras",
-          "address": "nclessuras@EverPass.com"
-        },
-        {
-          "name": "Noah Fischbach",
-          "address": "NFischbach@EverPass.com"
-        },
-        {
-          "name": "Tabare Caorsi",
-          "address": "tcaorsi@EverPass.com"
-        },
-        {
-          "name": "Suzanne Malmloff-Pawula",
-          "address": "smalmloffpawula@everpass.com"
-        },
-        {
-          "name": "Horacio Prieto",
-          "address": "hprieto@everpass.com"
-        },
-        {
-          "name": "Ryan Blood",
-          "address": "rblood@EverPass.com"
-        },
-        {
-          "name": "Susan Swanson",
-          "address": "sswanson@EverPass.com"
-        },
-        {
-          "name": "Joshua Horowitz",
-          "address": "jhorowitz@EverPass.com"
-        }
+        "Anna Hewitt",
+        "Suzanne Malmloff-Pawula",
+        "Alex Chan",
+        "Amy DePratti",
+        "Angie Hutcheson",
+        "Carla Del Pup",
+        "Christi DeVed",
+        "Christina McMichael",
+        "Curt Neteland",
+        "Gaston Rabaiotti",
+        "Jaime Colosimo",
+        "Jamey Walsh",
+        "Kate Frydryk",
+        "Maggie Dunne",
+        "Noah Fischbach",
+        "Nick Vakili",
+        "Ryan Karstad",
+        "Tim Marangola",
+        "Will Ruiz",
+        "Horacio Prieto",
+        "Molly McGavock",
+        "Gandall Meyers",
+        "Elizabeth Balch",
+        "Ryan Blood",
+        "Amy Schiller",
+        "Susan Swanson",
+        "Álvaro Rameau",
+        "Melissa Herrington",
+        "Min Adam",
+        "Max Semler",
+        "Alex Kaplan",
+        "Bryan Icenhower",
+        "Matt Gibbs",
+        "Nick Clessuras",
+        "Stephen Tucker",
+        "Tabare Caorsi",
+        "CT - Conference Room",
+        "Grant Park Conference Room (10) - Chicago",
+        "Denver - Breckenridge Conference Room",
+        "Bobby Muller",
+        "Darren Miranda",
+        "Mary Karol",
+        "Trung Luu",
+        "Joshua Horowitz",
+        "Matthew Santos",
+        "Ken Hernandez"
       ],
-      "attendees_count": 17,
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "attendee_count": 46,
+      "is_cancelled": false
+    },
+    {
+      "subject": "Weekly Coffee",
+      "start_local": "13:00",
+      "end_local": "14:00",
+      "start_utc": "2026-05-14T17:00:00Z",
+      "end_utc": "2026-05-14T18:00:00Z",
+      "local_date": "2026-05-14",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        "Ryan Karstad",
+        "Noah Fischbach"
+      ],
+      "attendee_count": 2,
+      "is_cancelled": false
     },
     {
       "subject": "EverPass + AccuWeather Agreement",
       "start_local": "14:00",
       "end_local": "14:30",
-      "start_iso": "2026-05-12T14:00:00-04:00",
-      "end_iso": "2026-05-12T14:30:00-04:00",
-      "date_local": "2026-05-12",
+      "start_utc": "2026-05-14T18:00:00Z",
+      "end_utc": "2026-05-14T18:30:00Z",
+      "local_date": "2026-05-14",
       "location": "https://accuweather.zoom.us/j/89460251783?from=addon",
       "attendees": [
-        {
-          "name": "Patrick McCormack",
-          "address": "Patrick.McCormack@accuweather.com"
-        },
-        {
-          "name": "Ryan Blood",
-          "address": "rblood@EverPass.com"
-        },
-        {
-          "name": "Johanna Fessler",
-          "address": "Johanna.Fessler@accuweather.com"
-        }
+        "Patrick McCormack",
+        "Ryan Blood",
+        "Johanna Fessler"
       ],
-      "attendees_count": 3,
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "attendee_count": 3,
+      "is_cancelled": false
     },
     {
-      "subject": "Weekly Touch Base",
+      "subject": "FW: Hardware GTM Standup",
       "start_local": "14:30",
       "end_local": "15:00",
-      "start_iso": "2026-05-12T14:30:00-04:00",
-      "end_iso": "2026-05-12T15:00:00-04:00",
-      "date_local": "2026-05-12",
+      "start_utc": "2026-05-14T18:30:00Z",
+      "end_utc": "2026-05-14T19:00:00Z",
+      "local_date": "2026-05-14",
       "location": "Microsoft Teams Meeting",
       "attendees": [
-        {
-          "name": "Mary Karol",
-          "address": "mkarol@EverPass.com"
-        },
-        {
-          "name": "Amy Schiller",
-          "address": "aschiller@EverPass.com"
-        }
+        "Joshua Horowitz",
+        "Alex Kaplan",
+        "Tabare Caorsi",
+        "Nick Clessuras",
+        "Christi DeVed",
+        "Noah Fischbach",
+        "Kate Frydryk",
+        "Matt Gibbs",
+        "Suzanne Malmloff-Pawula",
+        "Tim Marangola",
+        "Horacio Prieto",
+        "Trung Luu",
+        "Curt Neteland",
+        "Ryan Blood",
+        "Anna Hewitt",
+        "Darren Miranda",
+        "Melissa Herrington",
+        "Alex Chan",
+        "Christina McMichael",
+        "Jamey Walsh",
+        "Amy Schiller",
+        "Álvaro Rameau",
+        "Angie Hutcheson",
+        "Stephen Tucker",
+        "Bryan Icenhower"
       ],
-      "attendees_count": 2,
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "attendee_count": 25,
+      "is_cancelled": false
     },
     {
-      "subject": "FW: EverPass 2026/2027 Launch",
+      "subject": "Youtube/ EverPass - Product",
       "start_local": "15:00",
-      "end_local": "16:00",
-      "start_iso": "2026-05-12T15:00:00-04:00",
-      "end_iso": "2026-05-12T16:00:00-04:00",
-      "date_local": "2026-05-12",
-      "location": "https://charteruc.webex.com/charteruc/j.php?MTID=m607b0fbdbcb6e29d5abe4af50e3012b2",
+      "end_local": "15:45",
+      "start_utc": "2026-05-14T19:00:00Z",
+      "end_utc": "2026-05-14T19:45:00Z",
+      "local_date": "2026-05-14",
+      "location": "Microsoft Teams Meeting",
       "attendees": [
-        {
-          "name": "Charter/Spectrum attendees",
-          "address": "multiple@charter.com"
-        },
-        {
-          "name": "Ryan Blood",
-          "address": "rblood@EverPass.com"
-        },
-        {
-          "name": "Kate Frydryk",
-          "address": "kfrydryk@EverPass.com"
-        },
-        {
-          "name": "Trung Luu",
-          "address": "tluu@EverPass.com"
-        },
-        {
-          "name": "Angie Hutcheson",
-          "address": "ahutcheson@everpass.com"
-        },
-        {
-          "name": "Álvaro Rameau",
-          "address": "arameau@everpass.com"
-        }
+        "Alex Kaplan",
+        "Ryan Blood",
+        "Noah Fischbach",
+        "Tony Archibong",
+        "joshyang@google.com"
       ],
-      "attendees_count": 80,
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "attendee_count": 5,
+      "is_cancelled": false
     },
     {
-      "subject": "Weekly Catchup",
+      "subject": "NBA/EP catchup",
+      "start_local": "15:30",
+      "end_local": "16:00",
+      "start_utc": "2026-05-14T19:30:00Z",
+      "end_utc": "2026-05-14T20:00:00Z",
+      "local_date": "2026-05-14",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        "Cicchillo, Brett"
+      ],
+      "attendee_count": 1,
+      "is_cancelled": false
+    },
+    {
+      "subject": "Everpass<>Netcom",
+      "start_local": "16:00",
+      "end_local": "16:30",
+      "start_utc": "2026-05-14T20:00:00Z",
+      "end_utc": "2026-05-14T20:30:00Z",
+      "local_date": "2026-05-14",
+      "location": "",
+      "attendees": [
+        "Adam Goodman",
+        "Nick Clessuras",
+        "tim.mcdonald@net-com.com",
+        "Ryan Blood"
+      ],
+      "attendee_count": 4,
+      "is_cancelled": false
+    },
+    {
+      "subject": "Trung <> Ryan",
       "start_local": "17:00",
       "end_local": "17:30",
-      "start_iso": "2026-05-12T17:00:00-04:00",
-      "end_iso": "2026-05-12T17:30:00-04:00",
-      "date_local": "2026-05-12",
+      "start_utc": "2026-05-14T21:00:00Z",
+      "end_utc": "2026-05-14T21:30:00Z",
+      "local_date": "2026-05-14",
       "location": "Microsoft Teams Meeting",
       "attendees": [
-        {
-          "name": "Melissa Herrington",
-          "address": "mherrington@EverPass.com"
-        }
+        "Trung Luu",
+        "Ryan Blood"
       ],
-      "attendees_count": 1,
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "attendee_count": 2,
+      "is_cancelled": false
     }
-  ],
-  "count": 6,
-  "errors": []
+  ]
 }

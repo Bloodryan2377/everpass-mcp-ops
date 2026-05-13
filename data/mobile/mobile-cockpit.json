@@ -1,12 +1,12 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-11T14:56:47Z",
+  "generated_at": "2026-05-13T17:52:15Z",
   "morning_brief": {
     "available": true,
-    "date": "2026-05-11",
-    "source_mtime": "2026-05-11T12:31:02Z",
+    "date": "2026-05-13",
+    "source_mtime": "2026-05-13T14:17:13Z",
     "preview_truncated": true,
-    "preview": "# EverPass Morning Brief — Monday, May 11, 2026\n\n**Generated:** 05:17 ET  |  **Calendar:** 0 events  |  **Pipeline:** STALE 5+ days (auto-pipeline down)  |  **NLM:** W19 (2026-05-04, 40/40)\n\n---\n\n## Critical / Time-Sensitive\n\n**1. SAMSUNG CTV — T-10 DAYS UNSIGNED** (launch 2026-05-20)\n- Separate Agreement sent April 4. Chi Tung silent 39+ days.\n- Draft Option B ready: EVERPASS TOOLS/Cockpit/_support/drafts/samsung-escalation-20260509.md\n- ACTION TODAY: Send Option B — escalate to Annie O'Brien (a1.obrien@samsung.com), CC Chi Tung (chi.tung@samsung.com). Annie introduced Chi Feb 2026. Send now or miss launch window.\n\n**2. CHARTER EXHIBIT A+B — LANGE TRIGGER TOMORROW (5/12 AM)**\n- Exhibit A: 26 days overdue (due April 15). Exhibit B: 10 days overdue (due May 1).\n- Taylor Holden said \"end of week\" on 5/5 — still no counter.\n- Draft ready: EVERPASS TOOLS/Cockpit/_support/drafts/charter-exhibit-ab-chase-20260509.md\n- ACTION: If no Holden reply by 5/12 AM, Kaplan pings David Lange (David.Lange@charter.com) directly.\n- Charter Hospitality/F&B pricing tiers also due May 15.\n\n**3. NESN — PLAEHN DEADLINE WEDNESDAY (5/13)**\n- Bob Plaehn chased Ryan twice on 5/5. Owe reply on NESN v7.\n- \"Reputational drag\" warning if no response. 5 business days from 5/5 = 5/12 cutoff.\n- Draft ready: EVERPASS TOOLS/Cockpit/_support/drafts/nesn-plaehn-response-20260509.md\n- ACTION: Reply today. Verify Plaehn email before send.\n\n**4. TWDC/ESPN — COLE SILENT 5 DAYS** (McIntosh Track A)\n- Ryan sent offer in Word format per Cole request on 5/6. No reply.\n- Track B (separate TWDC McIntosh items) also 17+ days overdue.\n- Draft ready: EVERPASS TOOLS/Cockpit/_support/drafts/twdc-cole-followup-20260509.md\n- ACTION: Send Cole followup today. Verify Matthew Cole email domain before send.\n\n**5. DIRECTV — DEMAND LETTER / C&D STATUS** (Kelley Drye)\n- $65M+ Second Payment demand + gross underpayments ($3,544,623 / net $2,032,864).\n- C&Ds targeting: (1) DIRECTV corporate; (2) PCG/Pacific Concepts Group (George Cain, CEO — largest DIRECTV commercial dealer).\n- SymphonyAI audit demand letter is SEPARATE from the C&Ds.\n- Draft status check: EVERPASS TOOLS/Cockpit/_support/drafts/directv-santolli-status-check-20260509.md\n- ACTION: Status check to Brie Santolli (BSantolli@KelleyDrye.com), CC Michael Lynch + AKaplan.\n\n---",
+    "preview": "# EverPass Morning Brief — Wednesday, May 13, 2026\n\nGenerated: 2026-05-13 05:17 ET | Auto-pipeline STALE 7+ days | NLM frozen at W19 (2026-05-04)\n\n---\n\n## Critical / Time-Sensitive\n\n1. NESN Plaehn Deadline — TODAY (2026-05-13): Response to April 12 clean term sheet v7 due today\n   (Peter Plaehn / Goldwyn Harper, 5-business-day window). No overnight confirmation. MG mechanics\n   (3.25x flat vs. escalator) and Gate 3 blockers unresolved. Escalate directly if no response by EOD.\n\n2. Samsung CTV — T-7 Days, UNSIGNED (launch 2026-05-20): Separate Agreement unsigned. Option B\n   draft ready. NLM W19 shows nothing new from Samsung. Send Option B today to Annie O'Brien\n   (a1.obrien@samsung.com), CC Chi Tung. No margin.\n\n3. Charter Exhibit A+B Overdue — Post-Launch-Call Follow-Up: Exhibit A overdue since April 15\n   (28 days), Exhibit B overdue since May 1 (12 days). Yesterday's 3pm ET EverPass 2026/2027 Launch\n   call (Ligocki/Holden/80+ Charter staff) outcome not yet captured. Charter Hospitality/F&B\n   deadline is May 15 (2 days). Confirm call outcome and path forward on both exhibits today.\n\n4. TWDC Cole Silent 6+ Days — Disney CP Blocker CLEARED: Danielle McIntosh Track A/B direction\n   was due April 16 (27 days overdue). Cole silent. CRITICAL POSITIVE: W19 NLM confirms Disney\n   content protection blocker CLEARED — 720p/L3 (Widevine L3/FairPlay/PlayReady) accepted; FCO +\n   hardware dual-auth deemed compliant per Section 10 April 13 draft. Largest technical threat to\n   deal eliminated. Re-engage Cole immediately with this resolution.\n\n5. DIRECTV — SymphonyAI Audit Lapsed (May 1 Deadline +12 Days): SymphonyAI file access demand\n   had May 1 deadline; no DTV response confirmed. Kelley Drye (Brianna Santolli) follow-up required.\n   Net claim $2,634,239.50. DTV dealers still spreading misinformation per W19 NLM. Board Go/No-Go\n   on filing complaint remains open.\n\n---\n\n## Active Deal Status\n\nPartner          | State                  | Next Action                              | Deadline\nSamsung CTV      | UNSIGNED T-7           | Send Option B to Annie O'Brien           | TODAY / 5/20\nNESN             | Awaiting Plaehn reply  | Escalate if silent EOD                   | TODAY\nCharter          | Launch call done 5/12  | Confirm Exhibit A+B; F&B tiers due 5/15  | 5/15",
     "critical_count": 0,
     "critical": []
   },
@@ -168,7 +168,7 @@
         "priority_hint": "high"
       }
     ],
-    "last_extracted_at": "2026-05-11T14:56:43Z"
+    "last_extracted_at": "2026-05-13T17:52:10Z"
   },
   "bridge_signals": [
     {
@@ -299,13 +299,29 @@
       "failed": 0
     },
     "last_answered_at": "2026-04-26T15:35:00Z",
-    "feed_generated_at": "2026-05-11T14:56:47Z"
+    "feed_generated_at": "2026-05-13T17:52:15Z"
   },
   "meetings": {
     "today": {
-      "date": "2026-05-11",
+      "date": "2026-05-13",
       "available": true,
       "items": [
+        {
+          "meeting_id": null,
+          "start_local": "11:00",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "11:30",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
+        },
         {
           "meeting_id": null,
           "start_local": "12:00",
@@ -321,16 +337,48 @@
           "partner": null,
           "prep": [],
           "source_calendar": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "14:00",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "15:00",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "15:30",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
         }
       ]
     },
     "tomorrow": {
-      "date": "2026-05-12",
+      "date": "2026-05-14",
       "available": true,
       "items": [
         {
           "meeting_id": null,
-          "start_local": "11:00",
+          "start_local": "12:00",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "12:00",
           "title": null,
           "partner": null,
           "prep": [],
@@ -370,6 +418,22 @@
         },
         {
           "meeting_id": null,
+          "start_local": "15:30",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "16:00",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
+        },
+        {
+          "meeting_id": null,
           "start_local": "17:00",
           "title": null,
           "partner": null,
@@ -380,8 +444,8 @@
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-05-11T14:56:46Z",
-    "bridge_cache_mtime": "2026-05-10T16:04:20Z",
-    "meetings_today_mtime": "2026-05-11T14:38:02Z"
+    "cockpit_data_mtime": "2026-05-13T17:52:13Z",
+    "bridge_cache_mtime": "2026-05-13T16:05:58Z",
+    "meetings_today_mtime": "2026-05-13T17:39:44Z"
   }
 }

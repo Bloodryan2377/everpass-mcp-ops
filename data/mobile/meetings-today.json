@@ -1,55 +1,119 @@
 {
   "schema": "epc-meetings/v1",
   "source": "claude-scheduled-zapier-mcp",
-  "generated_at": "2026-05-11T14:38:02.275455Z",
-  "tz": "US/Eastern",
-  "date": "2026-05-11",
+  "generated_at_utc": "2026-05-13T17:39:44Z",
+  "generated_at_local": "2026-05-13T13:39:44-0400",
+  "errors": [],
+  "date": "2026-05-13",
+  "count": 7,
   "meetings": [
     {
-      "subject": "Cross Functional Standup",
-      "start_local": "12:00",
-      "end_local": "12:30",
-      "start_iso": "2026-05-11T12:00:00-04:00",
-      "end_iso": "2026-05-11T12:30:00-04:00",
-      "date_local": "2026-05-11",
-      "location": "CT - Conference Room",
+      "subject": "Event canceled: Apple/Everpass Integration Weekly",
+      "start_local": "11:00",
+      "end_local": "11:30",
+      "start_utc": "2026-05-13T15:00:00Z",
+      "end_utc": "2026-05-13T15:30:00Z",
+      "local_date": "2026-05-13",
+      "location": "Virtual Conference One-Time Room",
       "attendees": [
-        {
-          "name": "EverPass team (~45 attendees)",
-          "address": "team@EverPass.com"
-        },
-        {
-          "name": "Ryan Blood",
-          "address": "rblood@EverPass.com"
-        }
+        "Joseph Barnao",
+        "Ryan Blood"
       ],
-      "attendees_count": 45,
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "attendee_count": 2,
+      "is_cancelled": true
+    },
+    {
+      "subject": "Meeting with Amazon - Culver City",
+      "start_local": "11:30",
+      "end_local": "13:00",
+      "start_utc": "2026-05-13T15:30:00Z",
+      "end_utc": "2026-05-13T17:00:00Z",
+      "local_date": "2026-05-13",
+      "location": "",
+      "attendees": [],
+      "attendee_count": 0,
+      "is_cancelled": false
+    },
+    {
+      "subject": "Chris | Ryan Catch Up",
+      "start_local": "12:00",
+      "end_local": "13:00",
+      "start_utc": "2026-05-13T16:00:00Z",
+      "end_utc": "2026-05-13T17:00:00Z",
+      "local_date": "2026-05-13",
+      "location": "The Culver Hotel Bar & Restaurant",
+      "attendees": [
+        "Slevin, Chris",
+        "Ryan Blood"
+      ],
+      "attendee_count": 2,
+      "is_cancelled": false
+    },
+    {
+      "subject": "YouTube/ Everpass - Packaging",
+      "start_local": "14:00",
+      "end_local": "14:45",
+      "start_utc": "2026-05-13T18:00:00Z",
+      "end_utc": "2026-05-13T18:45:00Z",
+      "local_date": "2026-05-13",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        "Alex Kaplan",
+        "Ryan Blood",
+        "archibong@google.com",
+        "alwhite@google.com",
+        "radhikagiri@google.com",
+        "Noah Fischbach"
+      ],
+      "attendee_count": 6,
+      "is_cancelled": false
+    },
+    {
+      "subject": "Weekly Touch Base",
+      "start_local": "14:00",
+      "end_local": "14:30",
+      "start_utc": "2026-05-13T18:00:00Z",
+      "end_utc": "2026-05-13T18:30:00Z",
+      "local_date": "2026-05-13",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        "Mary Karol",
+        "Amy Schiller"
+      ],
+      "attendee_count": 2,
+      "is_cancelled": false
     },
     {
       "subject": "Marketing/Content catchup",
-      "start_local": "14:00",
-      "end_local": "14:30",
-      "start_iso": "2026-05-11T14:00:00-04:00",
-      "end_iso": "2026-05-11T14:30:00-04:00",
-      "date_local": "2026-05-11",
+      "start_local": "15:00",
+      "end_local": "15:30",
+      "start_utc": "2026-05-13T19:00:00Z",
+      "end_utc": "2026-05-13T19:30:00Z",
+      "local_date": "2026-05-13",
       "location": "Microsoft Teams Meeting",
       "attendees": [
-        {
-          "name": "Christi DeVed",
-          "address": "cdeved@EverPass.com"
-        },
-        {
-          "name": "Mackenzie Matheson",
-          "address": "mmatheson@EverPass.com"
-        }
+        "Christi DeVed",
+        "Mackenzie Matheson"
       ],
-      "attendees_count": 2,
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "attendee_count": 2,
+      "is_cancelled": false
+    },
+    {
+      "subject": "Dish/EverPass",
+      "start_local": "15:30",
+      "end_local": "16:30",
+      "start_utc": "2026-05-13T19:30:00Z",
+      "end_utc": "2026-05-13T20:30:00Z",
+      "local_date": "2026-05-13",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        "Brennan Tauber",
+        "Andrew LeCuyer",
+        "Alex Kaplan",
+        "Katherine.Richter@dish.com"
+      ],
+      "attendee_count": 4,
+      "is_cancelled": false
     }
-  ],
-  "count": 2,
-  "errors": []
+  ]
 }
