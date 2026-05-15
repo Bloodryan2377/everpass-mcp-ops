@@ -1,41 +1,49 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-14T15:46:52Z",
+  "generated_at": "2026-05-15T21:50:55Z",
   "morning_brief": {
     "available": true,
-    "date": "2026-05-14",
-    "source_mtime": "2026-05-14T15:45:16Z",
+    "date": "2026-05-15",
+    "source_mtime": "2026-05-15T19:01:17Z",
     "preview_truncated": true,
-    "preview": "---\n# EverPass Morning Brief — Thursday, May 14, 2026\n\n## Critical / Time-Sensitive\n\n1. **SAMSUNG CTV** — T-6 DAYS TO LAUNCH (May 20) [UNSIGNED]\n   Separate Agreement still not executed; Samsung Standard Terms revenue/ad share exemption contingent on this document. Push Annie O'Brien (a1.obrien@samsung.com), CC Chi Tung for signature today — 14:30 Hardware GTM Standup (Horowitz/Kaplan/Clessuras) is a natural escalation touchpoint.\n   **Deadline: May 20 (6 days) — action required TODAY**\n\n2. **NESN** — DEADLINE PASSED (May 13) [STATUS UNKNOWN]\n   Clean term sheet v7 (Bob Plaehn / Goldwyn Harper) deadline passed yesterday with no confirmed response. MG structure ($300K combined Yrs 1–2 / $350K/yr from Yr 3) and Gate 3 clearance remain unresolved. Escalate immediately — status unknown, check cockpit.\n   **Deadline: PASSED — escalate today**\n\n3. **CHARTER** — F&B PRICING TIERS DUE TOMORROW (May 15)\n   Hospitality/F&B tiers (Chili's co-sell, FCO sub-350 thresholds) due May 15. Exhibit A (NFLST pricing) overdue +29 days; Exhibit B (Company Approved Offers) overdue +13 days. Use 14:30 Hardware GTM Standup (Clessuras/Holden present) to confirm path forward on all three.\n   **Deadline: May 15 (tomorrow)**\n\n4. **DIRECTV** — SYMPHONYAI AUDIT DEMAND LAPSED (+13 DAYS)\n   May 1 deadline for SymphonyAI file access passed; no confirmed DTV delivery. Net underpayment claim $2,634,239.50; $65M second payment outstanding; litigation complaint near-ready. Confirm status with Brianna Santolli / Kelley Drye today.\n   **Deadline: PASSED (+13 days) — escalate immediately**\n\n5. **DISH** — CALL OCCURRED (May 13) [NOT IN DEAL TRACKER]\n   Call with Katherine Richter (Katherine.Richter@dish.com) took place yesterday; Charter-parallel packaging model discussed, Dish Business receptive. Outcome not logged in deal tracker — capture notes and define next action before details go cold.\n   **Deadline: Log today**\n\n6. **CHARTER (LANGE TRIGGER)** — STATUS UNKNOWN\n   Lange trigger was flagged for May 12 execution — no confirmed status in current context. Verify whether triggered at 14:30 Hardware GTM Standup with Clessuras.\n   **Deadline: VERIFY TODAY**\n\n7. **MARQUEE** — COUNTER-SIGNATURE OUTSTANDING\n   Alex Kaplan signed execution copy; Marquee counter-signature pending Ryan's go/no-go communication to Lee. Decision still open. A la carte only framework; long-form by July 2026.\n   **Deadline: Go/No-Go communication — no confirmed date, treat as urgent**\n\n---\n\n## Active Deal Status\n\nPartner              | Status                        | Next Action                                                  | Deadline\n---------------------|-------------------------------|--------------------------------------------------------------|----------\nSamsung CTV          | UNSIGNED — T-6 days           | Push Annie O'Brien for signature; use 14:30 GTM Standup      | May 20",
-    "critical_count": 7,
+    "preview": "---\n# EverPass Morning Brief — Friday, May 15, 2026\n\n## Critical / Time-Sensitive\n\n1. **SAMSUNG CTV** — T-5 DAYS TO LAUNCH (May 20) [UNSIGNED]\n   Separate Agreement still not executed; Samsung Standard Terms revenue/ad share exemption contingent on signature. Chi Tung confirmed today (12:33) Samsung requires participation in subscription and ad economics — this is a blocking issue. Today is the last business day before the weekend; escalate to Annie O'Brien (a1.obrien@samsung.com) and Chi Tung immediately.\n   **Deadline: May 20. 5 days remain. No signed agreement = no launch protection.**\n\n2. **CHARTER** — F&B PRICING TIERS DUE TODAY EOD [OVERDUE EXHIBITS]\n   Hospitality/F&B tiers (Chili's co-sell, FCO sub-350 thresholds) due today. Exhibit A overdue +30 days; Exhibit B overdue +14 days. Alyssa Wade's revised amendment (off 3/27 draft) requires review. Nick Clessuras's Joe Hand/Miller's Ale House pricing exposure flag must be resolved before delivery.\n   **Deadline: TODAY EOD. Deliver F&B tiers. Review Wade amendment. Clear Clessuras flag.**\n\n3. **CHARTER (LANGE TRIGGER)** — STATUS UNKNOWN [OVERDUE +3 DAYS]\n   Lange trigger was flagged for execution May 12 — no confirmed outcome visible in deal tracker. Charter's deliverable deadline is today, making this doubly urgent.\n   **Deadline: OVERDUE. Verify execution status first thing this morning — check cockpit.**\n\n4. **NESN** — DEADLINE PASSED (May 13) [STATUS UNKNOWN]\n   Clean term sheet v7 deadline (Bob Plaehn / Goldwyn Harper) passed 2 days ago. MG structure ($300K combined Yrs 1–2 / $350K/yr from Yr 3) and Gate 3 clearance remain unresolved. No confirmed response in deal tracker.\n   **Deadline: PASSED +2 days. Contact Plaehn/Harper today. Check cockpit.**\n\n5. **DIRECTV** — SYMPHONYAI AUDIT DEMAND LAPSED [OVERDUE +14 DAYS]\n   May 1 SymphonyAI file access deadline passed with no confirmed DTV delivery. Net underpayment claim $2,634,239.50; $65M second payment outstanding; litigation complaint near-ready. Brianna Santolli (Kelley Drye) drafting follow-up demand letter.\n   **Deadline: PASSED +14 days. Confirm Priesand return date with Santolli today. Align on demand letter send date.**\n\n6. **CHSN** — SECTION 5(e) LAPSED (~MARCH 29, 2026) [TOP CONTRACT RISK]\n   Economics extraction completed; however, Section 5(e) lapsed ~47 days ago with no confirmed cure or resolution in deal tracker. Status unknown — check cockpit.\n   **Deadline: LAPSED. Determine cure options and escalate. Top contract risk.**\n\n7. **DISH** — CALL NOTES NOT LOGGED (May 13)\n   Call with Katherine Richter (Katherine.Richter@dish.com) occurred May 13. Day-1 Charter-parallel model discussion noted as receptive. Deal is NOT in deal tracker.\n   **Action: Log call notes and open Dish deal record in cockpit today.**\n\n8. **NBCU** — ENO WINDOW CLOSES JULY 15, 2026 [61 DAYS]\n   Phase 2b status: NBA on Peacock not included in current grant. Exclusive Negotiating Obligation window closes July 15. No counter-response visible.\n   **Deadline: Jul 15. 61 days remain. Confirm Phase 2b scope and ENO strategy before window narrows further.**\n\n9. **COCKPIT / AUTH** — INFRASTRUCTURE DEGRADED\n   Auto-pipeline: 9th consecutive overnight miss (intraday run 2026-05-14 10:41 UTC broke streak but not stable). GWS invalid_grant 21+ days. ZAPIER_MCP_BEARER not in cockpit server. Comcast amendment placeholders (5 blank, inert at 1.0x). Victory+ WNBA amendment drafted but unsigned.\n   **Action: Resolve ZAPIER_MCP_BEARER blocker. Re-auth GWS. Do not rely on overnight auto-pipeline for deal state.**",
+    "critical_count": 9,
     "critical": [
       {
         "title": "SAMSUNG CTV",
-        "body": "— T-6 DAYS TO LAUNCH (May 20) [UNSIGNED]"
+        "body": "— T-5 DAYS TO LAUNCH (May 20) [UNSIGNED]"
+      },
+      {
+        "title": "CHARTER",
+        "body": "— F&B PRICING TIERS DUE TODAY EOD [OVERDUE EXHIBITS]"
+      },
+      {
+        "title": "CHARTER (LANGE TRIGGER)",
+        "body": "— STATUS UNKNOWN [OVERDUE +3 DAYS]"
       },
       {
         "title": "NESN",
         "body": "— DEADLINE PASSED (May 13) [STATUS UNKNOWN]"
       },
       {
-        "title": "CHARTER",
-        "body": "— F&B PRICING TIERS DUE TOMORROW (May 15)"
+        "title": "DIRECTV",
+        "body": "— SYMPHONYAI AUDIT DEMAND LAPSED [OVERDUE +14 DAYS]"
       },
       {
-        "title": "DIRECTV",
-        "body": "— SYMPHONYAI AUDIT DEMAND LAPSED (+13 DAYS)"
+        "title": "CHSN",
+        "body": "— SECTION 5(e) LAPSED (~MARCH 29, 2026) [TOP CONTRACT RISK]"
       },
       {
         "title": "DISH",
-        "body": "— CALL OCCURRED (May 13) [NOT IN DEAL TRACKER]"
+        "body": "— CALL NOTES NOT LOGGED (May 13)"
       },
       {
-        "title": "CHARTER (LANGE TRIGGER)",
-        "body": "— STATUS UNKNOWN"
+        "title": "NBCU",
+        "body": "— ENO WINDOW CLOSES JULY 15, 2026 [61 DAYS]"
       },
       {
-        "title": "MARQUEE",
-        "body": "— COUNTER-SIGNATURE OUTSTANDING"
+        "title": "COCKPIT / AUTH",
+        "body": "— INFRASTRUCTURE DEGRADED"
       }
     ]
   },
@@ -114,7 +122,7 @@
     }
   ],
   "partner_todos": {
-    "total": 200,
+    "total": 167,
     "items": [
       {
         "id": "intel:amazon:fully-executed-commercial-premises-license-in-place-everpass",
@@ -130,38 +138,6 @@
         "category": "CTV",
         "text": "EverPass Is Not Exclusive for Small Venues; Effective Exclusivity Exists at Scale — DIRECTV FOR BUSINESS simultaneously distributes Apple TV F1, MLS, and MLB Friday Night Baseball to 300,000+ commercial venues; however, DIRECTV streaming has a 20-TV cap, mean…",
         "due": null,
-        "priority_hint": "high"
-      },
-      {
-        "id": "intel:chsn:standalone-chsn-economics-are-loss-making-at-base-case-attac",
-        "partner": "CHSN",
-        "category": "RSN",
-        "text": "Standalone CHSN Economics Are Loss-Making at Base-Case Attach Rates — Financial modeling (April 12, 2026 extraction) shows that at a 4% standalone attach rate, CHSN generates only 78 subscribers and a -$39,264 gross loss in FY27; the CHSN content fee of $49.6…",
-        "due": "April 12, 2026",
-        "priority_hint": "high"
-      },
-      {
-        "id": "intel:charter:co-sell-pipeline-active-chili-s-identified-as-priority-targe",
-        "partner": "Charter",
-        "category": "Platform",
-        "text": "Co-Sell Pipeline Active — Chili's Identified as Priority Target — Charter (Spectrum) covers an estimated 84-85% of Chili's locations nationwide; EverPass and Charter discussed a joint pitch at approximately $1,400 per unit using Xumo Stream Box hardware with…",
-        "due": null,
-        "priority_hint": "high"
-      },
-      {
-        "id": "intel:comcast:amendment-no-1-adds-comcast-sales-channel-and-buy-through-re",
-        "partner": "Comcast",
-        "category": "Platform",
-        "text": "Amendment No. 1 Adds Comcast Sales Channel and Buy-Through Requirement — Amendment No. 1 (draft, April 3, 2026) significantly expands the original August 27, 2025 Referral Agreement: adds Comcast Sales as a direct sales/billing agent channel for all EverPass…",
-        "due": "April 3, 2026",
-        "priority_hint": "high"
-      },
-      {
-        "id": "intel:directv:active-legal-dispute-audit-demand-letter-issued-april-16-eve",
-        "partner": "DIRECTV",
-        "category": "Platform",
-        "text": "Active Legal Dispute — Audit Demand Letter Issued April 16 — EverPass issued a formal demand letter on April 16, 2026 invoking audit rights for the 2024-2025 NFL Season and declaring the 2023-2024 audit closed; DIRECTV owes an undisputed balance of $1,512,351…",
-        "due": "April 16",
         "priority_hint": "high"
       },
       {
@@ -195,9 +171,41 @@
         "text": "No Deal in Place; FOX Is the Only Major Broadcast Sports Provider Without an EverPass Agreement — FOX verbally committed EverPass as preferred commercial launch partner for Fox One DTC in July 2025; discussions stalled in November 2025 with no formal response…",
         "due": null,
         "priority_hint": "high"
+      },
+      {
+        "id": "intel:ion_sports:economics-gap-zero-fee-vs-paid-per-sub-everpass-proposes-zer",
+        "partner": "ION Sports",
+        "category": "Broadcast",
+        "text": "Economics Gap: Zero-Fee vs. Paid-Per-Sub — EverPass proposes zero license fee with ad pass-through as consideration; Scripps Term Sheet requires paid per-sub fees at a rate card not yet provided. Neither side has moved and no counterpart economic draft exists.",
+        "due": null,
+        "priority_hint": "high"
+      },
+      {
+        "id": "intel:mlb:rsn-distribution-is-the-strategic-prize-mlb-rsns-cover-local",
+        "partner": "MLB",
+        "category": "League",
+        "text": "RSN Distribution Is the Strategic Prize; MLB RSNs Cover Local Market Sports Beyond Baseball — The MLB RSN package would cover regional sports networks on a service-by-service, zip-code-defined territory basis; EverPass must distribute all RSN services as part…",
+        "due": null,
+        "priority_hint": "high"
+      },
+      {
+        "id": "intel:msg_gotham:april-12-2026-clean-draft-circulated-multimillion-dollar-mg-",
+        "partner": "MSG/Gotham",
+        "category": "RSN",
+        "text": "April 12, 2026 Clean Draft Circulated; Multimillion-Dollar MG Remains Unresolved — EverPass circulated a revised clean distribution agreement draft (EP 4.12.26) that retained EverPass's position of a lower MG level framed as a termination right rather than a…",
+        "due": "April 12, 2026",
+        "priority_hint": "high"
+      },
+      {
+        "id": "intel:marquee:go-no-go-decision-pending-after-april-10-exec-meeting-everpa",
+        "partner": "Marquee",
+        "category": "RSN",
+        "text": "Go/No-Go Decision Pending After April 10 Exec Meeting — EverPass CEO Alex Kaplan signed the execution copy; Marquee counter-signature is outstanding pending Ryan Blood's go/no-go communication to Lee Schlazer (Sinclair SVP Distribution) following the April 10…",
+        "due": "April 10",
+        "priority_hint": "high"
       }
     ],
-    "last_extracted_at": "2026-05-14T15:46:49Z"
+    "last_extracted_at": "2026-05-15T21:50:52Z"
   },
   "bridge_signals": [
     {
@@ -328,16 +336,16 @@
       "failed": 0
     },
     "last_answered_at": "2026-04-26T15:35:00Z",
-    "feed_generated_at": "2026-05-14T15:46:52Z"
+    "feed_generated_at": "2026-05-15T21:50:55Z"
   },
   "meetings": {
     "today": {
-      "date": "",
+      "date": "2026-05-15",
       "available": true,
       "items": [
         {
           "meeting_id": null,
-          "start_local": "12:00",
+          "start_local": "11:00",
           "title": null,
           "partner": null,
           "prep": [],
@@ -353,7 +361,7 @@
         },
         {
           "meeting_id": null,
-          "start_local": "13:00",
+          "start_local": "12:30",
           "title": null,
           "partner": null,
           "prep": [],
@@ -369,15 +377,7 @@
         },
         {
           "meeting_id": null,
-          "start_local": "14:30",
-          "title": null,
-          "partner": null,
-          "prep": [],
-          "source_calendar": null
-        },
-        {
-          "meeting_id": null,
-          "start_local": "15:00",
+          "start_local": "14:00",
           "title": null,
           "partner": null,
           "prep": [],
@@ -390,27 +390,11 @@
           "partner": null,
           "prep": [],
           "source_calendar": null
-        },
-        {
-          "meeting_id": null,
-          "start_local": "16:00",
-          "title": null,
-          "partner": null,
-          "prep": [],
-          "source_calendar": null
-        },
-        {
-          "meeting_id": null,
-          "start_local": "17:00",
-          "title": null,
-          "partner": null,
-          "prep": [],
-          "source_calendar": null
         }
       ]
     },
     "tomorrow": {
-      "date": "",
+      "date": "2026-05-16",
       "available": true,
       "items": [
         {
@@ -449,8 +433,8 @@
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-05-14T15:46:52Z",
-    "bridge_cache_mtime": "2026-05-13T16:05:58Z",
-    "meetings_today_mtime": "2026-05-14T15:41:32Z"
+    "cockpit_data_mtime": "2026-05-15T21:50:55Z",
+    "bridge_cache_mtime": "2026-05-15T16:30:55Z",
+    "meetings_today_mtime": "2026-05-15T21:40:03Z"
   }
 }

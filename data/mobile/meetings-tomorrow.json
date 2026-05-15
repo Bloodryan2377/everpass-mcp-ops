@@ -1,91 +1,11 @@
 {
   "schema": "epc-meetings/v1",
+  "generated_at": "2026-05-15T17:40:03.117539-04:00",
   "source": "claude-scheduled-zapier-mcp",
-  "generated_at": "2026-05-14T15:41:32.490423Z",
-  "errors": [],
-  "date_local": "2026-05-15",
-  "count": 4,
-  "meetings": [
-    {
-      "subject": "Catch up ",
-      "start_local": "12:00",
-      "end_local": "12:45",
-      "start_iso_local": "2026-05-15T12:00:00-04:00",
-      "end_iso_local": "2026-05-15T12:45:00-04:00",
-      "start_date_local": "2026-05-15",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Appleman, Michael (NBCUniversal)"
-      ],
-      "is_cancelled": false
-    },
-    {
-      "subject": "Alex/Ryan",
-      "start_local": "12:30",
-      "end_local": "13:00",
-      "start_iso_local": "2026-05-15T12:30:00-04:00",
-      "end_iso_local": "2026-05-15T13:00:00-04:00",
-      "start_date_local": "2026-05-15",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Alex Chan"
-      ],
-      "is_cancelled": false
-    },
-    {
-      "subject": "Canceled: NFST Readiness Meeting",
-      "start_local": "14:00",
-      "end_local": "15:00",
-      "start_iso_local": "2026-05-15T14:00:00-04:00",
-      "end_iso_local": "2026-05-15T15:00:00-04:00",
-      "start_date_local": "2026-05-15",
-      "location": "",
-      "attendees": [
-        "Alex Kaplan",
-        "Bryan Icenhower",
-        "Stephen Tucker",
-        "Joshua Horowitz",
-        "Alex Chan",
-        "Tim Marangola",
-        "Christi DeVed",
-        "Kate Frydryk",
-        "Matt Gibbs",
-        "Nick Clessuras",
-        "Noah Fischbach",
-        "Tabare Caorsi",
-        "Suzanne Malmloff-Pawula",
-        "Ryan Blood",
-        "Christina McMichael"
-      ],
-      "is_cancelled": true
-    },
-    {
-      "subject": "NFLST Readiness Meeting",
-      "start_local": "14:00",
-      "end_local": "15:00",
-      "start_iso_local": "2026-05-15T14:00:00-04:00",
-      "end_iso_local": "2026-05-15T15:00:00-04:00",
-      "start_date_local": "2026-05-15",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Alex Kaplan",
-        "Bryan Icenhower",
-        "Stephen Tucker",
-        "Joshua Horowitz",
-        "Alex Chan",
-        "Tim Marangola",
-        "Christi DeVed",
-        "Kate Frydryk",
-        "Matt Gibbs",
-        "Nick Clessuras",
-        "Noah Fischbach",
-        "Tabare Caorsi",
-        "Suzanne Malmloff-Pawula",
-        "Ryan Blood",
-        "Christina McMichael",
-        "Matthew Santos"
-      ],
-      "is_cancelled": false
-    }
-  ]
+  "date": "2026-05-16",
+  "date_local": "2026-05-16",
+  "tz": "America/New_York",
+  "count": 0,
+  "meetings": [],
+  "errors": []
 }
