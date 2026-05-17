@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-17T13:58:42Z",
+  "generated_at": "2026-05-17T22:18:01Z",
   "morning_brief": {
     "available": true,
     "date": "2026-05-17",
@@ -197,7 +197,7 @@
         "priority_hint": "high"
       }
     ],
-    "last_extracted_at": "2026-05-17T13:58:38Z"
+    "last_extracted_at": "2026-05-17T22:17:59Z"
   },
   "bridge_signals": [
     {
@@ -328,11 +328,11 @@
       "failed": 0
     },
     "last_answered_at": "2026-04-26T15:35:00Z",
-    "feed_generated_at": "2026-05-17T13:58:42Z"
+    "feed_generated_at": "2026-05-17T22:18:01Z"
   },
   "meetings": {
     "today": {
-      "date": "",
+      "date": "2026-05-17",
       "available": true,
       "items": [
         {
@@ -386,7 +386,7 @@
       ]
     },
     "tomorrow": {
-      "date": "",
+      "date": "2026-05-18",
       "available": true,
       "items": [
         {
@@ -441,8 +441,8 @@
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-05-17T13:58:41Z",
+    "cockpit_data_mtime": "2026-05-17T22:18:01Z",
     "bridge_cache_mtime": "2026-05-16T16:05:32Z",
-    "meetings_today_mtime": "2026-05-17T13:39:09Z"
+    "meetings_today_mtime": "2026-05-17T22:09:34Z"
   }
 }
