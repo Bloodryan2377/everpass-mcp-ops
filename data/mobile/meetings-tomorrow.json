@@ -1,11 +1,116 @@
 {
   "schema": "epc-meetings/v1",
-  "generated_at": "2026-05-15T17:40:03.117539-04:00",
   "source": "claude-scheduled-zapier-mcp",
-  "date": "2026-05-16",
-  "date_local": "2026-05-16",
-  "tz": "America/New_York",
-  "count": 0,
-  "meetings": [],
+  "generated_at": "2026-05-17T13:39:09.688187+00:00",
+  "generated_at_local": "2026-05-17T09:39:09.688187-04:00",
+  "label": "2026-05-18",
+  "count": 6,
+  "meetings": [
+    {
+      "subject": "Cross Functional Standup",
+      "start_local": "12:00",
+      "end_local": "12:30",
+      "start_iso": "2026-05-18T12:00:00-04:00",
+      "end_iso": "2026-05-18T12:30:00-04:00",
+      "date_local": "2026-05-18",
+      "location": "CT - Conference Room",
+      "organizer": "EverPass",
+      "attendees": [
+        "Anna Hewitt",
+        "Alex Kaplan",
+        "Bryan Icenhower",
+        "Stephen Tucker",
+        "Ryan Blood"
+      ],
+      "attendee_count": 5,
+      "is_cancelled": false
+    },
+    {
+      "subject": "NFL Sunday Ticket Marketing Kick off w/Charter",
+      "start_local": "12:30",
+      "end_local": "13:00",
+      "start_iso": "2026-05-18T12:30:00-04:00",
+      "end_iso": "2026-05-18T13:00:00-04:00",
+      "date_local": "2026-05-18",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Charter",
+      "attendees": [
+        "Christi DeVed",
+        "Bryan Icenhower",
+        "Mackenzie Matheson",
+        "Ryan Blood",
+        "Zimmer, Terri A",
+        "Masi, Cristina N",
+        "Stroup, Matthew"
+      ],
+      "attendee_count": 7,
+      "is_cancelled": false
+    },
+    {
+      "subject": "Catch up",
+      "start_local": "13:00",
+      "end_local": "13:45",
+      "start_iso": "2026-05-18T13:00:00-04:00",
+      "end_iso": "2026-05-18T13:45:00-04:00",
+      "date_local": "2026-05-18",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "NBCUniversal",
+      "attendees": [
+        "Appleman, Michael (NBCUniversal)"
+      ],
+      "attendee_count": 1,
+      "is_cancelled": false
+    },
+    {
+      "subject": "Everpass<>Netcom",
+      "start_local": "14:00",
+      "end_local": "14:30",
+      "start_iso": "2026-05-18T14:00:00-04:00",
+      "end_iso": "2026-05-18T14:30:00-04:00",
+      "date_local": "2026-05-18",
+      "location": "",
+      "organizer": "Netcom",
+      "attendees": [
+        "Adam Goodman",
+        "Nick Clessuras",
+        "tim.mcdonald@net-com.com",
+        "Ryan Blood"
+      ],
+      "attendee_count": 4,
+      "is_cancelled": false
+    },
+    {
+      "subject": "Charter & NBA - Updates/Discussion (internal)",
+      "start_local": "15:00",
+      "end_local": "16:00",
+      "start_iso": "2026-05-18T15:00:00-04:00",
+      "end_iso": "2026-05-18T16:00:00-04:00",
+      "date_local": "2026-05-18",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "EverPass",
+      "attendees": [
+        "Alex Kaplan",
+        "Stephen Tucker"
+      ],
+      "attendee_count": 2,
+      "is_cancelled": false
+    },
+    {
+      "subject": "1PM PT LG + EP catch up",
+      "start_local": "16:00",
+      "end_local": "16:30",
+      "start_iso": "2026-05-18T16:00:00-04:00",
+      "end_iso": "2026-05-18T16:30:00-04:00",
+      "date_local": "2026-05-18",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "LG",
+      "attendees": [
+        "Stephen Goldstein/LGEUS MS NA Content and Services Team",
+        "Ryan Blood"
+      ],
+      "attendee_count": 2,
+      "is_cancelled": false
+    }
+  ],
   "errors": []
 }

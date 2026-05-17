@@ -1,49 +1,41 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-15T21:50:55Z",
+  "generated_at": "2026-05-17T13:58:42Z",
   "morning_brief": {
     "available": true,
-    "date": "2026-05-15",
-    "source_mtime": "2026-05-15T19:01:17Z",
+    "date": "2026-05-17",
+    "source_mtime": "2026-05-17T12:50:39Z",
     "preview_truncated": true,
-    "preview": "---\n# EverPass Morning Brief — Friday, May 15, 2026\n\n## Critical / Time-Sensitive\n\n1. **SAMSUNG CTV** — T-5 DAYS TO LAUNCH (May 20) [UNSIGNED]\n   Separate Agreement still not executed; Samsung Standard Terms revenue/ad share exemption contingent on signature. Chi Tung confirmed today (12:33) Samsung requires participation in subscription and ad economics — this is a blocking issue. Today is the last business day before the weekend; escalate to Annie O'Brien (a1.obrien@samsung.com) and Chi Tung immediately.\n   **Deadline: May 20. 5 days remain. No signed agreement = no launch protection.**\n\n2. **CHARTER** — F&B PRICING TIERS DUE TODAY EOD [OVERDUE EXHIBITS]\n   Hospitality/F&B tiers (Chili's co-sell, FCO sub-350 thresholds) due today. Exhibit A overdue +30 days; Exhibit B overdue +14 days. Alyssa Wade's revised amendment (off 3/27 draft) requires review. Nick Clessuras's Joe Hand/Miller's Ale House pricing exposure flag must be resolved before delivery.\n   **Deadline: TODAY EOD. Deliver F&B tiers. Review Wade amendment. Clear Clessuras flag.**\n\n3. **CHARTER (LANGE TRIGGER)** — STATUS UNKNOWN [OVERDUE +3 DAYS]\n   Lange trigger was flagged for execution May 12 — no confirmed outcome visible in deal tracker. Charter's deliverable deadline is today, making this doubly urgent.\n   **Deadline: OVERDUE. Verify execution status first thing this morning — check cockpit.**\n\n4. **NESN** — DEADLINE PASSED (May 13) [STATUS UNKNOWN]\n   Clean term sheet v7 deadline (Bob Plaehn / Goldwyn Harper) passed 2 days ago. MG structure ($300K combined Yrs 1–2 / $350K/yr from Yr 3) and Gate 3 clearance remain unresolved. No confirmed response in deal tracker.\n   **Deadline: PASSED +2 days. Contact Plaehn/Harper today. Check cockpit.**\n\n5. **DIRECTV** — SYMPHONYAI AUDIT DEMAND LAPSED [OVERDUE +14 DAYS]\n   May 1 SymphonyAI file access deadline passed with no confirmed DTV delivery. Net underpayment claim $2,634,239.50; $65M second payment outstanding; litigation complaint near-ready. Brianna Santolli (Kelley Drye) drafting follow-up demand letter.\n   **Deadline: PASSED +14 days. Confirm Priesand return date with Santolli today. Align on demand letter send date.**\n\n6. **CHSN** — SECTION 5(e) LAPSED (~MARCH 29, 2026) [TOP CONTRACT RISK]\n   Economics extraction completed; however, Section 5(e) lapsed ~47 days ago with no confirmed cure or resolution in deal tracker. Status unknown — check cockpit.\n   **Deadline: LAPSED. Determine cure options and escalate. Top contract risk.**\n\n7. **DISH** — CALL NOTES NOT LOGGED (May 13)\n   Call with Katherine Richter (Katherine.Richter@dish.com) occurred May 13. Day-1 Charter-parallel model discussion noted as receptive. Deal is NOT in deal tracker.\n   **Action: Log call notes and open Dish deal record in cockpit today.**\n\n8. **NBCU** — ENO WINDOW CLOSES JULY 15, 2026 [61 DAYS]\n   Phase 2b status: NBA on Peacock not included in current grant. Exclusive Negotiating Obligation window closes July 15. No counter-response visible.\n   **Deadline: Jul 15. 61 days remain. Confirm Phase 2b scope and ENO strategy before window narrows further.**\n\n9. **COCKPIT / AUTH** — INFRASTRUCTURE DEGRADED\n   Auto-pipeline: 9th consecutive overnight miss (intraday run 2026-05-14 10:41 UTC broke streak but not stable). GWS invalid_grant 21+ days. ZAPIER_MCP_BEARER not in cockpit server. Comcast amendment placeholders (5 blank, inert at 1.0x). Victory+ WNBA amendment drafted but unsigned.\n   **Action: Resolve ZAPIER_MCP_BEARER blocker. Re-auth GWS. Do not rely on overnight auto-pipeline for deal state.**",
-    "critical_count": 9,
+    "preview": "---\n# EverPass Morning Brief — Sunday, May 17, 2026\n\n## Critical / Time-Sensitive\n\n1. **SAMSUNG CTV** — T-3 DAYS TO LAUNCH (May 20) [UNSIGNED — CRITICAL]\n   Separate Agreement still not executed; Standard Terms revenue/ad share exemption blocked. Today is Sunday — attempt contact with Annie O'Brien (a1.obrien@samsung.com) and Chi Tung now; if unreachable, escalate via Samsung AE and flag Kaplan. No signature by Monday AM = uncontained launch risk.\n   **Deadline: May 20. 3 days remain. Weekend escalation required today.**\n\n2. **NESN** — DEADLINE PASSED +4 DAYS [STATUS UNKNOWN]\n   Clean term sheet v7 deadline (Bob Plaehn / Goldwyn Harper) passed May 13. MG structure ($300K combined Yrs 1–2 / $350K/yr from Yr 3) and Gate 3 clearance unresolved. No confirmed inbound.\n   **Action: Draft follow-up to Plaehn/Harper for Monday AM send. Do not enter a second full week of silence. Deadline: Passed.**\n\n3. **CHARTER** — EXHIBITS OVERDUE; F&B TIERS UNCONFIRMED; LANGE STATUS UNKNOWN\n   Exhibit A overdue +32 days; Exhibit B overdue +16 days. F&B pricing tiers (Chili's co-sell, FCO sub-350 thresholds) were due Friday EOD — delivery still unconfirmed. Lange trigger flagged May 12 with no confirmed outcome. Alyssa Wade amendment and Nick Clessuras pricing flag remain open. Note: NFL Sunday Ticket Marketing Kickoff w/Charter is on calendar tomorrow (12:30 PM).\n   **Action: Confirm Friday tier delivery and Lange trigger status in cockpit before tomorrow's Charter meetings. Prepare Monday AM escalation if unresolved. Deadline: Passed/Overdue.**\n\n4. **DIRECTV** — SYMPHONYAI AUDIT DEMAND LAPSED +16 DAYS [OVERDUE]\n   May 1 SymphonyAI file access deadline passed. Net underpayment claim $2,634,239.50; $65M second payment outstanding; litigation complaint near-ready. Brianna Santolli (Kelley Drye) drafting follow-up demand letter.\n   **Action: Confirm Priesand return date with Santolli. Target demand letter send early this week. Deadline: Passed.**\n\n5. **CHSN** — SECTION 5(e) LAPSED ~49 DAYS [TOP CONTRACT RISK]\n   Section 5(e) lapsed approximately March 29, 2026. No cure path confirmed. Status unknown — check cockpit.\n   **Action: Determine cure path or escalate to counsel before Monday. Deadline: Passed — escalate now.**\n\n6. **NBA** — COUNTER PROPOSAL + ACCOUNTING NOT YET LOGGED [TIME-SENSITIVE]\n   NBA counter proposal and accounting received May 15 — not yet entered into deal tracker or cockpit. Internal Charter & NBA discussion is on calendar tomorrow (3:00 PM).\n   **Action: Log NBA counter proposal and accounting data in cockpit today before tomorrow's internal review call.**\n\n7. **NBCU** — ENO WINDOW OPEN [59 DAYS REMAINING]\n   Exclusive Negotiating Obligation window closes July 15, 2026. NBA on Peacock not in current grant. Phase 2b in progress.\n   **Action: Confirm NBA on Peacock inclusion strategy this week before window tightens further. Deadline: July 15, 2026.**\n\n---\n\n## Active Deal Status\n\nPartner              | Status                          | Next Action                                                    | Deadline\n---------------------|---------------------------------|----------------------------------------------------------------|-------------------\nSamsung CTV          | UNSIGNED — CRITICAL             | Execute Separate Agreement; escalate to Kaplan if no response  | May 20, 2026 (T-3)",
+    "critical_count": 7,
     "critical": [
       {
         "title": "SAMSUNG CTV",
-        "body": "— T-5 DAYS TO LAUNCH (May 20) [UNSIGNED]"
-      },
-      {
-        "title": "CHARTER",
-        "body": "— F&B PRICING TIERS DUE TODAY EOD [OVERDUE EXHIBITS]"
-      },
-      {
-        "title": "CHARTER (LANGE TRIGGER)",
-        "body": "— STATUS UNKNOWN [OVERDUE +3 DAYS]"
+        "body": "— T-3 DAYS TO LAUNCH (May 20) [UNSIGNED — CRITICAL]"
       },
       {
         "title": "NESN",
-        "body": "— DEADLINE PASSED (May 13) [STATUS UNKNOWN]"
+        "body": "— DEADLINE PASSED +4 DAYS [STATUS UNKNOWN]"
+      },
+      {
+        "title": "CHARTER",
+        "body": "— EXHIBITS OVERDUE; F&B TIERS UNCONFIRMED; LANGE STATUS UNKNOWN"
       },
       {
         "title": "DIRECTV",
-        "body": "— SYMPHONYAI AUDIT DEMAND LAPSED [OVERDUE +14 DAYS]"
+        "body": "— SYMPHONYAI AUDIT DEMAND LAPSED +16 DAYS [OVERDUE]"
       },
       {
         "title": "CHSN",
-        "body": "— SECTION 5(e) LAPSED (~MARCH 29, 2026) [TOP CONTRACT RISK]"
+        "body": "— SECTION 5(e) LAPSED ~49 DAYS [TOP CONTRACT RISK]"
       },
       {
-        "title": "DISH",
-        "body": "— CALL NOTES NOT LOGGED (May 13)"
+        "title": "NBA",
+        "body": "— COUNTER PROPOSAL + ACCOUNTING NOT YET LOGGED [TIME-SENSITIVE]"
       },
       {
         "title": "NBCU",
-        "body": "— ENO WINDOW CLOSES JULY 15, 2026 [61 DAYS]"
-      },
-      {
-        "title": "COCKPIT / AUTH",
-        "body": "— INFRASTRUCTURE DEGRADED"
+        "body": "— ENO WINDOW OPEN [59 DAYS REMAINING]"
       }
     ]
   },
@@ -122,7 +114,7 @@
     }
   ],
   "partner_todos": {
-    "total": 167,
+    "total": 168,
     "items": [
       {
         "id": "intel:amazon:fully-executed-commercial-premises-license-in-place-everpass",
@@ -138,6 +130,14 @@
         "category": "CTV",
         "text": "EverPass Is Not Exclusive for Small Venues; Effective Exclusivity Exists at Scale — DIRECTV FOR BUSINESS simultaneously distributes Apple TV F1, MLS, and MLB Friday Night Baseball to 300,000+ commercial venues; however, DIRECTV streaming has a 20-TV cap, mean…",
         "due": null,
+        "priority_hint": "high"
+      },
+      {
+        "id": "trk:decision-queue:0:charter",
+        "partner": "Charter",
+        "category": "Tracker",
+        "text": "Charter",
+        "due": "2026-05-16",
         "priority_hint": "high"
       },
       {
@@ -195,17 +195,9 @@
         "text": "April 12, 2026 Clean Draft Circulated; Multimillion-Dollar MG Remains Unresolved — EverPass circulated a revised clean distribution agreement draft (EP 4.12.26) that retained EverPass's position of a lower MG level framed as a termination right rather than a…",
         "due": "April 12, 2026",
         "priority_hint": "high"
-      },
-      {
-        "id": "intel:marquee:go-no-go-decision-pending-after-april-10-exec-meeting-everpa",
-        "partner": "Marquee",
-        "category": "RSN",
-        "text": "Go/No-Go Decision Pending After April 10 Exec Meeting — EverPass CEO Alex Kaplan signed the execution copy; Marquee counter-signature is outstanding pending Ryan Blood's go/no-go communication to Lee Schlazer (Sinclair SVP Distribution) following the April 10…",
-        "due": "April 10",
-        "priority_hint": "high"
       }
     ],
-    "last_extracted_at": "2026-05-15T21:50:52Z"
+    "last_extracted_at": "2026-05-17T13:58:38Z"
   },
   "bridge_signals": [
     {
@@ -336,11 +328,11 @@
       "failed": 0
     },
     "last_answered_at": "2026-04-26T15:35:00Z",
-    "feed_generated_at": "2026-05-15T21:50:55Z"
+    "feed_generated_at": "2026-05-17T13:58:42Z"
   },
   "meetings": {
     "today": {
-      "date": "2026-05-15",
+      "date": "",
       "available": true,
       "items": [
         {
@@ -394,7 +386,7 @@
       ]
     },
     "tomorrow": {
-      "date": "2026-05-16",
+      "date": "",
       "available": true,
       "items": [
         {
@@ -415,7 +407,7 @@
         },
         {
           "meeting_id": null,
-          "start_local": "14:00",
+          "start_local": "13:00",
           "title": null,
           "partner": null,
           "prep": [],
@@ -428,13 +420,29 @@
           "partner": null,
           "prep": [],
           "source_calendar": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "15:00",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "16:00",
+          "title": null,
+          "partner": null,
+          "prep": [],
+          "source_calendar": null
         }
       ]
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-05-15T21:50:55Z",
-    "bridge_cache_mtime": "2026-05-15T16:30:55Z",
-    "meetings_today_mtime": "2026-05-15T21:40:03Z"
+    "cockpit_data_mtime": "2026-05-17T13:58:41Z",
+    "bridge_cache_mtime": "2026-05-16T16:05:32Z",
+    "meetings_today_mtime": "2026-05-17T13:39:09Z"
   }
 }
