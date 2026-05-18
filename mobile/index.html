@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="./styles/results.css" />
   <link rel="stylesheet" href="./styles/live.css" />
   <link rel="stylesheet" href="./styles/answers.css" />
+  <link rel="stylesheet" href="./styles/aos.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -45,6 +46,12 @@
               title="Daily S — morning clearance">
         <span class="ds-trigger-dot" id="ds-trigger-dot" data-state="unknown" aria-hidden="true"></span>
         <span class="ds-trigger-label">Daily S</span>
+      </button>
+      <button type="button" class="aos-trigger" id="aos-trigger"
+              aria-haspopup="dialog" aria-controls="aos-sheet"
+              title="AOS launcher — run skills">
+        <span class="aos-trigger-dot" id="aos-trigger-dot" data-state="unknown" aria-hidden="true"></span>
+        <span class="aos-trigger-label" id="aos-trigger-label">AOS</span>
       </button>
       <button class="btn btn-ghost btn-icon" id="refresh-btn" aria-label="Refresh data" title="Refresh">
         <span aria-hidden="true">⟳</span>
@@ -125,6 +132,43 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
+  <!-- AOS launcher bottom sheet (2026-05-18). Rollback = remove this block + aos.js + aos.css + aos-trigger button. -->
+  <div id="aos-backdrop" class="aos-backdrop" hidden></div>
+  <aside id="aos-sheet" class="aos-sheet" role="dialog" aria-modal="false"
+         aria-labelledby="aos-sheet-title" data-open="false" hidden>
+    <div class="aos-sheet-handle" aria-hidden="true"></div>
+    <div class="aos-sheet-head">
+      <div>
+        <div class="aos-sheet-title" id="aos-sheet-title">AOS launcher</div>
+        <div class="aos-sheet-sub">Run skills on the laptop from your phone.</div>
+      </div>
+      <button type="button" class="aos-sheet-close" id="aos-sheet-close"
+              aria-label="Close launcher">&times;</button>
+    </div>
+    <div class="aos-sheet-body">
+      <div class="aos-config">
+        <label>URL
+          <input type="url" id="aos-url-input" placeholder="http://127.0.0.1:8765" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false" />
+        </label>
+        <label>Token
+          <input type="password" id="aos-token-input" placeholder="paste AOS_TOKEN" autocomplete="off" />
+        </label>
+        <div class="aos-config-actions">
+          <button type="button" class="aos-btn" id="aos-reload">Reload skills</button>
+          <button type="button" class="aos-btn primary" id="aos-save">Save</button>
+        </div>
+      </div>
+      <div class="aos-section-title">Skills</div>
+      <div class="aos-skill-list" id="aos-skill-list">
+        <div class="aos-empty">Loading…</div>
+      </div>
+      <div class="aos-section-title">Recent runs</div>
+      <div class="aos-runs" id="aos-runs">
+        <div class="aos-empty">No runs yet.</div>
+      </div>
+    </div>
+  </aside>
+
   <script src="./scripts/data.js"></script>
   <script src="./scripts/cockpit.js"></script>
   <script src="./scripts/dispatch.js"></script>
@@ -132,6 +176,7 @@
   <script src="./scripts/results.js"></script>
   <script src="./scripts/live.js"></script>
   <script src="./scripts/daily-s.js"></script>
+  <script src="./scripts/aos.js"></script>
   <script src="./scripts/app.js"></script>
 </body>
 </html>
