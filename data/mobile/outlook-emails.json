@@ -1,139 +1,99 @@
 {
-  "schema": "outlook-recent/2026-05-07.1",
-  "generated_at": "2026-05-22T00:49:54.801046Z",
-  "lookback_window_hours": 168,
+  "schema": "outlook-emails/2026-05-04.1",
   "source": "claude-scheduled-zapier-mcp",
-  "note": "Auto-mirror of outlook-emails.json from _live_pull_writer.py (chain-fix 2026-05-21). Kept for legacy artifacts that still read outlook-recent.json.",
-  "emails": [
+  "generated_at": "2026-05-22T00:49:54.801046Z",
+  "thread_count": 10,
+  "threads": [
     {
-      "thread_id": "",
-      "partner": "",
-      "partner_slug": "",
       "subject": "Accepted: Content Pipeline ",
       "sender_name": "Noah Fischbach",
       "sender_email": "NFischbach@EverPass.com",
+      "received_datetime": "2026-05-21T22:02:53Z",
       "received_at": "2026-05-21T22:02:53Z",
       "snippet": "",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": null
     },
     {
-      "thread_id": "",
-      "partner": "",
-      "partner_slug": "",
       "subject": "Automatic reply: Content Pipeline ",
       "sender_name": "Christi DeVed",
       "sender_email": "cdeved@EverPass.com",
+      "received_datetime": "2026-05-21T22:01:24Z",
       "received_at": "2026-05-21T22:01:24Z",
       "snippet": "I am out of the office May 21& 22. I'll get back with you upon my return!",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": null
     },
     {
-      "thread_id": "",
-      "partner": "AccuWeather",
-      "partner_slug": "accuweather",
       "subject": "Re: EverPass + AccuWeather Agreement",
       "sender_name": "Patrick McCormack",
       "sender_email": "Patrick.McCormack@accuweather.com",
+      "received_datetime": "2026-05-21T21:46:18Z",
       "received_at": "2026-05-21T21:46:18Z",
       "snippet": "Hi Ryan, My legal team told me that the Docusign was sent to Alex, but I was not on the email personally. I asked the Legal team to double check. I will keep you posted. Looking forward to getting this signed and on to launching. Thanks! -Pat",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": "AccuWeather"
     },
     {
-      "thread_id": "",
-      "partner": "DIRECTV (outside counsel - Kelley Drye)",
-      "partner_slug": "directv-(outside-counsel---kelley-drye)",
       "subject": "Michael Lynch sent you \"Draft Follow Up Letter to DIRECTV re Audit v4\"",
       "sender_name": "Lynch, Michael",
       "sender_email": "MLynch@KelleyDrye.com",
+      "received_datetime": "2026-05-21T21:27:28Z",
       "received_at": "2026-05-21T21:27:28Z",
       "snippet": "Hi all: Attached please find a draft letter along the lines we discussed.  Please send us comments when you have chance or we can just discuss on Tuesday. Thanks. MICHAEL C. LYNCH Chair, Litigation Practice Group Kelley Drye & Warren LLP",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": "DIRECTV (outside counsel - Kelley Drye)"
     },
     {
-      "thread_id": "",
-      "partner": "YouTube TV",
-      "partner_slug": "youtube-tv",
       "subject": "Out of Office: Delayed Response Re: Fw: YouTube/ Everpass - Packaging",
       "sender_name": "Tony Archibong",
       "sender_email": "archibong@google.com",
+      "received_datetime": "2026-05-21T21:19:20Z",
       "received_at": "2026-05-21T21:19:20Z",
       "snippet": "Hello, I am currently overseas on business travel so my responses will be delayed. For emergencies, please text me. Thank you for your patience. Tony",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": "YouTube TV"
     },
     {
-      "thread_id": "",
-      "partner": "",
-      "partner_slug": "",
       "subject": "Ryan, have you adopted your new furry friend?",
       "sender_name": "Temptations",
       "sender_email": "reply@us.temptationstreats.com",
+      "received_datetime": "2026-05-21T21:16:49Z",
       "received_at": "2026-05-21T21:16:49Z",
       "snippet": "Let us know so we can send you tips on how to bond using TEMPTATIONS treats.",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": null
     },
     {
-      "thread_id": "",
-      "partner": "",
-      "partner_slug": "",
       "subject": "Re: YouTube/ Everpass - Packaging",
       "sender_name": "Ryan Blood",
       "sender_email": "rblood@EverPass.com",
+      "received_datetime": "2026-05-21T21:16:39Z",
       "received_at": "2026-05-21T21:16:39Z",
       "snippet": "Thanks again for the time last week. Following up on our last conversation - linked below (pword everpass) and also attached as a pdf is the go-to-market overview for the EverPass YouTube TV commercial venue channel. It maps out the full picture: mark",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": null
     },
     {
-      "thread_id": "",
-      "partner": "AccuWeather",
-      "partner_slug": "accuweather",
       "subject": "StreamTv",
       "sender_name": "Johanna Fessler",
       "sender_email": "Johanna.Fessler@accuweather.com",
+      "received_datetime": "2026-05-21T21:11:20Z",
       "received_at": "2026-05-21T21:11:20Z",
       "snippet": "Hi Ryan, Glad we are close to the finish line on our agreement.  I see you plan to be at StreamTV in Denver next month.  I will be there and would love to find time to meet in person.  Please let me know if you have some avails. Thank you. Johanna",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": "AccuWeather"
     },
     {
-      "thread_id": "",
-      "partner": "Apple",
-      "partner_slug": "apple",
       "subject": "Event canceled: Apple x Everpass Meetup",
       "sender_name": "Shaina Lemmerman",
       "sender_email": "slemmerman@apple.com",
+      "received_datetime": "2026-05-21T20:15:43Z",
       "received_at": "2026-05-21T20:15:43Z",
       "snippet": "Event canceled: Apple x Everpass Meetup Organizer: Shaina Lemmerman Date: Thursday, May 21, 2026 Time: 09:00 PM (EDT) to 10:30 PM (EDT) (1 hour, 30 minutes)",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": "Apple"
     },
     {
-      "thread_id": "",
-      "partner": "",
-      "partner_slug": "",
       "subject": "Re: NBA Term Sheet - Privileged and Confidential",
       "sender_name": "Trung Luu",
       "sender_email": "tluu@EverPass.com",
+      "received_datetime": "2026-05-21T20:13:59Z",
       "received_at": "2026-05-21T20:13:59Z",
       "snippet": "Yep, co-lo fees are already contemplated in NBA LP costs. On another note, I noticed in the agreement that we (EverPass) own 42% of ad inventory for each game (and the ads need to be programmatic). I don't think we've done programmatic advertising, so",
-      "deal_keywords": [],
-      "ryan_owes_response": false,
-      "web_link": ""
+      "partner_match": null
     }
-  ]
+  ],
+  "errors": []
 }

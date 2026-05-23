@@ -1,29 +1,26 @@
 {
   "schema": "epc-freshness/v1",
-  "generated_at": "2026-05-17T22:09:51+00:00",
+  "generated_at": "2026-05-23T21:08:33+00:00",
   "rule": "user-facing artifacts must be <= 12h old; warn at 6h",
   "thresholds_hours": {
     "fresh_max": 6,
     "stale_min_exclusive": 12
   },
-  "duration_s": 0.5,
+  "duration_s": 1.0,
   "ran_rebuilds": true,
   "totals": {
-    "total": 26,
-    "fresh": 24,
-    "warn": 2,
+    "total": 29,
+    "fresh": 29,
+    "warn": 0,
     "stale": 0,
     "missing": 0
   },
   "user_facing_red": [],
   "user_facing_amber": [],
   "backend_facing_red": [],
-  "backend_facing_amber": [
-    "outlook_recent_json",
-    "bridge_status_json"
-  ],
+  "backend_facing_amber": [],
   "overall": "PASS",
-  "backend_overall": "WARN",
+  "backend_overall": "PASS",
   "artifacts": [
     {
       "key": "cockpit_data_json",
@@ -36,13 +33,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.00025702527777777775,
-        "as_of": "2026-05-17T22:09:50+00:00"
+        "age_hours": 0.0003203602777777778,
+        "as_of": "2026-05-23T21:08:31+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.000395655,
-        "as_of": "2026-05-17T22:09:50+00:00"
+        "age_hours": 0.00032162166666666666,
+        "as_of": "2026-05-23T21:08:31+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -63,13 +60,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.004529525833333333,
-        "as_of": "2026-05-17T22:09:34+00:00"
+        "age_hours": 0.003927714722222222,
+        "as_of": "2026-05-23T21:08:18+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.004668155555555556,
-        "as_of": "2026-05-17T22:09:34+00:00"
+        "age_hours": 0.0039289575,
+        "as_of": "2026-05-23T21:08:18+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -90,13 +87,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.004529525833333333,
-        "as_of": "2026-05-17T22:09:34+00:00"
+        "age_hours": 0.003927453611111111,
+        "as_of": "2026-05-23T21:08:18+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.004668155555555556,
-        "as_of": "2026-05-17T22:09:34+00:00"
+        "age_hours": 0.0039286922222222225,
+        "as_of": "2026-05-23T21:08:18+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -117,13 +114,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0001007175,
-        "as_of": "2026-05-17T22:09:50+00:00"
+        "age_hours": 0.00013470472222222222,
+        "as_of": "2026-05-23T21:08:32+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.00023906833333333334,
-        "as_of": "2026-05-17T22:09:50+00:00"
+        "age_hours": 0.000135935,
+        "as_of": "2026-05-23T21:08:32+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -144,13 +141,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0002222725,
-        "as_of": "2026-05-17T22:09:50+00:00"
+        "age_hours": 0.0002756975,
+        "as_of": "2026-05-23T21:08:31+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.00036062333333333334,
-        "as_of": "2026-05-17T22:09:50+00:00"
+        "age_hours": 0.00027692611111111113,
+        "as_of": "2026-05-23T21:08:31+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -171,13 +168,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0045294574999999995,
-        "as_of": "2026-05-17T22:09:34+00:00"
+        "age_hours": 0.003927219444444445,
+        "as_of": "2026-05-23T21:08:18+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.004667808333333334,
-        "as_of": "2026-05-17T22:09:34+00:00"
+        "age_hours": 0.003928445555555556,
+        "as_of": "2026-05-23T21:08:18+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -197,14 +194,14 @@
       "rebuilt": false,
       "rebuild_result": null,
       "pre": {
-        "status": "warn",
-        "age_hours": 137.68186739694445,
-        "as_of": "2026-05-12T04:28:56+00:00"
+        "status": "fresh",
+        "age_hours": 44.310596223611114,
+        "as_of": "2026-05-22T00:49:54+00:00"
       },
       "post": {
-        "status": "warn",
-        "age_hours": 137.68200574777777,
-        "as_of": "2026-05-12T04:28:56+00:00"
+        "status": "fresh",
+        "age_hours": 44.31059744722222,
+        "as_of": "2026-05-22T00:49:54+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -225,13 +222,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 7.081527777777778e-05,
-        "as_of": "2026-05-17T22:09:50+00:00"
+        "age_hours": 9.305333333333334e-05,
+        "as_of": "2026-05-23T21:08:32+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.00020916611111111108,
-        "as_of": "2026-05-17T22:09:50+00:00"
+        "age_hours": 9.4275e-05,
+        "as_of": "2026-05-23T21:08:32+00:00"
       },
       "manual_action": null,
       "notes": "Cockpit RED-tier health check reads this. Auto-rebuilt by freshness enforcer + cockpit.cmd builder chain.",
@@ -252,13 +249,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 53.24552404888889,
-        "as_of": "2026-05-15T16:55:07+00:00"
+        "age_hours": 5.140505807777778,
+        "as_of": "2026-05-23T16:00:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 53.24566239972222,
-        "as_of": "2026-05-15T16:55:07+00:00"
+        "age_hours": 5.140507027222222,
+        "as_of": "2026-05-23T16:00:07+00:00"
       },
       "manual_action": null,
       "notes": "Hot action queue surfaced ABOVE partnerTodos in cockpit DQ. Written by intake/inbound_router.py. Optional \u2014 empty file OK if no inbounds pending.",
@@ -279,13 +276,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 3.1455892030555557,
-        "as_of": "2026-05-17T19:01:06+00:00"
+        "age_hours": 0.7589910102777777,
+        "as_of": "2026-05-23T20:23:00+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 3.145727553888889,
-        "as_of": "2026-05-17T19:01:06+00:00"
+        "age_hours": 0.7589922241666667,
+        "as_of": "2026-05-23T20:23:00+00:00"
       },
       "manual_action": null,
       "notes": "LLM-generated morning brief. Rebuilt by build-morning-brief.py via Anthropic API. Daily cadence (5:50 AM task); 24h/36h thresholds match that cadence.",
@@ -306,13 +303,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.9852465902777776,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 0.9943817577777778,
+        "as_of": "2026-05-23T20:08:53+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.985384941111111,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 0.9943828686111111,
+        "as_of": "2026-05-23T20:08:53+00:00"
       },
       "manual_action": null,
       "notes": "Hermes-pattern proactive improvement brief. Daily cadence via 'EverPass Nightly Reflection' Win Scheduled Task at 07:00 local. 2-3 items max. Cockpit reads this for the Nightly Reflection banner card.",
@@ -329,22 +326,17 @@
       "user_facing": true,
       "manual_only": false,
       "optional": false,
-      "rebuilt": true,
-      "rebuild_result": {
-        "ok": true,
-        "rc": 0,
-        "stderr": "",
-        "stdout": "C                             partner_agreement       3601 words\r\n  MD-057  VICTORY+_2025                   partner_agreement       4124 words\r\n  MD-058  VICTORY+_2026_NWLS              partner_agreement       5261 words\r\n  MD-059  YES                             partner_agreement       1802 words\r\n"
-      },
+      "rebuilt": false,
+      "rebuild_result": null,
       "pre": {
-        "status": "warn",
-        "age_hours": 6.163236068888889,
-        "as_of": "2026-05-17T16:00:03+00:00"
+        "status": "fresh",
+        "age_hours": 5.141691488055556,
+        "as_of": "2026-05-23T16:00:02+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 4.2622222222222224e-06,
-        "as_of": "2026-05-17T22:09:51+00:00"
+        "age_hours": 5.1416925269444445,
+        "as_of": "2026-05-23T16:00:02+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -361,21 +353,17 @@
       "user_facing": true,
       "manual_only": false,
       "optional": false,
-      "rebuilt": true,
-      "rebuild_result": {
-        "ok": true,
-        "skipped": true,
-        "reason": "deduped to contracts_full_normalized_csv"
-      },
+      "rebuilt": false,
+      "rebuild_result": null,
       "pre": {
-        "status": "warn",
-        "age_hours": 6.163240855833333,
-        "as_of": "2026-05-17T16:00:03+00:00"
+        "status": "fresh",
+        "age_hours": 5.1416917827777775,
+        "as_of": "2026-05-23T16:00:02+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 4.623055555555556e-06,
-        "as_of": "2026-05-17T22:09:51+00:00"
+        "age_hours": 5.141692817222222,
+        "as_of": "2026-05-23T16:00:02+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -396,13 +384,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 2.9866730375,
-        "as_of": "2026-05-17T19:10:38+00:00"
+        "age_hours": 3.649033537777778,
+        "as_of": "2026-05-23T17:29:36+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 2.9868111094444445,
-        "as_of": "2026-05-17T19:10:38+00:00"
+        "age_hours": 3.649034569722222,
+        "as_of": "2026-05-23T17:29:36+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -423,13 +411,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.9851151308333332,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 3.6488113583333335,
+        "as_of": "2026-05-23T17:29:37+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.9852532027777778,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 3.6488123363888887,
+        "as_of": "2026-05-23T17:29:37+00:00"
       },
       "manual_action": null,
       "notes": "xlsx -> JSON detail export (everpass-contract-master/v1). Source: Contract Master.xlsx.",
@@ -450,13 +438,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.985113598888889,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 3.648810261388889,
+        "as_of": "2026-05-23T17:29:37+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.985251948611111,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 3.6488112352777775,
+        "as_of": "2026-05-23T17:29:37+00:00"
       },
       "manual_action": null,
       "notes": "xlsx -> JSON summary export (everpass-contract-summary/v1). Source: Contract Master.xlsx.",
@@ -477,13 +465,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.9852830049999999,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 3.6488759105555557,
+        "as_of": "2026-05-23T17:29:37+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.9854210777777777,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 3.6488767927777777,
+        "as_of": "2026-05-23T17:29:37+00:00"
       },
       "manual_action": null,
       "notes": "Tier 0 snapshot anchor (epc-contract-master-snapshot/v1). Cockpit reads this for the 'Contracts data as of' badge.",
@@ -504,13 +492,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.9852831,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 3.6488760683333332,
+        "as_of": "2026-05-23T17:29:37+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.9854210777777777,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 3.648876841111111,
+        "as_of": "2026-05-23T17:29:37+00:00"
       },
       "manual_action": null,
       "notes": "Per-partner Deal Brain rollup (epc-deal-brain-summary/v1). Future Ask deal-fact answerer reads this for cheap partner lookups.",
@@ -531,13 +519,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.9852334791666666,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 0.9943622605555555,
+        "as_of": "2026-05-23T20:08:53+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.9853714569444443,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 0.99436295,
+        "as_of": "2026-05-23T20:08:53+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -558,13 +546,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.9852328480555554,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 0.9943617305555555,
+        "as_of": "2026-05-23T20:08:53+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.9853705477777779,
-        "as_of": "2026-05-17T20:10:44+00:00"
+        "age_hours": 0.9943624055555556,
+        "as_of": "2026-05-23T20:08:53+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -584,14 +572,14 @@
       "rebuilt": false,
       "rebuild_result": null,
       "pre": {
-        "status": "warn",
-        "age_hours": 30.071713450277777,
-        "as_of": "2026-05-16T16:05:32+00:00"
+        "status": "fresh",
+        "age_hours": 5.225071269444445,
+        "as_of": "2026-05-23T15:55:02+00:00"
       },
       "post": {
-        "status": "warn",
-        "age_hours": 30.071851149999997,
-        "as_of": "2026-05-16T16:05:32+00:00"
+        "status": "fresh",
+        "age_hours": 5.225071919722223,
+        "as_of": "2026-05-23T15:55:02+00:00"
       },
       "manual_action": "ChatGPT bridge daily drain runs 8:55 AM via the `chatgpt-bridge-daily-drain` scheduled task. If this artifact is stale (>36h), check that task's last-run/result.",
       "notes": "Daily-cadence backend artifact. Refreshed by chatgpt-bridge-daily-drain (8:55 AM). Per-artifact thresholds (fresh<=24h, stale>36h) align with that cadence; not user-facing, never affects cockpit/mobile chip color.",
@@ -612,13 +600,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 2.9866809,
-        "as_of": "2026-05-17T19:10:38+00:00"
+        "age_hours": 3.6490457425000002,
+        "as_of": "2026-05-23T17:29:36+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 2.986818599722222,
-        "as_of": "2026-05-17T19:10:38+00:00"
+        "age_hours": 3.6490463875,
+        "as_of": "2026-05-23T17:29:36+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -639,13 +627,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.98440173,
-        "as_of": "2026-05-17T20:10:47+00:00"
+        "age_hours": 3.6482281752777777,
+        "as_of": "2026-05-23T17:29:39+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.9845391516666668,
-        "as_of": "2026-05-17T20:10:47+00:00"
+        "age_hours": 3.648228827777778,
+        "as_of": "2026-05-23T17:29:39+00:00"
       },
       "manual_action": null,
       "notes": "State file updates only when the watcher ticks AND the inbox has new files. Stale state with empty inbox is OK; stale state with files in inbox is a real backlog.",
@@ -666,13 +654,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.9844020075,
-        "as_of": "2026-05-17T20:10:47+00:00"
+        "age_hours": 3.6482284674999996,
+        "as_of": "2026-05-23T17:29:39+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.9845394291666667,
-        "as_of": "2026-05-17T20:10:47+00:00"
+        "age_hours": 3.6482291291666664,
+        "as_of": "2026-05-23T17:29:39+00:00"
       },
       "manual_action": null,
       "notes": "Log mtime advances on every tick. If watcher is scheduled, this is a heartbeat.",
@@ -693,13 +681,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 7.663061711388889,
-        "as_of": "2026-05-17T14:30:04+00:00"
+        "age_hours": 2.922487555277778,
+        "as_of": "2026-05-23T18:13:12+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 7.663198855555556,
-        "as_of": "2026-05-17T14:30:04+00:00"
+        "age_hours": 2.9224881080555556,
+        "as_of": "2026-05-23T18:13:12+00:00"
       },
       "manual_action": null,
       "notes": "Export chain manifest (everpass-exports-manifest/v1). Rebuilt by build_exports.py from wiki/partners/ + Partner Insights/ + contract-master-data.json. Outputs: briefs/, obsidian/, notebooklm/ under AI Related/exports/. Per-artifact thresholds (fresh<=24h, stale>36h) match the once-daily build cadence.",
@@ -720,19 +708,100 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 3.1622252413888887,
-        "as_of": "2026-05-17T19:00:07+00:00"
+        "age_hours": 2.1407412655555556,
+        "as_of": "2026-05-23T19:00:06+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 3.1623623855555554,
-        "as_of": "2026-05-17T19:00:07+00:00"
+        "age_hours": 2.140741805833333,
+        "as_of": "2026-05-23T19:00:06+00:00"
       },
       "manual_action": null,
       "notes": "Sentinel for build-dashboard-sync.py. Patches goNoGoData partner headers in the main pipeline dashboard HTML from contract-master-data.json + dashboard-partner-overrides.json. Runs every 6h via run-partner-chain.cmd.",
       "thresholds_hours": {
         "fresh_max": 24.0,
         "stale_min_exclusive": 36.0,
+        "is_override": true
+      }
+    },
+    {
+      "key": "daily_log",
+      "category": "data",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\daily\\2026-05-23.md",
+      "user_facing": false,
+      "manual_only": false,
+      "optional": true,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 0.10927509916666667,
+        "as_of": "2026-05-23T21:01:59+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 0.10927563416666668,
+        "as_of": "2026-05-23T21:01:59+00:00"
+      },
+      "manual_action": null,
+      "notes": "Session-end compound memory log. One file per day in AI Related/daily/.",
+      "thresholds_hours": {
+        "fresh_max": 24.0,
+        "stale_min_exclusive": 36.0,
+        "is_override": true
+      }
+    },
+    {
+      "key": "agent_browser_runs_json",
+      "category": "data",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\agent-browser\\runs.json",
+      "user_facing": false,
+      "manual_only": true,
+      "optional": true,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 126.55502915805555,
+        "as_of": "2026-05-18T14:35:14+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 126.555029685,
+        "as_of": "2026-05-18T14:35:14+00:00"
+      },
+      "manual_action": null,
+      "notes": "agent-browser macro telemetry feed. Updated on-demand by Browser Agent tab in AOS Command Center. Public mirror at everpass-agent-browser.vercel.app refreshed via _apps/everpass-agent-browser-ui/deploy.cmd.",
+      "thresholds_hours": {
+        "fresh_max": 168.0,
+        "stale_min_exclusive": 336.0,
+        "is_override": true
+      }
+    },
+    {
+      "key": "partner_notebooks_json",
+      "category": "research",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\partner-notebooks.json",
+      "user_facing": false,
+      "manual_only": true,
+      "optional": true,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 113.37327276944444,
+        "as_of": "2026-05-19T03:46:09+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 113.37327329416667,
+        "as_of": "2026-05-19T03:46:09+00:00"
+      },
+      "manual_action": "Run: python \"EVERPASS TOOLS\\Scripts\\build_partner_notebook_map.py\" --headless\nRequires: authenticated Playwright profile at AI Related/.notebooklm-profile/\nFirst-time auth: python \"EVERPASS TOOLS\\Scripts\\notebooklm_auth_setup.py\"",
+      "notes": "Partner\u2192NotebookLM ID mapping for Email Research Agent. Built by build_partner_notebook_map.py (Playwright headless, weekly). After rebuild, run generate_n8n_domain_map.py and paste output into n8n 'Match Partner' Code node. Set manual_only=False and add rebuild_cmd once auth-refresh automation is wired.",
+      "thresholds_hours": {
+        "fresh_max": 168.0,
+        "stale_min_exclusive": 336.0,
         "is_override": true
       }
     }
