@@ -1,29 +1,27 @@
 {
   "schema": "epc-mobile-status/v1",
-  "generated_at": "2026-05-23T20:08:53Z",
+  "generated_at": "2026-05-23T23:42:13Z",
   "bridge": {
     "version": null,
     "last_run_status": "idle",
     "last_run_id": "run-20260522-001-c3d8",
     "last_processed_at": "2026-05-19T04:10:11Z",
-    "counts": {
-      "pending": 0,
-      "rejected_outstanding": 0,
-      "archived_today": 0,
-      "archived_total": 0,
-      "inbox_pending": 0
-    },
+    "counts": {},
     "last_artifact": null
   },
   "morning": {
-    "run_date": null,
-    "overall_status": "unknown",
-    "cockpit_status": null,
-    "drive_mirror_status": null,
-    "notebooklm_status": null,
-    "scheduler_status": null,
-    "dashboard_status": null,
-    "failing_checks": []
+    "run_date": "2026-05-23",
+    "overall_status": "failed",
+    "cockpit_status": "success",
+    "drive_mirror_status": "partial",
+    "notebooklm_status": "failed",
+    "scheduler_status": "success",
+    "dashboard_status": "partial",
+    "failing_checks": [
+      "drive_stable_mirror",
+      "notebooklm_sync",
+      "dashboard_health"
+    ]
   },
   "selfverify": {
     "overall": "WARN",
@@ -38,6 +36,6 @@
   },
   "freshness": {
     "bridge_status_mtime": "2026-05-23T15:55:02Z",
-    "morning_status_mtime": null
+    "morning_status_mtime": "2026-05-23T23:39:25Z"
   }
 }
