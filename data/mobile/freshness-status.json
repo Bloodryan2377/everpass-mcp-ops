@@ -1,12 +1,12 @@
 {
   "schema": "epc-freshness/v1",
-  "generated_at": "2026-05-24T00:08:55+00:00",
+  "generated_at": "2026-05-24T01:09:29+00:00",
   "rule": "user-facing artifacts must be <= 12h old; warn at 6h",
   "thresholds_hours": {
     "fresh_max": 6,
     "stale_min_exclusive": 12
   },
-  "duration_s": 1.01,
+  "duration_s": 0.97,
   "ran_rebuilds": true,
   "totals": {
     "total": 29,
@@ -33,13 +33,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0003206633333333333,
-        "as_of": "2026-05-24T00:08:53+00:00"
+        "age_hours": 0.0003347375,
+        "as_of": "2026-05-24T01:09:27+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.00032270972222222226,
-        "as_of": "2026-05-24T00:08:53+00:00"
+        "age_hours": 0.0003383591666666667,
+        "as_of": "2026-05-24T01:09:27+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -60,13 +60,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0043897097222222225,
-        "as_of": "2026-05-24T00:08:38+00:00"
+        "age_hours": 0.0036337841666666667,
+        "as_of": "2026-05-24T01:09:15+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0043917325,
-        "as_of": "2026-05-24T00:08:38+00:00"
+        "age_hours": 0.0036373855555555555,
+        "as_of": "2026-05-24T01:09:15+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -87,13 +87,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.004389450277777778,
-        "as_of": "2026-05-24T00:08:38+00:00"
+        "age_hours": 0.0036334783333333335,
+        "as_of": "2026-05-24T01:09:15+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0043914677777777775,
-        "as_of": "2026-05-24T00:08:38+00:00"
+        "age_hours": 0.0036370758333333334,
+        "as_of": "2026-05-24T01:09:15+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -114,13 +114,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.00013422527777777777,
-        "as_of": "2026-05-24T00:08:54+00:00"
+        "age_hours": 0.0001381275,
+        "as_of": "2026-05-24T01:09:27+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0001362575,
-        "as_of": "2026-05-24T00:08:54+00:00"
+        "age_hours": 0.00014172444444444444,
+        "as_of": "2026-05-24T01:09:27+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -141,13 +141,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.000279365,
-        "as_of": "2026-05-24T00:08:53+00:00"
+        "age_hours": 0.00029169833333333333,
+        "as_of": "2026-05-24T01:09:27+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0002814061111111111,
-        "as_of": "2026-05-24T00:08:53+00:00"
+        "age_hours": 0.0002952938888888889,
+        "as_of": "2026-05-24T01:09:27+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -168,13 +168,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.004389205833333333,
-        "as_of": "2026-05-24T00:08:38+00:00"
+        "age_hours": 0.0036332322222222225,
+        "as_of": "2026-05-24T01:09:15+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0043912483333333335,
-        "as_of": "2026-05-24T00:08:38+00:00"
+        "age_hours": 0.0036368291666666664,
+        "as_of": "2026-05-24T01:09:15+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -195,12 +195,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 47.31665404833333,
+        "age_hours": 48.32595448805555,
         "as_of": "2026-05-22T00:49:54+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 47.31665608861111,
+        "age_hours": 48.325958049722225,
         "as_of": "2026-05-22T00:49:54+00:00"
       },
       "manual_action": null,
@@ -222,13 +222,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 9.897583333333334e-05,
-        "as_of": "2026-05-24T00:08:54+00:00"
+        "age_hours": 9.987777777777778e-05,
+        "as_of": "2026-05-24T01:09:27+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.00010101833333333333,
-        "as_of": "2026-05-24T00:08:54+00:00"
+        "age_hours": 0.00010343055555555556,
+        "as_of": "2026-05-24T01:09:27+00:00"
       },
       "manual_action": null,
       "notes": "Cockpit RED-tier health check reads this. Auto-rebuilt by freshness enforcer + cockpit.cmd builder chain.",
@@ -249,12 +249,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 8.146563631666666,
+        "age_hours": 9.155864078611112,
         "as_of": "2026-05-23T16:00:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 8.146565672222222,
+        "age_hours": 9.155867629444444,
         "as_of": "2026-05-23T16:00:07+00:00"
       },
       "manual_action": null,
@@ -276,12 +276,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 3.765048830277778,
+        "age_hours": 4.774349276111112,
         "as_of": "2026-05-23T20:23:00+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 3.765050868888889,
+        "age_hours": 4.774352848888889,
         "as_of": "2026-05-23T20:23:00+00:00"
       },
       "manual_action": null,
@@ -303,12 +303,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 4.000439642222222,
+        "age_hours": 5.0097401377777775,
         "as_of": "2026-05-23T20:08:53+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 4.000441523055556,
+        "age_hours": 5.009743492777777,
         "as_of": "2026-05-23T20:08:53+00:00"
       },
       "manual_action": null,
@@ -330,12 +330,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.9953057716666667,
+        "age_hours": 3.0046062805555556,
         "as_of": "2026-05-23T22:09:11+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.9953075769444444,
+        "age_hours": 3.004609546111111,
         "as_of": "2026-05-23T22:09:11+00:00"
       },
       "manual_action": null,
@@ -357,12 +357,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.9953067377777778,
+        "age_hours": 3.004607243333333,
         "as_of": "2026-05-23T22:09:11+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.9953084808333335,
+        "age_hours": 3.0046104491666665,
         "as_of": "2026-05-23T22:09:11+00:00"
       },
       "manual_action": null,
@@ -384,12 +384,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.4912378502777778,
+        "age_hours": 1.500538356388889,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.4912395338888889,
+        "age_hours": 1.5005415016666666,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "manual_action": null,
@@ -411,12 +411,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.49111708083333333,
+        "age_hours": 1.5004175783333333,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.4911187055555556,
+        "age_hours": 1.5004206719444444,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "manual_action": null,
@@ -438,12 +438,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.4911057366666667,
+        "age_hours": 1.5004062316666666,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.4911073097222223,
+        "age_hours": 1.5004092755555556,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "manual_action": null,
@@ -465,12 +465,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.49132291305555553,
+        "age_hours": 1.5006233861111111,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.49132433833333333,
+        "age_hours": 1.500626305,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "manual_action": null,
@@ -492,12 +492,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.49132308027777777,
+        "age_hours": 1.500623575,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.4913244033333333,
+        "age_hours": 1.5006263563888889,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "manual_action": null,
@@ -519,12 +519,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.4912352916666667,
+        "age_hours": 1.5005360016666667,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.4912365297222222,
+        "age_hours": 1.5005384866666667,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "manual_action": null,
@@ -546,13 +546,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.4447016183333333,
-        "as_of": "2026-05-23T23:42:13+00:00"
+        "age_hours": 0.5571444136111111,
+        "as_of": "2026-05-24T00:36:02+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.4447027975,
-        "as_of": "2026-05-23T23:42:13+00:00"
+        "age_hours": 0.5571468325,
+        "as_of": "2026-05-24T00:36:02+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -573,12 +573,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 8.231129467222223,
+        "age_hours": 9.24043036111111,
         "as_of": "2026-05-23T15:55:02+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 8.231130596388889,
+        "age_hours": 9.24043254888889,
         "as_of": "2026-05-23T15:55:02+00:00"
       },
       "manual_action": "ChatGPT bridge daily drain runs 8:55 AM via the `chatgpt-bridge-daily-drain` scheduled task. If this artifact is stale (>36h), check that task's last-run/result.",
@@ -600,12 +600,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.4912357669444445,
+        "age_hours": 1.5005367275000001,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.49123684444444443,
+        "age_hours": 1.5005387963888888,
         "as_of": "2026-05-23T23:39:26+00:00"
       },
       "manual_action": null,
@@ -627,12 +627,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.4904196908333333,
+        "age_hours": 1.4997209761111112,
         "as_of": "2026-05-23T23:39:29+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.49042073194444447,
+        "age_hours": 1.4997226813888889,
         "as_of": "2026-05-23T23:39:29+00:00"
       },
       "manual_action": null,
@@ -654,12 +654,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.4904200283333333,
+        "age_hours": 1.4997216058333334,
         "as_of": "2026-05-23T23:39:29+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.4904210216666667,
+        "age_hours": 1.499722968611111,
         "as_of": "2026-05-23T23:39:29+00:00"
       },
       "manual_action": null,
@@ -681,12 +681,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 5.928545901666666,
+        "age_hours": 6.9378477525,
         "as_of": "2026-05-23T18:13:12+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 5.928546740555555,
+        "age_hours": 6.937848684444444,
         "as_of": "2026-05-23T18:13:12+00:00"
       },
       "manual_action": null,
@@ -708,13 +708,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 5.146799709722222,
-        "as_of": "2026-05-23T19:00:06+00:00"
+        "age_hours": 0.15558752083333335,
+        "as_of": "2026-05-24T01:00:08+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 5.1468004325,
-        "as_of": "2026-05-23T19:00:06+00:00"
+        "age_hours": 0.1555883311111111,
+        "as_of": "2026-05-24T01:00:08+00:00"
       },
       "manual_action": null,
       "notes": "Sentinel for build-dashboard-sync.py. Patches goNoGoData partner headers in the main pipeline dashboard HTML from contract-master-data.json + dashboard-partner-overrides.json. Runs every 6h via run-partner-chain.cmd.",
@@ -735,13 +735,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.07531452361111111,
-        "as_of": "2026-05-24T00:04:23+00:00"
+        "age_hours": 0.5029334636111111,
+        "as_of": "2026-05-24T00:39:17+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.07531515055555556,
-        "as_of": "2026-05-24T00:04:23+00:00"
+        "age_hours": 0.5029341661111112,
+        "as_of": "2026-05-24T00:39:17+00:00"
       },
       "manual_action": null,
       "notes": "Session-end compound memory log. One file per day in AI Related/daily/.",
@@ -762,12 +762,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 129.5610877586111,
+        "age_hours": 130.57038970444447,
         "as_of": "2026-05-18T14:35:14+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 129.56108830888888,
+        "age_hours": 130.57039026333334,
         "as_of": "2026-05-18T14:35:14+00:00"
       },
       "manual_action": null,
@@ -789,12 +789,12 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 116.379331375,
+        "age_hours": 117.3886333675,
         "as_of": "2026-05-19T03:46:09+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 116.3793319175,
+        "age_hours": 117.38863387027779,
         "as_of": "2026-05-19T03:46:09+00:00"
       },
       "manual_action": "Run: python \"EVERPASS TOOLS\\Scripts\\build_partner_notebook_map.py\" --headless\nRequires: authenticated Playwright profile at AI Related/.notebooklm-profile/\nFirst-time auth: python \"EVERPASS TOOLS\\Scripts\\notebooklm_auth_setup.py\"",
