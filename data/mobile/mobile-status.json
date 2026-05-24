@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-status/v1",
-  "generated_at": "2026-05-23T23:42:13Z",
+  "generated_at": "2026-05-24T00:36:02Z",
   "bridge": {
     "version": null,
     "last_run_status": "idle",
@@ -16,11 +16,10 @@
     "drive_mirror_status": "partial",
     "notebooklm_status": "failed",
     "scheduler_status": "success",
-    "dashboard_status": "partial",
+    "dashboard_status": "success",
     "failing_checks": [
       "drive_stable_mirror",
-      "notebooklm_sync",
-      "dashboard_health"
+      "notebooklm_sync"
     ]
   },
   "selfverify": {
@@ -36,6 +35,6 @@
   },
   "freshness": {
     "bridge_status_mtime": "2026-05-23T15:55:02Z",
-    "morning_status_mtime": "2026-05-23T23:39:25Z"
+    "morning_status_mtime": "2026-05-24T00:08:54Z"
   }
 }

@@ -1,9 +1,9 @@
 {
   "schema": "epc-meetings/v1",
-  "source": "claude-scheduled-zapier-mcp",
-  "generated_at": "2026-05-23T23:39:11Z",
+  "source": "live-refresh-graph-calendar",
+  "generated_at": "2026-05-24T00:31:12Z",
   "date": "2026-05-23",
-  "available": true,
+  "available": false,
   "meeting_count": 0,
   "meetings": [],
   "errors": []
