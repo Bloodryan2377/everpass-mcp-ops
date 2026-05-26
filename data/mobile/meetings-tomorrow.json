@@ -1,10 +1,77 @@
 {
   "schema": "epc-meetings/v1",
-  "source": "claude-scheduled-zapier-mcp",
-  "generated_at": "2026-05-24T01:09:15.156254Z",
-  "bucket": "tomorrow",
-  "date": "2026-05-24",
-  "timezone": "US/Eastern",
-  "meetings": [],
+  "source": "live-refresh-graph-calendar",
+  "generated_at": "2026-05-26T01:31:12Z",
+  "date": "2026-05-26",
+  "available": true,
+  "meeting_count": 6,
+  "meetings": [
+    {
+      "start": "2026-05-26T11:30:00.0000000",
+      "end": "2026-05-26T12:00:00.0000000",
+      "subject": "Weekly Catchup",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Ryan Blood",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2FiYTcyZTEtNzZhMC00YWExLWFiNTYtYzFjZjUzOGM4ODZl%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%220d5c544e-1c38-4e0c-88de-3bfb1eb80422%22%7d",
+      "categories": [],
+      "body_preview": "We have so many ongoing work streams that I thought it would be helpful to have a standing meeting.  We can cancel and move as needed.\r\n\r\n______________________________________________________________"
+    },
+    {
+      "start": "2026-05-26T12:00:00.0000000",
+      "end": "2026-05-26T13:30:00.0000000",
+      "subject": "Management Sync",
+      "location": "CT - Conference Room",
+      "organizer": "Alex Kaplan",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MzBiNDlkYjQtM2M0MC00OWIwLTkyYmUtMjA3ZDk1ZmViZDY2%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%225b805840-6ed4-4112-809f-9e77c5f5109e%22%7d",
+      "categories": [],
+      "body_preview": "________________________________________________________________________________\r\nMicrosoft Teams Need help?\r\nJoin the meeting now\r\nMeeting ID: 210 810 348 711 1\r\nPasscode: CN3k984v\r\n_________________"
+    },
+    {
+      "start": "2026-05-26T14:00:00.0000000",
+      "end": "2026-05-26T14:30:00.0000000",
+      "subject": "Catchup - kids/music choice - Engage",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Ryan Blood",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTczZDJiZDEtMDA4NC00MjNjLWFkZjgtYjExMTBmMWQ2MzFk%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%220d5c544e-1c38-4e0c-88de-3bfb1eb80422%22%7d",
+      "categories": [],
+      "body_preview": "Need to shift to Monday.   Charter taking up all am.  Sorry\r\n________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.co"
+    },
+    {
+      "start": "2026-05-26T14:30:00.0000000",
+      "end": "2026-05-26T15:00:00.0000000",
+      "subject": "Weekly Touch Base",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Ryan Blood",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjJhNTg0MTItNThhZi00NmEzLWI1Y2EtNThhZWRkZGMwOGZi%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%220d5c544e-1c38-4e0c-88de-3bfb1eb80422%22%7d",
+      "categories": [],
+      "body_preview": "________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.com/meet/298897106324871?p=PVEDTQOk6HpvfU7pRO\r\nMeeting ID: 298 "
+    },
+    {
+      "start": "2026-05-26T15:00:00.0000000",
+      "end": "2026-05-26T16:00:00.0000000",
+      "subject": "FW: EverPass 2026/2027 Launch",
+      "location": "https://charteruc.webex.com/charteruc/j.php?MTID=m607b0fbdbcb6e29d5abe4af50e3012b2",
+      "organizer": "Ligocki, Nicholas",
+      "is_online": false,
+      "join_url": "",
+      "categories": [],
+      "body_preview": "-----Original Appointment----- From: Ligocki, Nicholas Sent: Thursday, February 5, 2026 11:42 AM To: Ligocki, Nicholas; Greene, Kenneth W; Shoup, Anne; Mohammad, Solaiman; Roberts, Giselle; Willis, Ju"
+    },
+    {
+      "start": "2026-05-26T16:30:00.0000000",
+      "end": "2026-05-26T17:00:00.0000000",
+      "subject": "EverPass/DTV",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Santolli, Brianna J.",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDYyZDU3NTEtZjU1My00YzIxLWExNTUtZjEwZWE5NzcwNDEx%40thread.v2/0?context=%7b%22Tid%22%3a%220b437de8-e517-4a2c-948a-a5bd571ef0ad%22%2c%22Oid%22%3a%224eff743d-1946-4561-91cc-a2a9ed72c3f1%22%7d",
+      "categories": [],
+      "body_preview": "________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.com/meet/261478117341228?p=l9EgYcF6KUW1aO5uCl\r\nMeeting ID: 261 "
+    }
+  ],
   "errors": []
 }

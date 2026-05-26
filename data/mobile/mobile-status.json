@@ -1,16 +1,16 @@
 {
   "schema": "epc-mobile-status/v1",
-  "generated_at": "2026-05-24T01:13:32Z",
+  "generated_at": "2026-05-26T01:34:55Z",
   "bridge": {
     "version": null,
     "last_run_status": "idle",
-    "last_run_id": "run-20260522-001-c3d8",
+    "last_run_id": "local-syn-20260524-001-291c",
     "last_processed_at": "2026-05-19T04:10:11Z",
     "counts": {},
     "last_artifact": null
   },
   "morning": {
-    "run_date": "2026-05-23",
+    "run_date": "2026-05-25",
     "overall_status": "failed",
     "cockpit_status": "success",
     "drive_mirror_status": "partial",
@@ -24,18 +24,18 @@
     ]
   },
   "selfverify": {
-    "overall": "WARN",
+    "overall": "PASS",
     "counts": {
-      "pass": 38,
-      "warn": 1,
+      "pass": 39,
+      "warn": 0,
       "fail": 0
     },
-    "generated_at": "2026-05-23T14:00:01Z",
-    "report_filename": "everpass-bridge-and-mobile-health-2026-05-23.json",
+    "generated_at": "2026-05-25T14:00:04Z",
+    "report_filename": "everpass-bridge-and-mobile-health-2026-05-25.json",
     "report_present": true
   },
   "freshness": {
-    "bridge_status_mtime": "2026-05-23T15:55:02Z",
-    "morning_status_mtime": "2026-05-24T01:09:27Z"
+    "bridge_status_mtime": "2026-05-25T15:55:50Z",
+    "morning_status_mtime": "2026-05-26T01:00:07Z"
   }
 }

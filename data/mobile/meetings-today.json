@@ -1,10 +1,22 @@
 {
   "schema": "epc-meetings/v1",
-  "source": "claude-scheduled-zapier-mcp",
-  "generated_at": "2026-05-24T01:09:15.156254Z",
-  "bucket": "today",
-  "date": "2026-05-23",
-  "timezone": "US/Eastern",
-  "meetings": [],
+  "source": "live-refresh-graph-calendar",
+  "generated_at": "2026-05-26T01:31:11Z",
+  "date": "2026-05-25",
+  "available": true,
+  "meeting_count": 1,
+  "meetings": [
+    {
+      "start": "2026-05-25T12:00:00.0000000",
+      "end": "2026-05-25T12:30:00.0000000",
+      "subject": "Canceled: Cross Functional Standup",
+      "location": "CT - Conference Room",
+      "organizer": "Anna Hewitt",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTJmMjBjZjQtNTUzOC00ZmYyLTgwYmItZWJkYzg0OWNkZWY5%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22a4a17867-3eda-4738-bf04-2fe69e6b28c4%22%7d",
+      "categories": [],
+      "body_preview": ""
+    }
+  ],
   "errors": []
 }
