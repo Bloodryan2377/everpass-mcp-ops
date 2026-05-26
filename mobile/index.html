@@ -19,13 +19,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
 
-  <link rel="stylesheet" href="./styles/core.css" />
-  <link rel="stylesheet" href="./styles/cockpit.css?v=2026-05-23-ask-fix" />
-  <link rel="stylesheet" href="./styles/dispatch.css" />
-  <link rel="stylesheet" href="./styles/results.css" />
-  <link rel="stylesheet" href="./styles/live.css" />
-  <link rel="stylesheet" href="./styles/answers.css" />
-  <link rel="stylesheet" href="./styles/aos.css" />
+  <link rel="stylesheet" href="./styles/core.css?v=2026-05-26-ux-fix" />
+  <link rel="stylesheet" href="./styles/cockpit.css?v=2026-05-26-ux-fix" />
+  <link rel="stylesheet" href="./styles/dispatch.css?v=2026-05-26-ux-fix" />
+  <link rel="stylesheet" href="./styles/results.css?v=2026-05-26-ux-fix" />
+  <link rel="stylesheet" href="./styles/live.css?v=2026-05-26-ux-fix" />
+  <link rel="stylesheet" href="./styles/answers.css?v=2026-05-26-ux-fix" />
+  <link rel="stylesheet" href="./styles/aos.css?v=2026-05-26-ux-fix" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -146,6 +146,7 @@
               aria-label="Close launcher">&times;</button>
     </div>
     <div class="aos-sheet-body">
+      <div class="aos-sheet-status" id="aos-sheet-status" role="status" aria-live="polite"></div>
       <div class="aos-config">
         <label>URL
           <input type="url" id="aos-url-input" placeholder="http://127.0.0.1:8765" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false" />
@@ -160,7 +161,7 @@
       </div>
       <div class="aos-section-title">Skills</div>
       <div class="aos-skill-list" id="aos-skill-list">
-        <div class="aos-empty">Loading…</div>
+        <div class="aos-empty">No mobile skills configured. AOS runs on the laptop only.</div>
       </div>
       <div class="aos-section-title">Recent runs</div>
       <div class="aos-runs" id="aos-runs">
@@ -169,14 +170,15 @@
     </div>
   </aside>
 
-  <script src="./scripts/data.js"></script>
-  <script src="./scripts/cockpit.js?v=2026-05-23-ask-fix"></script>
-  <script src="./scripts/dispatch.js"></script>
-  <script src="./scripts/answers.js"></script>
-  <script src="./scripts/results.js"></script>
-  <script src="./scripts/live.js"></script>
-  <script src="./scripts/daily-s.js"></script>
-  <script src="./scripts/aos.js"></script>
-  <script src="./scripts/app.js"></script>
+  <script src="./scripts/data.js?v=2026-05-26-ux-fix"></script>
+  <script src="./scripts/cockpit.js?v=2026-05-26-ux-fix"></script>
+  <script src="./scripts/list-view.js?v=2026-05-26-ux-fix"></script>
+  <script src="./scripts/dispatch.js?v=2026-05-26-ux-fix"></script>
+  <script src="./scripts/answers.js?v=2026-05-26-ux-fix"></script>
+  <script src="./scripts/results.js?v=2026-05-26-ux-fix"></script>
+  <script src="./scripts/live.js?v=2026-05-26-ux-fix"></script>
+  <script src="./scripts/daily-s.js?v=2026-05-26-ux-fix"></script>
+  <script src="./scripts/aos.js?v=2026-05-26-ux-fix"></script>
+  <script src="./scripts/app.js?v=2026-05-26-ux-fix"></script>
 </body>
 </html>

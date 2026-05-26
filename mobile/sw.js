@@ -4,7 +4,11 @@
  *   - network-only for DATA (data/mobile/*.json) — never fake freshness
  *   - bypass cache entirely for cross-origin requests
  */
-const VERSION = 'epmcc-v1-2026-04-27-r3-freshness-chip';
+// 2026-05-26: bumped version to force shell-cache eviction after mobile UX fix.
+// Old caches kept "Morning failed 2026-05-23" pill, stale generated_at label,
+// and the always-on AOS DOWN chip alive on returning visitors. New SW activates
+// immediately via skipWaiting + clients.claim and purges every prior shell-* key.
+const VERSION = 'epmcc-v2-2026-05-26-ux-fix';
 const SHELL_CACHE = `shell-${VERSION}`;
 const SHELL_URLS = [
   './',
@@ -14,11 +18,14 @@ const SHELL_URLS = [
   './styles/cockpit.css',
   './styles/dispatch.css',
   './styles/results.css',
+  './styles/aos.css',
   './scripts/app.js',
   './scripts/data.js',
   './scripts/cockpit.js',
   './scripts/dispatch.js',
   './scripts/results.js',
+  './scripts/list-view.js',
+  './scripts/aos.js',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/apple-touch-icon-180.png',

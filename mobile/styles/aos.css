@@ -1,4 +1,20 @@
-/* AOS launcher pill + sheet (2026-05-18) */
+/* AOS launcher pill + sheet (2026-05-18; revised 2026-05-26) */
+/* Defensive: when [hidden] is set, force display:none. iOS Safari sometimes
+   honors animation transforms even with the attribute set. */
+.aos-sheet[hidden], .aos-backdrop[hidden] { display: none !important; }
+.aos-sheet-status {
+  font: 600 12px/1.3 system-ui, sans-serif;
+  padding: 8px 10px; margin-bottom: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  color: var(--muted, #9aa3b8);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.aos-sheet-status[data-kind="green"] { background: rgba(46,194,126,0.10); color: #6ad9a1; border-color: rgba(46,194,126,0.25); }
+.aos-sheet-status[data-kind="amber"] { background: rgba(245,180,97,0.10); color: #f5b461; border-color: rgba(245,180,97,0.25); }
+.aos-sheet-status[data-kind="red"]   { background: rgba(239,107,107,0.10); color: #ff8e8e; border-color: rgba(239,107,107,0.25); }
+.aos-sheet-status:empty { display: none; }
+
 .aos-trigger {
   display: inline-flex; align-items: center; gap: 6px;
   height: 28px; padding: 0 10px; border-radius: 999px;

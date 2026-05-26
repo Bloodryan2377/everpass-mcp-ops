@@ -8,9 +8,22 @@
   const ROUTES = ['cockpit', 'dispatch', 'answers', 'results', 'live'];
   const DEFAULT_ROUTE = 'cockpit';
 
+  // 2026-05-26 fix P2/P3/P4: sub-routes for list/partner/health drill-down.
+  // These all render inside the Cockpit view container so the Cockpit tab
+  // stays selected and the user can back out via the in-view "Back" link.
+  const SUB_ROUTES = ['list', 'partner', 'health'];
+
   function currentRoute() {
     const h = (location.hash || '').replace(/^#\/?/, '').split('?')[0];
-    return ROUTES.includes(h) ? h : DEFAULT_ROUTE;
+    const head = h.split('/')[0];
+    if (SUB_ROUTES.includes(head)) return 'cockpit';
+    return ROUTES.includes(head) ? head : DEFAULT_ROUTE;
+  }
+
+  function currentSubRoute() {
+    const h = (location.hash || '').replace(/^#\/?/, '').split('?')[0];
+    const head = h.split('/')[0];
+    return SUB_ROUTES.includes(head) ? head : null;
   }
 
   function setActiveTab(route) {
@@ -33,8 +46,13 @@
       view.hidden = r !== route;
     });
     setActiveTab(route);
-    document.getElementById('topbar-subline').textContent = labelFor(route);
-    if (route === 'cockpit') return global.EPMCCockpit.render(document.getElementById('view-cockpit'));
+    const sub = currentSubRoute();
+    document.getElementById('topbar-subline').textContent = sub ? labelFor(route) + ' › detail' : labelFor(route);
+    if (route === 'cockpit') {
+      const target = document.getElementById('view-cockpit');
+      if (sub && global.EPMCList) return global.EPMCList.render(target);
+      return global.EPMCCockpit.render(target);
+    }
     if (route === 'dispatch') return global.EPMCDispatch.render(document.getElementById('view-dispatch'));
     if (route === 'answers')  return global.EPMCAnswers.render(document.getElementById('view-answers'));
     if (route === 'results')  return global.EPMCResults.render(document.getElementById('view-results'));

@@ -14,12 +14,17 @@
   const URL_KEY = 'epmcc.aos.url.v1';
   const TOKEN_KEY = 'epmcc.aos.token.v1';
   const RUNS_KEY = 'epmcc.aos.runs.v1';
+  const ENABLED_KEY = 'epmcc.aos.enabled.v1'; // 2026-05-26 opt-in: only show chip if '1'
   const DEFAULT_URL = 'http://127.0.0.1:8765';
   const MAX_RUNS = 12;
   const PROBE_INTERVAL_MS = 30 * 1000;
 
   let probeTimer = null;
   let skills = null;
+
+  function isEnabled() {
+    try { return localStorage.getItem(ENABLED_KEY) === '1'; } catch (_) { return false; }
+  }
 
   function getUrl() {
     return (localStorage.getItem(URL_KEY) || DEFAULT_URL).replace(/\/+$/, '');
@@ -49,10 +54,13 @@
     return t ? { Authorization: 'Bearer ' + t } : {};
   }
 
+  // 2026-05-26: probe is now opt-in. Default label is always "AOS" without
+  // status decoration so cellular sessions don't see a permanent "down" pill.
+  // Only updates dot color; never mutates the chip label to "down" / "token?".
+  // Inline status surfaces inside the sheet via setSheetStatus() instead.
   async function probe() {
     const url = getUrl();
     const dot = document.getElementById('aos-trigger-dot');
-    const label = document.getElementById('aos-trigger-label');
     try {
       const r = await fetch(url + '/health', {
         cache: 'no-store',
@@ -60,19 +68,26 @@
       });
       if (r.status === 401) {
         dot && (dot.dataset.state = 'amber');
-        label && (label.textContent = 'AOS · token?');
+        setSheetStatus('Token required (HTTP 401). Save your AOS_TOKEN above.', 'amber');
         return false;
       }
       if (!r.ok) throw new Error('HTTP ' + r.status);
       const j = await r.json();
       dot && (dot.dataset.state = 'green');
-      label && (label.textContent = `AOS · ${j.skills || 0}`);
+      setSheetStatus(`Connected · ${j.skills || 0} skills`, 'green');
       return true;
     } catch (e) {
       dot && (dot.dataset.state = 'red');
-      label && (label.textContent = 'AOS · down');
+      setSheetStatus('AOS unreachable from this network. Laptop-only — run on desktop.', 'red');
       return false;
     }
+  }
+
+  function setSheetStatus(text, kind) {
+    const el = document.getElementById('aos-sheet-status');
+    if (!el) return;
+    el.textContent = text || '';
+    el.dataset.kind = kind || '';
   }
 
   async function loadSkills() {
@@ -131,7 +146,7 @@
     const list = document.getElementById('aos-skill-list');
     if (!list) return;
     if (!skills) {
-      list.innerHTML = '<div class="aos-empty">Load skills first.</div>';
+      list.innerHTML = '<div class="aos-empty">No mobile skills configured. AOS runs on the laptop only.</div>';
       return;
     }
     const ids = Object.keys(skills).sort();
@@ -191,6 +206,8 @@
     sheet.dataset.open = 'true';
     document.getElementById('aos-url-input').value = getUrl();
     document.getElementById('aos-token-input').value = getToken() ? '••••••••' : '';
+    setSheetStatus('Probing…', '');
+    renderSkills(); // 2026-05-26: render static empty-state immediately
     renderRuns();
     probe().then((ok) => { if (ok) loadSkills().then(renderSkills).catch(() => {}); });
   }
@@ -199,6 +216,12 @@
     const bd = document.getElementById('aos-backdrop');
     if (sheet) { sheet.hidden = true; sheet.dataset.open = 'false'; }
     bd && (bd.hidden = true);
+  }
+
+  // 2026-05-26: hard-reset state on init. Prior sessions left the sheet
+  // sometimes appearing pinned (Ryan's report 2026-05-26). Defensive close.
+  function forceCloseOnInit() {
+    closeSheet();
   }
 
   function wire() {
@@ -229,9 +252,23 @@
   }
 
   function init() {
+    forceCloseOnInit();
+    const trig = document.getElementById('aos-trigger');
+    const label = document.getElementById('aos-trigger-label');
+    // 2026-05-26: AOS chip is opt-in. Hide entirely unless user enabled it via
+    // localStorage 'epmcc.aos.enabled.v1' = '1'. From cellular, AOS is always
+    // unreachable (laptop-bound), so default-hiding removes the misleading
+    // "AOS · down" badge. Power users can enable via DevTools console.
+    if (!isEnabled()) {
+      if (trig) trig.style.display = 'none';
+      // Still wire close-on-Escape in case the sheet was server-rendered open.
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSheet(); });
+      return;
+    }
+    if (label) label.textContent = 'AOS';
     wire();
-    probe();
-    probeTimer = setInterval(probe, PROBE_INTERVAL_MS);
+    // 2026-05-26: removed auto-probe interval. Probe only when user opens the
+    // sheet. From cellular, repeated probes just produced "AOS · down" noise.
   }
 
   if (document.readyState === 'loading') {

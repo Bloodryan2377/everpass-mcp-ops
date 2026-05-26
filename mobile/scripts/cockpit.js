@@ -287,11 +287,18 @@
       kind: b.counts?.rejected_outstanding ? 'danger' : 'ok',
       text: `rejected ${b.counts?.rejected_outstanding ?? 0}`,
     });
+    // 2026-05-26 fix P7: drop morning chip when run_date is stale (>2 days old).
+    // Avoids the "Morning failed 2026-05-23" pill lingering on mobile when the
+    // user just wants to clear it. The Daily S sheet still surfaces detail.
     const m = status.morning || {};
-    chips.push({
-      kind: m.overall_status === 'success' ? 'ok' : 'warn',
-      text: `morning ${m.overall_status || 'unknown'}${m.run_date ? ' · ' + m.run_date : ''}`,
-    });
+    const mDate = m.run_date ? new Date(m.run_date + 'T00:00:00Z').getTime() : 0;
+    const mAgeDays = mDate ? (Date.now() - mDate) / (24 * 3600 * 1000) : 0;
+    if (!m.run_date || mAgeDays <= 2) {
+      chips.push({
+        kind: m.overall_status === 'success' ? 'ok' : 'warn',
+        text: `morning ${m.overall_status || 'unknown'}${m.run_date ? ' · ' + m.run_date : ''}`,
+      });
+    }
     return chips;
   }
 
@@ -393,14 +400,20 @@
     wrap.appendChild(sub);
 
     const row = el('div', { class: 'hero-row' });
+    // 2026-05-26 fix P2: tiles are tappable. Each routes to a hash-based list
+    // view rendered by EPMCList (defined below). Falls back to a toast if the
+    // sub-view ends up empty.
     const stats = [
-      { label: 'Critical now', value: cockpit?.morning_brief?.critical_count ?? '—' },
-      { label: 'Active deals', value: cockpit?.deals?.length ?? '—' },
-      { label: 'Outbox today', value: status?.bridge?.counts?.archived_today ?? '—' },
-      { label: 'Inbox pending', value: status?.bridge?.counts?.inbox_pending ?? '—' },
+      { label: 'Critical now', value: cockpit?.morning_brief?.critical_count ?? '—', href: '#/list/critical' },
+      { label: 'Active deals', value: cockpit?.deals?.length ?? '—',                href: '#/list/deals' },
+      { label: 'Outbox today', value: status?.bridge?.counts?.archived_today ?? '—', href: '#/list/outbox' },
+      { label: 'Inbox pending', value: status?.bridge?.counts?.inbox_pending ?? '—', href: '#/list/inbox' },
     ];
     stats.forEach((s) => {
-      const stat = el('div', { class: 'hero-stat' });
+      const stat = el('a', {
+        class: 'hero-stat hero-stat-link',
+        attrs: { href: s.href, role: 'button', 'aria-label': s.label + ' — open list' },
+      });
       stat.appendChild(el('span', { class: 'label', text: s.label }));
       stat.appendChild(el('span', { class: 'value', text: String(s.value) }));
       row.appendChild(stat);
@@ -1000,7 +1013,11 @@
     if (!asks || !asks.available) return wrap;
     const counts = asks.counts || {};
     const counts24 = asks.counts_24h || {};
-    const hasErrors = (counts.failed || 0) > 0 || (counts24.failed || 0) > 0;
+    // 2026-05-26 fix P8: only flag errors when something failed in the last 24h.
+    // Lifetime counts.failed includes stale 7 errors from April; surfacing them
+    // forever produced the "7 ask(s) errored" pill Ryan wanted cleared.
+    const hasErrors = (counts24.failed || 0) > 0;
+    const hasStaleErrors = (counts.failed || 0) > 0;
     const hasPending = (counts.pending || 0) > 0;
     const titleMeta = asks.last_answered_at
       ? `last answered ${relTime(asks.last_answered_at)}`
@@ -1027,11 +1044,17 @@
     card.appendChild(row24);
 
     // Subtle error banner when something needs human attention.
+    // 2026-05-26 fix P8: trigger only on 24h-window failures, not lifetime.
     if (hasErrors) {
       const warn = el('div', { class: 'asks-warning' });
       warn.appendChild(el('span', { class: 'asks-warning-icon', text: '!' }));
-      warn.appendChild(el('span', { text: `${counts.failed || 0} ask(s) errored - check ChatGPT_Outbox/_rejected/` }));
+      warn.appendChild(el('span', { text: `${counts24.failed || 0} ask(s) errored in last 24h - check ChatGPT_Outbox/_rejected/` }));
       card.appendChild(warn);
+    } else if (hasStaleErrors) {
+      // Soft note for the lifetime stragglers; no alert color.
+      const note = el('div', { class: 'asks-note', attrs: { style: 'opacity:0.7;font-size:11px;margin-top:4px' } });
+      note.textContent = `${counts.failed} historical error(s) on file (no recent failures).`;
+      card.appendChild(note);
     }
 
     // All-time row (small, secondary).
@@ -1050,6 +1073,10 @@
     return wrap;
   }
 
+  function partnerSlug(name) {
+    return String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'unknown';
+  }
+
   function renderTodos(cockpit) {
     const todos = cockpit?.partner_todos?.items || [];
     const wrap = document.createDocumentFragment();
@@ -1058,15 +1085,20 @@
       wrap.appendChild(el('div', { class: 'card state-empty', text: 'No partner todos extracted.' }));
       return wrap;
     }
+    // 2026-05-26 fix P3: each todo row is now tappable, routes to partner detail.
     const list = el('ul', { class: 'todo-list' });
     todos.forEach((t) => {
-      const li = el('li', { class: 'todo-item' });
+      const slug = partnerSlug(t.partner);
+      const li = el('li', { class: 'todo-item todo-item-link', attrs: { role: 'link', tabindex: '0', 'data-partner': slug } });
       li.appendChild(el('div', { class: 'todo-partner', text: t.partner || '?' }));
       li.appendChild(el('div', { class: 'todo-text', text: t.text || '' }));
       const metaBits = [];
       if (t.category) metaBits.push(t.category);
       if (t.due) metaBits.push('due ' + t.due);
       if (metaBits.length) li.appendChild(el('div', { class: 'todo-meta', text: metaBits.join(' · ') }));
+      const go = () => { location.hash = '#/partner/' + slug; };
+      li.addEventListener('click', go);
+      li.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
       list.appendChild(li);
     });
     wrap.appendChild(list);
@@ -1096,7 +1128,12 @@
       { label: 'Last artifact', value: status.bridge?.last_artifact || '—', kind: 'ok' },
     ];
     items.forEach((i) => {
-      const card = el('div', { class: `health-item ${i.kind}` });
+      // 2026-05-26 fix P4: health tiles tappable, route to a health-log view.
+      const slug = String(i.label || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+      const card = el('a', {
+        class: `health-item ${i.kind} health-item-link`,
+        attrs: { href: '#/health/' + slug, role: 'button', 'aria-label': i.label + ' — open detail' },
+      });
       card.appendChild(el('span', { class: 'label', text: i.label }));
       card.appendChild(el('span', { class: 'value', text: i.value }));
       grid.appendChild(card);

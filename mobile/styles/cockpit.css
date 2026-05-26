@@ -57,6 +57,55 @@
   padding: 14px 16px;
 }
 
+/* 2026-05-26 fix P2: tappable hero tiles route to list views. */
+.hero-stat-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: rgba(91,141,239,0.15);
+  transition: transform 0.08s ease, border-color 0.12s ease, background 0.12s ease;
+}
+.hero-stat-link:hover, .hero-stat-link:focus-visible {
+  border-color: rgba(91,141,239,0.55);
+  background: rgba(91,141,239,0.06);
+}
+.hero-stat-link:active { transform: scale(0.98); }
+.hero-stat-link:focus-visible { outline: 2px solid rgba(91,141,239,0.55); outline-offset: 2px; }
+
+/* List / partner / health sub-view chrome (added 2026-05-26). */
+.list-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: 600 13px/1 system-ui, sans-serif;
+  color: var(--c-fg, #e6e9f2);
+  text-decoration: none;
+  padding: 8px 12px;
+  margin: 4px 0 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--c-border, rgba(255,255,255,0.10));
+  border-radius: 999px;
+}
+.list-back:hover, .list-back:focus-visible {
+  background: rgba(91,141,239,0.10);
+  border-color: rgba(91,141,239,0.45);
+}
+.list-title { margin: 4px 0 10px; }
+.list-title h2 { font: 800 22px/1.2 system-ui, sans-serif; margin: 0; }
+.list-meta    { font: 500 12px/1.2 system-ui, sans-serif; color: var(--c-fg-faint, #9aa3b8); margin-top: 4px; }
+.list-stretch { margin: 6px 0 14px; }
+
+/* Tappable nested rows (partner todos, deals in list). */
+.todo-item-link, .deal-item-link, .health-item-link {
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(91,141,239,0.15);
+}
+.todo-item-link:hover, .todo-item-link:focus-visible,
+.deal-item-link:hover, .deal-item-link:focus-visible,
+.health-item-link:hover, .health-item-link:focus-visible {
+  outline: 2px solid rgba(91,141,239,0.45);
+  outline-offset: 1px;
+}
+.health-item-link { text-decoration: none; color: inherit; display: block; }
+
 .hero-stat .label {
   display: block;
   font-size: 10px;
