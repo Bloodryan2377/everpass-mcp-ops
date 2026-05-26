@@ -1,0 +1,96 @@
+{
+  "schema": "epc-mobile-results/v1",
+  "generated_at": "2026-05-05T22:28:00Z",
+  "count": 5,
+  "items": [
+    {
+      "filename": "2026-04-26-partner-intel-spectrum.md",
+      "date_dir": "2026-04-26",
+      "kind": "partner",
+      "produced_at": "2026-04-26T09:26:54Z",
+      "source": "Claude-local + chatgpt-bridge",
+      "target_skill": "partner",
+      "partner": "intel",
+      "correlation_id": null,
+      "needs_review": "false",
+      "confidence": "medium",
+      "title": "2026-04-26-partner-intel-spectrum",
+      "summary": "",
+      "mtime": "2026-04-26T09:26:54Z"
+    },
+    {
+      "filename": "2026-04-26-governance-comparison-mfn.json",
+      "date_dir": "2026-04-26",
+      "kind": "governance",
+      "produced_at": "2026-04-26T08:08:25Z",
+      "source": "Claude-local + chatgpt-bridge",
+      "target_skill": "governance",
+      "partner": "comparison",
+      "correlation_id": null,
+      "needs_review": "false",
+      "confidence": "medium",
+      "title": "2026-04-26-governance-comparison-mfn",
+      "summary": "",
+      "mtime": "2026-04-26T08:08:25Z"
+    },
+    {
+      "filename": "2026-04-26-meeting-summary-nesn.md",
+      "date_dir": "2026-04-26",
+      "kind": "meeting",
+      "produced_at": "2026-04-26T08:08:25Z",
+      "source": "Claude-local + chatgpt-bridge",
+      "target_skill": "meeting",
+      "partner": "summary",
+      "correlation_id": null,
+      "needs_review": "false",
+      "confidence": "medium",
+      "title": "2026-04-26-meeting-summary-nesn",
+      "summary": "",
+      "mtime": "2026-04-26T08:08:25Z"
+    },
+    {
+      "filename": "2026-04-26-contract-delta-twdc.md",
+      "date_dir": "2026-04-26",
+      "kind": "contract",
+      "produced_at": "2026-04-26T08:08:24Z",
+      "source": "Claude-local + chatgpt-bridge",
+      "target_skill": "contract",
+      "partner": "delta",
+      "correlation_id": null,
+      "needs_review": "false",
+      "confidence": "medium",
+      "title": "2026-04-26-contract-delta-twdc",
+      "summary": "",
+      "mtime": "2026-04-26T08:08:24Z"
+    },
+    {
+      "filename": "2026-04-26-morning-brief-supplement-overnight.md",
+      "date_dir": "2026-04-26",
+      "kind": "morning",
+      "produced_at": "2026-04-26T08:08:24Z",
+      "source": "Claude-local + chatgpt-bridge",
+      "target_skill": "morning",
+      "partner": "brief",
+      "correlation_id": null,
+      "needs_review": "false",
+      "confidence": "medium",
+      "title": "2026-04-26-morning-brief-supplement-overnight",
+      "summary": "",
+      "mtime": "2026-04-26T08:08:24Z"
+    }
+  ],
+  "by_partner": {
+    "intel": 1,
+    "comparison": 1,
+    "summary": 1,
+    "delta": 1,
+    "brief": 1
+  },
+  "by_kind": {
+    "partner": 1,
+    "governance": 1,
+    "meeting": 1,
+    "contract": 1,
+    "morning": 1
+  }
+}

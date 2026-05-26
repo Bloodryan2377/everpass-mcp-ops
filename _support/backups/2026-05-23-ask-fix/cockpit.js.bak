@@ -409,103 +409,6 @@
     return wrap;
   }
 
-  // 2026-05-23 ASK-FIX helpers ============================================
-  // Resolve the Ask backend at runtime so GitHub Pages mirror falls back
-  // to the Netlify host (which actually serves the function).
-  function resolveAskEndpoint() {
-    try {
-      const host = (location && location.hostname) || '';
-      if (host.endsWith('github.io')) return 'https://dashboard.everpasspipeline.com/api/ask';
-    } catch (_) { /* ignore */ }
-    return '/api/ask';
-  }
-
-  // Tiny safe markdown renderer for inline answers. Handles headings,
-  // bold/italic, inline code, fenced code blocks, bullets, paragraphs.
-  // Anything not matched is escaped.
-  function renderAnswerMarkdown(target, src) {
-    target.innerHTML = '';
-    const text = String(src || '').replace(/\r\n/g, '\n');
-    const lines = text.split('\n');
-    const esc = (s) => s
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-    const inline = (s) => {
-      let out = esc(s);
-      out = out.replace(/`([^`]+)`/g, (_, c) => '<code>' + c + '</code>');
-      out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-      out = out.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
-      return out;
-    };
-    let i = 0;
-    while (i < lines.length) {
-      const line = lines[i];
-      if (/^```/.test(line)) {
-        const buf = []; i++;
-        while (i < lines.length && !/^```/.test(lines[i])) { buf.push(lines[i]); i++; }
-        if (i < lines.length) i++;
-        const pre = document.createElement('pre');
-        pre.className = 'ask-answer-pre';
-        pre.textContent = buf.join('\n');
-        target.appendChild(pre);
-        continue;
-      }
-      const h = line.match(/^(#{1,4})\s+(.*)$/);
-      if (h) {
-        const level = Math.min(4, h[1].length);
-        const node = document.createElement('h' + Math.max(3, level + 2));
-        node.className = 'ask-answer-h';
-        node.innerHTML = inline(h[2]);
-        target.appendChild(node);
-        i++; continue;
-      }
-      if (/^\s*[-*]\s+/.test(line)) {
-        const ul = document.createElement('ul');
-        ul.className = 'ask-answer-ul';
-        while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
-          const li = document.createElement('li');
-          li.innerHTML = inline(lines[i].replace(/^\s*[-*]\s+/, ''));
-          ul.appendChild(li);
-          i++;
-        }
-        target.appendChild(ul);
-        continue;
-      }
-      if (line.trim() === '') { i++; continue; }
-      const buf = [line]; i++;
-      while (i < lines.length && lines[i].trim() !== '' && !/^(#{1,4})\s+/.test(lines[i]) && !/^```/.test(lines[i]) && !/^\s*[-*]\s+/.test(lines[i])) {
-        buf.push(lines[i]); i++;
-      }
-      const p = document.createElement('p');
-      p.className = 'ask-answer-p';
-      p.innerHTML = inline(buf.join(' '));
-      target.appendChild(p);
-    }
-  }
-
-  // Persist the answer alongside the optimistic Ask so the Answers tab
-  // (which merges from localStorage) shows it on next render.
-  function attachAnswerToOptimistic(correlation_id, answerText, model) {
-    try {
-      const raw = localStorage.getItem(OPTIMISTIC_ASKS_KEY) || '[]';
-      const list = JSON.parse(raw);
-      let found = false;
-      for (const entry of list) {
-        if (entry && entry.correlation_id === correlation_id) {
-          entry.answer_snippet = String(answerText || '').slice(0, 600);
-          entry.answer_text = String(answerText || '').slice(0, 8000);
-          entry.answered_at = new Date().toISOString();
-          entry.status = 'answered';
-          entry.answer_model = model || null;
-          found = true;
-          break;
-        }
-      }
-      if (found) localStorage.setItem(OPTIMISTIC_ASKS_KEY, JSON.stringify(list));
-    } catch (_) { /* ignore */ }
-  }
-  // 2026-05-23 ASK-FIX helpers end ========================================
-
   function renderAskComposer() {
     const wrap = el('section', { class: 'ask-composer', attrs: { 'aria-labelledby': 'ask-composer-title' } });
 
@@ -646,141 +549,6 @@
     actions.appendChild(btnDownload);
     card.appendChild(actions);
 
-    // 2026-05-23 ASK-FIX: inline answer panel
-    const answerPanel = el('div', {
-      class: 'ask-composer-answer',
-      attrs: { id: 'ask-composer-answer', 'aria-live': 'polite', hidden: 'hidden' },
-    });
-    card.appendChild(answerPanel);
-
-    const ASK_ENDPOINT = resolveAskEndpoint();
-
-    function showAnswerPanel(kind, headerText) {
-      answerPanel.hidden = false;
-      answerPanel.dataset.kind = kind || 'info';
-      answerPanel.innerHTML = '';
-      const head = el('div', { class: 'ask-answer-head' });
-      head.appendChild(el('span', { class: 'ask-answer-head-label', text: headerText || '' }));
-      answerPanel.appendChild(head);
-      return answerPanel;
-    }
-
-    const submitAsk = async () => {
-      const text = ta.value || '';
-      const trimmed = text.trim();
-      if (trimmed.length < 4) {
-        showToast('Type at least a few words to Ask.', 'error');
-        ta.focus();
-        return;
-      }
-      const isEmail = looksLikeEmailPaste(text);
-      const req = buildAskMarkdown({ text, isEmail, mode: composerMode });
-      const snippetSource = isEmail ? (stripEmailHeaders(text) || trimmed) : trimmed;
-      const optimistic = {
-        id: `optimistic-${req.correlation_id}`,
-        correlation_id: req.correlation_id,
-        created_at: new Date().toISOString(),
-        kind: req.kind,
-        kind_label: req.kindLabel || (isEmail ? 'Email Paste Research' : 'Freeform Research'),
-        question_snippet: snippetSource.slice(0, 240),
-        raw_text: trimmed.slice(0, 4000),
-        delivery_mode: 'ask-live',
-        filename: req.filename,
-        composer_mode: req.mode,
-        desired_output: req.desired_output || null,
-        _optimistic: true,
-      };
-      pushOptimisticAsk(optimistic);
-      try { localStorage.removeItem(COMPOSER_DRAFT_KEY); } catch (_) { /* ignore */ }
-
-      if (req.mode === 'live-brain') {
-        logLiveAskSubmit({
-          schema: 'epc-live-ask-usage/v1',
-          ts: new Date().toISOString(),
-          surface: 'mobile',
-          action: 'submit',
-          request_kind: req.kind,
-          desired_output: req.desired_output || 'unknown',
-          type: isEmail ? 'reply-email' : 'unknown',
-          partner: 'unknown',
-          property_hint: 'unknown',
-          source: 'cockpit-ask-live',
-          session_id: laSessionId(),
-          correlation_id: req.correlation_id,
-        });
-      }
-
-      btnAsk.disabled = true;
-      const askLabelOrig = btnAsk.textContent;
-      btnAsk.textContent = 'Asking...';
-      const panel = showAnswerPanel('pending', 'Asking Anthropic...');
-      panel.appendChild(el('div', { class: 'ask-answer-spinner', text: 'thinking...' }));
-
-      const payload = {
-        question: isEmail ? (stripEmailHeaders(text) || trimmed) : trimmed,
-        mode: req.mode,
-        partner: '',
-        correlation_id: req.correlation_id,
-        source_label: 'mobile-cockpit-ask',
-      };
-
-      let resp = null;
-      let errMsg = '';
-      try {
-        const res = await fetch(ASK_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const ctype = (res.headers && res.headers.get('content-type')) || '';
-        if (ctype.indexOf('application/json') >= 0) {
-          resp = await res.json();
-        } else {
-          const raw = await res.text();
-          errMsg = `non-JSON response (HTTP ${res.status}): ${raw.slice(0, 240)}`;
-        }
-        if (!res.ok) {
-          errMsg = errMsg || (resp && (resp.error || resp.message)) || `HTTP ${res.status}`;
-          resp = null;
-        }
-      } catch (e) {
-        errMsg = String((e && e.message) || e);
-      }
-
-      btnAsk.disabled = false;
-      btnAsk.textContent = askLabelOrig;
-
-      if (resp && resp.ok && resp.answer) {
-        attachAnswerToOptimistic(req.correlation_id, resp.answer, resp.model);
-        showAnswerPanel('answer', (resp.mode === 'live-brain' ? 'Live Ask Brain' : 'Standard Ask') + (resp.model ? ' · ' + resp.model : ''));
-        const body = el('div', { class: 'ask-answer-body' });
-        renderAnswerMarkdown(body, resp.answer);
-        answerPanel.appendChild(body);
-        const foot = el('div', { class: 'ask-answer-foot' });
-        foot.appendChild(el('span', { class: 'ask-answer-foot-meta', text: `answered ${new Date(resp.ts || Date.now()).toLocaleTimeString()}` }));
-        const copyBtn = el('button', { class: 'btn btn-ghost ask-answer-foot-btn', attrs: { type: 'button' }, text: 'Copy answer' });
-        copyBtn.addEventListener('click', async () => {
-          try { await navigator.clipboard.writeText(resp.answer); showToast('Answer copied.', 'success'); }
-          catch (_) { showToast('Copy failed.', 'error'); }
-        });
-        foot.appendChild(copyBtn);
-        foot.appendChild(el('a', { class: 'btn btn-ghost ask-answer-foot-btn', attrs: { href: '#/answers', role: 'button' }, text: 'Open Answers tab' }));
-        answerPanel.appendChild(foot);
-        showToast('Answered. Threaded into Answers tab.', 'success');
-        ta.value = '';
-        updateMeta();
-        return;
-      }
-
-      showAnswerPanel('error', 'Ask endpoint failed');
-      const errBody = el('div', { class: 'ask-answer-body' });
-      errBody.appendChild(el('p', { class: 'ask-answer-p', text: errMsg || 'Unknown error.' }));
-      errBody.appendChild(el('p', { class: 'ask-answer-p ask-answer-hint', text: 'Falling back to markdown-drop. Save to Files -> Ask_Drop and the desktop watcher will pick it up.' }));
-      answerPanel.appendChild(errBody);
-      try { downloadMarkdown(req); } catch (_) { /* ignore */ }
-      showToast('Ask endpoint unreachable; markdown downloaded.', 'error');
-    };
-
     const submit = async (mode) => {
       const text = ta.value || '';
       const trimmed = text.trim();
@@ -856,7 +624,7 @@
       updateMeta();
     };
 
-    btnAsk.addEventListener('click',      () => submitAsk());
+    btnAsk.addEventListener('click',      () => submit('share'));
     btnCopy.addEventListener('click',     () => submit('copy'));
     btnDownload.addEventListener('click', () => submit('download'));
 
@@ -865,7 +633,7 @@
     const foot = el('div', { class: 'ask-composer-foot' });
     foot.appendChild(el('span', { text: 'Ask is the front door. Answers thread into the ' }));
     foot.appendChild(el('a', { class: 'ask-composer-foot-link', attrs: { href: '#/answers' }, text: 'Answers tab' }));
-    foot.appendChild(el('span', { text: '. Tap Ask to call the cockpit Anthropic endpoint directly. Copy and Download remain available for the legacy Ask_Drop watcher path. Standard Ask = one-shot synthesis. Live Ask Brain = NotebookLM-style clarifier (1 to 3 questions) before answering.' }));
+    foot.appendChild(el('span', { text: '. On iPhone: tap Ask → Save to Files → Ask_Drop. The EverPass Ask Watcher (06:00 daily, plus on demand) promotes it to ChatGPT_Inbox. Standard Ask = one-shot synthesis. Live Ask Brain = NotebookLM over Deal/Econ/Research with 1–3 clarifying questions before answering.' }));
     wrap.appendChild(foot);
 
     setTimeout(updateMeta, 0);

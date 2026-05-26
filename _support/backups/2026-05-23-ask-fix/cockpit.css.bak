@@ -236,65 +236,6 @@
 
 .ask-composer-btn { min-height: var(--tap); font-size: 14px; }
 
-/* 2026-05-23 ASK-FIX: inline answer panel */
-.ask-composer-answer {
-  margin-top: 12px;
-  padding: 14px 14px 12px;
-  border-radius: 10px;
-  background: var(--c-bg-soft, #0f1116);
-  border: 1px solid var(--c-border, #2a2d35);
-  color: var(--c-fg, #e6e7ea);
-  font-size: 14px;
-  line-height: 1.5;
-}
-.ask-composer-answer[data-kind="pending"] { border-style: dashed; opacity: 0.95; }
-.ask-composer-answer[data-kind="error"] { border-color: var(--c-danger, #c0392b); }
-.ask-composer-answer[data-kind="answer"] { border-color: var(--c-accent, #4a8af4); }
-
-.ask-answer-head {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 8px;
-}
-.ask-answer-head-label {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--c-fg-muted, #9aa0aa);
-}
-.ask-answer-spinner {
-  font-size: 13px; color: var(--c-fg-muted, #9aa0aa); font-style: italic;
-}
-.ask-answer-body { display: flex; flex-direction: column; gap: 6px; }
-.ask-answer-body .ask-answer-h {
-  margin: 6px 0 2px;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
-  color: var(--c-fg, #e6e7ea);
-}
-.ask-answer-body .ask-answer-p { margin: 0; }
-.ask-answer-body .ask-answer-ul { margin: 4px 0 4px 18px; padding: 0; }
-.ask-answer-body .ask-answer-ul li { margin-bottom: 2px; }
-.ask-answer-body code {
-  font-family: ui-monospace, Menlo, Consolas, monospace;
-  font-size: 12.5px;
-  background: var(--c-bg, #1a1c22);
-  padding: 1px 4px; border-radius: 4px;
-}
-.ask-answer-body .ask-answer-pre {
-  margin: 4px 0; padding: 8px 10px;
-  background: var(--c-bg, #1a1c22);
-  border-radius: 6px;
-  font-family: ui-monospace, Menlo, Consolas, monospace;
-  font-size: 12.5px; white-space: pre-wrap; word-break: break-word;
-}
-.ask-answer-foot {
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-  margin-top: 10px; padding-top: 8px;
-  border-top: 1px solid var(--c-border, #2a2d35);
-}
-.ask-answer-foot-meta {
-  font-size: 11px; color: var(--c-fg-muted, #9aa0aa); margin-right: auto;
-}
-.ask-answer-foot-btn { font-size: 12px; padding: 6px 10px; }
-.ask-answer-hint { color: var(--c-fg-muted, #9aa0aa); font-size: 12.5px; }
-
 .ask-composer-foot {
   margin-top: 8px;
   font-size: 11px;
