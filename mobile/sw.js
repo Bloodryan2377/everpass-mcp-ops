@@ -8,7 +8,7 @@
 // Old caches kept "Morning failed 2026-05-23" pill, stale generated_at label,
 // and the always-on AOS DOWN chip alive on returning visitors. New SW activates
 // immediately via skipWaiting + clients.claim and purges every prior shell-* key.
-const VERSION = 'epmcc-v2-2026-05-26-ux-fix';
+const VERSION = 'epmcc-v3-2026-05-26-aos-removed';
 const SHELL_CACHE = `shell-${VERSION}`;
 const SHELL_URLS = [
   './',
