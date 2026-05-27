@@ -278,25 +278,41 @@
       return chips;
     }
     const b = status.bridge || {};
+    // 2026-05-26 P1: each pill carries an href so renderStatusStrip can make
+    // it tappable. Routes resolve in list-view.js (list/health subroutes).
     chips.push({
       kind: b.last_run_status === 'success' ? 'ok' : (b.last_run_status === 'unknown' ? 'warn' : 'danger'),
       text: `bridge ${b.last_run_status || 'unknown'}`,
+      href: '#/health/bridge-run',
+      ariaLabel: 'Bridge run detail',
     });
-    chips.push({ kind: 'info', text: `inbox ${b.counts?.inbox_pending ?? 0}` });
+    chips.push({
+      kind: 'info',
+      text: `inbox ${b.counts?.inbox_pending ?? 0}`,
+      href: '#/list/inbox',
+      ariaLabel: 'Inbox pending detail',
+    });
     chips.push({
       kind: b.counts?.rejected_outstanding ? 'danger' : 'ok',
       text: `rejected ${b.counts?.rejected_outstanding ?? 0}`,
+      href: '#/list/rejected',
+      ariaLabel: 'Rejected asks detail',
     });
-    // 2026-05-26 fix P7: drop morning chip when run_date is stale (>2 days old).
-    // Avoids the "Morning failed 2026-05-23" pill lingering on mobile when the
-    // user just wants to clear it. The Daily S sheet still surfaces detail.
+    // 2026-05-26 fix P2/P7: suppress the morning chip when run_date is more
+    // than 2 days old without a failure today. Otherwise emit it with an
+    // href so the user can drill into the morning run detail.
     const m = status.morning || {};
     const mDate = m.run_date ? new Date(m.run_date + 'T00:00:00Z').getTime() : 0;
     const mAgeDays = mDate ? (Date.now() - mDate) / (24 * 3600 * 1000) : 0;
-    if (!m.run_date || mAgeDays <= 2) {
+    const mStatus = (m.overall_status || '').toLowerCase();
+    const failedToday = mAgeDays <= 1 && mStatus && mStatus !== 'success';
+    const showMorning = !m.run_date || mAgeDays <= 2 || failedToday;
+    if (showMorning) {
       chips.push({
-        kind: m.overall_status === 'success' ? 'ok' : 'warn',
+        kind: mStatus === 'success' ? 'ok' : 'warn',
         text: `morning ${m.overall_status || 'unknown'}${m.run_date ? ' · ' + m.run_date : ''}`,
+        href: '#/health/morning',
+        ariaLabel: 'Morning brief detail',
       });
     }
     return chips;
@@ -357,36 +373,31 @@
     const strip = document.getElementById('status-strip');
     strip.innerHTML = '';
 
-    // 2026-05-08 GUARDRAIL: dedicated mobile-data freshness pill leads. Reads
-    // mobile-cockpit.json.generated_at directly so a stale build pipeline
-    // surfaces RED here even when the chain-wide freshness chip is GREEN.
-    // Spec: GREEN <2h / AMBER 2-12h / RED >24h.
-    const cockpitCache = global.EPMCData.getCached('cockpit');
-    const mf = global.EPMCData.mobileDataFreshness(cockpitCache);
-    const mchip = el('span', {
-      class: `chip dot ${mf.kind}`,
-      text: mf.text,
-      attrs: { title: mf.title, 'aria-label': 'Mobile data freshness: ' + mf.title },
-    });
-    strip.appendChild(mchip);
-
-    // Freshness chip — chain-wide signal that mirrors the desktop topbar chip.
+    // Freshness chip leads. 2026-05-26 P3: chip routes to #/health/freshness
+    // for the full per-source breakdown (which sources are stale). Long-press
+    // / focus title still shows the inline summary.
     const f = freshnessChip(freshness);
-    const fchip = el('span', {
-      class: `chip dot ${f.kind}`,
+    const fchip = el('a', {
+      class: `chip dot ${f.kind} chip-link`,
       text: f.text,
-      attrs: { title: f.detail, role: 'button', tabindex: '0', 'aria-label': 'Chain freshness: tap for detail' },
-    });
-    fchip.style.cursor = 'pointer';
-    const showDetail = () => showToast(f.detail, f.kind === 'danger' ? 'error' : (f.kind === 'warn' ? 'info' : 'success'));
-    fchip.addEventListener('click', showDetail);
-    fchip.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showDetail(); }
+      attrs: {
+        title: f.detail,
+        href: '#/health/freshness',
+        'aria-label': 'Chain freshness detail (tap for per-source breakdown)',
+      },
     });
     strip.appendChild(fchip);
 
     statusChips(status).forEach((c) => {
-      strip.appendChild(el('span', { class: `chip dot ${c.kind}`, text: c.text }));
+      if (c.href) {
+        strip.appendChild(el('a', {
+          class: `chip dot ${c.kind} chip-link`,
+          text: c.text,
+          attrs: { href: c.href, 'aria-label': c.ariaLabel || c.text },
+        }));
+      } else {
+        strip.appendChild(el('span', { class: `chip dot ${c.kind}`, text: c.text }));
+      }
     });
   }
 
@@ -1157,8 +1168,9 @@
       const ul = el('ul', { class: 'todo-list' });
       today.items.forEach((m) => {
         const li = el('li', { class: 'todo-item' });
-        li.appendChild(el('div', { class: 'todo-partner', text: (m.start || '').slice(11, 16) }));
-        li.appendChild(el('div', { class: 'todo-text', text: m.summary || '(untitled)' }));
+        const startStr = m.start_local || m.start || '';
+        li.appendChild(el('div', { class: 'todo-partner', text: startStr.slice(11, 16) }));
+        li.appendChild(el('div', { class: 'todo-text', text: m.title || m.subject || m.summary || '(untitled)' }));
         ul.appendChild(li);
       });
       todayBlock.appendChild(ul);
@@ -1173,8 +1185,9 @@
       const ul = el('ul', { class: 'todo-list' });
       tomorrow.items.forEach((m) => {
         const li = el('li', { class: 'todo-item' });
-        li.appendChild(el('div', { class: 'todo-partner', text: (m.start || '').slice(11, 16) }));
-        li.appendChild(el('div', { class: 'todo-text', text: m.summary || '(untitled)' }));
+        const startStr = m.start_local || m.start || '';
+        li.appendChild(el('div', { class: 'todo-partner', text: startStr.slice(11, 16) }));
+        li.appendChild(el('div', { class: 'todo-text', text: m.title || m.subject || m.summary || '(untitled)' }));
         ul.appendChild(li);
       });
       tomorrowBlock.appendChild(ul);
