@@ -98,31 +98,6 @@
     return { label: relTime(iso), kind };
   }
 
-  // 2026-05-08: dedicated mobile-data freshness pill for the topbar.
-  // Spec: GREEN <2h / AMBER 2-12h / RED >24h based on payload.generated_at.
-  // Returns {kind:'ok'|'warn'|'danger', text:'fresh|stale|missing|...', title:string}.
-  // Reads from mobile-cockpit.json.generated_at — the canonical mobile build
-  // timestamp written by build-mobile-data-2026-05-05.py.
-  function mobileDataFreshness(payloadOrIso) {
-    const iso = (payloadOrIso && typeof payloadOrIso === 'object')
-      ? (payloadOrIso.generated_at || payloadOrIso.__fetched_at || null)
-      : payloadOrIso;
-    if (!iso) {
-      return { kind: 'danger', text: 'data ?', title: 'No generated_at — mobile build did not run' };
-    }
-    const t = new Date(iso).getTime();
-    if (Number.isNaN(t)) {
-      return { kind: 'danger', text: 'data ?', title: 'Invalid generated_at: ' + iso };
-    }
-    const ageSec = (Date.now() - t) / 1000;
-    let kind = 'ok';
-    if (ageSec > 24 * 3600) kind = 'danger';
-    else if (ageSec > 2 * 3600) kind = 'warn';
-    const human = relTime(iso);
-    const text = (kind === 'ok') ? `data ${human}` : (kind === 'warn' ? `data ${human} (stale)` : `data ${human} (RED)`);
-    return { kind, text, title: `Mobile data generated ${human} (${iso})` };
-  }
-
   function escapeHtml(s) {
     if (s == null) return '';
     return String(s)
@@ -158,7 +133,6 @@
     subscribe,
     relTime,
     freshnessLabel,
-    mobileDataFreshness,
     escapeHtml,
     el,
   };

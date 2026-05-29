@@ -1,13 +1,15 @@
 /* ============================================================
    EverPass Mobile Command Center — List / Detail sub-views
-   Added 2026-05-26 (fix P2/P3/P4).
+   Added 2026-05-26 (fix P2/P3/P4). Extended 2026-05-26 (pills + freshness).
    Hash routes:
-     #/list/critical  — full critical-now list
-     #/list/deals     — full active-deals list
-     #/list/outbox    — outbox-today summary (stub)
-     #/list/inbox     — inbox-pending summary (stub)
-     #/partner/<slug> — partner detail (todos + signals + insights stub)
-     #/health/<slug>  — runtime health detail for a subsystem
+     #/list/critical    — full critical-now list
+     #/list/deals       — full active-deals list
+     #/list/outbox      — outbox-today summary (stub)
+     #/list/inbox       — inbox-pending summary (stub)
+     #/list/rejected    — rejected asks detail
+     #/partner/<slug>   — partner detail (todos + signals + insights stub)
+     #/health/<slug>    — runtime health detail for a subsystem
+     #/health/freshness — per-source freshness drill-down (which 2 of 29 are stale)
    Renders into the existing cockpit view container so navigation stays
    inside the Cockpit tab (no new tab needed). Back = browser back.
    ============================================================ */
@@ -20,7 +22,7 @@
   function parseHash() {
     const raw = (location.hash || '').replace(/^#\/?/, '');
     const parts = raw.split('?')[0].split('/').filter(Boolean);
-    return parts; // e.g. ['list','critical'] or ['partner','espn']
+    return parts;
   }
 
   function isListRoute() {
@@ -29,12 +31,11 @@
   }
 
   function backLink() {
-    const a = el('a', {
+    return el('a', {
       class: 'list-back',
       attrs: { href: '#/cockpit', 'aria-label': 'Back to Cockpit' },
       text: '← Back to Cockpit',
     });
-    return a;
   }
 
   function title(text, meta) {
@@ -52,11 +53,12 @@
     const parts = parseHash();
     const kind = parts[0];
     const arg = parts[1] || '';
-    view.innerHTML = '<div class="state-loading"><span class="spinner"></span> loading…</div>';
+    view.innerHTML = '<div class="state-loading"><span class="spinner"></span> loading...</div>';
 
-    const [cockpit, status] = await Promise.all([
+    const [cockpit, status, freshness] = await Promise.all([
       fetchFeed('cockpit'),
       fetchFeed('status'),
+      fetchFeed('freshness'),
     ]);
     view.innerHTML = '';
     view.appendChild(backLink());
@@ -66,12 +68,16 @@
       if (arg === 'deals')    return renderDeals(view, cockpit);
       if (arg === 'outbox')   return renderOutbox(view, status);
       if (arg === 'inbox')    return renderInbox(view, status);
+      if (arg === 'rejected') return renderRejected(view, status);
       view.appendChild(title('Unknown list'));
       view.appendChild(empty('No such list: ' + arg));
       return;
     }
     if (kind === 'partner') return renderPartner(view, cockpit, arg);
-    if (kind === 'health')  return renderHealth(view, status, arg);
+    if (kind === 'health') {
+      if (arg === 'freshness') return renderFreshness(view, freshness);
+      return renderHealth(view, status, arg);
+    }
     view.appendChild(empty('Unknown route.'));
   }
 
@@ -116,8 +122,8 @@
     view.appendChild(title('Outbox today', `${c.archived_today ?? 0} archived`));
     const card = el('div', { class: 'card' });
     card.appendChild(el('div', { class: 'subtle', text: 'Bridge run: ' + (status?.bridge?.last_run_status || 'unknown') }));
-    card.appendChild(el('div', { class: 'subtle', text: 'Last artifact: ' + (status?.bridge?.last_artifact || '—') }));
-    card.appendChild(el('div', { class: 'subtle', text: 'Last processed: ' + (status?.bridge?.last_processed_at ? relTime(status.bridge.last_processed_at) : '—') }));
+    card.appendChild(el('div', { class: 'subtle', text: 'Last artifact: ' + (status?.bridge?.last_artifact || '-') }));
+    card.appendChild(el('div', { class: 'subtle', text: 'Last processed: ' + (status?.bridge?.last_processed_at ? relTime(status.bridge.last_processed_at) : '-') }));
     view.appendChild(card);
     view.appendChild(empty('Full outbox archive lives in #/results. Detail view coming soon.'));
   }
@@ -130,6 +136,96 @@
     card.appendChild(el('div', { class: 'subtle', text: 'Bridge run: ' + (status?.bridge?.last_run_status || 'unknown') }));
     view.appendChild(card);
     view.appendChild(empty('Full inbox view coming soon. Tap Dispatch to send new asks.'));
+  }
+
+  // 2026-05-26 P1: rejected-outstanding drill-down. The mobile feed surfaces
+  // counts via status.bridge.counts.rejected_outstanding plus optional detail
+  // arrays in status.bridge.rejected and status.bridge.rejected_items. We
+  // render whatever shape the feed produced; falls back to count + advice.
+  function renderRejected(view, status) {
+    const c = status?.bridge?.counts || {};
+    const items = (status?.bridge?.rejected_items
+                || status?.bridge?.rejected
+                || status?.rejected
+                || []);
+    view.appendChild(title('Rejected asks', `${c.rejected_outstanding ?? items.length ?? 0} outstanding`));
+    if (!items.length) {
+      const card = el('div', { class: 'card' });
+      card.appendChild(el('div', { class: 'subtle', text: 'Outstanding count: ' + (c.rejected_outstanding ?? 0) }));
+      card.appendChild(el('div', { class: 'subtle', text: 'Bridge run: ' + (status?.bridge?.last_run_status || 'unknown') }));
+      card.appendChild(el('div', { class: 'subtle', text: 'Last artifact: ' + (status?.bridge?.last_artifact || '-') }));
+      view.appendChild(card);
+      view.appendChild(empty('No per-item detail in mobile feed. See ChatGPT_Outbox/_rejected/ on desktop for raw payloads.'));
+      return;
+    }
+    const ul = el('ul', { class: 'recent-list list-stretch' });
+    items.forEach((r) => {
+      const li = el('li', { class: 'recent-item' });
+      li.appendChild(el('div', { class: 'recent-title', text: r.title || r.kind || r.correlation_id || 'rejected ask' }));
+      li.appendChild(el('div', { class: 'recent-status', text: r.reason || 'rejected' }));
+      if (r.correlation_id) li.appendChild(el('div', { class: 'recent-id', text: r.correlation_id }));
+      if (r.rejected_at)    li.appendChild(el('div', { class: 'recent-time', text: relTime(r.rejected_at) }));
+      ul.appendChild(li);
+    });
+    view.appendChild(ul);
+  }
+
+  // 2026-05-26 P3: freshness drill-down. Lists every artifact tracked by
+  // Scripts/freshness_enforcer.py with its current status. Stale + warn rows
+  // float to the top so the operator can see which 2 of 29 are red at a glance.
+  function renderFreshness(view, freshness) {
+    if (!freshness || freshness.__error) {
+      view.appendChild(title('Chain freshness', 'unavailable'));
+      view.appendChild(empty('Freshness feed not readable: ' + (freshness?.__error || 'unknown')));
+      return;
+    }
+    const totals = freshness.totals || {};
+    const fresh = totals.fresh | 0;
+    const warn  = totals.warn  | 0;
+    const stale = totals.stale | 0;
+    const miss  = totals.missing | 0;
+    const n     = (totals.total | 0) || (fresh + warn + stale + miss);
+    const meta = (freshness.overall || '?') + ' · ' + fresh + ' fresh / ' + warn + ' warn / ' + stale + ' stale / ' + miss + ' missing · ' + n + ' total';
+    view.appendChild(title('Chain freshness', meta));
+
+    const ruleCard = el('div', { class: 'card' });
+    ruleCard.appendChild(el('div', { class: 'subtle', text: 'Rule: ' + (freshness.rule || 'user-facing artifacts must be <= 12h old') }));
+    if (freshness.generated_at) ruleCard.appendChild(el('div', { class: 'subtle', text: 'Generated: ' + relTime(freshness.generated_at) }));
+    if (freshness.backend_overall) ruleCard.appendChild(el('div', { class: 'subtle', text: 'Backend overall: ' + freshness.backend_overall }));
+    view.appendChild(ruleCard);
+
+    const rank = { stale: 0, missing: 1, warn: 2, fresh: 3 };
+    const rows = (freshness.artifacts || []).slice().sort((a, b) => {
+      const sa = (a.post?.status || a.pre?.status || 'fresh');
+      const sb = (b.post?.status || b.pre?.status || 'fresh');
+      const ra = rank[sa] ?? 9;
+      const rb = rank[sb] ?? 9;
+      if (ra !== rb) return ra - rb;
+      return (a.key || '').localeCompare(b.key || '');
+    });
+    if (!rows.length) {
+      view.appendChild(empty('No per-artifact rows in freshness feed.'));
+      return;
+    }
+    const ul = el('ul', { class: 'fresh-list list-stretch' });
+    rows.forEach((r) => {
+      const s = (r.post?.status || r.pre?.status || 'unknown');
+      const ageH = r.post?.age_hours ?? r.pre?.age_hours;
+      const ageStr = (typeof ageH === 'number')
+        ? (ageH < 1 ? Math.round(ageH * 60) + 'm' : ageH.toFixed(1) + 'h')
+        : '-';
+      const dot = ({ fresh: 'ok', warn: 'warn', stale: 'danger', missing: 'danger' })[s] || 'info';
+      const li = el('li', { class: 'fresh-item' });
+      li.appendChild(el('span', { class: 'chip dot ' + dot, text: s }));
+      li.appendChild(el('div', { class: 'fresh-key', text: r.key || '(unkeyed)' }));
+      const metaBits = [r.category || 'misc', 'age ' + ageStr];
+      if (r.user_facing) metaBits.push('user-facing');
+      if (r.manual_only) metaBits.push('manual');
+      li.appendChild(el('div', { class: 'fresh-meta', text: metaBits.join(' · ') }));
+      if (r.notes) li.appendChild(el('div', { class: 'fresh-notes', text: r.notes }));
+      ul.appendChild(li);
+    });
+    view.appendChild(ul);
   }
 
   function renderPartner(view, cockpit, slug) {

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8" />
+  <title>EverPass Mobile Command Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
+  <meta name="description" content="EverPass Mobile Command Center — cockpit, dispatch, and results from your phone." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f7fb" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="EverPass" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon-180.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+
+  <link rel="stylesheet" href="./styles/core.css" />
+  <link rel="stylesheet" href="./styles/cockpit.css" />
+  <link rel="stylesheet" href="./styles/dispatch.css" />
+  <link rel="stylesheet" href="./styles/results.css" />
+  <link rel="stylesheet" href="./styles/live.css" />
+  <link rel="stylesheet" href="./styles/answers.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" role="banner">
+    <div class="topbar-row">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">EP</span>
+        <span class="brand-text">
+          <span class="brand-title">Mobile Command Center</span>
+          <span class="brand-sub" id="topbar-subline">EverPass</span>
+        </span>
+      </div>
+      <button class="btn btn-ghost btn-icon" id="refresh-btn" aria-label="Refresh data" title="Refresh">
+        <span aria-hidden="true">⟳</span>
+      </button>
+    </div>
+    <div class="status-strip" id="status-strip" aria-live="polite"></div>
+  </header>
+
+  <main id="main" class="main" role="main">
+    <section id="view-cockpit" class="view" data-view="cockpit" hidden></section>
+    <section id="view-dispatch" class="view" data-view="dispatch" hidden></section>
+    <section id="view-answers" class="view" data-view="answers" hidden></section>
+    <section id="view-results" class="view" data-view="results" hidden></section>
+    <section id="view-live" class="view" data-view="live" hidden></section>
+  </main>
+
+  <nav class="tabbar" role="navigation" aria-label="Primary">
+    <a class="tab" href="#/cockpit" data-tab="cockpit">
+      <span class="tab-icon" aria-hidden="true">◎</span>
+      <span class="tab-label">Cockpit</span>
+    </a>
+    <a class="tab" href="#/dispatch" data-tab="dispatch">
+      <span class="tab-icon" aria-hidden="true">↥</span>
+      <span class="tab-label">Dispatch</span>
+    </a>
+    <a class="tab" href="#/answers" data-tab="answers">
+      <span class="tab-icon" aria-hidden="true">✦</span>
+      <span class="tab-label">Answers</span>
+    </a>
+    <a class="tab" href="#/results" data-tab="results">
+      <span class="tab-icon" aria-hidden="true">≡</span>
+      <span class="tab-label">Results</span>
+    </a>
+    <a class="tab" href="#/live" data-tab="live">
+      <span class="tab-icon" aria-hidden="true">◉</span>
+      <span class="tab-label">Live</span>
+    </a>
+  </nav>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="./scripts/data.js"></script>
+  <script src="./scripts/cockpit.js"></script>
+  <script src="./scripts/dispatch.js"></script>
+  <script src="./scripts/answers.js"></script>
+  <script src="./scripts/results.js"></script>
+  <script src="./scripts/live.js"></script>
+  <script src="./scripts/app.js"></script>
+</body>
+</html>

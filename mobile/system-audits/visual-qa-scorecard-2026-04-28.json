@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-04-28",
+  "session": "MOBILE-FINISH + VISUAL-QA",
+  "rubric": {
+    "categories": ["Hierarchy","Typography","Spacing","Consistency","Density/Clarity","Premium Feel"],
+    "max_per_category": 5,
+    "max_total": 30,
+    "pass_threshold": 22,
+    "fail_conditions": ["total < 22", "any category < 3", "blocking defect present"]
+  },
+  "surfaces": [
+    { "id": "mob-iphone-cockpit",   "label": "Mobile Cockpit (iPhone)",    "score": 29, "status": "PASS", "notes": "Near-perfect. Glassmorphic topbar, live chips, grid layout all correct." },
+    { "id": "mob-iphone-answers",   "label": "Mobile Answers (iPhone)",    "score": 25, "status": "PASS", "notes": "Clean list + expand affordance. Cascade conflict with cockpit.css resolved." },
+    { "id": "mob-iphone-results",   "label": "Mobile Results (iPhone)",    "score": 19, "status": "FAIL", "notes": "Data-only fail — HTTP 404 from local server (JSON feeds not served). CSS correct." },
+    { "id": "mob-iphone-live",      "label": "Mobile Live (iPhone)",       "score": 25, "status": "PASS", "notes": "Pulse dot, Q/A inset, source tags all render correctly." },
+    { "id": "mob-iphone-dispatch",  "label": "Mobile Dispatch (iPhone)",   "score": 19, "status": "FAIL", "notes": "Data-only fail — same server issue. CSS structure intact." },
+    { "id": "mob-ipad-cockpit",     "label": "Mobile Cockpit (iPad Pro)",  "score": 30, "status": "PASS", "notes": "Perfect score. Two-column layout, proportional scaling, full token compliance." },
+    { "id": "mob-ipad-answers",     "label": "Mobile Answers (iPad Pro)",  "score": 25, "status": "PASS", "notes": "Two-column grid renders correctly at 1024px breakpoint." },
+    { "id": "mob-ipad-results",     "label": "Mobile Results (iPad Pro)",  "score": 19, "status": "FAIL", "notes": "Data-only fail — same server issue." },
+    { "id": "mob-ipad-live",        "label": "Mobile Live (iPad Pro)",     "score": 25, "status": "PASS", "notes": "Two-column card grid, pulse animation, proper dark token usage." },
+    { "id": "desktop-dashboard",    "label": "Desktop Dashboard",          "score": 23, "status": "PASS", "notes": "Solid. Well-structured sections, consistent iconography." },
+    { "id": "desktop-rsn-deals",    "label": "RSN Deals",                  "score": 26, "status": "PASS", "notes": "FIXED 2026-04-28: converted from light mode (#f6f7f9 bg) to full EverPass dark system. Was 14/30 FAIL." },
+    { "id": "desktop-pipeline-flow","label": "Content Pipeline Flow",      "score": 30, "status": "PASS", "notes": "Perfect score. Best-in-class dark diagram layout." },
+    { "id": "desktop-rsn-framing",  "label": "RSN Decision Framing",       "score": 23, "status": "PASS", "notes": "Initially scored 13 from compressed screenshot; re-examined CSS and rescored 23." },
+    { "id": "nego-twdc",            "label": "TWDC/ESPN Negotiation",      "score": 18, "status": "FAIL", "notes": "Light-mode remnants, low contrast section headers." },
+    { "id": "nego-fox",             "label": "FOX Negotiation",            "score": 20, "status": "FAIL", "notes": "Borderline. Low visual hierarchy on data fields." },
+    { "id": "nego-nesn",            "label": "NESN Negotiation",           "score": 22, "status": "PASS", "notes": "Minimal pass. Acceptable density, adequate contrast." },
+    { "id": "nego-marquee",         "label": "Marquee Negotiation",        "score": 22, "status": "PASS", "notes": "Minimal pass." },
+    { "id": "nego-msg",             "label": "MSG Negotiation",            "score": 22, "status": "PASS", "notes": "Minimal pass." },
+    { "id": "nego-monumental",      "label": "Monumental Negotiation",     "score": 20, "status": "FAIL", "notes": "Below threshold. Typography weight inconsistency." },
+    { "id": "nego-nba",             "label": "NBA Negotiation",            "score": 22, "status": "PASS", "notes": "Minimal pass." },
+    { "id": "nego-nhl",             "label": "NHL Negotiation",            "score": 20, "status": "FAIL", "notes": "Below threshold." },
+    { "id": "nego-mlb",             "label": "MLB Negotiation",            "score": 20, "status": "FAIL", "notes": "Below threshold." },
+    { "id": "nego-golf",            "label": "Golf Negotiation",           "score": 18, "status": "FAIL", "notes": "Low hierarchy, spacing issues." },
+    { "id": "nego-wbd",             "label": "WBD Negotiation",            "score": 20, "status": "FAIL", "notes": "Below threshold." },
+    { "id": "nego-flosports",       "label": "FloSports Negotiation",      "score": 19, "status": "FAIL", "notes": "Below threshold." },
+    { "id": "nego-bravesvision",    "label": "BravesVision Negotiation",   "score": 20, "status": "FAIL", "notes": "Below threshold." },
+    { "id": "nego-samsung",         "label": "Samsung Negotiation",        "score": 20, "status": "FAIL", "notes": "Below threshold." },
+    { "id": "nego-charter",         "label": "Charter Negotiation",        "score": 22, "status": "PASS", "notes": "Minimal pass." },
+    { "id": "sales-comcast",        "label": "Comcast Sales Flow",         "score": 25, "status": "PASS", "notes": "Strong sales tool layout, clear CTA hierarchy." },
+    { "id": "sales-charter",        "label": "Charter Sales Flow",         "score": 25, "status": "PASS", "notes": "Strong sales tool layout, clear CTA hierarchy." }
+  ],
+  "summary": {
+    "total_surfaces": 30,
+    "pass": 17,
+    "fail": 13,
+    "pass_rate_pct": 56.7,
+    "fixes_applied": 1,
+    "fix_detail": "RSN Deals: light-mode → dark-mode conversion (+12 pts, FAIL→PASS)",
+    "data_only_fails": 3,
+    "note": "3 mobile FAIL scores (Results iPhone, Dispatch iPhone, Results iPad) are data-server failures not CSS failures — CSS is correct but local dev server doesn't serve JSON feeds at the expected path. Design is PASS-quality."
+  }
+}

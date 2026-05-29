@@ -19,13 +19,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
 
-  <link rel="stylesheet" href="./styles/core.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/cockpit.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/dispatch.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/results.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/live.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/answers.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/aos.css?v=2026-05-26-dispatch" />
+  <link rel="stylesheet" href="./styles/core.css" />
+  <link rel="stylesheet" href="./styles/cockpit.css" />
+  <link rel="stylesheet" href="./styles/dispatch.css" />
+  <link rel="stylesheet" href="./styles/results.css" />
+  <link rel="stylesheet" href="./styles/live.css" />
+  <link rel="stylesheet" href="./styles/answers.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -47,7 +46,6 @@
         <span class="ds-trigger-dot" id="ds-trigger-dot" data-state="unknown" aria-hidden="true"></span>
         <span class="ds-trigger-label">Daily S</span>
       </button>
-      <!-- aos-trigger removed -->
       <button class="btn btn-ghost btn-icon" id="refresh-btn" aria-label="Refresh data" title="Refresh">
         <span aria-hidden="true">⟳</span>
       </button>
@@ -127,17 +125,13 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
-  <!-- AOS panel removed 2026-05-26 per Ryan -->
-
-  <script src="./scripts/data.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/cockpit.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/list-view.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/dispatch.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/answers.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/results.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/live.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/daily-s.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/aos.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/app.js?v=2026-05-26-dispatch"></script>
+  <script src="./scripts/data.js"></script>
+  <script src="./scripts/cockpit.js"></script>
+  <script src="./scripts/dispatch.js"></script>
+  <script src="./scripts/answers.js"></script>
+  <script src="./scripts/results.js"></script>
+  <script src="./scripts/live.js"></script>
+  <script src="./scripts/daily-s.js"></script>
+  <script src="./scripts/app.js"></script>
 </body>
 </html>

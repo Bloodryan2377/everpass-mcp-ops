@@ -1,0 +1,311 @@
+/* ============================================================
+   EverPass Mobile Command Center — Cockpit surface
+   ============================================================ */
+(function (global) {
+  'use strict';
+  const { fetchFeed, escapeHtml, el, relTime, freshnessLabel } = global.EPMCData;
+
+  function statusChips(status) {
+    const chips = [];
+    if (!status) return chips;
+    if (status.__error) {
+      chips.push({ kind: 'danger', text: 'data feed error' });
+      return chips;
+    }
+    const b = status.bridge || {};
+    chips.push({
+      kind: b.last_run_status === 'success' ? 'ok' : (b.last_run_status === 'unknown' ? 'warn' : 'danger'),
+      text: `bridge ${b.last_run_status || 'unknown'}`,
+    });
+    chips.push({ kind: 'info', text: `inbox ${b.counts?.inbox_pending ?? 0}` });
+    chips.push({
+      kind: b.counts?.rejected_outstanding ? 'danger' : 'ok',
+      text: `rejected ${b.counts?.rejected_outstanding ?? 0}`,
+    });
+    const m = status.morning || {};
+    chips.push({
+      kind: m.overall_status === 'success' ? 'ok' : 'warn',
+      text: `morning ${m.overall_status || 'unknown'}${m.run_date ? ' · ' + m.run_date : ''}`,
+    });
+    return chips;
+  }
+
+  function renderStatusStrip(status) {
+    const strip = document.getElementById('status-strip');
+    strip.innerHTML = '';
+    statusChips(status).forEach((c) => {
+      strip.appendChild(el('span', { class: `chip dot ${c.kind}`, text: c.text }));
+    });
+  }
+
+  function renderHero(cockpit, status) {
+    const wrap = el('section', { class: 'hero', attrs: { 'aria-labelledby': 'hero-title' } });
+    const title = el('h1', { attrs: { id: 'hero-title' }, text: 'Today' });
+    const sub = el('div', { class: 'hero-sub' });
+    const date = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+    sub.textContent = `${date} · cockpit data ${freshnessLabel(cockpit?.generated_at).label}`;
+    wrap.appendChild(title);
+    wrap.appendChild(sub);
+
+    const row = el('div', { class: 'hero-row' });
+    const stats = [
+      { label: 'Critical now', value: cockpit?.morning_brief?.critical_count ?? '—' },
+      { label: 'Active deals', value: cockpit?.deals?.length ?? '—' },
+      { label: 'Outbox today', value: status?.bridge?.counts?.archived_today ?? '—' },
+      { label: 'Inbox pending', value: status?.bridge?.counts?.inbox_pending ?? '—' },
+    ];
+    stats.forEach((s) => {
+      const stat = el('div', { class: 'hero-stat' });
+      stat.appendChild(el('span', { class: 'label', text: s.label }));
+      stat.appendChild(el('span', { class: 'value', text: String(s.value) }));
+      row.appendChild(stat);
+    });
+    wrap.appendChild(row);
+    return wrap;
+  }
+
+  function renderQuickActions() {
+    const wrap = el('section', { class: 'quick-actions' });
+    const actions = [
+      { href: '#/dispatch?kind=partner-intel-pull', title: 'Partner intel', sub: 'Pull recent signals' },
+      { href: '#/dispatch?kind=morning-brief-pull', title: 'Morning supp.', sub: 'Overnight signals' },
+      { href: '#/dispatch?kind=meeting-summary-pull', title: 'Meeting summary', sub: 'Action items' },
+      { href: '#/results', title: 'Latest results', sub: 'Outbox archive' },
+    ];
+    actions.forEach((a) => {
+      const link = el('a', { class: 'quick-action', attrs: { href: a.href } });
+      link.appendChild(el('span', { class: 'qa-title', text: a.title }));
+      link.appendChild(el('span', { class: 'qa-sub', text: a.sub }));
+      wrap.appendChild(link);
+    });
+    return wrap;
+  }
+
+  function renderCritical(cockpit) {
+    const items = cockpit?.morning_brief?.critical || [];
+    const wrap = document.createDocumentFragment();
+    wrap.appendChild(sectionTitle('Critical now', cockpit?.morning_brief?.date ? `brief ${cockpit.morning_brief.date}` : ''));
+    if (!items.length) {
+      wrap.appendChild(el('div', { class: 'card state-empty', text: 'No critical items in current brief.' }));
+      return wrap;
+    }
+    const list = el('ul', { class: 'critical-list' });
+    items.forEach((c) => {
+      const li = el('li', { class: 'crit-item' });
+      li.appendChild(el('div', { class: 'crit-title', text: c.title || '' }));
+      li.appendChild(el('div', { class: 'crit-body', text: c.body || '' }));
+      list.appendChild(li);
+    });
+    wrap.appendChild(list);
+    return wrap;
+  }
+
+  function renderDeals(cockpit) {
+    const items = cockpit?.deals || [];
+    const wrap = document.createDocumentFragment();
+    wrap.appendChild(sectionTitle('Active deals', `${items.length} tracked`));
+    if (!items.length) {
+      wrap.appendChild(el('div', { class: 'card state-empty', text: 'No active deal rows extracted.' }));
+      return wrap;
+    }
+    const list = el('ul', { class: 'deal-list' });
+    items.slice(0, 14).forEach((d) => {
+      const li = el('li', { class: 'deal-item' });
+      li.appendChild(el('div', { class: 'deal-partner', text: d.partner }));
+      li.appendChild(el('div', { class: 'deal-state', text: d.state || '' }));
+      li.appendChild(el('div', { class: 'deal-action', text: d.next_action || '' }));
+      if (d.deadline) li.appendChild(el('div', { class: 'deal-deadline', text: 'Deadline: ' + d.deadline }));
+      list.appendChild(li);
+    });
+    wrap.appendChild(list);
+    return wrap;
+  }
+
+  function renderSignals(cockpit) {
+    const items = cockpit?.bridge_signals || [];
+    const wrap = document.createDocumentFragment();
+    wrap.appendChild(sectionTitle('Bridge signals', items.length ? `${items.length} recent` : 'none'));
+    if (!items.length) {
+      wrap.appendChild(el('div', { class: 'card state-empty', text: 'No recent bridge signals in cache.' }));
+      return wrap;
+    }
+    const list = el('ul', { class: 'signal-list' });
+    items.forEach((s) => {
+      const li = el('li', { class: 'signal-item' });
+      li.appendChild(el('div', { class: 'signal-title', text: s.title || '' }));
+      if (s.summary) li.appendChild(el('div', { class: 'signal-summary', text: s.summary }));
+      if (s.key_points && s.key_points.length) {
+        const ul = el('ul', { class: 'signal-bullets' });
+        s.key_points.slice(0, 5).forEach((kp) => ul.appendChild(el('li', { text: kp })));
+        li.appendChild(ul);
+      }
+      const meta = el('div', { class: 'signal-meta' });
+      meta.appendChild(el('span', { text: s.confidence ? `confidence ${s.confidence}` : '' }));
+      meta.appendChild(el('span', { text: s.produced_at ? relTime(s.produced_at) : '' }));
+      li.appendChild(meta);
+      list.appendChild(li);
+    });
+    wrap.appendChild(list);
+    return wrap;
+  }
+
+  function renderAsks(cockpit) {
+    const wrap = document.createDocumentFragment();
+    const asks = cockpit?.asks;
+    if (!asks || !asks.available) return wrap;
+    const counts = asks.counts || {};
+    const meta = asks.last_answered_at ? `last answered ${relTime(asks.last_answered_at)}` : '';
+    wrap.appendChild(sectionTitle('Ask & Answer', meta));
+    const card = el('div', { class: 'card asks-tile' });
+    const row = el('div', { class: 'asks-row' });
+    const stat = (label, value, kind) => {
+      const node = el('div', { class: `asks-stat asks-stat-${kind || ''}`.trim() });
+      node.appendChild(el('div', { class: 'asks-stat-value', text: String(value) }));
+      node.appendChild(el('div', { class: 'asks-stat-label', text: label }));
+      return node;
+    };
+    row.appendChild(stat('total', asks.total || 0));
+    row.appendChild(stat('answered', counts.answered || 0, 'ok'));
+    row.appendChild(stat('pending', counts.pending || 0, counts.pending ? 'warn' : ''));
+    if (counts.failed) row.appendChild(stat('failed', counts.failed, 'danger'));
+    if (counts.expired) row.appendChild(stat('expired', counts.expired, 'warn'));
+    card.appendChild(row);
+
+    const link = el('a', { class: 'asks-cta', attrs: { href: '#/answers' }, text: 'Open Answers tab →' });
+    card.appendChild(link);
+
+    wrap.appendChild(card);
+    return wrap;
+  }
+
+  function renderTodos(cockpit) {
+    const todos = cockpit?.partner_todos?.items || [];
+    const wrap = document.createDocumentFragment();
+    wrap.appendChild(sectionTitle('Partner todos', cockpit?.partner_todos?.total ? `${cockpit.partner_todos.total} total` : ''));
+    if (!todos.length) {
+      wrap.appendChild(el('div', { class: 'card state-empty', text: 'No partner todos extracted.' }));
+      return wrap;
+    }
+    const list = el('ul', { class: 'todo-list' });
+    todos.forEach((t) => {
+      const li = el('li', { class: 'todo-item' });
+      li.appendChild(el('div', { class: 'todo-partner', text: t.partner || '?' }));
+      li.appendChild(el('div', { class: 'todo-text', text: t.text || '' }));
+      const metaBits = [];
+      if (t.category) metaBits.push(t.category);
+      if (t.due) metaBits.push('due ' + t.due);
+      if (metaBits.length) li.appendChild(el('div', { class: 'todo-meta', text: metaBits.join(' · ') }));
+      list.appendChild(li);
+    });
+    wrap.appendChild(list);
+    return wrap;
+  }
+
+  function renderHealth(status) {
+    const wrap = document.createDocumentFragment();
+    wrap.appendChild(sectionTitle('Runtime health', status?.generated_at ? `as of ${relTime(status.generated_at)}` : ''));
+    if (!status || status.__error) {
+      wrap.appendChild(el('div', { class: 'card state-error', text: status?.__error || 'No status feed available.' }));
+      return wrap;
+    }
+    const grid = el('div', { class: 'health-grid' });
+    const sv = status.selfverify || {};
+    const svKind = sv.overall === 'PASS' ? 'ok' : (sv.overall === 'WARN' ? 'warn' : (sv.overall === 'FAIL' ? 'err' : 'warn'));
+    const svValue = sv.report_present
+      ? `${sv.overall} (${sv.counts?.pass ?? 0}P/${sv.counts?.warn ?? 0}W/${sv.counts?.fail ?? 0}F)`
+      : 'no report';
+    const items = [
+      { label: 'Bridge run', value: status.bridge?.last_run_status || 'unknown', kind: status.bridge?.last_run_status === 'success' ? 'ok' : 'warn' },
+      { label: 'Morning', value: status.morning?.overall_status || 'unknown', kind: status.morning?.overall_status === 'success' ? 'ok' : 'warn' },
+      { label: 'Cockpit', value: status.morning?.cockpit_status || '—', kind: status.morning?.cockpit_status === 'success' ? 'ok' : 'warn' },
+      { label: 'Drive sync', value: status.morning?.drive_mirror_status || '—', kind: status.morning?.drive_mirror_status === 'success' ? 'ok' : 'warn' },
+      { label: 'NotebookLM', value: status.morning?.notebooklm_status || '—', kind: status.morning?.notebooklm_status === 'success' ? 'ok' : 'warn' },
+      { label: 'Self-verify', value: svValue, kind: svKind },
+      { label: 'Last artifact', value: status.bridge?.last_artifact || '—', kind: 'ok' },
+    ];
+    items.forEach((i) => {
+      const card = el('div', { class: `health-item ${i.kind}` });
+      card.appendChild(el('span', { class: 'label', text: i.label }));
+      card.appendChild(el('span', { class: 'value', text: i.value }));
+      grid.appendChild(card);
+    });
+    wrap.appendChild(grid);
+    return wrap;
+  }
+
+  function renderMeetings(cockpit) {
+    const today = cockpit?.meetings?.today || {};
+    const tomorrow = cockpit?.meetings?.tomorrow || {};
+    const wrap = document.createDocumentFragment();
+    wrap.appendChild(sectionTitle('Meetings'));
+
+    const card = el('div', { class: 'card' });
+    const todayBlock = el('div');
+    todayBlock.appendChild(el('div', { class: 'subtle', html: `<strong>Today</strong> · ${escapeHtml(today.date || '—')}` }));
+    if (!today.available || !today.items?.length) {
+      todayBlock.appendChild(el('div', { class: 'meeting-empty', text: 'No meetings on file for today.' }));
+    } else {
+      const ul = el('ul', { class: 'todo-list' });
+      today.items.forEach((m) => {
+        const li = el('li', { class: 'todo-item' });
+        li.appendChild(el('div', { class: 'todo-partner', text: (m.start || '').slice(11, 16) }));
+        li.appendChild(el('div', { class: 'todo-text', text: m.summary || '(untitled)' }));
+        ul.appendChild(li);
+      });
+      todayBlock.appendChild(ul);
+    }
+    card.appendChild(todayBlock);
+
+    const tomorrowBlock = el('div', { attrs: { style: 'margin-top:14px' } });
+    tomorrowBlock.appendChild(el('div', { class: 'subtle', html: `<strong>Tomorrow</strong> · ${escapeHtml(tomorrow.date || '—')}` }));
+    if (!tomorrow.available || !tomorrow.items?.length) {
+      tomorrowBlock.appendChild(el('div', { class: 'meeting-empty', text: 'No meetings on file for tomorrow.' }));
+    } else {
+      const ul = el('ul', { class: 'todo-list' });
+      tomorrow.items.forEach((m) => {
+        const li = el('li', { class: 'todo-item' });
+        li.appendChild(el('div', { class: 'todo-partner', text: (m.start || '').slice(11, 16) }));
+        li.appendChild(el('div', { class: 'todo-text', text: m.summary || '(untitled)' }));
+        ul.appendChild(li);
+      });
+      tomorrowBlock.appendChild(ul);
+    }
+    card.appendChild(tomorrowBlock);
+
+    wrap.appendChild(card);
+    return wrap;
+  }
+
+  function sectionTitle(label, meta) {
+    const node = el('div', { class: 'section-title' });
+    node.appendChild(el('span', { text: label }));
+    if (meta) node.appendChild(el('span', { class: 'meta', text: meta }));
+    return node;
+  }
+
+  async function render(view) {
+    view.innerHTML = '<div class="state-loading"><span class="spinner"></span> loading cockpit…</div>';
+    const [cockpit, status] = await Promise.all([fetchFeed('cockpit'), fetchFeed('status')]);
+    renderStatusStrip(status);
+    view.innerHTML = '';
+
+    if (cockpit?.__error) {
+      view.appendChild(el('div', { class: 'card state-error', text: 'Could not load cockpit feed: ' + cockpit.__error }));
+    }
+    view.appendChild(renderHero(cockpit, status));
+    view.appendChild(renderQuickActions());
+    view.appendChild(renderCritical(cockpit));
+    view.appendChild(renderMeetings(cockpit));
+    view.appendChild(renderDeals(cockpit));
+    view.appendChild(renderSignals(cockpit));
+    view.appendChild(renderAsks(cockpit));
+    view.appendChild(renderTodos(cockpit));
+    view.appendChild(renderHealth(status));
+
+    const foot = el('div', { class: 'faint', attrs: { style: 'text-align:center;font-size:11px;margin:14px 0 4px' } });
+    foot.textContent = `Cockpit data generated ${cockpit?.generated_at ? relTime(cockpit.generated_at) : 'unknown'} · status ${status?.generated_at ? relTime(status.generated_at) : 'unknown'}`;
+    view.appendChild(foot);
+  }
+
+  global.EPMCCockpit = { render };
+})(window);

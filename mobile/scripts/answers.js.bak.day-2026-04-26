@@ -1,0 +1,165 @@
+/* ============================================================
+   EverPass Mobile Command Center — Answers Panel
+   Renders the Ask & Answer surface from mobile-answers.json.
+   Read-only view: list of asks with status + answer snippet.
+   Tap an item to expand and see the full answer summary + paths.
+   ============================================================ */
+(function (global) {
+  'use strict';
+  const { fetchFeed, escapeHtml, el, relTime } = global.EPMCData;
+
+  const STATUS_KIND = {
+    answered: 'ok',
+    pending: 'warn',
+    failed: 'danger',
+    expired: 'warn',
+  };
+
+  function summaryStrip(summary) {
+    const wrap = el('div', { class: 'answers-summary-strip', attrs: { 'aria-live': 'polite' } });
+    const c = (summary && summary.counts) || {};
+    const total = (summary && summary.total) || 0;
+    const last = (summary && summary.last_answered_at) || null;
+
+    const chip = (label, value, kind) => {
+      const node = el('span', { class: `chip chip-${kind || ''}`.trim() });
+      node.appendChild(el('strong', { text: String(value) }));
+      node.appendChild(el('span', { text: ' ' + label }));
+      return node;
+    };
+
+    wrap.appendChild(chip('total', total));
+    wrap.appendChild(chip('answered', c.answered || 0, 'ok'));
+    wrap.appendChild(chip('pending', c.pending || 0, c.pending ? 'warn' : ''));
+    if (c.failed) wrap.appendChild(chip('failed', c.failed, 'danger'));
+    if (c.expired) wrap.appendChild(chip('expired', c.expired, 'warn'));
+    if (last) {
+      const node = el('span', { class: 'chip chip-meta' });
+      node.appendChild(el('span', { text: 'last answered ' + relTime(last) }));
+      wrap.appendChild(node);
+    }
+    return wrap;
+  }
+
+  function statusBadge(status) {
+    const kind = STATUS_KIND[status] || '';
+    return el('span', { class: `answers-status ${kind}`.trim(), text: status });
+  }
+
+  function sourceTag(source) {
+    if (!source) return null;
+    return el('span', { class: 'answers-source', text: source.replace(/-/g, ' ') });
+  }
+
+  function partnerTag(partner) {
+    if (!partner) return null;
+    return el('span', { class: 'answers-partner', text: partner });
+  }
+
+  function priorityTag(priority) {
+    if (!priority || priority === 'normal') return null;
+    return el('span', { class: `answers-priority pri-${priority}`, text: priority });
+  }
+
+  function renderItem(item) {
+    const li = el('li', { class: 'answers-item', attrs: { 'data-id': item.id, 'data-status': item.status } });
+
+    const head = el('div', { class: 'answers-head' });
+    const titleBits = [];
+    if (item.kind_label || item.kind) titleBits.push(item.kind_label || item.kind);
+    if (item.partner) titleBits.push(item.partner);
+    if (titleBits.length === 0) titleBits.push('Ask');
+    head.appendChild(el('div', { class: 'answers-title', text: titleBits.join(' · ') }));
+
+    const meta = el('div', { class: 'answers-meta' });
+    meta.appendChild(statusBadge(item.status));
+    const src = sourceTag(item.source);
+    if (src) meta.appendChild(src);
+    const part = partnerTag(item.partner);
+    if (part) meta.appendChild(part);
+    const pri = priorityTag(item.priority);
+    if (pri) meta.appendChild(pri);
+    const ts = item.answered_at || item.created_at;
+    if (ts) meta.appendChild(el('span', { class: 'answers-time', text: relTime(ts) }));
+    head.appendChild(meta);
+    li.appendChild(head);
+
+    if (item.question_snippet) {
+      li.appendChild(el('div', { class: 'answers-question', text: item.question_snippet }));
+    }
+    if (item.answer_snippet) {
+      li.appendChild(el('div', { class: 'answers-answer', text: item.answer_snippet }));
+    }
+    if (!item.answer_snippet && item.status === 'pending') {
+      li.appendChild(el('div', { class: 'answers-pending-note', text: 'Awaiting bridge processing — next drain will produce the answer.' }));
+    }
+    if (!item.answer_snippet && item.status === 'failed') {
+      li.appendChild(el('div', { class: 'answers-pending-note', text: 'Bridge rejected this Ask. Check ChatGPT_Outbox/_rejected/.' }));
+    }
+
+    if (item.request_filename || item.answer_filename) {
+      const filenames = el('div', { class: 'answers-files' });
+      if (item.request_filename) filenames.appendChild(el('span', { class: 'answers-file', text: 'req: ' + item.request_filename }));
+      if (item.answer_filename) filenames.appendChild(el('span', { class: 'answers-file answers-file-out', text: 'ans: ' + item.answer_filename }));
+      li.appendChild(filenames);
+    }
+
+    return li;
+  }
+
+  function emptyState(message) {
+    const wrap = el('div', { class: 'answers-empty' });
+    wrap.appendChild(el('div', { class: 'answers-empty-title', text: 'No answers yet' }));
+    wrap.appendChild(el('div', { class: 'answers-empty-body', text: message || 'Submit an Ask via Dispatch (or pipe an email through ask_router.py). Answers appear here after the next bridge drain.' }));
+    return wrap;
+  }
+
+  function errorState(message) {
+    const wrap = el('div', { class: 'answers-error' });
+    wrap.appendChild(el('div', { class: 'answers-empty-title', text: 'Could not load answers feed' }));
+    wrap.appendChild(el('div', { class: 'answers-empty-body', text: String(message || '') }));
+    wrap.appendChild(el('div', { class: 'answers-empty-hint', text: 'Run `python AI Related/ask/ask_router.py --build` from the workstation to refresh.' }));
+    return wrap;
+  }
+
+  function sectionTitle(label, meta) {
+    const node = el('div', { class: 'section-title' });
+    node.appendChild(el('span', { text: label }));
+    if (meta) node.appendChild(el('span', { class: 'meta', text: meta }));
+    return node;
+  }
+
+  async function render(view) {
+    view.innerHTML = '<div class="state-loading"><span class="spinner"></span> loading answers…</div>';
+
+    const payload = await fetchFeed('answers');
+
+    view.innerHTML = '';
+
+    if (payload && payload.__error) {
+      view.appendChild(errorState(payload.__error));
+      return;
+    }
+
+    const summary = payload && payload.summary;
+    const items = (payload && Array.isArray(payload.items)) ? payload.items : [];
+
+    view.appendChild(sectionTitle('Ask & Answer', payload && payload.generated_at ? `as of ${relTime(payload.generated_at)}` : ''));
+    view.appendChild(summaryStrip(summary));
+
+    if (items.length === 0) {
+      view.appendChild(emptyState());
+      return;
+    }
+
+    const list = el('ul', { class: 'answers-list', attrs: { id: 'answers-list' } });
+    items.forEach((it) => list.appendChild(renderItem(it)));
+    view.appendChild(list);
+
+    // Footer hint with refresh affordance.
+    const hint = el('div', { class: 'answers-foot-hint', text: 'Pull to refresh after submitting a new Ask via Dispatch.' });
+    view.appendChild(hint);
+  }
+
+  global.EPMCAnswers = { render };
+})(window);

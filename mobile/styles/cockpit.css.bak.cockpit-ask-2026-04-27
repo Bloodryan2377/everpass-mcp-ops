@@ -1,0 +1,171 @@
+/* ============================================================
+   EverPass Mobile Command Center — Cockpit
+   ============================================================ */
+
+.hero {
+  background: linear-gradient(160deg, var(--c-hero-grad-top) 0%, var(--c-hero-grad-bot) 100%);
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--r-xl);
+  padding: 18px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.hero h1 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.hero .hero-sub {
+  font-size: 13px;
+  color: var(--c-fg-mute);
+}
+.hero-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.hero-stat {
+  background: var(--c-hero-stat-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+}
+.hero-stat .label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--c-fg-faint);
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+}
+.hero-stat .value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 14px;
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  color: var(--c-fg);
+  min-height: 76px;
+}
+.quick-action .qa-title { font-weight: 700; font-size: 14px; }
+.quick-action .qa-sub { font-size: 12px; color: var(--c-fg-mute); }
+
+.critical-list, .deal-list, .signal-list, .todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.crit-item {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-danger);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+}
+.crit-item .crit-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.crit-item .crit-body  { font-size: 13px; color: var(--c-fg-mute); line-height: 1.45; }
+
+.deal-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 12px;
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+}
+.deal-item .deal-partner { font-weight: 700; }
+.deal-item .deal-state {
+  font-size: 11px;
+  color: var(--c-fg-mute);
+  text-align: right;
+}
+.deal-item .deal-action {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  color: var(--c-fg-mute);
+  line-height: 1.4;
+}
+.deal-item .deal-deadline {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  color: var(--c-warn);
+  font-weight: 600;
+}
+
+.signal-item {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+}
+.signal-item .signal-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.signal-item .signal-summary { font-size: 13px; color: var(--c-fg-mute); margin-bottom: 8px; line-height: 1.45; }
+.signal-item .signal-bullets {
+  margin: 0; padding-left: 18px; font-size: 12px; color: var(--c-fg-mute);
+}
+.signal-item .signal-meta {
+  display: flex; justify-content: space-between; gap: 8px;
+  margin-top: 8px; font-size: 11px; color: var(--c-fg-faint);
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+}
+.todo-item .todo-partner {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--c-accent);
+  align-self: center;
+}
+.todo-item .todo-text { font-size: 13px; color: var(--c-fg); line-height: 1.4; }
+.todo-item .todo-meta { grid-column: 1 / -1; font-size: 11px; color: var(--c-fg-faint); }
+
+.health-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.health-item {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+  font-size: 12px;
+}
+.health-item .label { display: block; color: var(--c-fg-faint); font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 3px; }
+.health-item .value { font-weight: 700; font-size: 14px; }
+.health-item.ok    .value { color: var(--c-success); }
+.health-item.warn  .value { color: var(--c-warn); }
+.health-item.danger .value { color: var(--c-danger); }
+
+.meeting-empty { color: var(--c-fg-mute); font-size: 13px; padding: 6px 0; }

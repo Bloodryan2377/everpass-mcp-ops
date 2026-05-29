@@ -1,0 +1,185 @@
+{
+  "generated_at": "2026-04-28T18:16:58.182Z",
+  "surfaces": [
+    {
+      "id": "mob-iphone-cockpit",
+      "label": "Mobile Cockpit (iPhone)",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\mob-iphone-cockpit.png"
+    },
+    {
+      "id": "mob-iphone-answers",
+      "label": "Mobile Answers (iPhone)",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\mob-iphone-answers.png"
+    },
+    {
+      "id": "mob-iphone-results",
+      "label": "Mobile Results (iPhone)",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\mob-iphone-results.png"
+    },
+    {
+      "id": "mob-iphone-live",
+      "label": "Mobile Live (iPhone)",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\mob-iphone-live.png"
+    },
+    {
+      "id": "mob-iphone-dispatch",
+      "label": "Mobile Dispatch (iPhone)",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\mob-iphone-dispatch.png"
+    },
+    {
+      "id": "mob-ipad-cockpit",
+      "label": "Mobile Cockpit (iPad Pro)",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\mob-ipad-cockpit.png"
+    },
+    {
+      "id": "mob-ipad-answers",
+      "label": "Mobile Answers (iPad Pro)",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\mob-ipad-answers.png"
+    },
+    {
+      "id": "mob-ipad-results",
+      "label": "Mobile Results (iPad Pro)",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\mob-ipad-results.png"
+    },
+    {
+      "id": "mob-ipad-live",
+      "label": "Mobile Live (iPad Pro)",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\mob-ipad-live.png"
+    },
+    {
+      "id": "desktop-dashboard",
+      "label": "Desktop Dashboard",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\desktop-dashboard.png"
+    },
+    {
+      "id": "desktop-rsn-deals",
+      "label": "RSN Deals",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\desktop-rsn-deals.png"
+    },
+    {
+      "id": "desktop-pipeline-flow",
+      "label": "Content Pipeline Flow",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\desktop-pipeline-flow.png"
+    },
+    {
+      "id": "desktop-rsn-framing",
+      "label": "RSN Decision Framing",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\desktop-rsn-framing.png"
+    },
+    {
+      "id": "nego-twdc",
+      "label": "TWDC/ESPN Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-twdc.png"
+    },
+    {
+      "id": "nego-fox",
+      "label": "FOX Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-fox.png"
+    },
+    {
+      "id": "nego-nesn",
+      "label": "NESN Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-nesn.png"
+    },
+    {
+      "id": "nego-marquee",
+      "label": "Marquee Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-marquee.png"
+    },
+    {
+      "id": "nego-msg",
+      "label": "MSG Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-msg.png"
+    },
+    {
+      "id": "nego-monumental",
+      "label": "Monumental Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-monumental.png"
+    },
+    {
+      "id": "nego-nba",
+      "label": "NBA Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-nba.png"
+    },
+    {
+      "id": "nego-nhl",
+      "label": "NHL Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-nhl.png"
+    },
+    {
+      "id": "nego-mlb",
+      "label": "MLB Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-mlb.png"
+    },
+    {
+      "id": "nego-golf",
+      "label": "Golf Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-golf.png"
+    },
+    {
+      "id": "nego-wbd",
+      "label": "WBD Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-wbd.png"
+    },
+    {
+      "id": "nego-flosports",
+      "label": "FloSports Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-flosports.png"
+    },
+    {
+      "id": "nego-bravesvision",
+      "label": "BravesVision Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-bravesvision.png"
+    },
+    {
+      "id": "nego-samsung",
+      "label": "Samsung Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-samsung.png"
+    },
+    {
+      "id": "nego-charter",
+      "label": "Charter Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\nego-charter.png"
+    },
+    {
+      "id": "sales-comcast",
+      "label": "Comcast Sales Flow Tool",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\sales-comcast.png"
+    },
+    {
+      "id": "sales-charter",
+      "label": "Charter Interactive Sales Flow Tool",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-2026-04-28\\sales-charter.png"
+    }
+  ]
+}

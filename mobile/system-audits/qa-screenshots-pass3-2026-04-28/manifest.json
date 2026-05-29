@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-02T04:32:43.093Z",
+  "pass": "pass3-spacing-lift",
+  "surfaces": [
+    {
+      "id": "nego-nhl",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-pass3-2026-04-28\\nego-nhl.png"
+    },
+    {
+      "id": "nego-mlb",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-pass3-2026-04-28\\nego-mlb.png"
+    },
+    {
+      "id": "nego-wbd",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-pass3-2026-04-28\\nego-wbd.png"
+    },
+    {
+      "id": "nego-bravesvision",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-pass3-2026-04-28\\nego-bravesvision.png"
+    }
+  ]
+}

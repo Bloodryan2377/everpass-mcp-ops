@@ -196,9 +196,7 @@
     stopMic();
     view.innerHTML = '';
     const inboxHint = el('div', { class: 'inbox-hint' });
-    // 2026-05-26 P6: primary path is now Run via Cockpit (Netlify Function).
-    // OneDrive queue stays available as a secondary for the laptop bridge.
-    inboxHint.innerHTML = `Primary: <strong>Run via Cockpit</strong> hits <code>/api/dispatch</code> and returns a synthesized answer. Secondary: Copy markdown or Save to OneDrive queues into <code>${escapeHtml(options?.inbox_path_hint || 'ChatGPT_Inbox\\\\')}</code> for the laptop bridge.`;
+    inboxHint.innerHTML = `Submissions queue into <code>${escapeHtml(options?.inbox_path_hint || 'ChatGPT_Inbox\\\\')}</code>. The next bridge drain (manual or 8:55 AM cron) processes them locally.`;
     view.appendChild(inboxHint);
 
     view.appendChild(sectionTitle('Choose request kind'));
@@ -292,24 +290,12 @@
     const preview = el('div', { class: 'preview', attrs: { id: 'request-preview', 'aria-live': 'polite' } });
     view.appendChild(preview);
 
-    // 2026-05-26 P6: Run via Cockpit is now the primary path on mobile.
-    // POSTs to /api/dispatch (Netlify Function) instead of queuing into the
-    // OneDrive bridge which is unreachable from cellular. Copy markdown and
-    // Save Draft remain as secondaries for the legacy bridge flow.
     const actions = el('div', { class: 'dispatch-actions' });
-    actions.appendChild(el('button', { class: 'btn btn-primary btn-block', attrs: { type: 'button', id: 'btn-run-cockpit' }, text: 'Run via Cockpit' }));
+    actions.appendChild(el('button', { class: 'btn btn-primary btn-block', attrs: { type: 'button', id: 'btn-share' }, text: 'Save to OneDrive (Share)' }));
     actions.appendChild(el('button', { class: 'btn btn-block', attrs: { type: 'button', id: 'btn-copy' }, text: 'Copy markdown' }));
-    actions.appendChild(el('button', { class: 'btn btn-ghost btn-block', attrs: { type: 'button', id: 'btn-save-draft' }, text: 'Save Draft' }));
-    actions.appendChild(el('button', { class: 'btn btn-ghost btn-block', attrs: { type: 'button', id: 'btn-share' }, text: 'Save to OneDrive (Share)' }));
     actions.appendChild(el('button', { class: 'btn btn-ghost btn-block', attrs: { type: 'button', id: 'btn-download' }, text: 'Download .md' }));
     view.appendChild(actions);
 
-    const resultPanel = el('div', { class: 'dispatch-result', attrs: { id: 'dispatch-result', 'aria-live': 'polite' } });
-    resultPanel.hidden = true;
-    view.appendChild(resultPanel);
-
-    document.getElementById('btn-run-cockpit').addEventListener('click', onRunCockpit);
-    document.getElementById('btn-save-draft').addEventListener('click', onSaveDraft);
     document.getElementById('btn-share').addEventListener('click', onSubmit('share'));
     document.getElementById('btn-copy').addEventListener('click', onSubmit('copy'));
     document.getElementById('btn-download').addEventListener('click', onSubmit('download'));
@@ -318,120 +304,6 @@
     view.appendChild(renderRecent());
 
     refreshPreview();
-  }
-
-  // ---- Netlify Function path (Run via Cockpit) ----
-  async function postDispatch(payload) {
-    const resp = await fetch('/api/dispatch', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    const text = await resp.text();
-    let parsed = null;
-    try { parsed = JSON.parse(text); } catch (_) { /* keep raw */ }
-    if (!resp.ok) {
-      const msg = (parsed && parsed.error) || text.slice(0, 400) || ('HTTP ' + resp.status);
-      const err = new Error(msg);
-      err.status = resp.status;
-      err.payload = parsed;
-      throw err;
-    }
-    return parsed || {};
-  }
-
-  function buildDispatchPayload(state, { save_draft = false } = {}) {
-    const kindDef = (options?.request_kinds || []).find((k) => k.id === state.kind) || {};
-    return {
-      kind: state.kind,
-      partner: state.partner || null,
-      time_window: state.time_window || null,
-      priority: state.priority || 'normal',
-      instruction: state.instruction || '',
-      constraints: state.constraints || '',
-      expected_target_skill: kindDef.expected_target_skill || null,
-      save_draft: !!save_draft,
-    };
-  }
-
-  function escapeHtmlBlock(s) {
-    return String(s || '')
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
-
-  function renderDispatchResult({ pending, error, data }) {
-    const panel = document.getElementById('dispatch-result');
-    if (!panel) return;
-    panel.hidden = false;
-    if (pending) {
-      panel.innerHTML = '<div class="dispatch-result-head"><span class="spinner"></span><span>Running via Cockpit...</span></div>';
-      return;
-    }
-    if (error) {
-      panel.innerHTML = '<div class="dispatch-result-head error"><strong>Dispatch failed.</strong></div>'
-        + '<div class="dispatch-result-error">' + escapeHtmlBlock(error) + '</div>';
-      return;
-    }
-    if (data) {
-      const meta = [];
-      if (data.kind)    meta.push(escapeHtmlBlock(data.kind));
-      if (data.partner) meta.push(escapeHtmlBlock(data.partner));
-      if (data.model)   meta.push(escapeHtmlBlock(data.model));
-      panel.innerHTML =
-        '<div class="dispatch-result-head"><strong>Cockpit answer</strong>'
-        + '<span class="dispatch-result-meta">' + meta.join(' · ') + '</span></div>'
-        + '<pre class="dispatch-result-body">' + escapeHtmlBlock(data.answer || '(no content)') + '</pre>'
-        + '<div class="dispatch-result-foot">'
-        + '<code>' + escapeHtmlBlock(data.correlation_id || '') + '</code>'
-        + '<span>' + (data.ts ? escapeHtmlBlock(data.ts) : '') + '</span>'
-        + '<span>' + (data.persist && data.persist.ok ? 'persisted' : 'persist skipped') + '</span>'
-        + '</div>';
-    }
-  }
-
-  async function onRunCockpit() {
-    const errs = validate(formState);
-    if (errs.length) { showToast(errs[0], 'error'); return; }
-    renderDispatchResult({ pending: true });
-    const payload = buildDispatchPayload(formState);
-    const corrId = 'dsp-' + todayIsoDate().replaceAll('-', '') + '-' + shortHex(6);
-    pushRecent({
-      correlation_id: corrId,
-      filename: '(cockpit)',
-      kind: payload.kind,
-      partner: payload.partner,
-      submitted_at: new Date().toISOString(),
-      mode: 'cockpit',
-      status: 'pending',
-    });
-    renderRecentInto();
-    try {
-      const data = await postDispatch(payload);
-      updateRecentStatus(corrId, data.ok ? 'cockpit-ok' : 'error');
-      renderRecentInto();
-      renderDispatchResult({ data });
-      showToast('Cockpit answer ready.', 'success');
-    } catch (err) {
-      updateRecentStatus(corrId, 'error');
-      renderRecentInto();
-      renderDispatchResult({ error: err.message || String(err) });
-      showToast('Dispatch failed: ' + (err.message || err), 'error');
-    }
-  }
-
-  async function onSaveDraft() {
-    const errs = validate(formState);
-    if (errs.length) { showToast(errs[0], 'error'); return; }
-    renderDispatchResult({ pending: true });
-    try {
-      const data = await postDispatch(buildDispatchPayload(formState, { save_draft: true }));
-      renderDispatchResult({ data });
-      showToast('Draft saved to dispatch-answers.', 'success');
-    } catch (err) {
-      renderDispatchResult({ error: err.message || String(err) });
-      showToast('Draft save failed: ' + (err.message || err), 'error');
-    }
   }
 
   // ---- Web Speech API mic input ----

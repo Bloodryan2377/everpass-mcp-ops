@@ -194,3 +194,60 @@
   .kind-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .kind-card { min-height: 110px; }
 }
+
+/* ── Dispatch result panel (2026-05-26 P6) ────────────────────── */
+.dispatch-result {
+  margin-top: 14px;
+  background: var(--c-bg-elev-2);
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+}
+.dispatch-result-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.dispatch-result-head.error { color: var(--c-danger); }
+.dispatch-result-meta {
+  color: var(--c-fg-faint);
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+.dispatch-result-body {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  padding: 10px 12px;
+  max-height: 60vh;
+  overflow: auto;
+}
+.dispatch-result-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--c-fg-faint);
+}
+.dispatch-result-foot code {
+  font-family: var(--font-mono);
+  background: var(--c-code-bg);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.dispatch-result-error {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-danger);
+  white-space: pre-wrap;
+  word-break: break-word;
+}

@@ -1,0 +1,127 @@
+/* ============================================================
+   EverPass Mobile Command Center — Live Q&A panel
+   ============================================================ */
+
+.live-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.live-title {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--c-fg);
+}
+.live-meta {
+  font-size: 11px;
+  color: var(--c-fg-faint);
+}
+
+.live-banner {
+  font-size: 12px;
+  color: var(--c-fg-mute);
+  background: color-mix(in srgb, var(--c-warn, #d29200) 10%, var(--c-bg-elev));
+  border: 1px solid color-mix(in srgb, var(--c-warn, #d29200) 35%, transparent);
+  border-radius: var(--r-md);
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+
+.live-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.live-item {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.live-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.live-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  font-size: 11px;
+  color: var(--c-fg-faint);
+}
+.live-speaker {
+  color: var(--c-fg-mute);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.live-meeting { color: var(--c-fg-mute); }
+.live-time    { color: var(--c-fg-faint); }
+
+.live-source-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--c-bg-elev-2);
+  color: var(--c-fg-mute);
+  white-space: nowrap;
+}
+.live-source-tag[data-kind='rag']              { color: var(--c-success, #22a06b); }
+.live-source-tag[data-kind='partner-insights'] { color: var(--c-accent); }
+.live-source-tag[data-kind='stub']             { color: var(--c-warn, #d29200); }
+
+.live-q {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-fg);
+  line-height: 1.35;
+}
+.live-a {
+  font-size: 13px;
+  color: var(--c-fg-mute);
+  line-height: 1.45;
+}
+
+.live-sources {
+  font-size: 11px;
+  color: var(--c-fg-faint);
+}
+.live-sources summary {
+  cursor: pointer;
+  color: var(--c-fg-mute);
+  user-select: none;
+}
+.live-source-list {
+  list-style: none;
+  margin: 4px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.live-source-type {
+  font-family: ui-monospace, monospace;
+  color: var(--c-fg-mute);
+}
+.live-source-body {
+  font-family: ui-monospace, monospace;
+  color: var(--c-fg-faint);
+  word-break: break-all;
+}

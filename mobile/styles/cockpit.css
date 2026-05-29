@@ -106,6 +106,26 @@
 }
 .health-item-link { text-decoration: none; color: inherit; display: block; }
 
+/* 2026-05-26 P3: freshness drill-down list. One row per tracked artifact,
+   stale/warn floated to the top by render-time sort. */
+.fresh-list { list-style: none; margin: 6px 0 14px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.fresh-item {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 3px;
+  align-items: center;
+}
+.fresh-item .chip { grid-row: 1 / span 2; align-self: start; }
+.fresh-item .fresh-key { font-weight: 700; font-size: 13px; }
+.fresh-item .fresh-meta, .fresh-item .fresh-notes {
+  font-size: 11px; color: var(--c-fg-faint); grid-column: 2;
+}
+
 .hero-stat .label {
   display: block;
   font-size: 10px;
@@ -799,116 +819,69 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  counter-reset: dscl;
+  font-size: 12px;
+  color: var(--c-fg-mute);
+  line-height: 1.45;
 }
 .ds-checklist li {
-  position: relative;
-  padding: 2px 0 2px 28px;
-  font-size: 13px;
-  color: var(--c-fg);
-  line-height: 1.5;
-  counter-increment: dscl;
-}
-.ds-checklist li::before {
-  content: counter(dscl);
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--c-bg-elev-2);
-  color: var(--c-fg-mute);
-  font-size: 10px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: decimal;
 }
 
 .ds-sheet-foot {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-  padding-top: 14px;
+  gap: 10px;
+  padding: 12px 0 0;
+  margin-top: 8px;
   border-top: 1px solid var(--c-border);
 }
 .ds-foot-action {
-  appearance: none;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 0 16px;
-  min-height: var(--tap);
-  border-radius: 999px;
-  border: 1px solid var(--c-border-strong);
-  background: var(--c-bg-elev-2);
+  flex: 1;
+  padding: 10px 12px;
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
   color: var(--c-fg);
-  text-decoration: none;
+  font-size: 13px;
+  text-align: center;
   cursor: pointer;
+  text-decoration: none;
+  min-height: var(--tap);
   display: inline-flex;
   align-items: center;
-  transition: background 0.12s, border-color 0.12s;
+  justify-content: center;
 }
-.ds-foot-action:hover,
-.ds-foot-action:focus-visible {
-  outline: none;
-  background: color-mix(in srgb, var(--c-accent) 14%, var(--c-bg-elev-2));
+.ds-foot-action:hover, .ds-foot-action:focus-visible {
   border-color: var(--c-accent);
+  outline: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .ds-sheet, .ds-backdrop { transition: none; }
+/* 2026-05-26 P3: freshness drill-down list. One row per tracked artifact,
+   stale/warn rows floated to the top by render-time sort. */
+.fresh-list {
+  list-style: none;
+  margin: 6px 0 14px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-
-/* ── Tablet / iPad — wider breakpoints ────────────────────────── */
-@media (min-width: 768px) {
-  .hero { padding: 32px 36px 28px; }
-  .hero h1 { font-size: 36px; }
-  .hero .hero-sub { font-size: 14px; }
-  .hero-stat .value { font-size: 36px; }
-  .hero-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-  .quick-actions { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-  .quick-action { min-height: 100px; }
-
-  .health-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-  .ask-composer-card { padding: 20px; gap: 14px; }
-  .ask-composer-input { min-height: 100px; }
-  .ask-composer-title { font-size: 20px; }
+.fresh-item {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 3px;
+  align-items: center;
 }
-
-/* ── iPad Pro — two-column CSS columns content flow ───────────── */
-@media (min-width: 1024px) {
-  #view-cockpit {
-    columns: 2;
-    column-gap: 28px;
-  }
-
-  /* Full-width elements */
-  #view-cockpit .hero,
-  #view-cockpit .ask-composer {
-    column-span: all;
-  }
-
-  /* Prevent mid-element column breaks */
-  #view-cockpit .card,
-  #view-cockpit .quick-actions,
-  #view-cockpit .critical-list,
-  #view-cockpit .deal-list,
-  #view-cockpit .signal-list,
-  #view-cockpit .todo-list,
-  #view-cockpit .health-grid,
-  #view-cockpit .section-title,
-  #view-cockpit .deal-asof {
-    break-inside: avoid;
-  }
-
-  .hero h1 { font-size: 42px; }
-  .hero-stat .value { font-size: 40px; }
-  .hero { padding: 36px 40px 32px; }
-
-  .asks-stat-value { font-size: 30px; }
+.fresh-item .chip { grid-row: 1 / span 2; align-self: start; }
+.fresh-item .fresh-key { font-weight: 700; font-size: 13px; }
+.fresh-item .fresh-meta, .fresh-item .fresh-notes {
+  font-size: 11px;
+  color: var(--c-fg-faint);
+  grid-column: 2;
 }

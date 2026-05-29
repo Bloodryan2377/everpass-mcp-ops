@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-04-28T18:44:24.928Z",
+  "pass": "remediated-failing-panels-2026-04-28",
+  "surfaces": [
+    {
+      "id": "nego-twdc",
+      "label": "TWDC/ESPN Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-twdc.png"
+    },
+    {
+      "id": "nego-fox",
+      "label": "FOX Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-fox.png"
+    },
+    {
+      "id": "nego-monumental",
+      "label": "Monumental Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-monumental.png"
+    },
+    {
+      "id": "nego-nhl",
+      "label": "NHL Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-nhl.png"
+    },
+    {
+      "id": "nego-mlb",
+      "label": "MLB Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-mlb.png"
+    },
+    {
+      "id": "nego-golf",
+      "label": "Golf Channel Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-golf.png"
+    },
+    {
+      "id": "nego-wbd",
+      "label": "WBD Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-wbd.png"
+    },
+    {
+      "id": "nego-flosports",
+      "label": "FloSports Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-flosports.png"
+    },
+    {
+      "id": "nego-bravesvision",
+      "label": "BravesVision Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-bravesvision.png"
+    },
+    {
+      "id": "nego-samsung",
+      "label": "Samsung Negotiation Panel",
+      "status": "ok",
+      "file": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\mobile\\system-audits\\qa-screenshots-remediated-2026-04-28\\nego-samsung.png"
+    }
+  ]
+}
