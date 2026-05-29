@@ -1,6 +1,6 @@
 {
   "schema": "outlook-recent/2026-05-07.1",
-  "generated_at": "2026-05-22T00:49:54.801046Z",
+  "generated_at": "2026-05-26T17:49:48.112356Z",
   "lookback_window_hours": 168,
   "source": "claude-scheduled-zapier-mcp",
   "note": "Auto-mirror of outlook-emails.json from _live_pull_writer.py (chain-fix 2026-05-21). Kept for legacy artifacts that still read outlook-recent.json.",
