@@ -1,60 +1,48 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-05-29T01:18:35Z",
+  "generated_at": "2026-06-01T15:46:48Z",
   "morning_brief": {
     "available": true,
-    "date": "2026-05-28",
-    "source_mtime": "2026-05-28T21:11:53Z",
+    "date": "2026-06-01",
+    "source_mtime": "2026-06-01T12:51:14Z",
     "preview_truncated": true,
-    "preview": "---\n# EverPass Morning Brief — Thursday, May 28, 2026\n\n## Critical / Time-Sensitive\n\n1. **CHARTER** — BOTH 5/26 + 5/27 MEETING OUTCOMES UNLOGGED; EXHIBITS A (+43d) / B (+27d) OVERDUE; MISSION CONTROL DEADLINE JUNE 15 (18 DAYS)\n   Two consecutive Charter meetings (5/26 and 5/27 Special Pricing) occurred — neither outcome is logged. EP counter v2 walk-away clause status (accepted / rejected / tabled) is unknown. Quick Charter Connect is on today's calendar — do NOT engage until both prior outcomes are recorded and current negotiating position is confirmed.\n   **Deadline: LOG BOTH OUTCOMES IN COCKPIT BEFORE TODAY'S QUICK CHARTER CONNECT CALL. Assess counter v2 status first.**\n\n2. **DIRECTV** — 5/26 MEETING OUTCOME UNLOGGED; DEMAND LETTER SEND DATE UNCONFIRMED; PRE-LITIGATION POSTURE ACTIVE\n   5/26 DirecTV meeting occurred — outcome not logged. Net underpayment claim: $2,634,239.50 (gross $3,544,623); $65M second payment outstanding. Lynch (Kelley Drye) demand letter send date unconfirmed. No DirecTV response since ~April 6 (52+ days silence). Icenhower IP/NFL Sunday Ticket exposure may be in scope for a separate letter — confirm with Lynch.\n   **Deadline: LOG 5/26 OUTCOME + CONFIRM DEMAND LETTER SEND DATE WITH LYNCH BY 10:00 AM ET TODAY.**\n\n3. **TWDC/ESPN (McIntosh)** — TRACK A+B 23+ DAYS OVERDUE; \"INBOUND THIS WEEK\" WINDOW EXPIRES TODAY\n   McIntosh \"inbound next week\" (per 5/22 operator update) expires today. If inbound has not arrived, escalation is no longer deferrable. Geary-Kaplan principal track dark 7+ months; escalation plan unconfirmed. Mission Control close deadline: June 15 (18 days).\n   **Deadline: TODAY — confirm whether McIntosh inbound arrived. If not, execute Geary-Kaplan escalation immediately. EP Track A+B counter must be staged and ready before any contact.**\n\n4. **CHSN** — SECTION 5(e) LAPSED ~60 DAYS; NO CURE PATH ON RECORD; WEEK 9 OF DRIFT\n   Section 5(e) lapsed approximately March 29, 2026. No confirmed cure path. No outside counsel escalation confirmed. This has now crossed into material contract risk territory — longest-running unresolved exposure in the portfolio.\n   **Deadline: DECIDE TODAY — cure vs. escalate to outside counsel. Cannot drift further.**\n\n5. **ACCUWEATHER** — RYAN EMAIL TO McCORMACK BLOCKING DOCUSIGN (DAY 10); OPERATOR: READY TO SIGN\n   All six open items resolved in May 19 draft. Ryan's confirmation email to Patrick McCormack (Patrick.McCormack@accuweather.com) on three pre-execution items (incl. Exhibit D) remains the sole blocker before DocuSign issues to AKaplan@everpass.com. Day 10 of unnecessary delay on a fully negotiated deal.\n   **Deadline: OVERDUE — send email to McCormack NOW. Single action unlocks DocuSign.**\n\n6. **NBCU** — ENO WINDOW 48 DAYS REMAINING (CLOSES JULY 15); MAY 18 APPLEMAN OUTCOME STILL UNLOGGED\n   ENO window closes July 15, 2026. Matching Right $6M threshold unreachable at current $4.5M projected trajectory. May 18 Appleman call outcome not logged in cockpit. Geary-Kaplan principal track dark 7+ months; escalation plan unconfirmed.\n   **Deadline: LOG APPLEMAN OUTCOME TODAY. Confirm Geary-Kaplan escalation plan before EOD.**\n\n7. **NESN** — TERM SHEET v7 DEADLINE PASSED (+15 DAYS); PLAEHN CONTACT OVERDUE\n   v7 deadline passed May 13. Plaehn \"give a ring\" signal was warm but cooling. MG structure: $300K combined Yrs 1–2 / $350K/yr from Yr 3. Gate 3 clearance unresolved.\n   **Deadline: CONTACT PLAEHN TODAY — do not let this slip into a third week post-deadline.**\n\n8. **VICTORY+** — COUNTER AMENDMENT DATED 2026-05-28; READY TO SIGN; TWO PROGRAMMER DELIVERABLES OUTSTANDING\n   First Amendment (adding WNBA on zero-fee economics identical to NWSL) is fully drafted. Victory+ accepted EP-favorable terms clean. Operator PASS/NO-GO issued 2026-05-28: READY TO SIGN. Two hard-gate deliverables pending from Victory+ (WNBA match schedule §6.4; remaining Club zip/DMA lists §6.3) — do not hold signature for these.\n   **Deadline: Confirm §3(b) MFN intent with EP counsel; route for CEO-to-CEO execution (AKaplan / Neil Gruninger) today.**\n\n---\n\n## Active Deal Status",
-    "critical_count": 8,
+    "preview": "---\n# EverPass Morning Brief — Monday, June 2, 2026\n\n> **Date correction:** Context confirms TODAY = 2026-06-01 (Monday). Brief dated accordingly.\n\n---\n\n## Critical / Time-Sensitive\n\n1. **CHARTER** — EXHIBITS A (+47d) / B (+31d) OVERDUE; AMENDMENT MISSING 2 INSERTS; MISSION CONTROL DEADLINE JUNE 15 (14 DAYS)\n   Sprint 1+3 complete (Exhibit A audit + B gap analysis done 5/31). Amendment still requires pricing schedule + EP Direct Sale 100-venue bracket before transmission. Cross-Functional Standup is TODAY — cannot enter without both inserts complete and cockpit current through 5/31.\n   **Deadline: Complete both inserts + enter today's standup with amendment ready to transmit. Log all unlogged outcomes in cockpit before standup.**\n\n2. **TWDC/ESPN (McIntosh)** — DMVPD ECONOMICS UNMODELED; EP COUNTER NOT STAGED; MISSION CONTROL DEADLINE JUNE 15 (14 DAYS)\n   Disney 5/29 counter rejected games-only, reverted to Track A (full DMVPD — all ABC affiliates + full ESPN suite). EP reply sent 5/29. No formal EP counter drafted; DMVPD scope economics not modeled. Content Deals/Finance Touch Base is TODAY — this is the alignment window before any further Disney contact.\n   **Deadline: Arrive at today's Finance Touch Base with DMVPD economics modeled; confirm Kaplan alignment; stage formal EP counter for delivery this week.**\n\n3. **DIRECTV** — PRE-LITIGATION ACTIVE; DEMAND LETTER SEND DATE STILL UNCONFIRMED\n   DirecTV silent ~56 days. Net underpayment $2,634,239.50; $65M second payment outstanding. Lynch (Kelley Drye) send date unconfirmed as of weekend close.\n   **Deadline: Call Lynch (Kelley Drye) first thing this morning to confirm demand letter send date.**\n\n4. **NETFLIX NFL** — CLOSE WINDOW OPEN NOW; REDLINE + MONETIZATION MUST LOCK TODAY\n   4-game NFL package close target = week of 6/1. Finance modeled (Opt 1: $58M/$19.4M CM; Opt 2: $34.7M/$12.7M). Kaplan scheduling Netflix call with Sam O'Brien (email on record: 2–5 ET tomorrow window proposed). Redline review status and monetization option (Opt 1 casinos/Core-free vs. Opt 2 all) must be confirmed before that call.\n   **Deadline: Lock monetization selection and complete redline review TODAY ahead of tomorrow's Kaplan/O'Brien call.**\n\n5. **ACCUWEATHER** — READY TO SIGN; CONFIRMATION EMAIL TO McCORMACK UNSENT (13+ DAYS)\n   All six EP items closed in 5/19 draft. Sole remaining action: Ryan sends confirmation email to Patrick McCormack (Patrick.McCormack@accuweather.com) on three pre-execution items, then DocuSign issues to Kaplan.\n   **Deadline: Send McCormack email TODAY. This is one outbound email from a signed deal.**\n\n6. **CHSN** — SECTION 5(e) LAPSED ~64 DAYS; NO CURE PATH; WEEK 10+ OF DRIFT\n   Section 5(e) lapsed ~March 29, 2026. No logged cure path, outside counsel escalation, or decision on record.\n   **Deadline: Decide TODAY — cure vs. escalate to outside counsel. Log in cockpit. Cannot enter Week 11 of drift.**\n\n7. **NBA TERM SHEET** — WNBA TERM EXTENSION FLAGGED BY CHAN\n   Alex Chan email (thread: *NBA Term Sheet — Privileged and Confidential*): WNBA is two seasons (May–Sept), so a 2027 season must be added to the term. Minor but must be resolved before execution.\n   **Deadline: Confirm Chan's WNBA 2027 season addition is incorporated before term sheet is finalized. Loop Kaplan/Tucker per NBA PASS/NO-GO context.**\n\n---\n\n## Active Deal Status",
+    "critical_count": 7,
     "critical": [
       {
         "title": "CHARTER",
-        "body": "— BOTH 5/26 + 5/27 MEETING OUTCOMES UNLOGGED; EXHIBITS A (+43d) / B (+27d) OVERDUE; MISSION CONTROL DEADLINE JUNE 15 (18 DAYS)"
-      },
-      {
-        "title": "DIRECTV",
-        "body": "— 5/26 MEETING OUTCOME UNLOGGED; DEMAND LETTER SEND DATE UNCONFIRMED; PRE-LITIGATION POSTURE ACTIVE"
+        "body": "— EXHIBITS A (+47d) / B (+31d) OVERDUE; AMENDMENT MISSING 2 INSERTS; MISSION CONTROL DEADLINE JUNE 15 (14 DAYS)"
       },
       {
         "title": "TWDC/ESPN (McIntosh)",
-        "body": "— TRACK A+B 23+ DAYS OVERDUE; \"INBOUND THIS WEEK\" WINDOW EXPIRES TODAY"
+        "body": "— DMVPD ECONOMICS UNMODELED; EP COUNTER NOT STAGED; MISSION CONTROL DEADLINE JUNE 15 (14 DAYS)"
       },
       {
-        "title": "CHSN",
-        "body": "— SECTION 5(e) LAPSED ~60 DAYS; NO CURE PATH ON RECORD; WEEK 9 OF DRIFT"
+        "title": "DIRECTV",
+        "body": "— PRE-LITIGATION ACTIVE; DEMAND LETTER SEND DATE STILL UNCONFIRMED"
+      },
+      {
+        "title": "NETFLIX NFL",
+        "body": "— CLOSE WINDOW OPEN NOW; REDLINE + MONETIZATION MUST LOCK TODAY"
       },
       {
         "title": "ACCUWEATHER",
-        "body": "— RYAN EMAIL TO McCORMACK BLOCKING DOCUSIGN (DAY 10); OPERATOR: READY TO SIGN"
+        "body": "— READY TO SIGN; CONFIRMATION EMAIL TO McCORMACK UNSENT (13+ DAYS)"
       },
       {
-        "title": "NBCU",
-        "body": "— ENO WINDOW 48 DAYS REMAINING (CLOSES JULY 15); MAY 18 APPLEMAN OUTCOME STILL UNLOGGED"
+        "title": "CHSN",
+        "body": "— SECTION 5(e) LAPSED ~64 DAYS; NO CURE PATH; WEEK 10+ OF DRIFT"
       },
       {
-        "title": "NESN",
-        "body": "— TERM SHEET v7 DEADLINE PASSED (+15 DAYS); PLAEHN CONTACT OVERDUE"
-      },
-      {
-        "title": "VICTORY+",
-        "body": "— COUNTER AMENDMENT DATED 2026-05-28; READY TO SIGN; TWO PROGRAMMER DELIVERABLES OUTSTANDING"
+        "title": "NBA TERM SHEET",
+        "body": "— WNBA TERM EXTENSION FLAGGED BY CHAN"
       }
     ]
   },
   "deals": [],
   "partner_todos": {
-    "total": 182,
+    "total": 172,
     "items": [
-      {
-        "id": "intel:amazon:fully-executed-commercial-premises-license-in-place-everpass",
-        "partner": "Amazon",
-        "category": "CTV",
-        "text": "Fully Executed Commercial Premises License in Place — EverPass and Amazon Content Services LLC have a fully executed Commercial Premises License Agreement covering TNF on Prime Video (NFL), NBA games (60+ regular season plus postseason), NASCAR Cup Series rac…",
-        "due": null,
-        "priority_hint": "high"
-      },
       {
         "id": "intel:apple:everpass-is-not-exclusive-for-small-venues-effective-exclusi",
         "partner": "Apple",
@@ -88,11 +76,11 @@
         "priority_hint": "high"
       },
       {
-        "id": "intel:disney:rate-card-is-flagged-as-still-under-review-schedule-1-carrie",
-        "partner": "Disney/ESPN",
-        "category": "Broadcast",
-        "text": "Rate card is flagged as still under review — Schedule 1 carries a note that per-subscriber fees are \"subject to Schedule 1 Section under the term sheet [Rate Card Under Review/Parties to Discuss]\" and final rates are to be confirmed at execution; the current…",
-        "due": null,
+        "id": "weekly:disney:disney-5-29-counter-redline-vs-ep-3-9-ep-feedback-",
+        "partner": "Disney / ESPN",
+        "category": "Content",
+        "text": "EP reply sent: Disney 5/29 counter + redline vs EP 3/9; EP feedback sent same day (may be worse than Feb); full review underway",
+        "due": "2026-06-02",
         "priority_hint": "high"
       },
       {
@@ -112,11 +100,19 @@
         "priority_hint": "high"
       },
       {
-        "id": "intel:mlb:rsn-distribution-is-the-strategic-prize-mlb-rsns-cover-local",
-        "partner": "MLB",
-        "category": "League",
-        "text": "RSN Distribution Is the Strategic Prize; MLB RSNs Cover Local Market Sports Beyond Baseball — The MLB RSN package would cover regional sports networks on a service-by-service, zip-code-defined territory basis; EverPass must distribute all RSN services as part…",
-        "due": null,
+        "id": "weekly:mlb:revise-jan-proposal-recoupable-mg-sanitize-nba-tem",
+        "partner": "MLB — .TV + Linear",
+        "category": "Content",
+        "text": "Active: Revise Jan proposal → recoupable MG; sanitize NBA template; send updated package",
+        "due": "2026-06-08",
+        "priority_hint": "high"
+      },
+      {
+        "id": "weekly:msg_gotham:msg-per-network-redraft-mike-nesn-ep-counter-sent-",
+        "partner": "MSG · NESN · FloSports · ESPN",
+        "category": "Content",
+        "text": "Active: MSG per-network redraft (Mike) · NESN: EP counter sent 5/29 (near finish) · FloSports re-engage by Jun 7",
+        "due": "2026-06-07",
         "priority_hint": "high"
       },
       {
@@ -128,104 +124,104 @@
         "priority_hint": "high"
       }
     ],
-    "last_extracted_at": "2026-05-29T01:18:32Z"
+    "last_extracted_at": "2026-06-01T15:46:46Z"
   },
   "bridge_signals": [
     {
-      "title": "[?] Accepted: Content Pipeline ",
-      "summary": "",
+      "title": "[?] Did you adopt RONALD?",
+      "summary": "If so, we've got a free gift for you.",
       "key_points": [],
-      "produced_at": "2026-05-21T22:02:53Z",
+      "produced_at": "2026-05-30T16:48:20Z",
       "source": "outlook",
       "partner": "?",
       "ryan_owes_response": false,
       "web_link": ""
     },
     {
-      "title": "[?] Automatic reply: Content Pipeline ",
-      "summary": "I am out of the office May 21& 22. I'll get back with you upon my return!",
+      "title": "[?] Only a Few Days Left to Save",
+      "summary": "Hey Ryan, only a few days left.",
       "key_points": [],
-      "produced_at": "2026-05-21T22:01:24Z",
+      "produced_at": "2026-05-30T15:05:18Z",
       "source": "outlook",
       "partner": "?",
       "ryan_owes_response": false,
       "web_link": ""
     },
     {
-      "title": "[AccuWeather] Re: EverPass + AccuWeather Agreement",
-      "summary": "Hi Ryan, My legal team told me that the Docusign was sent to Alex, but I was not on the email personally. I asked the Legal team to double check. I will keep you posted. Looking forward to getting this signed and on to launching. Thanks! -P",
+      "title": "[?] SBJ Saturday: Bipartisan bill aims to reform college sports",
+      "summary": "MLB CBA talks begin. Sports Business Saturday.",
       "key_points": [],
-      "produced_at": "2026-05-21T21:46:18Z",
-      "source": "outlook",
-      "partner": "AccuWeather",
-      "ryan_owes_response": false,
-      "web_link": ""
-    },
-    {
-      "title": "[DIRECTV (outside counsel - Kelley Drye)] Michael Lynch sent you \"Draft Follow Up Letter to DIRECTV re Audit v4\"",
-      "summary": "Hi all: Attached please find a draft letter along the lines we discussed.  Please send us comments when you have chance or we can just discuss on Tuesday. Thanks. MICHAEL C. LYNCH Chair, Litigation Practice Group Kelley Drye & Warren LLP",
-      "key_points": [],
-      "produced_at": "2026-05-21T21:27:28Z",
-      "source": "outlook",
-      "partner": "DIRECTV (outside counsel - Kelley Drye)",
-      "ryan_owes_response": false,
-      "web_link": ""
-    },
-    {
-      "title": "[YouTube TV] Out of Office: Delayed Response Re: Fw: YouTube/ Everpass - Packaging",
-      "summary": "Hello, I am currently overseas on business travel so my responses will be delayed. For emergencies, please text me. Thank you for your patience. Tony",
-      "key_points": [],
-      "produced_at": "2026-05-21T21:19:20Z",
-      "source": "outlook",
-      "partner": "YouTube TV",
-      "ryan_owes_response": false,
-      "web_link": ""
-    },
-    {
-      "title": "[?] Ryan, have you adopted your new furry friend?",
-      "summary": "Let us know so we can send you tips on how to bond using TEMPTATIONS treats.",
-      "key_points": [],
-      "produced_at": "2026-05-21T21:16:49Z",
+      "produced_at": "2026-05-30T15:01:40Z",
       "source": "outlook",
       "partner": "?",
       "ryan_owes_response": false,
       "web_link": ""
     },
     {
-      "title": "[?] Re: YouTube/ Everpass - Packaging",
-      "summary": "Thanks again for the time last week. Following up on our last conversation - linked below (pword everpass) and also attached as a pdf is the go-to-market overview for the EverPass YouTube TV commercial venue channel. It maps out the full pi",
+      "title": "[internal] Re: Pre approved mid-market discounts",
+      "summary": "Thank you Tim. From: Ryan Blood. Re: Pre approved mid-market discounts.",
       "key_points": [],
-      "produced_at": "2026-05-21T21:16:39Z",
+      "produced_at": "2026-05-30T13:28:46Z",
+      "source": "outlook",
+      "partner": "internal",
+      "ryan_owes_response": false,
+      "web_link": ""
+    },
+    {
+      "title": "[?] Lock in the Win | Final Hours to Save 30%",
+      "summary": "Score a suite for the world's biggest soccer event.",
+      "key_points": [],
+      "produced_at": "2026-05-30T12:44:45Z",
       "source": "outlook",
       "partner": "?",
       "ryan_owes_response": false,
       "web_link": ""
     },
     {
-      "title": "[AccuWeather] StreamTv",
-      "summary": "Hi Ryan, Glad we are close to the finish line on our agreement.  I see you plan to be at StreamTV in Denver next month.  I will be there and would love to find time to meet in person.  Please let me know if you have some avails. Thank you. ",
+      "title": "[internal] Update on Recent External Advocacy Activity",
+      "summary": "Recent activity on transition of NFL Sunday Ticket commercial distribution to EverPass for 2026 season.",
       "key_points": [],
-      "produced_at": "2026-05-21T21:11:20Z",
+      "produced_at": "2026-05-30T12:39:03Z",
       "source": "outlook",
-      "partner": "AccuWeather",
+      "partner": "internal",
       "ryan_owes_response": false,
       "web_link": ""
     },
     {
-      "title": "[Apple] Event canceled: Apple x Everpass Meetup",
-      "summary": "Event canceled: Apple x Everpass Meetup Organizer: Shaina Lemmerman Date: Thursday, May 21, 2026 Time: 09:00 PM (EDT) to 10:30 PM (EDT) (1 hour, 30 minutes)",
+      "title": "[?] Microsoft 365 security: You have messages in quarantine",
+      "summary": "1 message held for review.",
       "key_points": [],
-      "produced_at": "2026-05-21T20:15:43Z",
+      "produced_at": "2026-05-30T12:34:42Z",
       "source": "outlook",
-      "partner": "Apple",
+      "partner": "?",
       "ryan_owes_response": false,
       "web_link": ""
     },
     {
-      "title": "[?] Re: NBA Term Sheet - Privileged and Confidential",
-      "summary": "Yep, co-lo fees are already contemplated in NBA LP costs. On another note, I noticed in the agreement that we (EverPass) own 42% of ad inventory for each game (and the ads need to be programmatic). I don't think we've done programmatic adve",
+      "title": "[?] Reaction Daily Digest - Saturday, May 30, 2026",
+      "summary": "Ari Mirijanyan reacted to Re: Intro to Content + Partnerships with Ryan Blood.",
       "key_points": [],
-      "produced_at": "2026-05-21T20:13:59Z",
+      "produced_at": "2026-05-30T09:14:38Z",
+      "source": "outlook",
+      "partner": "?",
+      "ryan_owes_response": false,
+      "web_link": ""
+    },
+    {
+      "title": "[?] Shop Up to 20% Off + Free Shipping",
+      "summary": "Save on home gym equipment.",
+      "key_points": [],
+      "produced_at": "2026-05-30T09:01:06Z",
+      "source": "outlook",
+      "partner": "?",
+      "ryan_owes_response": false,
+      "web_link": ""
+    },
+    {
+      "title": "[?] Who oversees translation on your side?",
+      "summary": "Content translation/localization. Caution: potentially suspicious.",
+      "key_points": [],
+      "produced_at": "2026-05-30T07:02:43Z",
       "source": "outlook",
       "partner": "?",
       "ryan_owes_response": false,
@@ -247,35 +243,13 @@
       "failed": 0
     },
     "last_answered_at": "2026-04-26T15:35:00Z",
-    "feed_generated_at": "2026-05-29T01:18:35Z"
+    "feed_generated_at": "2026-06-01T15:46:48Z"
   },
   "meetings": {
     "today": {
-      "date": "",
+      "date": "2026-06-01",
       "available": true,
       "items": [
-        {
-          "meeting_id": null,
-          "start_local": "10:30",
-          "title": "Quick Charter Connect",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "claude-scheduled-zapier-mcp",
-          "location": "Microsoft Teams Meeting",
-          "is_online": null,
-          "join_url": null
-        },
-        {
-          "meeting_id": null,
-          "start_local": "12:00",
-          "title": "StreamTV 2026 Speaker Townhall",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "claude-scheduled-zapier-mcp",
-          "location": "https://questex.zoom.us/j/86899409332",
-          "is_online": null,
-          "join_url": null
-        },
         {
           "meeting_id": null,
           "start_local": "12:00",
@@ -289,19 +263,8 @@
         },
         {
           "meeting_id": null,
-          "start_local": "13:00",
-          "title": "All Hands Meeting",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "claude-scheduled-zapier-mcp",
-          "location": "CT - Conference Room; Grant Park Conference Room (10) - Chicago; Denver - Breckenridge Conference Room",
-          "is_online": null,
-          "join_url": null
-        },
-        {
-          "meeting_id": null,
-          "start_local": "14:30",
-          "title": "FW: Hardware GTM Standup",
+          "start_local": "13:30",
+          "title": "Content Deals/Finance Touch Base",
           "partner": null,
           "prep": [],
           "source_calendar": "claude-scheduled-zapier-mcp",
@@ -311,8 +274,8 @@
         },
         {
           "meeting_id": null,
-          "start_local": "16:30",
-          "title": "Catchup - kids/music choice - Engage",
+          "start_local": "15:00",
+          "title": "Marketing/Content catchup",
           "partner": null,
           "prep": [],
           "source_calendar": "claude-scheduled-zapier-mcp",
@@ -322,43 +285,32 @@
         },
         {
           "meeting_id": null,
-          "start_local": "18:45",
-          "title": "Dr Appt",
+          "start_local": "16:00",
+          "title": "Auditing, Conversion and related possibilities; VFT Solutions with EverPass",
           "partner": null,
           "prep": [],
           "source_calendar": "claude-scheduled-zapier-mcp",
-          "location": "medvidi",
+          "location": "Microsoft Teams Meeting",
           "is_online": null,
           "join_url": null
         },
         {
           "meeting_id": null,
-          "start_local": "21:15",
-          "title": "615 PM PT Everpass + LG Dinner (rezy under Goldstein 551-267-4460)",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "claude-scheduled-zapier-mcp",
-          "location": "North Italia",
-          "is_online": null,
-          "join_url": null
-        }
-      ]
-    },
-    "tomorrow": {
-      "date": "",
-      "available": true,
-      "items": [
-        {
-          "meeting_id": null,
-          "start_local": "10:00",
-          "title": "Dom Collingwood x Ryan Blood Intro",
+          "start_local": "17:30",
+          "title": "(no subject)",
           "partner": null,
           "prep": [],
           "source_calendar": "claude-scheduled-zapier-mcp",
           "location": "",
           "is_online": null,
           "join_url": null
-        },
+        }
+      ]
+    },
+    "tomorrow": {
+      "date": "2026-06-02",
+      "available": true,
+      "items": [
         {
           "meeting_id": null,
           "start_local": "11:30",
@@ -372,8 +324,30 @@
         },
         {
           "meeting_id": null,
-          "start_local": "13:00",
-          "title": "Intro to Content + Partnerships with Ryan Blood",
+          "start_local": "12:00",
+          "title": "Management Sync",
+          "partner": null,
+          "prep": [],
+          "source_calendar": "claude-scheduled-zapier-mcp",
+          "location": "CT - Conference Room",
+          "is_online": null,
+          "join_url": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "12:30",
+          "title": "Dom Collingwood x Ryan Blood Intro",
+          "partner": null,
+          "prep": [],
+          "source_calendar": "claude-scheduled-zapier-mcp",
+          "location": "",
+          "is_online": null,
+          "join_url": null
+        },
+        {
+          "meeting_id": null,
+          "start_local": "14:30",
+          "title": "Weekly Touch Base",
           "partner": null,
           "prep": [],
           "source_calendar": "claude-scheduled-zapier-mcp",
@@ -383,34 +357,12 @@
         },
         {
           "meeting_id": null,
-          "start_local": "14:00",
-          "title": "MLB // EverPass",
+          "start_local": "15:00",
+          "title": "FW: EverPass 2026/2027 Launch",
           "partner": null,
           "prep": [],
           "source_calendar": "claude-scheduled-zapier-mcp",
-          "location": "https://mlb.zoom.us/j/98030079304",
-          "is_online": null,
-          "join_url": null
-        },
-        {
-          "meeting_id": null,
-          "start_local": "14:00",
-          "title": "NFLST Readiness Meeting",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "claude-scheduled-zapier-mcp",
-          "location": "Microsoft Teams Meeting",
-          "is_online": null,
-          "join_url": null
-        },
-        {
-          "meeting_id": null,
-          "start_local": "16:00",
-          "title": "Marketing/Content catchup",
-          "partner": null,
-          "prep": [],
-          "source_calendar": "claude-scheduled-zapier-mcp",
-          "location": "Microsoft Teams Meeting",
+          "location": "Webex",
           "is_online": null,
           "join_url": null
         }
@@ -418,8 +370,8 @@
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-05-29T01:18:34Z",
-    "bridge_cache_mtime": "2026-05-28T15:55:02Z",
-    "meetings_today_mtime": "2026-05-29T01:11:28Z"
+    "cockpit_data_mtime": "2026-06-01T15:46:47Z",
+    "bridge_cache_mtime": "2026-05-31T16:05:49Z",
+    "meetings_today_mtime": "2026-06-01T15:40:35Z"
   }
 }

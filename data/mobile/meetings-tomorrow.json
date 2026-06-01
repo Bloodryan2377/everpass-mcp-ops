@@ -1,205 +1,75 @@
 {
   "schema": "epc-meetings/v1",
-  "generated_at": "2026-05-29T01:11:28.447563Z",
   "source": "claude-scheduled-zapier-mcp",
-  "bucket": "tomorrow",
-  "local_date": "2026-05-29",
-  "count": 6,
+  "generated_at": "2026-06-01T15:40:35.293267+00:00",
+  "errors": [],
+  "date": "2026-06-02",
   "meetings": [
     {
+      "subject": "Weekly Catchup",
+      "start": "11:30",
+      "end": "12:00",
+      "start_iso": "2026-06-02T11:30:00-04:00",
+      "location": "Microsoft Teams Meeting",
+      "attendees": [
+        "Melissa Herrington"
+      ],
+      "isCancelled": false
+    },
+    {
+      "subject": "Management Sync",
+      "start": "12:00",
+      "end": "13:30",
+      "start_iso": "2026-06-02T12:00:00-04:00",
+      "location": "CT - Conference Room",
+      "attendees": [
+        "Alex Kaplan",
+        "Bryan Icenhower",
+        "Alex Chan",
+        "Tim Marangola",
+        "Amy Schiller",
+        "Stephen Tucker"
+      ],
+      "isCancelled": false
+    },
+    {
       "subject": "Dom Collingwood x Ryan Blood Intro",
-      "start_utc": "2026-05-29T14:00:00Z",
-      "end_utc": "2026-05-29T14:25:00Z",
-      "start_local": "10:00",
-      "end_local": "10:25",
-      "local_date": "2026-05-29",
+      "start": "12:30",
+      "end": "12:55",
+      "start_iso": "2026-06-02T12:30:00-04:00",
       "location": "",
       "attendees": [
-        {
-          "name": "Dominic Collingwood",
-          "address": ""
-        },
-        {
-          "name": "Ryan Blood",
-          "address": ""
-        }
+        "Dominic Collingwood",
+        "Ryan Blood"
       ],
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "isCancelled": false
     },
     {
-      "subject": "Weekly Catchup",
-      "start_utc": "2026-05-29T15:30:00Z",
-      "end_utc": "2026-05-29T16:00:00Z",
-      "start_local": "11:30",
-      "end_local": "12:00",
-      "local_date": "2026-05-29",
+      "subject": "Weekly Touch Base",
+      "start": "14:30",
+      "end": "15:00",
+      "start_iso": "2026-06-02T14:30:00-04:00",
       "location": "Microsoft Teams Meeting",
       "attendees": [
-        {
-          "name": "Melissa Herrington",
-          "address": ""
-        }
+        "Mary Karol",
+        "Amy Schiller"
       ],
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "isCancelled": false
     },
     {
-      "subject": "Intro to Content + Partnerships with Ryan Blood",
-      "start_utc": "2026-05-29T17:00:00Z",
-      "end_utc": "2026-05-29T17:40:10Z",
-      "start_local": "13:00",
-      "end_local": "13:40",
-      "local_date": "2026-05-29",
-      "location": "Microsoft Teams Meeting",
+      "subject": "FW: EverPass 2026/2027 Launch",
+      "start": "15:00",
+      "end": "16:00",
+      "start_iso": "2026-06-02T15:00:00-04:00",
+      "location": "Webex",
       "attendees": [
-        {
-          "name": "Pía Ferreira",
-          "address": ""
-        },
-        {
-          "name": "Suzanne Malmloff-Pawula",
-          "address": ""
-        },
-        {
-          "name": "Matthew Santos",
-          "address": ""
-        },
-        {
-          "name": "Kevin Jensen",
-          "address": ""
-        },
-        {
-          "name": "Ryan Blood",
-          "address": ""
-        },
-        {
-          "name": "Brandon Banova",
-          "address": ""
-        },
-        {
-          "name": "Ru O'Shaughnessy",
-          "address": ""
-        },
-        {
-          "name": "Kenneth Hernandez",
-          "address": ""
-        },
-        {
-          "name": "Ari Mirijanyan",
-          "address": ""
-        },
-        {
-          "name": "Mathias Bellon",
-          "address": ""
-        },
-        {
-          "name": "Matthew Panning",
-          "address": ""
-        },
-        {
-          "name": "Curt Neteland",
-          "address": ""
-        },
-        {
-          "name": "Maggie Dunne",
-          "address": ""
-        },
-        {
-          "name": "Andrés Yurisich",
-          "address": ""
-        },
-        {
-          "name": "Laura Kaschmitter",
-          "address": ""
-        }
+        "Ligocki, Nicholas",
+        "Ryan Blood",
+        "Wagner, Matthew",
+        "Kate Frydryk"
       ],
-      "is_cancelled": false,
-      "tz": "US/Eastern"
-    },
-    {
-      "subject": "MLB // EverPass",
-      "start_utc": "2026-05-29T18:00:00Z",
-      "end_utc": "2026-05-29T18:30:00Z",
-      "start_local": "14:00",
-      "end_local": "14:30",
-      "local_date": "2026-05-29",
-      "location": "https://mlb.zoom.us/j/98030079304",
-      "attendees": [
-        {
-          "name": "Johnson, Max",
-          "address": ""
-        },
-        {
-          "name": "Ryan Blood",
-          "address": ""
-        },
-        {
-          "name": "Clark, Josh",
-          "address": ""
-        },
-        {
-          "name": "Fisher, Brent",
-          "address": ""
-        }
-      ],
-      "is_cancelled": false,
-      "tz": "US/Eastern"
-    },
-    {
-      "subject": "NFLST Readiness Meeting",
-      "start_utc": "2026-05-29T18:00:00Z",
-      "end_utc": "2026-05-29T19:00:00Z",
-      "start_local": "14:00",
-      "end_local": "15:00",
-      "local_date": "2026-05-29",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        {
-          "name": "Alex Kaplan",
-          "address": ""
-        },
-        {
-          "name": "Bryan Icenhower",
-          "address": ""
-        },
-        {
-          "name": "Stephen Tucker",
-          "address": ""
-        },
-        {
-          "name": "Joshua Horowitz",
-          "address": ""
-        },
-        {
-          "name": "Ryan Blood",
-          "address": ""
-        }
-      ],
-      "is_cancelled": false,
-      "tz": "US/Eastern"
-    },
-    {
-      "subject": "Marketing/Content catchup",
-      "start_utc": "2026-05-29T20:00:00Z",
-      "end_utc": "2026-05-29T20:30:00Z",
-      "start_local": "16:00",
-      "end_local": "16:30",
-      "local_date": "2026-05-29",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        {
-          "name": "Christi DeVed",
-          "address": ""
-        },
-        {
-          "name": "Mackenzie Matheson",
-          "address": ""
-        }
-      ],
-      "is_cancelled": false,
-      "tz": "US/Eastern"
+      "isCancelled": false
     }
   ],
-  "errors": []
+  "count": 5
 }
