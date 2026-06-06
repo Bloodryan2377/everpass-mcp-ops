@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-dispatch-options/v1",
-  "generated_at": "2026-06-01T15:46:48Z",
+  "generated_at": "2026-06-06T05:44:29Z",
   "request_kinds": [],
   "partners": [
     {
@@ -196,6 +196,21 @@
     {
       "id": "yttv",
       "title": "Yttv",
+      "type_label": "Content property"
+    },
+    {
+      "id": "bkfc",
+      "title": "Bkfc",
+      "type_label": "Content property"
+    },
+    {
+      "id": "mvp",
+      "title": "Mvp",
+      "type_label": "Content property"
+    },
+    {
+      "id": "roku",
+      "title": "Roku",
       "type_label": "Content property"
     }
   ],
