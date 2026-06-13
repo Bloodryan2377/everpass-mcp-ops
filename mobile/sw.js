@@ -4,12 +4,13 @@
  *   - network-only for DATA (data/mobile/*.json) — never fake freshness
  *   - bypass cache entirely for cross-origin requests
  */
-// 2026-05-26: bumped version to force shell-cache eviction after the mobile
-// UX fix that wires top pills as tappable, adds freshness drill-down, and
-// routes Dispatch through the new /api/dispatch Netlify Function. New SW
+// 2026-06-13: bumped version to force shell-cache eviction after the
+// Cockpit → Dashboard rename (retired the "Cockpit" tab/route in favor of
+// the unified Dashboard / Command Center surface). Returning visitors were
+// served a cached shell that still showed the old "Cockpit" tab; the new SW
 // activates immediately via skipWaiting + clients.claim and purges every
 // prior shell-* key.
-const VERSION = 'epmcc-v5-2026-05-27-meetings';
+const VERSION = 'epmcc-v6-2026-06-13-dashboard';
 const SHELL_CACHE = `shell-${VERSION}`;
 const SHELL_URLS = [
   './',

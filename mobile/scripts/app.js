@@ -5,18 +5,18 @@
   'use strict';
   const { fetchAll } = global.EPMCData;
 
-  const ROUTES = ['cockpit', 'dispatch', 'answers', 'results', 'live'];
-  const DEFAULT_ROUTE = 'cockpit';
+  const ROUTES = ['dashboard', 'dispatch', 'answers', 'results', 'live'];
+  const DEFAULT_ROUTE = 'dashboard';
 
   // 2026-05-26 fix P2/P3/P4: sub-routes for list/partner/health drill-down.
-  // These all render inside the Cockpit view container so the Cockpit tab
+  // These all render inside the Dashboard view container so the Dashboard tab
   // stays selected and the user can back out via the in-view "Back" link.
   const SUB_ROUTES = ['list', 'partner', 'health'];
 
   function currentRoute() {
     const h = (location.hash || '').replace(/^#\/?/, '').split('?')[0];
     const head = h.split('/')[0];
-    if (SUB_ROUTES.includes(head)) return 'cockpit';
+    if (SUB_ROUTES.includes(head)) return 'dashboard';
     return ROUTES.includes(head) ? head : DEFAULT_ROUTE;
   }
 
@@ -48,8 +48,8 @@
     setActiveTab(route);
     const sub = currentSubRoute();
     document.getElementById('topbar-subline').textContent = sub ? labelFor(route) + ' › detail' : labelFor(route);
-    if (route === 'cockpit') {
-      const target = document.getElementById('view-cockpit');
+    if (route === 'dashboard') {
+      const target = document.getElementById('view-dashboard');
       if (sub && global.EPMCList) return global.EPMCList.render(target);
       return global.EPMCCockpit.render(target);
     }
@@ -60,7 +60,7 @@
   }
 
   function labelFor(route) {
-    return ({ cockpit: 'Cockpit', dispatch: 'Dispatch', answers: 'Answers', results: 'Results', live: 'Live Q&A' })[route] || 'EverPass';
+    return ({ dashboard: 'Dashboard', dispatch: 'Dispatch', answers: 'Answers', results: 'Results', live: 'Live Q&A' })[route] || 'EverPass';
   }
 
   function onHashChange() {

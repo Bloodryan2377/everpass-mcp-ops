@@ -33,8 +33,8 @@
   function backLink() {
     return el('a', {
       class: 'list-back',
-      attrs: { href: '#/cockpit', 'aria-label': 'Back to Cockpit' },
-      text: '← Back to Cockpit',
+      attrs: { href: '#/dashboard', 'aria-label': 'Back to Dashboard' },
+      text: '← Back to Dashboard',
     });
   }
 
@@ -290,7 +290,7 @@
     const all = {
       'bridge-run':   { label: 'Bridge run',  value: status?.bridge?.last_run_status, src: status?.bridge },
       'morning':      { label: 'Morning',     value: status?.morning?.overall_status, src: status?.morning },
-      'cockpit':      { label: 'Cockpit',     value: status?.morning?.cockpit_status, src: status?.morning },
+      'cockpit':      { label: 'Dashboard',   value: status?.morning?.cockpit_status, src: status?.morning },
       'drive-sync':   { label: 'Drive sync',  value: status?.morning?.drive_mirror_status, src: status?.morning },
       'notebooklm':   { label: 'NotebookLM',  value: status?.morning?.notebooklm_status, src: status?.morning },
       'self-verify':  { label: 'Self-verify', value: status?.selfverify?.overall, src: status?.selfverify },

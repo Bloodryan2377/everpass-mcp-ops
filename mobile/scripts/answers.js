@@ -330,13 +330,13 @@
       wrap.appendChild(files);
     }
 
-    // Ask follow-up: prefills the cockpit composer with a quoted reference to
-    // this Ask, then routes the user to the cockpit. Uses sessionStorage so
+    // Ask follow-up: prefills the dashboard composer with a quoted reference to
+    // this Ask, then routes the user to the dashboard. Uses sessionStorage so
     // the prefill survives the hash-change navigation but doesn't persist.
     const followupRow = el('div', { class: 'answers-detail-followup' });
     const btn = el('a', {
       class: 'answers-followup-btn',
-      attrs: { href: '#/cockpit', role: 'button' },
+      attrs: { href: '#/dashboard', role: 'button' },
       text: 'Ask follow-up',
     });
     btn.addEventListener('click', (ev) => {
@@ -360,7 +360,7 @@
   function emptyState(message) {
     const wrap = el('div', { class: 'answers-empty' });
     wrap.appendChild(el('div', { class: 'answers-empty-title', text: 'No Ask threads yet' }));
-    wrap.appendChild(el('div', { class: 'answers-empty-body', text: message || 'Type or paste anything into the Ask composer on the Cockpit tab. Threads appear here immediately and update once the bridge produces an answer.' }));
+    wrap.appendChild(el('div', { class: 'answers-empty-body', text: message || 'Type or paste anything into the Ask composer on the Dashboard tab. Threads appear here immediately and update once the bridge produces an answer.' }));
     return wrap;
   }
 

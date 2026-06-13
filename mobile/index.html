@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>EverPass Command Center</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
-  <meta name="description" content="EverPass Mobile Command Center — cockpit, dispatch, and results from your phone." />
+  <meta name="description" content="EverPass Mobile Command Center — dashboard, dispatch, and results from your phone." />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#0c111e" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4f6fc" />
@@ -19,13 +19,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
 
-  <link rel="stylesheet" href="./styles/core.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/cockpit.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/dispatch.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/results.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/live.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/answers.css?v=2026-05-26-dispatch" />
-  <link rel="stylesheet" href="./styles/aos.css?v=2026-05-26-dispatch" />
+  <link rel="stylesheet" href="./styles/core.css?v=2026-06-13-dashboard" />
+  <link rel="stylesheet" href="./styles/cockpit.css?v=2026-06-13-dashboard" />
+  <link rel="stylesheet" href="./styles/dispatch.css?v=2026-06-13-dashboard" />
+  <link rel="stylesheet" href="./styles/results.css?v=2026-06-13-dashboard" />
+  <link rel="stylesheet" href="./styles/live.css?v=2026-06-13-dashboard" />
+  <link rel="stylesheet" href="./styles/answers.css?v=2026-06-13-dashboard" />
+  <link rel="stylesheet" href="./styles/aos.css?v=2026-06-13-dashboard" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -64,7 +64,7 @@
     <div class="ds-sheet-head">
       <div class="ds-sheet-head-text">
         <div class="ds-sheet-title" id="ds-sheet-title">Daily S</div>
-        <div class="ds-sheet-sub">Morning clearance for Live Ask, Deal Brain, and cockpit health</div>
+        <div class="ds-sheet-sub">Morning clearance for Live Ask, Deal Brain, and dashboard health</div>
       </div>
       <button type="button" class="ds-sheet-close" id="ds-sheet-close"
               aria-label="Close Daily S">&times;</button>
@@ -95,7 +95,7 @@
   </aside>
 
   <main id="main" class="main" role="main">
-    <section id="view-cockpit" class="view" data-view="cockpit" hidden></section>
+    <section id="view-dashboard" class="view" data-view="dashboard" hidden></section>
     <section id="view-dispatch" class="view" data-view="dispatch" hidden></section>
     <section id="view-answers" class="view" data-view="answers" hidden></section>
     <section id="view-results" class="view" data-view="results" hidden></section>
@@ -103,9 +103,9 @@
   </main>
 
   <nav class="tabbar" role="navigation" aria-label="Primary">
-    <a class="tab" href="#/cockpit" data-tab="cockpit">
+    <a class="tab" href="#/dashboard" data-tab="dashboard">
       <span class="tab-icon" aria-hidden="true">◎</span>
-      <span class="tab-label">Cockpit</span>
+      <span class="tab-label">Dashboard</span>
     </a>
     <a class="tab" href="#/dispatch" data-tab="dispatch">
       <span class="tab-icon" aria-hidden="true">↑</span>
@@ -129,15 +129,15 @@
 
   <!-- AOS panel removed 2026-05-26 per Ryan -->
 
-  <script src="./scripts/data.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/cockpit.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/list-view.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/dispatch.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/answers.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/results.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/live.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/daily-s.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/aos.js?v=2026-05-26-dispatch"></script>
-  <script src="./scripts/app.js?v=2026-05-26-dispatch"></script>
+  <script src="./scripts/data.js?v=2026-06-13-dashboard"></script>
+  <script src="./scripts/cockpit.js?v=2026-06-13-dashboard"></script>
+  <script src="./scripts/list-view.js?v=2026-06-13-dashboard"></script>
+  <script src="./scripts/dispatch.js?v=2026-06-13-dashboard"></script>
+  <script src="./scripts/answers.js?v=2026-06-13-dashboard"></script>
+  <script src="./scripts/results.js?v=2026-06-13-dashboard"></script>
+  <script src="./scripts/live.js?v=2026-06-13-dashboard"></script>
+  <script src="./scripts/daily-s.js?v=2026-06-13-dashboard"></script>
+  <script src="./scripts/aos.js?v=2026-06-13-dashboard"></script>
+  <script src="./scripts/app.js?v=2026-06-13-dashboard"></script>
 </body>
 </html>

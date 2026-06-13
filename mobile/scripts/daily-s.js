@@ -90,7 +90,7 @@
       state: 'green',
       value: hasComposer
         ? 'Live Ask Brain — ready'
-        : 'Live Ask Brain — ready (open Cockpit tab to use)',
+        : 'Live Ask Brain — ready (open Dashboard tab to use)',
     };
   }
 
@@ -131,7 +131,7 @@
     var emailRow = (data && !data.__error)
       ? artifactReadiness('Email state', findArtifact(data, 'partner_email_state'))
       : { state: 'unknown', value: 'Email state — status unavailable' };
-    var queueRow = { state: 'unknown', value: 'Bridge / queue status — see Runtime health on the Cockpit tab' };
+    var queueRow = { state: 'unknown', value: 'Bridge / queue status — see Runtime health on the Dashboard tab' };
     var rolled = rollupState([freshnessRow, contractsRow, liveRow]);
     return {
       state: rolled,

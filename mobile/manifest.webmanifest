@@ -1,7 +1,7 @@
 {
   "name": "EverPass Mobile Command Center",
   "short_name": "EverPass",
-  "description": "EverPass mobile cockpit, dispatch panel, and result surface.",
+  "description": "EverPass mobile dashboard, dispatch panel, and result surface.",
   "id": "/mobile/",
   "start_url": "./",
   "scope": "./",

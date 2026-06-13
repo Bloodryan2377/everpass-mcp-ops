@@ -13,13 +13,13 @@ const EP = 'C:/Users/ryan/OneDrive - EverPass Media/EVERPASS';
 
 const SURFACES = [
   // ── Mobile tabs — iPhone 17 Pro Max ─────────────────────────
-  { id: 'mob-iphone-cockpit',  url: `${MOBILE_BASE}/#/cockpit`,  w: 430,  h: 932,  label: 'Mobile Cockpit (iPhone)' },
+  { id: 'mob-iphone-dashboard',  url: `${MOBILE_BASE}/#/dashboard`,  w: 430,  h: 932,  label: 'Mobile Dashboard (iPhone)' },
   { id: 'mob-iphone-answers',  url: `${MOBILE_BASE}/#/answers`,  w: 430,  h: 932,  label: 'Mobile Answers (iPhone)' },
   { id: 'mob-iphone-results',  url: `${MOBILE_BASE}/#/results`,  w: 430,  h: 932,  label: 'Mobile Results (iPhone)' },
   { id: 'mob-iphone-live',     url: `${MOBILE_BASE}/#/live`,     w: 430,  h: 932,  label: 'Mobile Live (iPhone)' },
   { id: 'mob-iphone-dispatch', url: `${MOBILE_BASE}/#/dispatch`, w: 430,  h: 932,  label: 'Mobile Dispatch (iPhone)' },
   // ── Mobile tabs — iPad Pro ───────────────────────────────────
-  { id: 'mob-ipad-cockpit',    url: `${MOBILE_BASE}/#/cockpit`,  w: 1024, h: 1366, label: 'Mobile Cockpit (iPad Pro)' },
+  { id: 'mob-ipad-dashboard',    url: `${MOBILE_BASE}/#/dashboard`,  w: 1024, h: 1366, label: 'Mobile Dashboard (iPad Pro)' },
   { id: 'mob-ipad-answers',    url: `${MOBILE_BASE}/#/answers`,  w: 1024, h: 1366, label: 'Mobile Answers (iPad Pro)' },
   { id: 'mob-ipad-results',    url: `${MOBILE_BASE}/#/results`,  w: 1024, h: 1366, label: 'Mobile Results (iPad Pro)' },
   { id: 'mob-ipad-live',       url: `${MOBILE_BASE}/#/live`,     w: 1024, h: 1366, label: 'Mobile Live (iPad Pro)' },
