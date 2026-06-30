@@ -14,7 +14,12 @@
 #   session-guard.sh check                 # warn if another session is active (run at startup)
 #   session-guard.sh acquire [id]          # claim the branch for this session (commits + pushes)
 #   session-guard.sh release [id]          # release the claim (commits + pushes)
+#   session-guard.sh heartbeat [id]        # refresh your lock's timestamp (long sessions)
 #   session-guard.sh whoami                # print this session's id
+#
+# A session that stays active longer than the TTL (default 45m) would otherwise
+# look "stale" to others and could be taken over. Call `heartbeat` periodically
+# (e.g. from a SessionStart/periodic step) to keep your claim fresh.
 #
 # id defaults to $CLAUDE_CODE_SESSION_ID, else "$(hostname)-$$".
 #
@@ -128,11 +133,26 @@ cmd_release() {
   echo "✓ Released '$BRANCH' (was held by $id)."
 }
 
+cmd_heartbeat() {
+  local id="${1:-$SELF_ID}"
+  local lock state holder
+  lock="$(remote_lock)"
+  state="$(jq -r '.state // "released"' <<<"$lock" 2>/dev/null || echo released)"
+  holder="$(jq -r '.session_id // ""' <<<"$lock" 2>/dev/null || echo "")"
+  if [ "$state" = "active" ] && [ "$holder" = "$id" ]; then
+    write_lock_and_push "active" "$id"
+    echo "✓ Heartbeat refreshed for $id on '$BRANCH'."
+  else
+    echo "session-guard: not holding the lock (state=$state, holder=${holder:-none}) — nothing to refresh."
+  fi
+}
+
 case "${1:-}" in
   check)   cmd_check;;
   acquire) shift || true; cmd_acquire "$@";;
-  release) shift || true; cmd_release "$@";;
+  release)   shift || true; cmd_release "$@";;
+  heartbeat) shift || true; cmd_heartbeat "$@";;
   whoami)  echo "$SELF_ID";;
   ""|-h|--help|help) sed -n '2,30p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//';;
-  *) die "unknown subcommand '$1' (check|acquire|release|whoami)";;
+  *) die "unknown subcommand '$1' (check|acquire|release|heartbeat|whoami)";;
 esac
