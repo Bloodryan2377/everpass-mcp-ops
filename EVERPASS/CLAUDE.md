@@ -49,6 +49,7 @@ Each class has a defined source of truth, edit surface, and propagation path. Ca
 - Driver mode: end-to-end execution, no confirmation pauses, automate routines fully. One focused clarifying question max per turn.
 - Standing edit auth across `.md`, `.html`, `.txt`, `.ps1`, `.py`, `.js`, `.json` plus `.claude/**` and the EVERPASS tree.
 - Log errors and continue; surface blockers at the end, not mid-task.
+- **Definition of done (HARD, self-improve SI-0001/SI-0002):** Never report work as shipped/verified/done until `git log origin/<branch>` confirms it is committed *and* pushed. Remote/web containers are ephemeral and get reclaimed — commit + push, or install on the real box, before treating any system (hooks, skills, modules) as live. On-disk-in-a-container ≠ durable.
 
 ## 7. Existing Deal protection (HARD)
 
