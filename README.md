@@ -36,4 +36,38 @@ These are the lightweight end-to-end checks I run after any MCP or credential ch
 - **Google Sheets:** `add_row` to `EverPass – MCP Logs` → `Sheet1` (headers `date | event | status`), then `update_row` on the same row; confirm both mutations land.
 - **Gmail:** search within `label:"EverPass"`, open a message, create a draft reply, confirm the draft appears in Gmail UI.
 
+## Insights → chain pipeline (market intel)
+
+Market-intelligence items (e.g. a competitor/distributor news item) are captured
+as **insight notes** under `data/insights/` and propagated into the live mobile
+cockpit feed automatically — no hand-editing of the JSON feeds.
+
+- **Insight note** — `data/insights/<date>-market-intel-<slug>.md`. Human-readable
+  market-intel note (`epc-market-intel/v1`) carrying a fenced ` ```epc-chain ` JSON
+  block that declares the cockpit **bridge signal** and optional **partner todo**
+  the note should surface, keyed by a stable `intel_key`.
+- **Engine** — `scripts/ingest_market_intel.py`. Reads the notes and upserts their
+  signal/todo into `data/mobile/mobile-cockpit.json`, syncs the feed manifest, and
+  regenerates `data/insights/_index.md`. **Idempotent**: entries are keyed, never
+  duplicated, and freshness timestamps (`generated_at`, cockpit/bridge mtimes) are
+  bumped only when content actually changes. `partner_todos.total` (the full
+  system-wide count) is incremented per genuinely-new todo, never reset to the
+  capped preview length.
+  - `python scripts/ingest_market_intel.py --all` — apply
+  - `python scripts/ingest_market_intel.py --all --check` — dry-run (rc=1 on drift)
+- **Wrapper** — `scripts/sync-insights-to-chain.sh`. Forgiving entry point (used
+  by hand and by the optional hooks); always exits 0 so it can't block a session
+  or an edit.
+- **Auto tie-in (optional, operator-installed)** — a **SessionStart** hook (sync
+  on every session open) plus a **PostToolUse** hook (re-sync whenever an
+  `Edit`/`Write` touches `data/insights/`), both just calling the wrapper. Because
+  these are auto-executing startup config, they are **not** committed as active
+  config — the operator adds them to the project's Claude Code `settings.json`
+  deliberately (Layer-2 wrapper), the same way `hooks/preToolUse-snippet.json` is
+  mirrored into `~/.claude/settings.json`.
+
+To add new market intel: drop a note in `data/insights/` (copy an existing one and
+edit the `epc-chain` block), then run `bash scripts/sync-insights-to-chain.sh` —
+or, with the optional hooks installed, the sync fires automatically on save.
+
 See [MCP_SETUP.md](MCP_SETUP.md) for the detailed technical layout and [TODO.md](TODO.md) for the next-step backlog.

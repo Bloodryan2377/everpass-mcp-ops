@@ -78,3 +78,40 @@ owed; this note exists to flag counterparty risk on the existing Dish thread.
 - The Desk — "Dish Network, Sling TV parent company prepares bankruptcy filing,"
   Matthew Keys, 2026-06-29 (citing The Wall Street Journal).
 - EverPass cockpit intel: `intel:dish:day-1-dish-partnership-exploration-held-charter-parallel-mod`.
+
+<!--
+Machine block: read by scripts/ingest_market_intel.py to propagate this note
+into the live cockpit chain (data/mobile/mobile-cockpit.json). Keyed by
+intel_key + todo id so re-ingestion is idempotent. Edit this block to change
+how the note surfaces on the cockpit; produced_at/web_link are taken from the
+frontmatter / file path.
+-->
+```epc-chain
+{
+  "intel_key": "dish-dbs-chapter-11",
+  "produced_at": "2026-06-30T14:00:00Z",
+  "signal": {
+    "title": "[market-intel] Dish DBS (Dish Network / Sling TV parent) preparing Chapter 11",
+    "summary": "WSJ (via The Desk, 6/29): Dish DBS — Echostar's pay-TV + Boost Mobile subsidiary — is preparing a Chapter 11 filing as soon as this week after missing a June 1 debt repayment amid FCC build-out scrutiny. Counterparty flag on the open Dish Business partnership exploration: hold, do not advance, until the petition posts and the debtor's commercial/packaging intentions are visible.",
+    "key_points": [
+      "Chapter 11 imminent; law firms retained",
+      "Missed June 1 debt repayment",
+      "Q1 lost 366k pay-TV subs; ~6.6M remain",
+      "Counterparty risk on Dish exploration",
+      "Sling Orange commercial path already closed by Dish"
+    ],
+    "confidence": "high",
+    "source": "market-intel",
+    "partner": "Dish",
+    "ryan_owes_response": false
+  },
+  "todo": {
+    "id": "intel:dish:dbs-preparing-chapter-11-counterparty-risk-on-exploration",
+    "partner": "Dish",
+    "category": "Distribution",
+    "text": "COUNTERPARTY RISK — Dish DBS preparing Chapter 11 (WSJ via The Desk 6/29; filing as soon as this week after missed June 1 debt repayment). Hold, do not advance, the Dish Business partnership exploration until the petition posts and the debtor's commercial/packaging intentions and decision owners are clear. No pre-petition commitments or term exchange. Monitor-only. See data/insights/2026-06-30-market-intel-dish-dbs-chapter-11.md.",
+    "due": null,
+    "priority_hint": "high"
+  }
+}
+```
