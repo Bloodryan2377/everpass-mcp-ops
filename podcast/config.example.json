@@ -1,0 +1,38 @@
+{
+  "title": "EverPass Briefs (Private)",
+  "description": "Ryan's automated EverPass morning and end-of-day audio briefs.",
+  "site_url": "https://briefs.everpasspipeline.com/",
+
+  "base_url": "https://briefs.everpasspipeline.com/q28s9EoZQ3BShLx5Aej_qG1F",
+  "feed_url": "https://briefs.everpasspipeline.com/q28s9EoZQ3BShLx5Aej_qG1F/everpass-briefs.xml",
+
+  "image_url": "https://briefs.everpasspipeline.com/q28s9EoZQ3BShLx5Aej_qG1F/cover.jpg",
+
+  "language": "en-us",
+  "author": "EverPass",
+  "explicit": "false",
+  "itunes_type": "episodic",
+  "category": "Business",
+  "subcategory": "Management",
+  "tz_offset": "+00:00",
+
+  "block": "yes",
+
+  "owner": {
+    "name": "Ryan",
+    "email": "bloodryan@gmail.com"
+  },
+
+  "_comment_block": "block=yes keeps this PRIVATE feed out of the public Apple/Spotify directory while you can still subscribe by URL. Set block=no ONLY if you actually want it publicly listed.",
+  "_comment_base_url": "base_url is the folder the .mp3 files are served from. Enclosure URLs are base_url + filename. It MUST be absolute https.",
+  "_comment_image_url": "image_url must point at a real, reachable square cover image 1400-3000px (JPG/PNG). Apple/Spotify reject feeds without one. Upload cover.jpg next to the mp3s.",
+
+  "episodes": {
+    "_comment": "OPTIONAL per-file overrides keyed by exact mp3 filename. Omit entirely to derive everything (title/date/pubDate/duration) automatically from the file.",
+    "morning-2026-06-29.mp3": {
+      "title": "EverPass Morning Brief — 2026-06-29",
+      "summary": "Top of the EverPass pipeline for Monday, June 29.",
+      "pubDate": "2026-06-29T07:00:00"
+    }
+  }
+}
