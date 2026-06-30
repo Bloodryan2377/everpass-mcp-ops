@@ -1,0 +1,5 @@
+{
+  "_comment": "Auto-approve policy for the self-improvement loop. HIGH impact NEVER auto-approves regardless of these settings — every HIGH change is human-reviewed.",
+  "auto_approve_impacts": [],
+  "auto_approve_title_patterns": []
+}

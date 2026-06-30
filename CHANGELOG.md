@@ -1,5 +1,33 @@
 # CHANGELOG
 
+## 2026-06-30 — Self-improvement loop (engine + Stop-hook + skill)
+
+Rebuilds the self-improvement loop as a self-contained, runnable module under `self-improvement/`. A prior session reported this system as shipped, but nothing had been committed — the branch was identical to `main` and none of the artifacts existed on disk. This is the durable, verified rebuild.
+
+### Changes
+| File | Change |
+|---|---|
+| `self-improvement/self-improve.sh` | **New** engine CLI (bash + jq): `propose` / `list` / `resolve` / `status` / `log`. Manages a review queue with monotonic `SI-NNNN` ids. |
+| `self-improvement/self-improve-status.sh` | **New** Stop-hook wrapper — silent when the queue is clean, surfaces pending proposals + the resolve command at session end. Always exits 0. |
+| `self-improvement/settings.stop-hook.json` | **New** snippet to register the Stop hook in `settings.json` (mirror of the `hooks/` convention). |
+| `self-improvement/config.json` | **New** auto-approve policy. Default empty → every proposal reviews. |
+| `self-improvement/queue.json`, `log.jsonl` | **New** data files (pending queue; append-only decision log). Start clean. |
+| `self-improvement/SPEC.md`, `SKILL.md`, `README.md` | **New** design spec, the skill that drives proposing, and module overview. |
+| `EVERPASS/CLAUDE.md` | Added a `self-improve` row to the §8 skills auto-trigger map. |
+
+### Behavior
+- `propose` → HIGH impact **always** queues for human review (enforced in code, not just config); MED/LOW may auto-approve only if `config.json` allows.
+- `resolve` is non-destructive to the repo: it moves an item queue → `log.jsonl`. Applying the real edit is a separate, deliberate step.
+- Stop hook runs `status --hook`: clean → silent (exit 0); pending → prints items + resolve command (so the queue can't rot, no scheduler needed).
+
+### Verification
+- End-to-end: clean→propose(HIGH,LOW)→list→status→resolve(approve/reject)→log, all exit codes correct.
+- Invariant test: with `auto_approve_impacts:["MED","HIGH"]`, MED auto-approved but **HIGH still queued** — the hard block holds.
+- Unknown-id resolve exits 1; `queue.json` and every `log.jsonl` line validate under `jq`.
+- Data files reset to clean state before commit (`queue.json` = `[]`, empty log, empty config patterns).
+
+---
+
 ## 2026-05-04 — Dashboard JS validator wrapper + canonical path fix
 
 Resolves a noisy hook target identified after the verification pass: the global PostToolUse hook (`matcher: Edit|Write`, trigger phrase "Pipeline Decision-Making Dashboard") referenced `EVERPASS TOOLS/Dashboard/.claude/validate-dashboard-js.sh`, which did not exist. The canonical validator lives at `_support/tooling/.claude/validate-dashboard-js.sh` and additionally hard-coded a stale `EVERPASS/Dashboard/...` path (missing the `EVERPASS TOOLS/` segment), so it silently no-op'd against the live HTML.

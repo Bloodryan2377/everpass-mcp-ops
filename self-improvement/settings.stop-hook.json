@@ -1,0 +1,17 @@
+{
+  "_comment": "Stop-hook registration for the self-improvement loop. Merge this 'Stop' array into the 'hooks' object of your Claude Code settings.json. Back up settings.json and run `jq . settings.json` to validate after merging. Adjust the absolute path to wherever this module is deployed on disk (the snippet below assumes the EverPass tree; on the ops box it is the path to self-improve-status.sh).",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "bash \"C:/Users/ryan/OneDrive - EverPass Media/EVERPASS/EVERPASS TOOLS/self-improvement/self-improve-status.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}
