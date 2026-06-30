@@ -69,6 +69,7 @@ Each class has a defined source of truth, edit surface, and propagation path. Ca
 | Dashboard update | `anthropic-skills:pipeline-dashboard-update` |
 | Dashboard framing | `dashboard-framing-updates` |
 | Meeting prep | `anthropic-skills:meeting-prep` |
+| Session-end / "improve yourself" / "log that lesson" | `self-improve` (see `everpass-mcp-ops/self-improvement/SKILL.md`) |
 
 ## 9. Pipeline state (current)
 
