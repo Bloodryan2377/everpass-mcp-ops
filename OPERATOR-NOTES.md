@@ -39,6 +39,8 @@ runtime.
   Trigger snippet for global `CLAUDE.md` in `CLAUDE-TRIGGER-snippet.md`.
   Stop-hook (`hooks/stop-snippet.json`) surfaces the pending-review count at
   session end; paste under the `Stop` key in `~/.claude/settings.json`.
+  Stale-guard (`hooks/sessionStart-snippet.json`) warns at session start when
+  review items go unresolved past N days (default 7); paste under `SessionStart`.
 
 ## Three layers — what is what
 

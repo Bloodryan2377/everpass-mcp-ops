@@ -272,6 +272,9 @@ def main(argv=None):
     sub.add_parser("status", help="show pending queue + blessed classes")
     sub.add_parser("selftest", help="run the built-in end-to-end test")
     sub.add_parser("stop-hook", help="emit Stop-hook JSON: surface pending-review count")
+    g = sub.add_parser("guard", help="emit hook JSON: warn when review items go stale")
+    g.add_argument("--max-age-days", type=int, default=7,
+                   help="flag review items unresolved this many days (default 7)")
 
     args = p.parse_args(argv)
     today = args.date or _today()
@@ -281,6 +284,9 @@ def main(argv=None):
 
     if args.cmd == "stop-hook":
         return _stop_hook(Path(args.state_dir))
+
+    if args.cmd == "guard":
+        return _guard(Path(args.state_dir), args.max_age_days, today)
 
     loop = Loop(Path(args.state_dir), today)
 
@@ -335,6 +341,52 @@ def _stop_hook(state_dir: Path) -> int:
         print(json.dumps({"systemMessage": msg}))
     except Exception:
         # A surfacing hook must never block shutdown on its own failure.
+        print("{}")
+    return 0
+
+
+# --- Periodic guard ---------------------------------------------------------
+
+def _guard(state_dir: Path, max_age_days: int, today_str: str) -> int:
+    """Emit Stop/SessionStart-hook JSON warning when review items have gone
+    stale — held longer than `max_age_days` without a decision. A pending queue
+    that nobody resolves is its own failure mode; this makes the rot loud.
+
+    Read-only and exception-safe, like the stop-hook: `{}` when nothing is
+    overdue, `{"systemMessage": ...}` when something is.
+    """
+    try:
+        queue_path = Path(state_dir) / "queue.json"
+        if not queue_path.exists():
+            print("{}")
+            return 0
+        items = json.loads(queue_path.read_text())
+        try:
+            today = datetime.date.fromisoformat(today_str)
+        except ValueError:
+            print("{}")
+            return 0
+        overdue = []
+        for c in items:
+            try:
+                age = (today - datetime.date.fromisoformat(c.get("ts", ""))).days
+            except ValueError:
+                continue
+            if age >= max_age_days:
+                overdue.append((age, c))
+        if not overdue:
+            print("{}")
+            return 0
+        overdue.sort(key=lambda t: -t[0])
+        oldest_age, oldest = overdue[0]
+        msg = (
+            f"🚨 self-improve: {len(overdue)} review item(s) overdue "
+            f"(≥{max_age_days}d unresolved). Oldest is {oldest_age}d: "
+            f"\"{oldest.get('summary', '')}\" (id {oldest.get('id', '?')}). "
+            f"Resolve or reject with `self_improve.py decide`."
+        )
+        print(json.dumps({"systemMessage": msg}))
+    except Exception:
         print("{}")
     return 0
 
@@ -406,6 +458,28 @@ def _selftest() -> int:
         out = json.loads(buf.getvalue())
         assert "systemMessage" in out and "awaiting your review" in out["systemMessage"], \
             "stop-hook must surface pending count"
+
+        # 10. Guard is quiet when nothing is overdue (items dated 'today').
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            _guard(tmp, 7, "2026-06-30")
+        assert buf.getvalue().strip() == "{}", "guard must be quiet before items age out"
+
+        # 11. Guard fires once items pass the age threshold.
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            _guard(tmp, 7, "2026-07-15")   # items are 15d old > 7d
+        out = json.loads(buf.getvalue())
+        assert "systemMessage" in out and "overdue" in out["systemMessage"], \
+            "guard must warn on stale review items"
+
+        # 12. Guard is read-only: never creates an unused state dir.
+        unused2 = Path(tmp) / "never_used_2"
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            _guard(unused2, 7, "2026-07-15")
+        assert buf.getvalue().strip() == "{}" and not unused2.exists(), \
+            "guard must not create state"
 
     except AssertionError as e:
         fails.append(str(e))

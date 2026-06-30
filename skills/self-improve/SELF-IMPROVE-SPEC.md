@@ -99,9 +99,14 @@ silently. Defaults-empty is the safety property; the test guards it.
   emits a `systemMessage` when items are pending, `{}` otherwise. Engine entry
   point: `self_improve.py stop-hook` (covered by `selftest` invariants 8–9 —
   never creates state, always surfaces a pending count).
+- **Periodic guard** (`hooks/sessionStart-snippet.json`) — at session start,
+  warns when review items have gone unresolved past `--max-age-days` (default
+  7). A queue nobody decides is its own failure mode; this makes the rot loud.
+  Engine entry point: `self_improve.py guard` (covered by `selftest` invariants
+  10–12 — quiet before threshold, fires after, never creates state).
 
 ## Open / optional (not yet built)
 
-- **Periodic guard** that warns when `review-<date>.md` items age past N days.
+- Nothing tracked. Next ideas land here via the LOOP itself.
 - A formal "skill-from-masters" pass (currently substituted by studying real
   practitioner videos — stronger failure-case coverage than a web search).

@@ -67,7 +67,9 @@ can't return silently. Patterns empty by default = safe.
 1. ~~**Stop-hook** to surface pending-review count at session end.~~ **Done** —
    `hooks/stop-snippet.json` + `self_improve.py stop-hook`. Paste under the
    `Stop` key in `~/.claude/settings.json` on the live box.
-2. **Periodic guard** that warns when review items age past N days.
+2. ~~**Periodic guard** that warns when review items age past N days.~~ **Done**
+   — `hooks/sessionStart-snippet.json` + `self_improve.py guard --max-age-days N`
+   (default 7). Paste under the `SessionStart` key in `~/.claude/settings.json`.
 3. Explicit **MOTION-LAYER** note in the design docs.
 4. A formal **skill-from-masters** pass (currently substituted by 5 real
    practitioner videos — golden + real failure cases, stronger than web search).
