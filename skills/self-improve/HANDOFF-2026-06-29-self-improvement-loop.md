@@ -161,6 +161,20 @@ were referenced abstractly; that file has a placeholder for them).
 4. ~~Formal **skill-from-masters** pass.~~ **Done** — `MASTERS.md`. See
    "Carry-over: skill-from-masters". (Only follow-up: paste the 5 video links in.)
 
+## Session evolution pass (2026-06-30)
+
+Ran the LOOP on this build session itself ("evolve the system"). Outcome:
+
+- **4 lessons applied** (LOW `gotcha`/`doc`) → `LESSONS.md`: surfacing-hook
+  recipe, render-verify-without-Playwright, remote-can't-reach-live-runtime,
+  route-meta-work-through-the-LOOP.
+- **2 proposals held** (HIGH) → `REVIEW-QUEUE.md` for Ryan's sign-off:
+  (#1) persist the review queue outside git-ignored `_state` so remote runs don't
+  lose proposals on teardown; (#2) add a `learn` retro subcommand.
+- The pass surfaced a real gap (remote `_state` is ephemeral) and routed the
+  *fix* through review rather than silently implementing it — the system working
+  as designed.
+
 ## Try it
 
 > "improve the watch skill to do X"

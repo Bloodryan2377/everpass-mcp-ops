@@ -85,4 +85,6 @@ source of truth for the scaffold; the live `~/.claude` tree is the runtime.
 Edit here, then sync to `~/.claude/skills/self-improve/`.
 
 See `SELF-IMPROVE-SPEC.md` for the full design and `HANDOFF-2026-06-29-self-improvement-loop.md`
-for cold-start context.
+for cold-start context. `LESSONS.md` holds reusable recipes the LOOP has captured
+(low-risk, applied); `REVIEW-QUEUE.md` holds behavior-changing proposals awaiting
+sign-off (durable hand-off for ephemeral/remote runs where `_state/` is wiped).
