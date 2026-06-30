@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 2026-06-30 — CI + validation + expiry surfacing (gap-fill)
+
+### Added
+- `.github/workflows/insights-pipeline.yml` — CI on every push/PR touching the
+  pipeline: unit tests, `--validate`, and a deterministic `--all --check
+  --ignore-expiry` (proves the committed cockpit is in sync with the notes).
+- `--validate` — read-only structural check across all notes; flags duplicate
+  `intel_key` / todo `id` / critical title (which ingest would otherwise resolve
+  silently by last-writer-wins) and parse failures. Exit 2 on any problem.
+- `--ignore-expiry` — treat non-retired notes as active regardless of
+  `expires_at`, so the CI drift check is independent of wall-clock and never
+  flakes as items age out.
+- `--list` now shows an EXPIRES column and flags items expired or expiring within
+  14 days, with a "run a sync to age them out" hint.
+
+### Tests
+- Suite now 15 cases: added validate-clean, validate-catches-duplicate-key,
+  ignore-expiry-keeps-active, and list-flags-soon-expiry.
+
+### Verification
+- `python -m unittest discover -s tests` → 15 passed.
+- Real chain: `--validate` OK (2 notes, no collisions); `--all --check
+  --ignore-expiry` clean; `--list` shows both items active with expiry dates.
+
+---
+
 ## 2026-06-30 — Evolve the system: lifecycle, registry, tests, bug fix
 
 Makes the insights → chain pipeline production-grade: intel can now leave the

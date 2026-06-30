@@ -56,7 +56,9 @@ cockpit feed automatically — no hand-editing of the JSON feeds.
   - `python scripts/ingest_market_intel.py --all` — apply
   - `python scripts/ingest_market_intel.py --all --check` — dry-run (rc=1 on drift)
   - `python scripts/ingest_market_intel.py --list` — registry view: each note's
-    lifecycle state + whether it's currently in the chain
+    lifecycle state, chain presence, and expiry (flags items expiring within 14d)
+  - `python scripts/ingest_market_intel.py --validate` — structural check across
+    notes (duplicate `intel_key` / todo `id` / critical title); exit 2 on a problem
 - **Lifecycle (retire / expiry)** — intel doesn't live forever. A note's
   `epc-chain` block can carry `status: "retired"` (pull its signal/todo/critical
   back out of the cockpit now) or `expires_at: "<ISO-Z>"` (auto-retire once that
@@ -68,8 +70,13 @@ cockpit feed automatically — no hand-editing of the JSON feeds.
   engine against an isolated fixture tree via `EPC_*` env vars). Locks the
   load-bearing invariants: idempotency, `--check` exit codes, `total` not reset to
   the preview length, `critical_count` recompute, newest-first ordering, the
-  retire/expiry lifecycle, and title-collision safety. Run:
-  `python -m unittest discover -s tests`.
+  retire/expiry lifecycle, validation, `--ignore-expiry`, and title-collision
+  safety. Run: `python -m unittest discover -s tests`.
+- **CI** — `.github/workflows/insights-pipeline.yml` runs the unit tests,
+  `--validate`, and a deterministic `--all --check --ignore-expiry` (proves the
+  committed cockpit feed is in sync with the notes) on every push/PR that touches
+  the pipeline. `--ignore-expiry` keeps the check independent of wall-clock so it
+  doesn't flake as items age past their `expires_at`.
 - **Wrapper** — `scripts/sync-insights-to-chain.sh`. Forgiving entry point (used
   by hand and by the optional hooks); always exits 0 so it can't block a session
   or an edit.

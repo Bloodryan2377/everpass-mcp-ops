@@ -261,18 +261,21 @@ def upsert_critical(cockpit: dict, crit: dict) -> str:
 
 # --- Lifecycle: retire / expiry -------------------------------------------
 
-def effective_state(payload: dict, now: str) -> str:
+def effective_state(payload: dict, now: str, ignore_expiry: bool = False) -> str:
     """Resolve a note's lifecycle state: 'active', 'retired', or 'expired'.
 
     A note is retired when it declares ``status: retired``; expired when its
     ``expires_at`` is at or before ``now`` (ISO-Z strings compare lexically).
     Both retired and expired notes have their cockpit entries removed.
+    ``ignore_expiry`` (used by CI's deterministic drift check) suppresses the
+    wall-clock expiry test so state depends only on the declared ``status``.
     """
     if payload.get("status") == "retired":
         return "retired"
-    exp = payload.get("expires_at")
-    if exp and str(now) >= str(exp):
-        return "expired"
+    if not ignore_expiry:
+        exp = payload.get("expires_at")
+        if exp and str(now) >= str(exp):
+            return "expired"
     return "active"
 
 
@@ -306,7 +309,7 @@ def remove_critical(cockpit: dict, title: str) -> bool:
     return False
 
 
-def rebuild_insights_index(notes: list[dict], now: str = "") -> str:
+def rebuild_insights_index(notes: list[dict], now: str = "", ignore_expiry: bool = False) -> str:
     lines = [
         "# insights · _index",
         "",
@@ -322,13 +325,13 @@ def rebuild_insights_index(notes: list[dict], now: str = "") -> str:
     ]
     for n in sorted(notes, key=lambda x: x["note_name"], reverse=True):
         title = n["signal"]["title"].replace("[market-intel] ", "")
-        state = effective_state(n, now) if now else n.get("status", "active")
+        state = effective_state(n, now, ignore_expiry) if now else n.get("status", "active")
         tag = "" if state == "active" else f" · **{state}**"
         lines.append(f"- [{n['note_name']}]({n['note_name']}) · {title}{tag}")
     return "\n".join(lines) + "\n"
 
 
-def ingest(note_paths: list[Path], now: str, check: bool) -> int:
+def ingest(note_paths: list[Path], now: str, check: bool, ignore_expiry: bool = False) -> int:
     payloads = [parse_note(p) for p in note_paths]
     if not payloads:
         print("ingest_market_intel: no insight notes found; nothing to do")
@@ -343,7 +346,7 @@ def ingest(note_paths: list[Path], now: str, check: bool) -> int:
     touched_critical = False
     retired = []  # (note_name, state) for active->removed transitions
     for p in payloads:
-        state = effective_state(p, now)
+        state = effective_state(p, now, ignore_expiry)
         if state == "active":
             upsert_signal(cockpit, build_signal(p))
             if p.get("todo"):
@@ -378,7 +381,7 @@ def ingest(note_paths: list[Path], now: str, check: bool) -> int:
     changed = before != after
 
     # Insights index is regenerated deterministically from the notes present.
-    new_index = rebuild_insights_index(payloads, now)
+    new_index = rebuild_insights_index(payloads, now, ignore_expiry)
     index_changed = (not INSIGHTS_INDEX.exists()) or INSIGHTS_INDEX.read_text(encoding="utf-8") != new_index
 
     if not changed and not index_changed:
@@ -440,15 +443,34 @@ def discover_notes() -> list[Path]:
     return sorted(p for p in INSIGHTS_DIR.glob("*.md") if p.name != "_index.md")
 
 
-def list_registry(now: str) -> int:
-    """Print every insight note with its lifecycle state and chain presence."""
+def _expiry_note(note: dict, now: str, soon_days: int) -> str:
+    """Return an EXPIRES column value, flagging items due within ``soon_days``."""
+    exp = note.get("expires_at")
+    if not exp:
+        return "-"
+    try:
+        exp_dt = _dt.datetime.fromisoformat(str(exp).replace("Z", "+00:00"))
+        now_dt = _dt.datetime.fromisoformat(str(now).replace("Z", "+00:00"))
+        days = (exp_dt - now_dt).total_seconds() / 86400.0
+    except ValueError:
+        return str(exp)
+    if days < 0:
+        return f"{exp[:10]} (expired)"
+    if days <= soon_days:
+        return f"{exp[:10]} (soon, {int(days)}d)"
+    return exp[:10]
+
+
+def list_registry(now: str, soon_days: int = 14) -> int:
+    """Print every insight note with its lifecycle state, chain presence, expiry."""
     paths = discover_notes()
     if not paths:
         print("ingest_market_intel: no insight notes found")
         return 0
     cockpit = _read_json(COCKPIT) if COCKPIT.exists() else {}
     live_keys = {s.get("intel_key") for s in cockpit.get("bridge_signals", [])}
-    print(f"{'STATE':<9} {'IN-CHAIN':<9} {'INTEL_KEY':<34} PRODUCED_AT")
+    print(f"{'STATE':<9} {'IN-CHAIN':<9} {'INTEL_KEY':<34} {'EXPIRES':<22} PRODUCED_AT")
+    soon = 0
     for p in paths:
         try:
             note = parse_note(p)
@@ -457,7 +479,55 @@ def list_registry(now: str) -> int:
             continue
         state = effective_state(note, now)
         in_chain = "yes" if note["intel_key"] in live_keys else "no"
-        print(f"{state:<9} {in_chain:<9} {note['intel_key']:<34} {note.get('produced_at') or '-'}")
+        exp = _expiry_note(note, now, soon_days)
+        if "soon" in exp or "expired" in exp:
+            soon += 1
+        print(f"{state:<9} {in_chain:<9} {note['intel_key']:<34} {exp:<22} {note.get('produced_at') or '-'}")
+    if soon:
+        print(f"\n{soon} item(s) expired or expiring within {soon_days}d — run a sync to age them out of the chain.")
+    return 0
+
+
+def validate_notes() -> int:
+    """Read-only structural check across all notes. Exit 2 on any problem.
+
+    Catches parse failures and cross-note collisions (duplicate ``intel_key``,
+    todo ``id``, or critical title) that ingest would otherwise resolve silently
+    by last-writer-wins. Used by CI and runnable by hand.
+    """
+    paths = discover_notes()
+    errors: list[str] = []
+    seen_key: dict[str, str] = {}
+    seen_todo: dict[str, str] = {}
+    seen_crit: dict[str, str] = {}
+    for p in paths:
+        try:
+            note = parse_note(p)
+        except NoteError as exc:
+            errors.append(str(exc))
+            continue
+        k = note["intel_key"]
+        if k in seen_key:
+            errors.append(f"duplicate intel_key '{k}' in {p.name} and {seen_key[k]}")
+        else:
+            seen_key[k] = p.name
+        tid = (note.get("todo") or {}).get("id")
+        if tid:
+            if tid in seen_todo:
+                errors.append(f"duplicate todo id '{tid}' in {p.name} and {seen_todo[tid]}")
+            else:
+                seen_todo[tid] = p.name
+        ctitle = (note.get("critical") or {}).get("title")
+        if ctitle:
+            if ctitle in seen_crit:
+                errors.append(f"duplicate critical title '{ctitle}' in {p.name} and {seen_crit[ctitle]}")
+            else:
+                seen_crit[ctitle] = p.name
+    if errors:
+        for e in errors:
+            print(f"ingest_market_intel: validate: {e}", file=sys.stderr)
+        return 2
+    print(f"ingest_market_intel: validate OK — {len(paths)} note(s), no collisions")
     return 0
 
 
@@ -466,10 +536,14 @@ def main(argv: list[str]) -> int:
     ap.add_argument("notes", nargs="*", help="Specific note paths (default: --all)")
     ap.add_argument("--all", action="store_true", help="Scan data/insights/*.md")
     ap.add_argument("--check", action="store_true", help="Dry-run; exit 1 if the chain would change")
-    ap.add_argument("--list", action="store_true", dest="list_", help="List notes with lifecycle state + chain presence; no writes")
+    ap.add_argument("--list", action="store_true", dest="list_", help="List notes with lifecycle state + chain presence + expiry; no writes")
+    ap.add_argument("--validate", action="store_true", help="Structural check across notes (duplicate keys/ids/titles); exit 2 on problem")
+    ap.add_argument("--ignore-expiry", action="store_true", dest="ignore_expiry", help="Treat non-retired notes as active regardless of expires_at (deterministic CI drift check)")
     ap.add_argument("--now", default=None, help="Override timestamp (ISO 8601 Z); default = current UTC")
     args = ap.parse_args(argv)
 
+    if args.validate:
+        return validate_notes()
     if args.list_:
         return list_registry(_now_iso(args.now))
 
@@ -487,7 +561,7 @@ def main(argv: list[str]) -> int:
             return 2
 
     try:
-        return ingest(paths, now=_now_iso(args.now), check=args.check)
+        return ingest(paths, now=_now_iso(args.now), check=args.check, ignore_expiry=args.ignore_expiry)
     except NoteError as exc:
         print(f"ingest_market_intel: {exc}", file=sys.stderr)
         return 2

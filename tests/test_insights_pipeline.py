@@ -228,6 +228,39 @@ class PipelineTest(unittest.TestCase):
         self.assertIn("k1", keys)  # neither hijacks the other despite same title
         self.assertIn("k2", keys)
 
+    def test_validate_passes_clean(self):
+        self.write_note("a.md", self.full_chain("t1"))
+        self.write_note("b.md", self.full_chain("t2"))
+        r = self.run_engine("--validate")
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("validate OK", r.stdout)
+
+    def test_validate_catches_duplicate_intel_key(self):
+        # Two notes, same intel_key but different filenames.
+        self.write_note("a.md", self.full_chain("dup"))
+        ch = self.full_chain("dup")
+        ch["todo"]["id"] = "intel:testco:other"  # avoid masking with a todo dup
+        ch["critical"]["title"] = "OTHER CRITICAL"
+        self.write_note("b.md", ch)
+        r = self.run_engine("--validate")
+        self.assertEqual(r.returncode, 2)
+        self.assertIn("duplicate intel_key", r.stderr)
+
+    def test_ignore_expiry_keeps_item_active(self):
+        # Past expiry, but --ignore-expiry must treat it as active (CI determinism).
+        self.write_note("a.md", self.full_chain("t1", expires_at="2026-01-01T00:00:00Z"))
+        self.run_engine("--ignore-expiry")
+        self.assertIn("t1", self.signal_keys())
+        # And a --check --ignore-expiry on the now-synced chain is clean.
+        clean = self.run_engine("--check", "--ignore-expiry")
+        self.assertEqual(clean.returncode, 0, clean.stdout)
+
+    def test_list_flags_soon_expiry(self):
+        self.write_note("a.md", self.full_chain("t1", expires_at="2026-07-05T00:00:00Z"))
+        r = self.run_engine("--list")  # NOW=6/30 → 5 days out → "soon"
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("soon", r.stdout)
+
     def test_adopts_legacy_unkeyed_signal_by_title(self):
         # Seed an un-keyed (legacy / hand-added) signal sharing the note's title.
         ck = _base_cockpit()
