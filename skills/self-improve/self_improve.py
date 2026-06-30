@@ -1,0 +1,364 @@
+#!/usr/bin/env python3
+"""self_improve.py — the LOOP engine.
+
+Triage every *proposed self-change* to the agent's own scaffold (skills, hooks,
+rules, docs, gotchas) by RISK, then route it:
+
+    LOW      -> apply now + append to changelog.md
+    HIGH     -> hold in review-<date>.md for human sign-off (never self-applies)
+    UNCLEAR  -> hold in review-<date>.md, flagged for a human call
+
+This is the mechanism that keeps an agent improving itself without the two
+failure modes that kill self-improving agents:
+
+    1. Full autonomy   -> the agent edits its own behavior unsupervised and
+                          drifts (system rot). Refused: HIGH never self-applies.
+    2. Review-everything -> every trivial doc tweak needs a human, so nobody
+                          runs it. Refused: LOW lands instantly.
+
+"approve-always" lets the human bless a *class* of change so future changes in
+that class auto-apply. Blessed classes (patterns) are EMPTY BY DEFAULT — a fresh
+install routes every behavior change to review. Blessing is always a deliberate
+human action, logged.
+
+This file is the source-of-truth mirror of the live skill at
+~/.claude/skills/self-improve/self_improve.py. It is intentionally dependency-
+free (stdlib only) and host-agnostic.
+
+CLI:
+    self_improve.py triage   --category C --target T --summary S [--detail D]
+    self_improve.py decide   --id ID --action {approve,reject,approve-always}
+    self_improve.py status
+    self_improve.py selftest
+
+State lives under --state-dir (default: alongside this file):
+    patterns.json      blessed classes (empty by default)
+    changelog.md       append-only log of applied LOW changes
+    review-<date>.md   pending HIGH/UNCLEAR changes for the given day
+    queue.json         machine-readable pending queue (for decide/status)
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime
+import hashlib
+import json
+import os
+import sys
+from dataclasses import dataclass, asdict
+from pathlib import Path
+
+# --- Risk model -------------------------------------------------------------
+
+# Categories that only touch human-readable surface area. Safe to apply now.
+LOW_CATEGORIES = {
+    "doc",          # documentation prose
+    "wording",      # rephrasing existing instructions, no behavior change
+    "example",      # adding/fixing an example
+    "gotcha",       # capturing a "watch out for X" note
+    "comment",      # code comments
+    "typo",         # spelling/formatting
+}
+
+# Categories that change what the agent DOES, or its guardrails. Human-gated.
+HIGH_CATEGORIES = {
+    "skill-behavior",   # editing how an existing skill acts
+    "new-skill",        # adding a skill
+    "hook",             # editing an existing hook
+    "new-hook",         # adding a hook
+    "rule",             # editing/adding a CLAUDE.md or rules/*.md rule
+    "permission",       # widening/narrowing tool permissions
+    "delete",           # removing a skill/hook/rule/file
+}
+
+RISK_LOW = "LOW"
+RISK_HIGH = "HIGH"
+RISK_UNCLEAR = "UNCLEAR"
+
+DECISION_APPLY = "APPLY"      # land it now (changelog)
+DECISION_REVIEW = "REVIEW"    # hold for human (review file)
+
+
+def classify(category: str) -> str:
+    """Map a change category to its base risk."""
+    c = (category or "").strip().lower()
+    if c in LOW_CATEGORIES:
+        return RISK_LOW
+    if c in HIGH_CATEGORIES:
+        return RISK_HIGH
+    return RISK_UNCLEAR
+
+
+# --- Data -------------------------------------------------------------------
+
+@dataclass
+class Change:
+    id: str
+    category: str
+    target: str
+    summary: str
+    detail: str
+    risk: str
+    decision: str
+    blessed: bool
+    ts: str
+
+    @staticmethod
+    def make(category, target, summary, detail, now):
+        raw = f"{now}|{category}|{target}|{summary}".encode("utf-8")
+        cid = hashlib.sha1(raw).hexdigest()[:10]
+        return Change(
+            id=cid, category=category, target=target, summary=summary,
+            detail=detail or "", risk="", decision="", blessed=False, ts=now,
+        )
+
+
+# --- Engine -----------------------------------------------------------------
+
+class Loop:
+    def __init__(self, state_dir: Path, today: str):
+        self.dir = Path(state_dir)
+        self.today = today
+        self.dir.mkdir(parents=True, exist_ok=True)
+        self.patterns_path = self.dir / "patterns.json"
+        self.queue_path = self.dir / "queue.json"
+        self.changelog_path = self.dir / "changelog.md"
+
+    # -- persistence
+    def _load_patterns(self) -> set:
+        if not self.patterns_path.exists():
+            return set()
+        try:
+            data = json.loads(self.patterns_path.read_text())
+            return set(data.get("blessed", []))
+        except (json.JSONDecodeError, OSError):
+            return set()
+
+    def _save_patterns(self, blessed: set):
+        self.patterns_path.write_text(
+            json.dumps({"blessed": sorted(blessed)}, indent=2) + "\n"
+        )
+
+    def _load_queue(self) -> list:
+        if not self.queue_path.exists():
+            return []
+        try:
+            return json.loads(self.queue_path.read_text())
+        except (json.JSONDecodeError, OSError):
+            return []
+
+    def _save_queue(self, items: list):
+        self.queue_path.write_text(json.dumps(items, indent=2) + "\n")
+
+    def _review_path(self, date: str) -> Path:
+        return self.dir / f"review-{date}.md"
+
+    # -- core
+    def triage(self, category, target, summary, detail="") -> Change:
+        """Classify + route a proposed change. Returns the decided Change."""
+        ch = Change.make(category, target, summary, detail, self.today)
+        ch.risk = classify(category)
+        blessed = self._load_patterns()
+        ch.blessed = category.strip().lower() in blessed
+
+        # A blessed class auto-applies even if its base risk is HIGH — that is
+        # exactly what "approve-always" buys. Default patterns are empty, so
+        # nothing is blessed until the human explicitly says so.
+        if ch.risk == RISK_LOW or ch.blessed:
+            ch.decision = DECISION_APPLY
+            self._append_changelog(ch)
+        else:
+            ch.decision = DECISION_REVIEW
+            self._enqueue(ch)
+        return ch
+
+    def _append_changelog(self, ch: Change):
+        line = (
+            f"- {ch.ts}  [{ch.risk}{'/blessed' if ch.blessed else ''}]  "
+            f"`{ch.category}` → {ch.target}: {ch.summary}  (id {ch.id})\n"
+        )
+        with self.changelog_path.open("a") as f:
+            f.write(line)
+
+    def _enqueue(self, ch: Change):
+        q = self._load_queue()
+        q.append(asdict(ch))
+        self._save_queue(q)
+        self._append_review(ch)
+
+    def _append_review(self, ch: Change):
+        path = self._review_path(self.today)
+        new = not path.exists()
+        with path.open("a") as f:
+            if new:
+                f.write(f"# Pending self-improvement review — {self.today}\n\n")
+                f.write("Resolve each with: `self_improve.py decide --id <id> "
+                        "--action {approve,reject,approve-always}`\n\n")
+            flag = " ⚠️ UNCLEAR" if ch.risk == RISK_UNCLEAR else ""
+            f.write(f"## [{ch.risk}]{flag} {ch.summary}\n")
+            f.write(f"- **id:** `{ch.id}`\n")
+            f.write(f"- **category:** `{ch.category}`\n")
+            f.write(f"- **target:** {ch.target}\n")
+            if ch.detail:
+                f.write(f"- **detail:** {ch.detail}\n")
+            f.write("- **status:** PENDING\n\n")
+
+    def decide(self, change_id, action) -> dict:
+        """Resolve a pending change. Returns a result dict."""
+        q = self._load_queue()
+        idx = next((i for i, c in enumerate(q) if c["id"] == change_id), None)
+        if idx is None:
+            return {"ok": False, "error": f"no pending change with id {change_id}"}
+        ch = q.pop(idx)
+        result = {"ok": True, "id": change_id, "action": action,
+                  "category": ch["category"]}
+
+        if action == "reject":
+            result["outcome"] = "rejected (not applied)"
+        elif action in ("approve", "approve-always"):
+            ch["decision"] = DECISION_APPLY
+            self._append_changelog(Change(**ch))
+            result["outcome"] = "approved + applied"
+            if action == "approve-always":
+                blessed = self._load_patterns()
+                blessed.add(ch["category"].strip().lower())
+                self._save_patterns(blessed)
+                result["outcome"] = ("approved + applied; class "
+                                     f"`{ch['category']}` now auto-applies")
+        else:
+            q.insert(idx, ch)  # restore
+            return {"ok": False, "error": f"unknown action {action}"}
+
+        self._save_queue(q)
+        return result
+
+    def status(self) -> dict:
+        q = self._load_queue()
+        return {
+            "pending": len(q),
+            "blessed_classes": sorted(self._load_patterns()),
+            "items": [
+                {"id": c["id"], "risk": c["risk"], "category": c["category"],
+                 "summary": c["summary"]} for c in q
+            ],
+        }
+
+
+# --- CLI --------------------------------------------------------------------
+
+def _today() -> str:
+    # Host Python; not the Workflow sandbox. datetime is available here.
+    return datetime.date.today().isoformat()
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(description="self-improvement LOOP engine")
+    p.add_argument("--state-dir", default=str(Path(__file__).resolve().parent / "_state"))
+    p.add_argument("--date", default=None, help="override 'today' (YYYY-MM-DD)")
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    t = sub.add_parser("triage", help="classify + route a proposed change")
+    t.add_argument("--category", required=True)
+    t.add_argument("--target", required=True)
+    t.add_argument("--summary", required=True)
+    t.add_argument("--detail", default="")
+
+    d = sub.add_parser("decide", help="resolve a pending change")
+    d.add_argument("--id", required=True, dest="change_id")
+    d.add_argument("--action", required=True,
+                   choices=["approve", "reject", "approve-always"])
+
+    sub.add_parser("status", help="show pending queue + blessed classes")
+    sub.add_parser("selftest", help="run the built-in end-to-end test")
+
+    args = p.parse_args(argv)
+    today = args.date or _today()
+
+    if args.cmd == "selftest":
+        return _selftest()
+
+    loop = Loop(Path(args.state_dir), today)
+
+    if args.cmd == "triage":
+        ch = loop.triage(args.category, args.target, args.summary, args.detail)
+        print(json.dumps({
+            "id": ch.id, "risk": ch.risk, "decision": ch.decision,
+            "blessed": ch.blessed,
+            "routed_to": "changelog.md" if ch.decision == DECISION_APPLY
+                         else f"review-{today}.md",
+        }, indent=2))
+    elif args.cmd == "decide":
+        print(json.dumps(loop.decide(args.change_id, args.action), indent=2))
+    elif args.cmd == "status":
+        print(json.dumps(loop.status(), indent=2))
+    return 0
+
+
+# --- Self-test (dogfood) ----------------------------------------------------
+
+def _selftest() -> int:
+    """End-to-end test in a throwaway temp dir. Mirrors the real lifecycle and
+    asserts the two refused failure modes stay refused."""
+    import tempfile, shutil
+
+    tmp = Path(tempfile.mkdtemp(prefix="self-improve-selftest-"))
+    fails = []
+    try:
+        loop = Loop(tmp, "2026-06-30")
+
+        # 1. Default state is safe: no blessed classes.
+        assert loop.status()["blessed_classes"] == [], "fresh install must bless nothing"
+
+        # 2. LOW applies immediately.
+        low = loop.triage("gotcha", "watch/SKILL.md", "note: focus >10min")
+        assert low.decision == DECISION_APPLY, "LOW must apply"
+        assert (tmp / "changelog.md").exists(), "LOW must hit changelog"
+
+        # 3. HIGH (skill-behavior) routes to review — NOT applied. This is the
+        #    exact drift the dogfood caught: skill edits must never self-apply.
+        high = loop.triage("skill-behavior", "watch/SKILL.md", "auto-stop at 5min")
+        assert high.decision == DECISION_REVIEW, "HIGH must hold for review"
+        assert loop.status()["pending"] == 1, "HIGH must enqueue"
+        assert (tmp / "review-2026-06-30.md").exists(), "HIGH must hit review file"
+
+        # 4. UNCLEAR routes to review, flagged.
+        unclear = loop.triage("mystery", "??", "do something novel")
+        assert unclear.risk == RISK_UNCLEAR and unclear.decision == DECISION_REVIEW
+
+        # 5. reject removes from queue, applies nothing.
+        r = loop.decide(high.id, "reject")
+        assert r["ok"] and "rejected" in r["outcome"]
+        assert loop.status()["pending"] == 1, "only the rejected item leaves"
+
+        # 6. approve-always blesses the class -> next same-class change auto-applies.
+        skill2 = loop.triage("skill-behavior", "watch/SKILL.md", "add use-case")
+        assert skill2.decision == DECISION_REVIEW, "still gated before blessing"
+        ok = loop.decide(skill2.id, "approve-always")
+        assert "auto-applies" in ok["outcome"]
+        assert "skill-behavior" in loop.status()["blessed_classes"]
+        skill3 = loop.triage("skill-behavior", "watch/SKILL.md", "add another")
+        assert skill3.decision == DECISION_APPLY and skill3.blessed, \
+            "blessed class must now auto-apply"
+
+        # 7. Blessing is explicit + scoped: a DIFFERENT high class is still gated.
+        rule = loop.triage("rule", "CLAUDE.md", "add a hard rule")
+        assert rule.decision == DECISION_REVIEW, "blessing one class must not bless others"
+
+    except AssertionError as e:
+        fails.append(str(e))
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+    if fails:
+        print("SELFTEST FAILED:")
+        for f in fails:
+            print("  -", f)
+        return 1
+    print("SELFTEST PASSED — LOW applies, HIGH/UNCLEAR gated, "
+          "approve-always blesses scoped, defaults empty.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
