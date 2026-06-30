@@ -114,6 +114,7 @@ def parse_note(path: Path) -> dict:
         "intel_key": str(intel_key),
         "signal": signal,
         "todo": chain.get("todo"),
+        "critical": chain.get("critical"),
         "produced_at": produced_at,
         "web_link": web_link,
         "note_name": path.name,
@@ -198,6 +199,36 @@ def upsert_todo(cockpit: dict, todo: dict) -> str:
     return "new"
 
 
+def upsert_critical(cockpit: dict, crit: dict) -> str:
+    """Insert or update a morning-brief critical item by ``title``.
+
+    Returns "new", "updated", or "unchanged". Unlike partner_todos, the morning
+    brief's ``critical_count`` equals ``len(critical)``, so the caller recomputes
+    it directly. ``position`` ("top"|"bottom", default "bottom") controls where a
+    new item lands — monitor-only market intel defaults to the bottom so it does
+    not outrank genuine same-day deadlines.
+    """
+    mb = cockpit.get("morning_brief")
+    if not isinstance(mb, dict):
+        raise NoteError("critical declared but cockpit has no morning_brief")
+    items = mb.setdefault("critical", [])
+    title = crit.get("title")
+    if not title:
+        raise NoteError("critical present but missing 'title'")
+    normalized = {"title": title, "body": crit.get("body", "")}
+    for i, c in enumerate(items):
+        if c.get("title") == title:
+            if c == normalized:
+                return "unchanged"
+            items[i] = normalized
+            return "updated"
+    if crit.get("position") == "top":
+        items.insert(0, normalized)
+    else:
+        items.append(normalized)
+    return "new"
+
+
 def rebuild_insights_index(notes: list[dict]) -> str:
     lines = [
         "# insights · _index",
@@ -230,17 +261,26 @@ def ingest(note_paths: list[Path], now: str, check: bool) -> int:
     before = json.dumps(_chain_fingerprint(cockpit), sort_keys=True)
 
     new_todos = 0
+    touched_critical = False
     for p in payloads:
         upsert_signal(cockpit, build_signal(p))
         if p.get("todo"):
             if upsert_todo(cockpit, p["todo"]) == "new":
                 new_todos += 1
+        if p.get("critical"):
+            upsert_critical(cockpit, p["critical"])
+            touched_critical = True
 
     # ``total`` is the full system-wide count (items is only a capped preview),
     # so bump it by the number of genuinely new todos rather than resetting it.
     if new_todos:
         block = cockpit.setdefault("partner_todos", {})
         block["total"] = int(block.get("total", 0)) + new_todos
+
+    # ``critical_count`` mirrors the critical list length — recompute directly.
+    if touched_critical:
+        mb = cockpit.get("morning_brief", {})
+        mb["critical_count"] = len(mb.get("critical", []))
 
     after = json.dumps(_chain_fingerprint(cockpit), sort_keys=True)
     changed = before != after
@@ -294,6 +334,7 @@ def _chain_fingerprint(cockpit: dict) -> dict:
     return {
         "bridge_signals": cockpit.get("bridge_signals", []),
         "partner_todos_items": cockpit.get("partner_todos", {}).get("items", []),
+        "critical": cockpit.get("morning_brief", {}).get("critical", []),
     }
 
 

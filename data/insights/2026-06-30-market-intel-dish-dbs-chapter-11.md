@@ -112,6 +112,11 @@ frontmatter / file path.
     "text": "COUNTERPARTY RISK — Dish DBS preparing Chapter 11 (WSJ via The Desk 6/29; filing as soon as this week after missed June 1 debt repayment). Hold, do not advance, the Dish Business partnership exploration until the petition posts and the debtor's commercial/packaging intentions and decision owners are clear. No pre-petition commitments or term exchange. Monitor-only. See data/insights/2026-06-30-market-intel-dish-dbs-chapter-11.md.",
     "due": null,
     "priority_hint": "high"
+  },
+  "critical": {
+    "title": "DISH DBS — CHAPTER 11 WATCH (market intel · monitor-only)",
+    "body": "WSJ via The Desk (6/29): Dish DBS — parent of Dish Network, Sling TV, and Boost Mobile — preparing a Chapter 11 filing as soon as this week after a missed June 1 debt repayment. Counterparty flag on the open Dish Business partnership exploration: hold / do not advance; no pre-petition commitments. No same-day action owed — monitor for the petition + first-day motions.",
+    "position": "bottom"
   }
 }
 ```

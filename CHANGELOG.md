@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 2026-06-30 — Critical-item support + NBCUniversal spinoff intel
+
+Extends the insights → chain pipeline to surface intel in the cockpit's
+**Critical now** section, and adds a second market-intel item (NBCUniversal).
+
+### Engine
+- `scripts/ingest_market_intel.py` — notes may now declare a `critical` object in
+  their `epc-chain` block (`title`, `body`, `position` top|bottom). The engine
+  upserts it into `morning_brief.critical` (keyed by title, idempotent) and
+  recomputes `critical_count = len(critical)`. `position` defaults to **bottom**
+  so monitor-only market intel surfaces without outranking genuine same-day
+  deadlines. Change-detection fingerprint extended to include the critical list.
+
+### Intel added
+- `data/insights/2026-06-30-market-intel-nbcuniversal-comcast-spinoff.md` (new) —
+  WSJ (Joe Flint): Comcast splitting in two, spinning off NBCUniversal next year
+  under Mike Cavanagh; widely seen as the next acquisition target. Captured as a
+  content-rights counterparty/ownership-continuity signal on a core EverPass
+  partner (Peacock/NBCSN exclusives), plus a near-term commercial opening.
+  Carries signal + partner todo + critical item.
+- `data/insights/2026-06-30-market-intel-dish-dbs-chapter-11.md` — added a
+  `critical` block (DISH DBS CHAPTER 11 WATCH).
+
+### Result in cockpit
+- `morning_brief.critical` 9 → 11 (Dish + NBCU appended, tagged "market intel ·
+  monitor-only"); `critical_count` 9 → 11.
+- `bridge_signals` 11 → 12 (NBCU leads by recency); `partner_todos.total`
+  178 → 179.
+
+### Verification
+- `--check` drift → apply → idempotent re-apply (no-op) → `--check` clean.
+- JSON valid; insights index regenerated with both notes.
+
+---
+
 ## 2026-06-30 — Automated insights → chain pipeline
 
 Turns the one-off Dish market-intel injection into a repeatable, automatic
