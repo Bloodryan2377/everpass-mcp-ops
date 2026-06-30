@@ -111,9 +111,13 @@ rule `EVERPASS/.claude/rules/motion-layer.md` (auto-loads on deck/explainer
 edits, mirrors `presentations.md`), registered in `EVERPASS/CLAUDE.md` §11, and
 cross-linked from `presentations.md`.
 
-**Next action:** Optional — ship a minimal reference explainer on the approved
-shell so the conventions have a worked example; tune v1 motion values later via a
-LOOP `rule` change if live use suggests it.
+**Worked example shipped:** `Presentations/motion-layer-reference-explainer.html`
+— self-contained demo of the v1 conventions, rendered + screenshot-verified
+headless. It's a motion reference, not a deck (graft onto the approved shell).
+
+**Next action:** Optional — tune v1 motion values via a LOOP `rule` change if
+live use suggests it; or merge the reference's motion CSS into the approved shell
+on the live box.
 
 ## Carry-over: skill-from-masters pass (formal)
 

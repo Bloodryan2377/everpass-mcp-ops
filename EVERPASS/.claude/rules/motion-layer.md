@@ -38,6 +38,12 @@ purposeful build per beat of the talk track.
   forces scrolling inside a slide.
 - External animation libraries (dependency-light rule) unless Ryan approves.
 
+## Worked example
+`Presentations/motion-layer-reference-explainer.html` demonstrates the v1
+conventions in a self-contained file. It is a motion reference, not a deck —
+graft its conventions onto `everpass-presentation-shell.html`, don't use it as a
+substitute shell.
+
 ## Changes go through the LOOP
 Tune motion values or conventions via a self-improve LOOP `rule` change, not by
 editing canon ad hoc. Full spec + rationale: `Presentations/MOTION-LAYER.md`.

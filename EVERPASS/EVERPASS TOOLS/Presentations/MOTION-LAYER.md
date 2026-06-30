@@ -81,7 +81,11 @@ the presenter-view / navigation machinery (that's the approved shell).
 - Tune the v1 durations/easing/translate values if live use suggests it, or
   replace them with canonical motion tokens if `ep-design-system` grows them —
   route either as a LOOP `rule` change.
-- Decide whether MOTION-LAYER ships with a minimal reference explainer built on
-  the approved shell (recommended, so the conventions have a worked example).
+- ✅ Worked reference example shipped:
+  `motion-layer-reference-explainer.html` — a self-contained demonstration of the
+  v1 conventions (fade + ≤8px rise, ease-out, one-at-a-time builds, reduced-motion
+  fallback, static-first). It is a **motion reference, not a deck**: graft these
+  conventions onto the approved `everpass-presentation-shell.html` on the live
+  box; do not use it as a substitute shell.
 - ✅ Promoted to a path-scoped rule (`EVERPASS/.claude/rules/motion-layer.md`),
   so it auto-loads when explainers/decks are edited.
