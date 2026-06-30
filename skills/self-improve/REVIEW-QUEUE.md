@@ -1,7 +1,12 @@
-# REVIEW-QUEUE — HIGH proposals awaiting Ryan's sign-off
+# REVIEW-QUEUE — HIGH proposals
 
-These are behavior-changing self-improvements the LOOP triaged to **HIGH** during
-the 2026-06-30 dogfood session. They are **not applied** — HIGH never self-applies.
+**Status 2026-06-29: both proposals APPROVED by Ryan and IMPLEMENTED** on branch
+`claude/self-improve-high-proposals` (engine + selftest invariants #13/#14). The
+records below are kept for audit; nothing here is pending.
+
+These were behavior-changing self-improvements the LOOP triaged to **HIGH** during
+the 2026-06-30 dogfood session. HIGH never self-applies — each waited for the
+explicit sign-off recorded above.
 
 > **Why this file exists (and isn't `_state/review-<date>.md`):** this session
 > ran in an ephemeral remote container where `_state/` is git-ignored and gets
@@ -20,6 +25,11 @@ python3 skills/self-improve/self_improve.py decide --id <id> --action {approve,r
 ---
 
 ## Proposal #1 — persist the review queue outside git-ignored `_state`
+- **RESOLVED 2026-06-29: APPROVED + IMPLEMENTED.** Added `--persist-dir`, env
+  auto-detect (`CI`/container -> committed `skills/self-improve/queue/`), and a
+  precedence resolver `resolve_state_dir()`; `patterns.json` blessing unchanged;
+  `queue/` is tracked (not git-ignored). Covered by selftest invariant #13
+  (precedence + persisted-queue round-trip across Loop instances).
 - **id (this session):** `b6b44f91e6`
 - **category:** `skill-behavior` (HIGH)
 - **target:** `self_improve.py`
@@ -38,6 +48,10 @@ python3 skills/self-improve/self_improve.py decide --id <id> --action {approve,r
   the flag.
 
 ## Proposal #2 — add a `learn` subcommand (session-retro sugar)
+- **RESOLVED 2026-06-29: APPROVED + IMPLEMENTED.** Added the `learn "<lesson>"`
+  subcommand (defaults `--category gotcha`, `--target LESSONS.md`); routes through
+  the existing `triage` path. Class `new-skill` was NOT blessed. Covered by
+  selftest invariant #14.
 - **id (this session):** `23dca55f27`
 - **category:** `new-skill` (HIGH)
 - **target:** `self_improve.py`

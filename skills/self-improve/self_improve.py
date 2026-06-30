@@ -27,11 +27,14 @@ free (stdlib only) and host-agnostic.
 
 CLI:
     self_improve.py triage   --category C --target T --summary S [--detail D]
+    self_improve.py learn    "<lesson>" [--category gotcha] [--target LESSONS.md]
     self_improve.py decide   --id ID --action {approve,reject,approve-always}
     self_improve.py status
     self_improve.py selftest
 
-State lives under --state-dir (default: alongside this file):
+State location precedence (highest first): --state-dir, --persist-dir, remote
+env (CI/container -> committed queue/ so HIGH proposals survive teardown), else
+the git-ignored _state/ alongside this file. It holds:
     patterns.json      blessed classes (empty by default)
     changelog.md       append-only log of applied LOW changes
     review-<date>.md   pending HIGH/UNCLEAR changes for the given day
@@ -252,9 +255,50 @@ def _today() -> str:
     return datetime.date.today().isoformat()
 
 
+# --- State-dir resolution ---------------------------------------------------
+
+# Default runtime state: git-ignored, transient, local.
+DEFAULT_STATE_DIR = Path(__file__).resolve().parent / "_state"
+# Committed fallback for ephemeral/remote runs: tracked, so a remote agent's
+# HIGH proposals survive container teardown and a human can resolve them later
+# on another machine. (The git-ignored _state/ would be wiped with the container.)
+COMMITTED_QUEUE_DIR = Path(__file__).resolve().parent / "queue"
+
+# Env vars that mark an ephemeral/remote container where _state/ won't survive.
+_REMOTE_ENV_VARS = ("SELF_IMPROVE_PERSIST", "CI", "CODESPACES",
+                    "REMOTE_CONTAINERS", "GITHUB_ACTIONS")
+
+
+def _is_remote_env(env=None) -> bool:
+    """True when running where git-ignored _state/ won't survive (CI/remote)."""
+    env = os.environ if env is None else env
+    return any(str(env.get(v, "")).strip() not in ("", "0", "false", "False")
+               for v in _REMOTE_ENV_VARS)
+
+
+def resolve_state_dir(state_dir=None, persist_dir=None, remote=False) -> Path:
+    """Pick where queue/changelog/patterns live. Precedence, highest first:
+        1. explicit --state-dir   (caller knows exactly where)
+        2. explicit --persist-dir (caller wants the committed path)
+        3. remote env -> COMMITTED_QUEUE_DIR (survives teardown)
+        4. default _state/        (local, git-ignored, transient)
+    Kept a pure function so the precedence is selftest-able.
+    """
+    if state_dir:
+        return Path(state_dir)
+    if persist_dir:
+        return Path(persist_dir)
+    if remote:
+        return COMMITTED_QUEUE_DIR
+    return DEFAULT_STATE_DIR
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description="self-improvement LOOP engine")
-    p.add_argument("--state-dir", default=str(Path(__file__).resolve().parent / "_state"))
+    p.add_argument("--state-dir", default=None,
+                   help="explicit state dir (overrides --persist-dir and env detection)")
+    p.add_argument("--persist-dir", default=None,
+                   help="committed dir for queue/changelog so remote runs survive teardown")
     p.add_argument("--date", default=None, help="override 'today' (YYYY-MM-DD)")
     sub = p.add_subparsers(dest="cmd", required=True)
 
@@ -263,6 +307,13 @@ def main(argv=None):
     t.add_argument("--target", required=True)
     t.add_argument("--summary", required=True)
     t.add_argument("--detail", default="")
+
+    ln = sub.add_parser("learn", help="capture a session lesson (sugar over triage)")
+    ln.add_argument("lesson", help='the lesson, e.g. "watch out for X"')
+    ln.add_argument("--category", default="gotcha",
+                    help="risk category (default: gotcha -> LOW, applies now)")
+    ln.add_argument("--target", default="LESSONS.md")
+    ln.add_argument("--detail", default="")
 
     d = sub.add_parser("decide", help="resolve a pending change")
     d.add_argument("--id", required=True, dest="change_id")
@@ -282,16 +333,19 @@ def main(argv=None):
     if args.cmd == "selftest":
         return _selftest()
 
+    state = resolve_state_dir(args.state_dir, args.persist_dir, _is_remote_env())
+
     if args.cmd == "stop-hook":
-        return _stop_hook(Path(args.state_dir))
+        return _stop_hook(state)
 
     if args.cmd == "guard":
-        return _guard(Path(args.state_dir), args.max_age_days, today)
+        return _guard(state, args.max_age_days, today)
 
-    loop = Loop(Path(args.state_dir), today)
+    loop = Loop(state, today)
 
-    if args.cmd == "triage":
-        ch = loop.triage(args.category, args.target, args.summary, args.detail)
+    if args.cmd in ("triage", "learn"):
+        summary = args.summary if args.cmd == "triage" else args.lesson
+        ch = loop.triage(args.category, args.target, summary, args.detail)
         print(json.dumps({
             "id": ch.id, "risk": ch.risk, "decision": ch.decision,
             "blessed": ch.blessed,
@@ -480,6 +534,28 @@ def _selftest() -> int:
             _guard(unused2, 7, "2026-07-15")
         assert buf.getvalue().strip() == "{}" and not unused2.exists(), \
             "guard must not create state"
+
+        # 13. Proposal #1: state-dir precedence is correct, and a persisted
+        #     queue round-trips across Loop instances — the whole point is that
+        #     a remote agent's HIGH item outlives the container that raised it.
+        assert _is_remote_env({"CI": "true"}) is True, "CI marks remote"
+        assert _is_remote_env({}) is False, "no env marks local"
+        assert _is_remote_env({"CI": "0"}) is False, "falsey env is not remote"
+        assert resolve_state_dir("/x", "/y", True) == Path("/x"), "explicit state-dir wins"
+        assert resolve_state_dir(None, "/y", True) == Path("/y"), "persist-dir beats env"
+        assert resolve_state_dir(None, None, True) == COMMITTED_QUEUE_DIR, "remote -> committed"
+        assert resolve_state_dir(None, None, False) == DEFAULT_STATE_DIR, "local -> _state"
+        persist = Path(tmp) / "committed_queue"
+        held = Loop(persist, "2026-06-30").triage("rule", "CLAUDE.md", "persisted HIGH item")
+        assert held.decision == DECISION_REVIEW, "HIGH still gated in persisted dir"
+        reopened = Loop(persist, "2026-06-30")   # fresh instance, same dir
+        assert any(c["id"] == held.id for c in reopened._load_queue()), \
+            "persisted queue must round-trip across instances"
+
+        # 14. Proposal #2: a `learn` call (gotcha default) auto-applies like any
+        #     LOW change — the one-liner retro lands without gating.
+        lesson = loop.triage("gotcha", "LESSONS.md", "learned: isolate worktrees")
+        assert lesson.decision == DECISION_APPLY, "learn (gotcha) must apply"
 
     except AssertionError as e:
         fails.append(str(e))

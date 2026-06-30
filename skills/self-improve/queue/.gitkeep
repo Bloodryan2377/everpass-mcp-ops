@@ -1,0 +1,3 @@
+# Committed queue dir (Proposal #1)
+# Holds queue/changelog when running in ephemeral/remote env so HIGH
+# proposals survive container teardown. Local runs use git-ignored _state/.
