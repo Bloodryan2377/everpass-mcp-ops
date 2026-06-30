@@ -1,0 +1,40 @@
+name: insights-pipeline
+
+# Guards the insights → chain pipeline: unit tests, structural validation of the
+# notes, and a deterministic check that the committed cockpit feed is in sync
+# with the notes (catches "edited a note but forgot to run the sync").
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "scripts/**"
+      - "tests/**"
+      - "data/insights/**"
+      - "data/mobile/mobile-cockpit.json"
+      - "data/mobile/mobile-feed-index.json"
+      - ".github/workflows/insights-pipeline.yml"
+  pull_request:
+    paths:
+      - "scripts/**"
+      - "tests/**"
+      - "data/insights/**"
+      - "data/mobile/mobile-cockpit.json"
+      - "data/mobile/mobile-feed-index.json"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate notes (no duplicate keys/ids/titles)
+        run: python scripts/ingest_market_intel.py --validate
+      - name: Chain in sync with notes (deterministic; ignores wall-clock expiry)
+        run: python scripts/ingest_market_intel.py --all --check --ignore-expiry

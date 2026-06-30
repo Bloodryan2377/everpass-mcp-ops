@@ -1,0 +1,28 @@
+{
+  "_comment": "EverPass insight->chain auto-sync hooks (Layer-2 Claude-specific wrapper, per OPERATOR-NOTES three-layer model). These tie market-intel insight notes into the cockpit chain automatically: any note added/edited under data/insights/ is propagated into data/mobile/mobile-cockpit.json by scripts/ingest_market_intel.py (idempotent; only rewrites when content changes). This is a REFERENCE SNIPPET — it is not active on its own. Install by merging the SessionStart + PostToolUse entries into the project's Claude Code settings.json (live tree) the same way hooks/preToolUse-snippet.json is mirrored into ~/.claude/settings.json. Both commands degrade gracefully (always exit 0) and resolve the repo via $CLAUDE_PROJECT_DIR.",
+  "SessionStart": [
+    {
+      "_comment": "On every session start, sync all insight notes into the cockpit chain. No-op unless a note changed since last sync (engine only writes on real content change).",
+      "hooks": [
+        {
+          "type": "command",
+          "shell": "bash",
+          "command": "bash -c 'DIR=\"${CLAUDE_PROJECT_DIR:-.}\"; bash \"$DIR/scripts/sync-insights-to-chain.sh\" 1>&2 || true; echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"SessionStart\\\",\\\"additionalContext\\\":\\\"insight->chain: synced market-intel notes into the cockpit feed (ingest_market_intel.py --all).\\\"}}\"'"
+        }
+      ]
+    }
+  ],
+  "PostToolUse": [
+    {
+      "_comment": "When an Edit/Write touches data/insights/, re-run the ingest so the note's signal + partner-todo land in the cockpit feed immediately.",
+      "matcher": "Edit|Write",
+      "hooks": [
+        {
+          "type": "command",
+          "shell": "bash",
+          "command": "bash -c 'INPUT=\"$CLAUDE_TOOL_INPUT\"; if echo \"$INPUT\" | grep -q \"data/insights/\"; then DIR=\"${CLAUDE_PROJECT_DIR:-.}\"; bash \"$DIR/scripts/sync-insights-to-chain.sh\" 1>&2 || true; echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PostToolUse\\\",\\\"additionalContext\\\":\\\"insight->chain: a data/insights note changed; ran ingest_market_intel.py --all to update the cockpit feed.\\\"}}\"; else echo \"{}\"; fi'"
+        }
+      ]
+    }
+  ]
+}

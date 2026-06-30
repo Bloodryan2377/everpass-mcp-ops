@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-feed-index/v1",
-  "generated_at": "2026-06-06T05:44:29Z",
+  "generated_at": "2026-06-30T15:30:00Z",
   "feeds": [
     {
       "name": "mobile-answers.json",
@@ -18,7 +18,7 @@
       "name": "mobile-cockpit.json",
       "url": "./mobile-cockpit.json",
       "schema": "epc-mobile-cockpit/v1",
-      "generated_at": "2026-06-06T05:44:29Z"
+      "generated_at": "2026-06-30T15:30:00Z"
     },
     {
       "name": "mobile-results.json",

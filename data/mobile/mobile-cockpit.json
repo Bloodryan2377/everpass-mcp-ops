@@ -1,13 +1,13 @@
 {
   "schema": "epc-mobile-cockpit/v1",
-  "generated_at": "2026-06-06T05:44:29Z",
+  "generated_at": "2026-06-30T15:30:00Z",
   "morning_brief": {
     "available": true,
     "date": "2026-06-06",
     "source_mtime": "2026-06-06T04:10:19Z",
     "preview_truncated": true,
     "preview": "---\n# EverPass Morning Brief — Friday, June 5, 2026\n\n## Critical / Time-Sensitive\n\n1. **CHARTER — EP LEGAL PASS + CONFIRMATION TO TAYLOR HOLDEN — DUE TODAY**\n   Counter received 6/5. Near-clean: sole material Charter insertion is §III.b FCO Documentation paragraph (good-faith/past-practice softening; EP Snapshot obligation survives re-lettered as §III.c). EP legal must confirm \"commercially reasonable advance notice\" in Exhibit E and §III.b additive-re language, then send alignment confirmation to Taylor Holden (Taylor.Holden@spectrum.com).\n   **Deadline: EP legal pass + confirmation to Taylor Holden today. Clean execution target June 9. 10 days to June 15 Mission Control.**\n\n2. **TWDC McINTOSH SPRINT 4 — 10 DAYS TO JUNE 15 MISSION CONTROL**\n   Disney's 5/29 counter reverted to Track A (all ABC affiliates + full ESPN suite; games-only rejected). Four unresolved gaps: (a) SMB margin $0 at $164/mo, (b) 115% venue-sizing uplift, (c) Venue Auth Standard rejected, (d) 200+ ABC feeds scope. Sprint 4 redlines not yet staged.\n   **Deadline: Stage Sprint 4 redlines TODAY. June 15 = hard close. Cannot slip.**\n\n3. **ACCUWEATHER — CONFIRMATION EMAIL TO McCORMACK — 5TH CONSECUTIVE CARRY**\n   READY TO SIGN. Single blocking action: send confirmation email to Patrick McCormack (Patrick.McCormack@accuweather.com) confirming three pre-execution items (incl. Exhibit D) so DocuSign can issue to Kaplan. No new decision needed — operator PASS logged 5/19.\n   **Deadline: Email sent today. Absolute final carry.**\n\n4. **VICTORY+ WNBA — ZIP/DMA LIST + CEO-TO-CEO EXECUTION — CARRIED FROM 6/4**\n   Amendment READY TO SIGN. WNBA local delivery hard-gated on Club zip/DMA list delivery to Neil Gruninger. Confirm §3(b) MFN intent with EP counsel if not yet done. Route for Kaplan/Gruninger CEO-to-CEO execution.\n   **Deadline: Zip/DMA list to Gruninger + execution routing today. No further slip.**\n\n5. **MARQUEE — GO/NO-GO TO LEE SCHLAZER — OVERDUE (WEEK 10+)**\n   Kaplan signed execution copy; Marquee counter-signature pending Ryan's go/no-go communication to Lee Schlazer. NLM W23 flagged critical. No logged decision on record. Packaging removed per Sinclair redline 4/3.\n   **Deadline: Communicate go/no-go to Lee Schlazer today.**\n\n6. **CHSN — SECTION 5(e) LAPSED ~68 DAYS; NO CURE PATH ON RECORD**\n   Section 5(e) lapsed ~March 29, 2026. No confirmed cure path, outside counsel escalation, or logged decision on record.\n   **Deadline: Decide today — cure vs. escalate to outside counsel. Log decision in cockpit.**\n\n7. **DIRECTV — C&D ACTIVE 42+ DAYS; MAY 26 MEETING OUTCOME UNLOGGED**\n   Net underpayment $2,634,239.50; $65M second payment outstanding. May 26 meeting outcome still not logged. Kelley Drye demand letter send date unconfirmed.\n   **Deadline: Log May 26 outcome in cockpit today. Confirm Kelley Drye send date.**\n\n8. **MEDIACOM — FOLLOW-UP CALL TODAY (TAPAN DANDNAIK, MARK FINCH)**\n   Noah Fischbach recap email received: Mediacom reaches ~3.2M homes; three paths forward identified. Call is live on today's calendar.\n   **Deadline: Attend call; log outcome + next action in cockpit today.**\n\n9. **TASK SCHEDULER — 25TH CONSECUTIVE OVERNIGHT MISS**\n   Auto-pipeline broken since 2026-05-19. new_learnings.md absent 37 nights. gws dead 34+ days. Dashboard stale. Ryan flagged: \"pipeline state hasn't been refreshed in a month.\"\n   **Deadline: Escalate to eng for same-day repair. Cannot carry to week 6.**",
-    "critical_count": 9,
+    "critical_count": 11,
     "critical": [
       {
         "title": "CHARTER — EP LEGAL PASS + CONFIRMATION TO TAYLOR HOLDEN — DUE TODAY",
@@ -44,13 +44,29 @@
       {
         "title": "TASK SCHEDULER — 25TH CONSECUTIVE OVERNIGHT MISS",
         "body": ""
+      },
+      {
+        "title": "DISH DBS — CHAPTER 11 WATCH (market intel · monitor-only)",
+        "body": "WSJ via The Desk (6/29): Dish DBS — parent of Dish Network, Sling TV, and Boost Mobile — preparing a Chapter 11 filing as soon as this week after a missed June 1 debt repayment. Counterparty flag on the open Dish Business partnership exploration: hold / do not advance; no pre-petition commitments. No same-day action owed — monitor for the petition + first-day motions."
+      },
+      {
+        "title": "NBCUNIVERSAL — COMCAST SPINOFF (market intel · monitor-only)",
+        "body": "WSJ (Joe Flint): Comcast splitting in two; NBCUniversal spun off next year under Mike Cavanagh and widely seen as the next acquisition target. Core EverPass content counterparty (Peacock/NBCSN exclusives) in structural transition — ownership-continuity risk on long-dated rights, plus a possible commercial opening as NBCU is told to 'play offense.' No same-day action owed; monitor."
       }
     ]
   },
   "deals": [],
   "partner_todos": {
-    "total": 177,
+    "total": 179,
     "items": [
+      {
+        "id": "intel:nbcuniversal:comcast-spinoff-counterparty-continuity-and-opening",
+        "partner": "NBCUniversal",
+        "category": "Content",
+        "text": "STRATEGIC WATCH — Comcast spinning off NBCUniversal next year (WSJ/Joe Flint); standalone under Cavanagh, widely seen as an M&A target. Factor ownership-change risk (assignment / change-of-control / MFN survival) into long-dated NBCU content terms. Near-term opening: an NBCU told to 'play offense, wallet open' may be receptive to expanding Peacock/NBCSN commercial distribution via EverPass — consider a low-cost outreach read. Monitor-only; no deadline. See data/insights/2026-06-30-market-intel-nbcuniversal-comcast-spinoff.md.",
+        "due": null,
+        "priority_hint": "high"
+      },
       {
         "id": "intel:apple:everpass-is-not-exclusive-for-small-venues-effective-exclusi",
         "partner": "Apple",
@@ -100,6 +116,14 @@
         "priority_hint": "high"
       },
       {
+        "id": "intel:dish:dbs-preparing-chapter-11-counterparty-risk-on-exploration",
+        "partner": "Dish",
+        "category": "Distribution",
+        "text": "COUNTERPARTY RISK — Dish DBS preparing Chapter 11 (WSJ via The Desk 6/29; filing as soon as this week after missed June 1 debt repayment). Hold, do not advance, the Dish Business partnership exploration until the petition posts and the debtor's commercial/packaging intentions and decision owners are clear. No pre-petition commitments or term exchange. Monitor-only. See data/insights/2026-06-30-market-intel-dish-dbs-chapter-11.md.",
+        "due": null,
+        "priority_hint": "high"
+      },
+      {
         "id": "weekly:disney:parties-connecting-to-confirm-the-potential-mg-dir",
         "partner": "Disney / ESPN",
         "category": "Content",
@@ -132,9 +156,45 @@
         "priority_hint": "high"
       }
     ],
-    "last_extracted_at": "2026-06-06T05:44:28Z"
+    "last_extracted_at": "2026-06-30T15:30:00Z"
   },
   "bridge_signals": [
+    {
+      "intel_key": "nbcu-comcast-spinoff",
+      "title": "[market-intel] Comcast spinning off NBCUniversal; seen as next major deal target",
+      "summary": "WSJ (Joe Flint): Comcast is splitting in two; NBCUniversal becomes a standalone entertainment company next year under Mike Cavanagh, and Wall Street widely expects it to become an acquisition target. Content-rights counterparty/ownership-continuity signal on a core EverPass partner (Peacock/NBCSN exclusive commercial games) — and a near-term opening, as an unshackled NBCU is told to 'play offense' with its 'wallet open.'",
+      "key_points": [
+        "Comcast splits in two; NBCU spun off next year",
+        "Mike Cavanagh to run standalone NBCU",
+        "Wall Street expects NBCU becomes an M&A target",
+        "Ownership-continuity risk on NBCU content rights",
+        "'Play offense, wallet open' — possible commercial opening"
+      ],
+      "confidence": "high",
+      "produced_at": "2026-06-30T15:30:00Z",
+      "source": "market-intel",
+      "partner": "NBCUniversal",
+      "ryan_owes_response": false,
+      "web_link": "data/insights/2026-06-30-market-intel-nbcuniversal-comcast-spinoff.md"
+    },
+    {
+      "intel_key": "dish-dbs-chapter-11",
+      "title": "[market-intel] Dish DBS (Dish Network / Sling TV parent) preparing Chapter 11",
+      "summary": "WSJ (via The Desk, 6/29): Dish DBS — Echostar's pay-TV + Boost Mobile subsidiary — is preparing a Chapter 11 filing as soon as this week after missing a June 1 debt repayment amid FCC build-out scrutiny. Counterparty flag on the open Dish Business partnership exploration: hold, do not advance, until the petition posts and the debtor's commercial/packaging intentions are visible.",
+      "key_points": [
+        "Chapter 11 imminent; law firms retained",
+        "Missed June 1 debt repayment",
+        "Q1 lost 366k pay-TV subs; ~6.6M remain",
+        "Counterparty risk on Dish exploration",
+        "Sling Orange commercial path already closed by Dish"
+      ],
+      "confidence": "high",
+      "produced_at": "2026-06-30T14:00:00Z",
+      "source": "market-intel",
+      "partner": "Dish",
+      "ryan_owes_response": false,
+      "web_link": "data/insights/2026-06-30-market-intel-dish-dbs-chapter-11.md"
+    },
     {
       "title": "[internal] RE: Charter Remittance Template",
       "summary": "They supposedly have 150+ sellers in the enterprise space so I do expect there will be volume. They're going to take down nearly 500 chilis locations as an example.",
@@ -378,8 +438,8 @@
     }
   },
   "freshness": {
-    "cockpit_data_mtime": "2026-06-06T05:44:28Z",
-    "bridge_cache_mtime": "2026-06-05T15:55:02Z",
+    "cockpit_data_mtime": "2026-06-30T15:30:00Z",
+    "bridge_cache_mtime": "2026-06-30T15:30:00Z",
     "meetings_today_mtime": "2026-06-06T05:42:59Z"
   }
 }

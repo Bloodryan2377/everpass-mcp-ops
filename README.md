@@ -36,4 +36,67 @@ These are the lightweight end-to-end checks I run after any MCP or credential ch
 - **Google Sheets:** `add_row` to `EverPass – MCP Logs` → `Sheet1` (headers `date | event | status`), then `update_row` on the same row; confirm both mutations land.
 - **Gmail:** search within `label:"EverPass"`, open a message, create a draft reply, confirm the draft appears in Gmail UI.
 
+## Insights → chain pipeline (market intel)
+
+Market-intelligence items (e.g. a competitor/distributor news item) are captured
+as **insight notes** under `data/insights/` and propagated into the live mobile
+cockpit feed automatically — no hand-editing of the JSON feeds.
+
+- **Insight note** — `data/insights/<date>-market-intel-<slug>.md`. Human-readable
+  market-intel note (`epc-market-intel/v1`) carrying a fenced ` ```epc-chain ` JSON
+  block that declares the cockpit **bridge signal** and optional **partner todo**
+  the note should surface, keyed by a stable `intel_key`.
+- **Engine** — `scripts/ingest_market_intel.py`. Reads the notes and upserts their
+  signal/todo into `data/mobile/mobile-cockpit.json`, syncs the feed manifest, and
+  regenerates `data/insights/_index.md`. **Idempotent**: entries are keyed, never
+  duplicated, and freshness timestamps (`generated_at`, cockpit/bridge mtimes) are
+  bumped only when content actually changes. `partner_todos.total` (the full
+  system-wide count) is incremented per genuinely-new todo, never reset to the
+  capped preview length.
+  - `python scripts/ingest_market_intel.py --all` — apply
+  - `python scripts/ingest_market_intel.py --all --check` — dry-run (rc=1 on drift)
+  - `python scripts/ingest_market_intel.py --list` — registry view: each note's
+    lifecycle state, chain presence, and expiry (flags items expiring within 14d)
+  - `python scripts/ingest_market_intel.py --validate` — structural check across
+    notes (duplicate `intel_key` / todo `id` / critical title); exit 2 on a problem
+- **Lifecycle (retire / expiry)** — intel doesn't live forever. A note's
+  `epc-chain` block can carry `status: "retired"` (pull its signal/todo/critical
+  back out of the cockpit now) or `expires_at: "<ISO-Z>"` (auto-retire once that
+  time passes). On expiry/retire the engine removes the entries and decrements
+  `partner_todos.total` / recomputes `critical_count`. Because the SessionStart
+  hook runs `--all`, expired intel ages out of the cockpit automatically — keeping
+  the chain honest with EverPass's freshness doctrine.
+- **Tests** — `tests/test_insights_pipeline.py` (stdlib `unittest`, runs the
+  engine against an isolated fixture tree via `EPC_*` env vars). Locks the
+  load-bearing invariants: idempotency, `--check` exit codes, `total` not reset to
+  the preview length, `critical_count` recompute, newest-first ordering, the
+  retire/expiry lifecycle, validation, `--ignore-expiry`, and title-collision
+  safety. Run: `python -m unittest discover -s tests`.
+- **CI** — `.github/workflows/insights-pipeline.yml` runs the unit tests,
+  `--validate`, and a deterministic `--all --check --ignore-expiry` (proves the
+  committed cockpit feed is in sync with the notes) on every push/PR that touches
+  the pipeline. `--ignore-expiry` keeps the check independent of wall-clock so it
+  doesn't flake as items age past their `expires_at`.
+- **Wrapper** — `scripts/sync-insights-to-chain.sh`. Forgiving entry point (used
+  by hand and by the optional hooks); always exits 0 so it can't block a session
+  or an edit.
+- **Auto tie-in (optional, operator-installed)** — a **SessionStart** hook (sync
+  on every session open) plus a **PostToolUse** hook (re-sync whenever an
+  `Edit`/`Write` touches `data/insights/`), both just calling the wrapper. Because
+  these are auto-executing startup config, they are **not** committed as active
+  config — the operator adds them to the project's Claude Code `settings.json`
+  deliberately (Layer-2 wrapper), the same way `hooks/preToolUse-snippet.json` is
+  mirrored into `~/.claude/settings.json`.
+
+- **Scaffolder** — `scripts/new_insight.py`. Renders a complete, correctly-structured
+  insight note (frontmatter + body + `epc-chain` block) from a compact JSON spec, so
+  neither the operator nor Claude hand-writes the machine block, then runs the ingest:
+  - `python scripts/new_insight.py --from-json spec.json` (or `--from-json -` for stdin)
+  - derives `intel_key`/`todo.id`/critical title from the spec; `--no-sync` to write only.
+
+To add new market intel: either run the scaffolder with a spec, or drop a note in
+`data/insights/` by hand (copy an existing one and edit the `epc-chain` block), then
+run `bash scripts/sync-insights-to-chain.sh` — or, with the optional hooks installed,
+the sync fires automatically on save.
+
 See [MCP_SETUP.md](MCP_SETUP.md) for the detailed technical layout and [TODO.md](TODO.md) for the next-step backlog.

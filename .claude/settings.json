@@ -1,0 +1,28 @@
+{
+  "_comment": "Active project-local Claude Code hooks for the EverPass mcp-ops mirror. User-authorized 2026-06-30. Ties market-intel insight notes into the cockpit chain automatically: any note added/edited under data/insights/ is propagated into data/mobile/mobile-cockpit.json by scripts/ingest_market_intel.py (idempotent; only rewrites when content changes). Source of truth for the wiring is hooks/insight-chain-hooks.json; mirror these into the live OneDrive tree's settings.json for the same behavior in the runtime.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "bash -c 'DIR=\"${CLAUDE_PROJECT_DIR:-.}\"; bash \"$DIR/scripts/sync-insights-to-chain.sh\" 1>&2 || true; echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"SessionStart\\\",\\\"additionalContext\\\":\\\"insight->chain: synced market-intel notes into the cockpit feed (ingest_market_intel.py --all).\\\"}}\"'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "bash -c 'INPUT=\"$CLAUDE_TOOL_INPUT\"; if echo \"$INPUT\" | grep -q \"data/insights/\"; then DIR=\"${CLAUDE_PROJECT_DIR:-.}\"; bash \"$DIR/scripts/sync-insights-to-chain.sh\" 1>&2 || true; echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PostToolUse\\\",\\\"additionalContext\\\":\\\"insight->chain: a data/insights note changed; ran ingest_market_intel.py --all to update the cockpit feed.\\\"}}\"; else echo \"{}\"; fi'"
+          }
+        ]
+      }
+    ]
+  }
+}

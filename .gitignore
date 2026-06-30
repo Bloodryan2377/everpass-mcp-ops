@@ -1,0 +1,7 @@
+# Python bytecode cache
+__pycache__/
+*.py[cod]
+
+# Claude Code session runtime (not part of the tracked scaffold)
+.claude/scheduled_tasks.lock
+.claude/scheduled_tasks.json
