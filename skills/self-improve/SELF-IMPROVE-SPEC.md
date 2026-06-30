@@ -47,6 +47,18 @@ human grant. **`patterns.json` (the blessed set) is empty by default** — a fre
 install gates every behavior change. Blessing is scoped: blessing
 `skill-behavior` does **not** bless `rule`.
 
+## Memory model (vocabulary)
+
+Mapping the LOOP onto the practitioner vocabulary for self-improving agents
+(see `MASTERS.md`), it captures three memory types:
+
+- **Semantic** — reusable rules/patterns. Our blessed classes (`patterns.json`)
+  and applied `doc`/`gotcha` entries in `changelog.md`.
+- **Episodic** — a specific correction/failure awaiting a call. Our pending
+  review items (`review-<date>.md` / `queue.json`).
+- **Working** — the current task context that proposes a change in the first
+  place.
+
 ## State
 
 All under `_state/` (git-ignored; runtime, not source):

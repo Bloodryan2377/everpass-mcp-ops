@@ -19,7 +19,10 @@ empty = safe. Tested end-to-end; dogfooding caught and fixed a real drift bug.
   - `SELF-IMPROVE-SPEC.md` — full design, invariants, the dogfood catch.
   - `CLAUDE-TRIGGER-snippet.md` — paste-in block for global `~/.claude/CLAUDE.md`.
   - `install.py` — one-command sync repo → live `~/.claude` (see "Install" below).
+  - `MASTERS.md` — skill-from-masters provenance (videos primary + web corrob.).
   - `_state/` — runtime state (git-ignored).
+- **Design carry-over draft:** `EVERPASS TOOLS/Presentations/MOTION-LAYER.md`
+  (held in the LOOP review queue for sign-off).
   - Hook snippets live one level up in `hooks/`: `stop-snippet.json`,
     `sessionStart-snippet.json`.
 - **Live runtime:** `~/.claude/skills/self-improve/` on the Windows box. Per
@@ -101,11 +104,17 @@ in the design-system docs, so it isn't discoverable or enforceable the way the
 static layer is. The risk is drift: explainers get built ad hoc instead of
 against a named, versioned motion spec.
 
-**Next action:** Add a MOTION-LAYER section to the design-system docs (alongside
-`ep-design-system`) that names the layer, states it sits on top of the static
-design system, and points to the motion conventions + any explainer template.
-Once written, route it through this LOOP as a `rule`/`doc` change so it lands the
-governed way.
+**Status (2026-06-30): DRAFTED + routed through the LOOP.** Draft lives at
+`EVERPASS TOOLS/Presentations/MOTION-LAYER.md` — names the layer, positions it on
+top of `ep-design-system`, encodes restrained-motion conventions (reconciled with
+the "avoid heavy animation" house style), with numeric defaults flagged
+_(proposed)_. Routed as category `rule` → **HIGH → held in `review-<date>.md` for
+Ryan's sign-off** (it is not yet canon).
+
+**Next action:** Ryan reviews the proposed motion defaults + open questions at the
+bottom of the draft, then `self_improve.py decide --id <id> --action approve`
+(or supply canonical motion tokens from `ep-design-system` and re-draft). On
+approval, consider promoting it to a path-scoped rule under `.claude/rules/`.
 
 ## Carry-over: skill-from-masters pass (formal)
 
@@ -124,10 +133,16 @@ would not surface as vividly. The open item is to run the **formal**
 skill-from-masters pass and reconcile it against what the videos already taught,
 so the provenance is captured in the skill itself.
 
-**Next action:** Run the formal `skill-from-masters` pass on `self-improve`;
-diff its output against the video-derived lessons; fold any net-new guidance in
-via this LOOP (likely `doc`/`gotcha` = low-risk, lands immediately). Keep the
-videos cited as the primary source — they are the golden set.
+**Status (2026-06-30): DONE.** Formal pass run and recorded in `MASTERS.md`:
+videos cited as primary/golden source; a June-2026 web pass corroborates the
+design from independent sources (it did **not** surface "Austin Marchese" by
+name, so the videos stay primary). Net-new guidance — naming the three memory
+types (semantic/episodic/working) — was the only divergence; folded in via the
+LOOP as a `doc` (LOW → auto-applied to `SELF-IMPROVE-SPEC.md`). **Zero behavior
+(HIGH) changes** — masters and corroboration agree.
+
+**Next action:** Drop the 5 concrete video titles/links into `MASTERS.md` (they
+were referenced abstractly; that file has a placeholder for them).
 
 ## Open / optional next steps
 
@@ -137,8 +152,10 @@ videos cited as the primary source — they are the golden set.
 2. ~~**Periodic guard** that warns when review items age past N days.~~ **Done**
    — `hooks/sessionStart-snippet.json` + `self_improve.py guard --max-age-days N`
    (default 7). Installed by `install.py`.
-3. **MOTION-LAYER** note in the design docs — see "Carry-over: MOTION-LAYER".
-4. Formal **skill-from-masters** pass — see "Carry-over: skill-from-masters".
+3. ~~**MOTION-LAYER** note in the design docs.~~ **Drafted + held for sign-off**
+   — `EVERPASS TOOLS/Presentations/MOTION-LAYER.md`. See "Carry-over: MOTION-LAYER".
+4. ~~Formal **skill-from-masters** pass.~~ **Done** — `MASTERS.md`. See
+   "Carry-over: skill-from-masters". (Only follow-up: paste the 5 video links in.)
 
 ## Try it
 
