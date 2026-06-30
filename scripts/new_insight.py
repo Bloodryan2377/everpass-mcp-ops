@@ -99,6 +99,10 @@ def render_note(spec: dict) -> tuple[str, str]:
         "ryan_owes_response": bool(sig.get("ryan_owes_response", False)),
     }
     chain = {"intel_key": slug, "produced_at": produced_at, "signal": signal}
+    if spec.get("status"):
+        chain["status"] = spec["status"]
+    if spec.get("expires_at"):
+        chain["expires_at"] = spec["expires_at"]
 
     if spec.get("todo"):
         t = spec["todo"]

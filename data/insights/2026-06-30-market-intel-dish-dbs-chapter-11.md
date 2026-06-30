@@ -90,6 +90,7 @@ frontmatter / file path.
 {
   "intel_key": "dish-dbs-chapter-11",
   "produced_at": "2026-06-30T14:00:00Z",
+  "expires_at": "2026-07-21T00:00:00Z",
   "signal": {
     "title": "[market-intel] Dish DBS (Dish Network / Sling TV parent) preparing Chapter 11",
     "summary": "WSJ (via The Desk, 6/29): Dish DBS — Echostar's pay-TV + Boost Mobile subsidiary — is preparing a Chapter 11 filing as soon as this week after missing a June 1 debt repayment amid FCC build-out scrutiny. Counterparty flag on the open Dish Business partnership exploration: hold, do not advance, until the petition posts and the debtor's commercial/packaging intentions are visible.",

@@ -1,5 +1,42 @@
 # CHANGELOG
 
+## 2026-06-30 — Evolve the system: lifecycle, registry, tests, bug fix
+
+Makes the insights → chain pipeline production-grade: intel can now leave the
+chain, there's a registry view, a regression suite, and a latent signal-collision
+bug is fixed.
+
+### Lifecycle (retire / expiry)
+- `ingest_market_intel.py` — a note's `epc-chain` block may declare
+  `status: "retired"` or `expires_at: "<ISO-Z>"`. Retired/expired notes have their
+  signal (by `intel_key`), todo (by `id`, decrementing `total`), and critical (by
+  title, recomputing `critical_count`) **removed** from the cockpit. Because the
+  SessionStart hook runs `--all`, expired intel ages out automatically.
+- Live notes given sunsets: Dish `expires_at` 2026-07-21, NBCU 2026-09-30.
+
+### Registry + testability
+- `--list` mode: prints each note's lifecycle state and whether it's in the chain.
+- Engine paths are now overridable via `EPC_COCKPIT` / `EPC_FEED_INDEX` /
+  `EPC_INSIGHTS_DIR` env vars so it can run against an isolated fixture tree.
+- `tests/test_insights_pipeline.py` — 11-case stdlib `unittest` suite (subprocess
+  against a temp tree). Covers insert, idempotency, `--check` exit codes, `total`
+  not reset to preview length, `critical_count` recompute, newest-first ordering,
+  retire, expiry, title-collision coexistence, and legacy un-keyed adoption.
+  Run: `python -m unittest discover -s tests`.
+
+### Bug fix
+- `upsert_signal` title-fallback now only adopts a pre-existing **un-keyed**
+  (legacy/manual) signal — never one that already carries a different `intel_key`.
+  Previously two notes sharing a signal title could silently overwrite each other.
+  Caught by the new test suite; the Dish reconciliation path still works.
+
+### Verification
+- `python -m unittest discover -s tests` → 11 passed.
+- Real chain still `--check` clean after the refactor (no behavior change for the
+  existing Dish/NBCU items); `--list` shows both active / in-chain.
+
+---
+
 ## 2026-06-30 — Insight-note scaffolder (article → note)
 
 Closes the last manual step in the pipeline: instead of hand-writing a note's

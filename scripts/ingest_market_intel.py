@@ -37,6 +37,7 @@ from __future__ import annotations
 import argparse
 import datetime as _dt
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -48,10 +49,19 @@ except Exception as exc:  # pragma: no cover - environment guard
     sys.exit(2)
 
 # --- Repo layout -----------------------------------------------------------
+# Paths default to the repo layout but are overridable via env vars so the
+# engine can run against an isolated fixture tree (used by the test suite).
 REPO = Path(__file__).resolve().parents[1]
-INSIGHTS_DIR = REPO / "data" / "insights"
-COCKPIT = REPO / "data" / "mobile" / "mobile-cockpit.json"
-FEED_INDEX = REPO / "data" / "mobile" / "mobile-feed-index.json"
+
+
+def _path(env: str, *default: str) -> Path:
+    v = os.environ.get(env)
+    return Path(v) if v else REPO.joinpath(*default)
+
+
+INSIGHTS_DIR = _path("EPC_INSIGHTS_DIR", "data", "insights")
+COCKPIT = _path("EPC_COCKPIT", "data", "mobile", "mobile-cockpit.json")
+FEED_INDEX = _path("EPC_FEED_INDEX", "data", "mobile", "mobile-feed-index.json")
 INSIGHTS_INDEX = INSIGHTS_DIR / "_index.md"
 
 _CHAIN_BLOCK = re.compile(r"```epc-chain\s*\n(.*?)\n```", re.DOTALL)
@@ -108,7 +118,18 @@ def parse_note(path: Path) -> dict:
     produced_at = chain.get("produced_at") or fm.get("produced_at")
     if hasattr(produced_at, "isoformat"):  # yaml may parse to datetime
         produced_at = produced_at.isoformat().replace("+00:00", "Z")
-    web_link = chain.get("web_link") or str(path.relative_to(REPO)).replace("\\", "/")
+    if chain.get("web_link"):
+        web_link = chain["web_link"]
+    else:
+        try:
+            web_link = str(path.relative_to(REPO)).replace("\\", "/")
+        except ValueError:  # note lives outside the repo (e.g. fixture tree)
+            web_link = path.name
+
+    expires_at = chain.get("expires_at")
+    if hasattr(expires_at, "isoformat"):
+        expires_at = expires_at.isoformat().replace("+00:00", "Z")
+    status = str(chain.get("status") or fm.get("status") or "active").lower()
 
     return {
         "intel_key": str(intel_key),
@@ -118,6 +139,8 @@ def parse_note(path: Path) -> dict:
         "produced_at": produced_at,
         "web_link": web_link,
         "note_name": path.name,
+        "status": status,
+        "expires_at": expires_at,
     }
 
 
@@ -149,7 +172,14 @@ def upsert_signal(cockpit: dict, new_sig: dict) -> bool:
     key = new_sig["intel_key"]
     idx = None
     for i, s in enumerate(signals):
-        if s.get("intel_key") == key or s.get("title") == new_sig["title"]:
+        # Primary match is intel_key. Title is only a fallback for adopting a
+        # pre-existing *un-keyed* (legacy / manually-added) entry — never a
+        # signal that already carries a different key, so two notes that happen
+        # to share a title can't hijack each other.
+        if s.get("intel_key") == key:
+            idx = i
+            break
+        if not s.get("intel_key") and s.get("title") == new_sig["title"]:
             idx = i
             break
     if idx is not None:
@@ -229,7 +259,54 @@ def upsert_critical(cockpit: dict, crit: dict) -> str:
     return "new"
 
 
-def rebuild_insights_index(notes: list[dict]) -> str:
+# --- Lifecycle: retire / expiry -------------------------------------------
+
+def effective_state(payload: dict, now: str) -> str:
+    """Resolve a note's lifecycle state: 'active', 'retired', or 'expired'.
+
+    A note is retired when it declares ``status: retired``; expired when its
+    ``expires_at`` is at or before ``now`` (ISO-Z strings compare lexically).
+    Both retired and expired notes have their cockpit entries removed.
+    """
+    if payload.get("status") == "retired":
+        return "retired"
+    exp = payload.get("expires_at")
+    if exp and str(now) >= str(exp):
+        return "expired"
+    return "active"
+
+
+def remove_signal(cockpit: dict, intel_key: str) -> bool:
+    signals = cockpit.get("bridge_signals", [])
+    for i, s in enumerate(signals):
+        if s.get("intel_key") == intel_key:
+            del signals[i]
+            return True
+    return False
+
+
+def remove_todo(cockpit: dict, tid: str) -> bool:
+    """Remove a partner todo by id; decrement ``total`` if it was present."""
+    block = cockpit.get("partner_todos", {})
+    items = block.get("items", [])
+    for i, t in enumerate(items):
+        if t.get("id") == tid:
+            del items[i]
+            block["total"] = max(0, int(block.get("total", 0)) - 1)
+            return True
+    return False
+
+
+def remove_critical(cockpit: dict, title: str) -> bool:
+    items = cockpit.get("morning_brief", {}).get("critical", [])
+    for i, c in enumerate(items):
+        if c.get("title") == title:
+            del items[i]
+            return True
+    return False
+
+
+def rebuild_insights_index(notes: list[dict], now: str = "") -> str:
     lines = [
         "# insights · _index",
         "",
@@ -245,7 +322,9 @@ def rebuild_insights_index(notes: list[dict]) -> str:
     ]
     for n in sorted(notes, key=lambda x: x["note_name"], reverse=True):
         title = n["signal"]["title"].replace("[market-intel] ", "")
-        lines.append(f"- [{n['note_name']}]({n['note_name']}) · {title}")
+        state = effective_state(n, now) if now else n.get("status", "active")
+        tag = "" if state == "active" else f" · **{state}**"
+        lines.append(f"- [{n['note_name']}]({n['note_name']}) · {title}{tag}")
     return "\n".join(lines) + "\n"
 
 
@@ -262,17 +341,30 @@ def ingest(note_paths: list[Path], now: str, check: bool) -> int:
 
     new_todos = 0
     touched_critical = False
+    retired = []  # (note_name, state) for active->removed transitions
     for p in payloads:
-        upsert_signal(cockpit, build_signal(p))
-        if p.get("todo"):
-            if upsert_todo(cockpit, p["todo"]) == "new":
-                new_todos += 1
-        if p.get("critical"):
-            upsert_critical(cockpit, p["critical"])
-            touched_critical = True
+        state = effective_state(p, now)
+        if state == "active":
+            upsert_signal(cockpit, build_signal(p))
+            if p.get("todo"):
+                if upsert_todo(cockpit, p["todo"]) == "new":
+                    new_todos += 1
+            if p.get("critical"):
+                upsert_critical(cockpit, p["critical"])
+                touched_critical = True
+        else:
+            # Retired or expired: pull the note's entries back out of the chain.
+            remove_signal(cockpit, p["intel_key"])
+            if p.get("todo", {}).get("id"):
+                remove_todo(cockpit, p["todo"]["id"])
+            if p.get("critical", {}).get("title"):
+                remove_critical(cockpit, p["critical"]["title"])
+                touched_critical = True
+            retired.append((p["note_name"], state))
 
     # ``total`` is the full system-wide count (items is only a capped preview),
     # so bump it by the number of genuinely new todos rather than resetting it.
+    # (Removals decrement ``total`` inline in remove_todo.)
     if new_todos:
         block = cockpit.setdefault("partner_todos", {})
         block["total"] = int(block.get("total", 0)) + new_todos
@@ -286,7 +378,7 @@ def ingest(note_paths: list[Path], now: str, check: bool) -> int:
     changed = before != after
 
     # Insights index is regenerated deterministically from the notes present.
-    new_index = rebuild_insights_index(payloads)
+    new_index = rebuild_insights_index(payloads, now)
     index_changed = (not INSIGHTS_INDEX.exists()) or INSIGHTS_INDEX.read_text(encoding="utf-8") != new_index
 
     if not changed and not index_changed:
@@ -321,10 +413,14 @@ def ingest(note_paths: list[Path], now: str, check: bool) -> int:
     if index_changed:
         INSIGHTS_INDEX.write_text(new_index, encoding="utf-8")
 
+    retired_note = ""
+    if retired:
+        retired_note = " · retired/expired: " + ", ".join(f"{n} ({s})" for n, s in retired)
     print(
         f"ingest_market_intel: applied {len(payloads)} note(s) → cockpit "
         f"({len(cockpit.get('bridge_signals', []))} signals, "
-        f"{cockpit.get('partner_todos', {}).get('total', 0)} todos) @ {now}"
+        f"{cockpit.get('partner_todos', {}).get('total', 0)} todos, "
+        f"{cockpit.get('morning_brief', {}).get('critical_count', 0)} critical) @ {now}{retired_note}"
     )
     return 0
 
@@ -344,13 +440,38 @@ def discover_notes() -> list[Path]:
     return sorted(p for p in INSIGHTS_DIR.glob("*.md") if p.name != "_index.md")
 
 
+def list_registry(now: str) -> int:
+    """Print every insight note with its lifecycle state and chain presence."""
+    paths = discover_notes()
+    if not paths:
+        print("ingest_market_intel: no insight notes found")
+        return 0
+    cockpit = _read_json(COCKPIT) if COCKPIT.exists() else {}
+    live_keys = {s.get("intel_key") for s in cockpit.get("bridge_signals", [])}
+    print(f"{'STATE':<9} {'IN-CHAIN':<9} {'INTEL_KEY':<34} PRODUCED_AT")
+    for p in paths:
+        try:
+            note = parse_note(p)
+        except NoteError as exc:
+            print(f"{'ERROR':<9} {'?':<9} {p.name}: {exc}")
+            continue
+        state = effective_state(note, now)
+        in_chain = "yes" if note["intel_key"] in live_keys else "no"
+        print(f"{state:<9} {in_chain:<9} {note['intel_key']:<34} {note.get('produced_at') or '-'}")
+    return 0
+
+
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser(description="Ingest market-intel insight notes into the EverPass chain.")
     ap.add_argument("notes", nargs="*", help="Specific note paths (default: --all)")
     ap.add_argument("--all", action="store_true", help="Scan data/insights/*.md")
     ap.add_argument("--check", action="store_true", help="Dry-run; exit 1 if the chain would change")
+    ap.add_argument("--list", action="store_true", dest="list_", help="List notes with lifecycle state + chain presence; no writes")
     ap.add_argument("--now", default=None, help="Override timestamp (ISO 8601 Z); default = current UTC")
     args = ap.parse_args(argv)
+
+    if args.list_:
+        return list_registry(_now_iso(args.now))
 
     if args.notes:
         paths = [Path(n) if Path(n).is_absolute() else (REPO / n) for n in args.notes]

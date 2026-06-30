@@ -86,6 +86,7 @@ re-ingestion is idempotent.
 {
   "intel_key": "nbcu-comcast-spinoff",
   "produced_at": "2026-06-30T15:30:00Z",
+  "expires_at": "2026-09-30T00:00:00Z",
   "signal": {
     "title": "[market-intel] Comcast spinning off NBCUniversal; seen as next major deal target",
     "summary": "WSJ (Joe Flint): Comcast is splitting in two; NBCUniversal becomes a standalone entertainment company next year under Mike Cavanagh, and Wall Street widely expects it to become an acquisition target. Content-rights counterparty/ownership-continuity signal on a core EverPass partner (Peacock/NBCSN exclusive commercial games) — and a near-term opening, as an unshackled NBCU is told to 'play offense' with its 'wallet open.'",
