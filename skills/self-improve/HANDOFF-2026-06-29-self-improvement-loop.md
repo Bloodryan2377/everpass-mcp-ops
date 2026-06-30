@@ -64,9 +64,9 @@ can't return silently. Patterns empty by default = safe.
 
 ## Open / optional next steps
 
-1. **Stop-hook** to surface pending-review count at session end (so a rotting
-   queue is visible). See `hooks/preToolUse-snippet.json` for the repo's hook
-   convention; this one would be a Stop hook.
+1. ~~**Stop-hook** to surface pending-review count at session end.~~ **Done** —
+   `hooks/stop-snippet.json` + `self_improve.py stop-hook`. Paste under the
+   `Stop` key in `~/.claude/settings.json` on the live box.
 2. **Periodic guard** that warns when review items age past N days.
 3. Explicit **MOTION-LAYER** note in the design docs.
 4. A formal **skill-from-masters** pass (currently substituted by 5 real

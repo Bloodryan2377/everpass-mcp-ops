@@ -1,0 +1,12 @@
+[
+  {
+    "_comment": "self-improve-pending-review: at session end, surface the count of self-improvement changes still awaiting sign-off (HIGH/UNCLEAR held in review-<date>.md). Read-only and non-blocking: emits a systemMessage when items are pending, {} otherwise. Paste under the \"Stop\" key in ~/.claude/settings.json. Assumes the self-improve skill is installed at ~/.claude/skills/self-improve/ (repo mirror: skills/self-improve/).",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash -c 'SI=\"$HOME/.claude/skills/self-improve/self_improve.py\"; ST=\"$HOME/.claude/skills/self-improve/_state\"; if [ -f \"$SI\" ]; then python \"$SI\" --state-dir \"$ST\" stop-hook 2>/dev/null || echo \"{}\"; else echo \"{}\"; fi'",
+        "shell": "bash"
+      }
+    ]
+  }
+]

@@ -271,12 +271,16 @@ def main(argv=None):
 
     sub.add_parser("status", help="show pending queue + blessed classes")
     sub.add_parser("selftest", help="run the built-in end-to-end test")
+    sub.add_parser("stop-hook", help="emit Stop-hook JSON: surface pending-review count")
 
     args = p.parse_args(argv)
     today = args.date or _today()
 
     if args.cmd == "selftest":
         return _selftest()
+
+    if args.cmd == "stop-hook":
+        return _stop_hook(Path(args.state_dir))
 
     loop = Loop(Path(args.state_dir), today)
 
@@ -292,6 +296,46 @@ def main(argv=None):
         print(json.dumps(loop.decide(args.change_id, args.action), indent=2))
     elif args.cmd == "status":
         print(json.dumps(loop.status(), indent=2))
+    return 0
+
+
+# --- Stop hook --------------------------------------------------------------
+
+def _stop_hook(state_dir: Path) -> int:
+    """Emit the Claude Code Stop-hook JSON contract, surfacing the pending
+    self-improvement review count to the user at session end.
+
+    Read-only: must NOT create the state dir or touch state — a session that
+    never used the LOOP should produce a clean no-op `{}` and leave no trace.
+    Prints `{"systemMessage": ...}` (shown to the user, does not block stop)
+    when items are pending; `{}` otherwise. Never raises: a broken hook must
+    not wedge session shutdown.
+    """
+    try:
+        queue_path = Path(state_dir) / "queue.json"
+        if not queue_path.exists():
+            print("{}")
+            return 0
+        items = json.loads(queue_path.read_text())
+        n = len(items)
+        if n == 0:
+            print("{}")
+            return 0
+        risks = {}
+        for c in items:
+            risks[c.get("risk", "?")] = risks.get(c.get("risk", "?"), 0) + 1
+        breakdown = ", ".join(f"{k} {v}" for k, v in sorted(risks.items()))
+        oldest = items[0].get("summary", "")
+        msg = (
+            f"⏳ self-improve: {n} change(s) awaiting your review ({breakdown}). "
+            f"Oldest: \"{oldest}\". "
+            f"Resolve with `self_improve.py status` then "
+            f"`self_improve.py decide --id <id> --action {{approve,reject,approve-always}}`."
+        )
+        print(json.dumps({"systemMessage": msg}))
+    except Exception:
+        # A surfacing hook must never block shutdown on its own failure.
+        print("{}")
     return 0
 
 
@@ -344,6 +388,24 @@ def _selftest() -> int:
         # 7. Blessing is explicit + scoped: a DIFFERENT high class is still gated.
         rule = loop.triage("rule", "CLAUDE.md", "add a hard rule")
         assert rule.decision == DECISION_REVIEW, "blessing one class must not bless others"
+
+        # 8. Stop-hook is read-only and never creates state. An unused state dir
+        #    yields a clean no-op and leaves no trace.
+        unused = Path(tmp) / "never_used"
+        import io, contextlib
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            _stop_hook(unused)
+        assert buf.getvalue().strip() == "{}", "stop-hook on unused state must be {}"
+        assert not unused.exists(), "stop-hook must not create the state dir"
+
+        # 9. Stop-hook surfaces a systemMessage when items are pending.
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            _stop_hook(tmp)   # has pending items (rule, unclear) from above
+        out = json.loads(buf.getvalue())
+        assert "systemMessage" in out and "awaiting your review" in out["systemMessage"], \
+            "stop-hook must surface pending count"
 
     except AssertionError as e:
         fails.append(str(e))

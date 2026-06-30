@@ -37,6 +37,8 @@ runtime.
   sign-off and never self-applies; `approve-always` blesses a class. Defaults
   empty = safe. Engine: `self_improve.py` (stdlib only; `selftest` passes).
   Trigger snippet for global `CLAUDE.md` in `CLAUDE-TRIGGER-snippet.md`.
+  Stop-hook (`hooks/stop-snippet.json`) surfaces the pending-review count at
+  session end; paste under the `Stop` key in `~/.claude/settings.json`.
 
 ## Three layers — what is what
 

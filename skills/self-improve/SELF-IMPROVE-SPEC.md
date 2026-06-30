@@ -92,10 +92,16 @@ was cleared and the invariant "HIGH routes to review unless explicitly blessed"
 was added to `selftest` (invariants 3, 6, 7) so the regression can't return
 silently. Defaults-empty is the safety property; the test guards it.
 
+## Built since v1
+
+- **Stop-hook** (`hooks/stop-snippet.json`) — surfaces the pending-review count
+  at session end so a rotting queue is visible. Read-only and non-blocking:
+  emits a `systemMessage` when items are pending, `{}` otherwise. Engine entry
+  point: `self_improve.py stop-hook` (covered by `selftest` invariants 8–9 —
+  never creates state, always surfaces a pending count).
+
 ## Open / optional (not yet built)
 
-- **Stop-hook** that surfaces the pending-review count at end of session, so a
-  rotting queue is visible.
 - **Periodic guard** that warns when `review-<date>.md` items age past N days.
 - A formal "skill-from-masters" pass (currently substituted by studying real
   practitioner videos — stronger failure-case coverage than a web search).
