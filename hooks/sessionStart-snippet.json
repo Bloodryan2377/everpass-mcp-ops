@@ -1,0 +1,12 @@
+[
+  {
+    "_comment": "self-improve-stale-guard: at session start, warn if any self-improvement review items have gone unresolved past the age threshold (default 7 days). A queue nobody decides is its own failure mode; this makes the rot loud. Read-only and non-blocking: emits a systemMessage when something is overdue, {} otherwise. Tune the threshold via --max-age-days. Paste under the \"SessionStart\" key in ~/.claude/settings.json. Assumes the self-improve skill is installed at ~/.claude/skills/self-improve/ (repo mirror: skills/self-improve/).",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "bash -c 'SI=\"$HOME/.claude/skills/self-improve/self_improve.py\"; ST=\"$HOME/.claude/skills/self-improve/_state\"; if [ -f \"$SI\" ]; then python \"$SI\" --state-dir \"$ST\" guard --max-age-days 7 2>/dev/null || echo \"{}\"; else echo \"{}\"; fi'",
+        "shell": "bash"
+      }
+    ]
+  }
+]

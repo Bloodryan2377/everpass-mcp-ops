@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MOTION-LAYER — reference explainer</title>
+<!--
+  MOTION-LAYER reference explainer (v1, 2026-06-30).
+  A self-contained, worked example of the EverPass MOTION-LAYER conventions
+  (EVERPASS TOOLS/Presentations/MOTION-LAYER.md; rule: .claude/rules/motion-layer.md).
+
+  This demonstrates MOTION ONLY. It is intentionally minimal and is NOT a deck:
+  on the live box, graft these motion conventions onto the approved
+  everpass-presentation-shell.html — do not use this as a substitute shell.
+
+  Every motion choice here maps to a v1 default:
+    - transitions 200-300ms, ease-out cubic-bezier(0.2,0,0,1)
+    - reveals = fade + small (<=8px) translateY; no zoom/spin/slide-across
+    - one primary element animates at a time; build top->bottom
+    - no ambient/idle motion
+    - honors prefers-reduced-motion (collapses to the static composition)
+    - static-first: with JS off / reduced-motion, all content is fully readable
+-->
+<style>
+  :root {
+    /* Restrained EverPass-style palette: neutral ground, single accent. */
+    --bg: #0f1115;
+    --ink: #f4f6f8;
+    --muted: #9aa3ad;
+    --accent: #4ea1ff;
+    --line: #232733;
+    /* MOTION-LAYER v1 tokens — the single source of motion truth in this file. */
+    --motion-dur: 260ms;
+    --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+    --motion-rise: 8px;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    /* Viewport-fit, no scrolling inside the stage (house style). */
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+  .stage {
+    display: grid;
+    place-items: center;
+    padding: 6vmin;
+  }
+  .slide { max-width: 70ch; width: 100%; }
+  .eyebrow {
+    color: var(--accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 1.2rem;
+  }
+  h1 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; margin: 0 0 1.5rem; font-weight: 600; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  li {
+    padding: 0.7rem 0 0.7rem 1.4rem;
+    position: relative;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+  }
+  li:first-child { border-top: none; }
+  li::before {
+    content: "";
+    position: absolute; left: 0; top: 1.15rem;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+  }
+  li .why { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 0.2rem; }
+
+  /* --- THE MOTION LAYER --------------------------------------------------- */
+  /* Default (static) state IS the readable composition. Builds are revealed
+     on top; nothing is hidden in a way that breaks the no-JS / reduced-motion
+     reading. */
+  .build {
+    opacity: 0;
+    transform: translateY(var(--motion-rise));
+    transition: opacity var(--motion-dur) var(--motion-ease),
+                transform var(--motion-dur) var(--motion-ease);
+    will-change: opacity, transform;
+  }
+  .build.shown { opacity: 1; transform: none; }
+
+  /* Accessibility + meeting-room safety: collapse to the static composition.
+     No transforms, no transition — everything simply present. */
+  @media (prefers-reduced-motion: reduce) {
+    .build { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+
+  .bar {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 6vmin; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 0.8rem;
+  }
+  .bar .spacer { flex: 1; }
+  .bar kbd {
+    border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px;
+    padding: 0.1rem 0.45rem; color: var(--ink); font-size: 0.78rem;
+  }
+  .progress { display: flex; gap: 6px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); }
+  .dot.on { background: var(--accent); }
+</style>
+</head>
+<body>
+  <main class="stage">
+    <section class="slide" aria-label="MOTION-LAYER reference explainer">
+      <p class="eyebrow build" data-step="0">EverPass · MOTION-LAYER</p>
+      <h1 class="build" data-step="0">Motion earns its place — or it doesn't ship.</h1>
+      <ul>
+        <li class="build" data-step="1">Reveals fade in with a ≤8px rise
+          <span class="why">200–260ms, ease-out — crisp, never flashy</span></li>
+        <li class="build" data-step="2">One element moves at a time, top to bottom
+          <span class="why">matches reading order + the talk track</span></li>
+        <li class="build" data-step="3">No spin, zoom, bounce, parallax, or idle motion
+          <span class="why">restrained = executive-clean, not "AI deck"</span></li>
+        <li class="build" data-step="4">Reduced-motion collapses to the static slide
+          <span class="why">try OS "reduce motion" — builds become instant</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="bar">
+    <span class="progress" id="progress" aria-hidden="true"></span>
+    <span class="spacer"></span>
+    <span><kbd>→</kbd>/<kbd>Space</kbd> next · <kbd>←</kbd> back · <kbd>R</kbd> replay</span>
+  </footer>
+
+  <script>
+  (function () {
+    "use strict";
+    var builds = Array.prototype.slice.call(document.querySelectorAll(".build"));
+    // Distinct beats = sorted unique data-step values. Step 0 is the title pair.
+    var steps = builds.map(function (el) { return +el.dataset.step; });
+    var maxStep = steps.reduce(function (a, b) { return Math.max(a, b); }, 0);
+    var cur = -1;
+
+    var progress = document.getElementById("progress");
+    for (var i = 0; i <= maxStep; i++) {
+      var d = document.createElement("span");
+      d.className = "dot";
+      progress.appendChild(d);
+    }
+    var dots = Array.prototype.slice.call(progress.children);
+
+    function render() {
+      builds.forEach(function (el) {
+        el.classList.toggle("shown", +el.dataset.step <= cur);
+      });
+      dots.forEach(function (d, i) { d.classList.toggle("on", i <= cur); });
+    }
+    function next() { if (cur < maxStep) { cur++; render(); } }
+    function prev() { if (cur > -1) { cur--; render(); } }
+    function replay() { cur = -1; render(); }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight" || e.key === " " || e.key === "Spacebar") { e.preventDefault(); next(); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
+      else if (e.key === "r" || e.key === "R") { e.preventDefault(); replay(); }
+    });
+    // Advance on click/tap too, for touch contexts.
+    document.querySelector(".stage").addEventListener("click", next);
+
+    render();      // static-first: start with step 0 hidden, ready to build
+    next();        // reveal the title beat immediately so the slide reads
+  })();
+  </script>
+</body>
+</html>

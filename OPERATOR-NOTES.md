@@ -30,6 +30,21 @@ runtime.
 - **Drift checks** (`check-dashboard-drift.sh`, `check-embedded-drift.sh`,
   `dashboard-drift-check` skill) all reference the canonical path.
 
+- **Self-improvement LOOP:** `skills/self-improve/` (repo mirror of
+  `~/.claude/skills/self-improve/`). Triages proposed self-changes by risk —
+  LOW (doc/gotcha/wording) applies now + logs to `changelog.md`; HIGH
+  (skill-behavior/hook/rule/permission/delete) holds in `review-<date>.md` for
+  sign-off and never self-applies; `approve-always` blesses a class. Defaults
+  empty = safe. Engine: `self_improve.py` (stdlib only; `selftest` passes).
+  Trigger snippet for global `CLAUDE.md` in `CLAUDE-TRIGGER-snippet.md`.
+  Stop-hook (`hooks/stop-snippet.json`) surfaces the pending-review count at
+  session end; paste under the `Stop` key in `~/.claude/settings.json`.
+  Stale-guard (`hooks/sessionStart-snippet.json`) warns at session start when
+  review items go unresolved past N days (default 7); paste under `SessionStart`.
+  Sync repo → live `~/.claude` in one step: `python skills/self-improve/install.py`
+  (idempotent; copies skill, merges both hook snippets into `settings.json`,
+  appends the trigger to `CLAUDE.md`; backs up before editing).
+
 ## Three layers — what is what
 
 1. **Reusable core instructions** (this repo): `EVERPASS/CLAUDE.md`,
