@@ -36,6 +36,8 @@ self-improvement/self-improve.sh log -n 10
 |---|---|
 | `self-improve.sh` | Engine: `propose` / `list` / `resolve` / `status` / `log`. |
 | `self-improve-status.sh` | Stop-hook wrapper (silent when queue clean). |
+| `session-guard.sh` | Overlap guard: `check` / `acquire` / `release` — warns if another session is active on the branch (lock pushed via the remote). |
+| `HANDOFF.md` | Pick-up note for a fresh/local session. |
 | `settings.stop-hook.json` | Snippet to merge into `settings.json` `hooks`. |
 | `config.json` | Auto-approve policy (default empty → everything reviews). |
 | `queue.json` | Pending review queue. |
