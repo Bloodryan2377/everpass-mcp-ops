@@ -66,8 +66,15 @@ cockpit feed automatically — no hand-editing of the JSON feeds.
   deliberately (Layer-2 wrapper), the same way `hooks/preToolUse-snippet.json` is
   mirrored into `~/.claude/settings.json`.
 
-To add new market intel: drop a note in `data/insights/` (copy an existing one and
-edit the `epc-chain` block), then run `bash scripts/sync-insights-to-chain.sh` —
-or, with the optional hooks installed, the sync fires automatically on save.
+- **Scaffolder** — `scripts/new_insight.py`. Renders a complete, correctly-structured
+  insight note (frontmatter + body + `epc-chain` block) from a compact JSON spec, so
+  neither the operator nor Claude hand-writes the machine block, then runs the ingest:
+  - `python scripts/new_insight.py --from-json spec.json` (or `--from-json -` for stdin)
+  - derives `intel_key`/`todo.id`/critical title from the spec; `--no-sync` to write only.
+
+To add new market intel: either run the scaffolder with a spec, or drop a note in
+`data/insights/` by hand (copy an existing one and edit the `epc-chain` block), then
+run `bash scripts/sync-insights-to-chain.sh` — or, with the optional hooks installed,
+the sync fires automatically on save.
 
 See [MCP_SETUP.md](MCP_SETUP.md) for the detailed technical layout and [TODO.md](TODO.md) for the next-step backlog.

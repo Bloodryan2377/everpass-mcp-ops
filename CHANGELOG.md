@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2026-06-30 — Insight-note scaffolder (article → note)
+
+Closes the last manual step in the pipeline: instead of hand-writing a note's
+frontmatter + body + `epc-chain` block, render it from a compact JSON spec.
+
+### Added
+- `scripts/new_insight.py` — takes a JSON spec (`--from-json FILE|-`), renders a
+  complete `epc-market-intel/v1` note under `data/insights/` (standard sections +
+  the `epc-chain` machine block), and runs the ingest by default (`--no-sync` to
+  skip; `--force` to overwrite). Derives `intel_key` from the slug, `todo.id` from
+  `intel:<partner>:<slug>`, and the critical title from partner + headline when not
+  supplied. Required spec fields: `slug`, `partner`, `title_short`, `tldr`.
+
+### Verified
+- Throwaway spec → valid note (frontmatter + chain parse; derived ids correct) →
+  ingested into the cockpit (signal + todo + critical) → smoke artifacts removed,
+  chain back in sync.
+
+---
+
 ## 2026-06-30 — Critical-item support + NBCUniversal spinoff intel
 
 Extends the insights → chain pipeline to surface intel in the cockpit's
