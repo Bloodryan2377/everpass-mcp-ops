@@ -104,17 +104,16 @@ in the design-system docs, so it isn't discoverable or enforceable the way the
 static layer is. The risk is drift: explainers get built ad hoc instead of
 against a named, versioned motion spec.
 
-**Status (2026-06-30): DRAFTED + routed through the LOOP.** Draft lives at
-`EVERPASS TOOLS/Presentations/MOTION-LAYER.md` — names the layer, positions it on
-top of `ep-design-system`, encodes restrained-motion conventions (reconciled with
-the "avoid heavy animation" house style), with numeric defaults flagged
-_(proposed)_. Routed as category `rule` → **HIGH → held in `review-<date>.md` for
-Ryan's sign-off** (it is not yet canon).
+**Status (2026-06-30): APPROVED v1 + PROMOTED.** Ryan signed off via the LOOP.
+The full spec is canon at `EVERPASS TOOLS/Presentations/MOTION-LAYER.md` (DRAFT
+banner lifted; numeric values accepted as v1 defaults). Promoted to a path-scoped
+rule `EVERPASS/.claude/rules/motion-layer.md` (auto-loads on deck/explainer
+edits, mirrors `presentations.md`), registered in `EVERPASS/CLAUDE.md` §11, and
+cross-linked from `presentations.md`.
 
-**Next action:** Ryan reviews the proposed motion defaults + open questions at the
-bottom of the draft, then `self_improve.py decide --id <id> --action approve`
-(or supply canonical motion tokens from `ep-design-system` and re-draft). On
-approval, consider promoting it to a path-scoped rule under `.claude/rules/`.
+**Next action:** Optional — ship a minimal reference explainer on the approved
+shell so the conventions have a worked example; tune v1 motion values later via a
+LOOP `rule` change if live use suggests it.
 
 ## Carry-over: skill-from-masters pass (formal)
 
@@ -152,8 +151,9 @@ were referenced abstractly; that file has a placeholder for them).
 2. ~~**Periodic guard** that warns when review items age past N days.~~ **Done**
    — `hooks/sessionStart-snippet.json` + `self_improve.py guard --max-age-days N`
    (default 7). Installed by `install.py`.
-3. ~~**MOTION-LAYER** note in the design docs.~~ **Drafted + held for sign-off**
-   — `EVERPASS TOOLS/Presentations/MOTION-LAYER.md`. See "Carry-over: MOTION-LAYER".
+3. ~~**MOTION-LAYER** note in the design docs.~~ **Approved v1 + promoted to a
+   path-scoped rule** (`EVERPASS/.claude/rules/motion-layer.md`). See
+   "Carry-over: MOTION-LAYER".
 4. ~~Formal **skill-from-masters** pass.~~ **Done** — `MASTERS.md`. See
    "Carry-over: skill-from-masters". (Only follow-up: paste the 5 video links in.)
 

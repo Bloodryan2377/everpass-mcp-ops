@@ -93,7 +93,7 @@ When the CWD or edit target falls under one of these subtrees, the nested file a
 
 Path-scoped rule files (auto-loaded when matching files are touched) live at `.claude/rules/`:
 
-- `partner-insights.md`, `contracts.md`, `dashboard.md`, `presentations.md`, `legal-redline.md`, `notebook-lm.md`
+- `partner-insights.md`, `contracts.md`, `dashboard.md`, `presentations.md`, `motion-layer.md`, `legal-redline.md`, `notebook-lm.md`
 
 ## 12. Tasks scaffold
 

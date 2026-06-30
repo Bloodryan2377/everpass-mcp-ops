@@ -1,11 +1,13 @@
 # MOTION-LAYER — EverPass explainer & motion conventions
 
-> **Status: DRAFT proposed via the self-improve LOOP (category `rule`).**
-> Held for Ryan's sign-off — not yet canon. The static design system
+> **Status: APPROVED v1 (2026-06-30).** Signed off by Ryan via the self-improve
+> LOOP (category `rule`) and promoted to a path-scoped rule
+> (`EVERPASS/.claude/rules/motion-layer.md`). The static design system
 > (`ep-design-system`) remains the single source of truth for color, type, and
 > layout; MOTION-LAYER sits **on top of it** and governs only how things move.
-> Specific numeric defaults below are marked _(proposed)_ — confirm or adjust
-> before this is blessed.
+> The numeric values below are the **accepted v1 defaults** — tune them later via
+> another LOOP `rule` change, or replace with canonical motion tokens if
+> `ep-design-system` grows them.
 
 ## Why this layer exists
 
@@ -39,10 +41,10 @@ the presenter-view / navigation machinery (that's the approved shell).
 
 | Aspect | Proposed default | Rationale |
 |---|---|---|
-| Transition duration | 200–300ms _(proposed)_ | Fast enough to feel crisp, not flashy. |
-| Easing | ease-out / `cubic-bezier(0.2, 0, 0, 1)` _(proposed)_ | Decelerate-in reads as polished, not bouncy. |
+| Transition duration | 200–300ms _(v1)_ | Fast enough to feel crisp, not flashy. |
+| Easing | ease-out / `cubic-bezier(0.2, 0, 0, 1)` _(v1)_ | Decelerate-in reads as polished, not bouncy. |
 | Build order | top-to-bottom, left-to-right, one element at a time | Matches reading order; supports the talk track. |
-| Reveal style | fade + small (≤8px) translate _(proposed)_ | Subtle; no zoom/spin/slide-across. |
+| Reveal style | fade + small (≤8px) translate _(v1)_ | Subtle; no zoom/spin/slide-across. |
 | Simultaneous motion | ≤1 primary moving element at a time | Avoids busy, AI-deck feel. |
 | Loop/idle motion | none by default | No ambient animation behind content. |
 | Respect reduced-motion | honor `prefers-reduced-motion` → no transforms | Accessibility + meeting-room safety. |
@@ -74,11 +76,12 @@ the presenter-view / navigation machinery (that's the approved shell).
 - `firecrawl` — brand-scrape input.
 - **MOTION-LAYER** — this doc. The motion layer on top of the static system.
 
-## Open questions for sign-off
+## Follow-ups (post-approval)
 
-- Confirm the proposed durations/easing/translate values, or supply the canonical
-  ones from `ep-design-system` if motion tokens already exist there.
-- Is there an existing explainer template to point at, or should MOTION-LAYER
-  ship with a minimal reference explainer built on the shell?
-- Should MOTION-LAYER become a path-scoped rule under `.claude/rules/` once
-  blessed, so it auto-loads when explainers are edited?
+- Tune the v1 durations/easing/translate values if live use suggests it, or
+  replace them with canonical motion tokens if `ep-design-system` grows them —
+  route either as a LOOP `rule` change.
+- Decide whether MOTION-LAYER ships with a minimal reference explainer built on
+  the approved shell (recommended, so the conventions have a worked example).
+- ✅ Promoted to a path-scoped rule (`EVERPASS/.claude/rules/motion-layer.md`),
+  so it auto-loads when explainers/decks are edited.

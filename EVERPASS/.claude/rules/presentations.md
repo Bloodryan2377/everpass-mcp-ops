@@ -25,6 +25,7 @@ Any deck/slides/presentation request for EverPass MUST invoke `everpass-presenta
 
 ## Anti-patterns
 - No heavy animation, busy backgrounds, dense text, generic "AI deck" layouts.
+  Any motion/explainer work follows `motion-layer.md` (restrained motion only).
 - No scrolling inside slides. Viewport-fit always.
 - No external dependencies that break in restricted browser contexts.
 
