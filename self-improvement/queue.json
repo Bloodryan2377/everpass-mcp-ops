@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "id": "SI-0005",
+    "ts": "2026-06-30T04:58:43Z",
+    "impact": "HIGH",
+    "title": "Reconsider storing the session lock in git (branch churn / runtime state on main)",
+    "detail": "session-guard pushes .active-session.json on every acquire/release/heartbeat, adding commits and putting transient runtime state into version control (it rode into main via #4). Evaluate a lighter coordination point: a dedicated non-merged ref, a GitHub lock issue/label, or a PR comment. HIGH because it changes the core cross-session coordination mechanism. Left queued for Ryan's review.",
+    "status": "pending"
+  }
+]

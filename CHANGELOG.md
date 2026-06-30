@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 2026-06-30 — Self-improvement follow-up: session-guard heartbeat, .gitignore, queued design review
+
+Follow-up to the merged self-improvement loop (PR #4). Started fresh from `main` per the merged-PR rule. Dogfoods the loop again: two applied fixes logged, one HIGH design question left queued for review.
+
+### Changes
+| File | Change |
+|---|---|
+| `self-improvement/session-guard.sh` | **New `heartbeat` subcommand** — refreshes the lock timestamp so a session active longer than the TTL (default 45m) isn't seen as stale and taken over. Refuses to refresh if it doesn't hold the lock. |
+| `.gitignore` | **New** — scoped ignores for `/.claude/settings.local.json`, `/.claude/*.local.json`, `/.claude/*.lock`, and OS/editor cruft. The repo previously had none, so env-specific/runtime files were committable. |
+| `self-improvement/log.jsonl` | Logged SI-0003 (heartbeat, MED, approved) + SI-0004 (.gitignore, LOW, approved). |
+| `self-improvement/queue.json` | SI-0005 (HIGH) **left pending** for human review: reconsider storing the session lock in git (branch churn / runtime state on `main`). |
+
+### Verification
+- `git check-ignore` confirms `.claude/settings.local.json` + `scheduled_tasks.lock` are now ignored.
+- `bash -n session-guard.sh` clean; `heartbeat` no-ops correctly when not holding the lock; `check` unchanged.
+- `self-improve.sh log` shows SI-0003/SI-0004 approved; `list` shows SI-0005 pending — the HIGH-review gate holds.
+
+
 ## 2026-06-30 — Self-improvement loop (engine + Stop-hook + skill)
 
 Rebuilds the self-improvement loop as a self-contained, runnable module under `self-improvement/`. A prior session reported this system as shipped, but nothing had been committed — the branch was identical to `main` and none of the artifacts existed on disk. This is the durable, verified rebuild.

@@ -1,0 +1,13 @@
+# Local / env-specific Claude Code settings — must never be committed.
+# (settings.local.json carries machine-specific paths/overrides.)
+/.claude/settings.local.json
+/.claude/*.local.json
+
+# Runtime locks / scheduler state under the repo-root .claude dir.
+/.claude/scheduled_tasks.lock
+/.claude/*.lock
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
