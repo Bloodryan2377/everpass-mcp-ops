@@ -97,6 +97,22 @@ Path-scoped rule files (auto-loaded when matching files are touched) live at `.c
 
 - `partner-insights.md`, `contracts.md`, `dashboard.md`, `presentations.md`, `legal-redline.md`, `notebook-lm.md`
 
+### Layer-1 identity files (selective-load)
+
+Four tool-agnostic identity files live at the EVERPASS root. Each states its own trigger
+in its header — this list exists so a session can route to the right file(s) without
+opening all four. Load only what the task needs, not the whole set every time:
+
+- `SOUL.md` — producing external-facing narrative, positioning, or any artifact that speaks *as* EverPass rather than merely *about* a task.
+- `VOICE.md` — any content-creation task: decks, briefs, partner communications, dashboard narrative, email drafts.
+- `AUDIENCE.md` — creating any artifact with a reader other than the current session: decks, briefs, partner drafts, dashboard narrative. Name the tier first.
+- `DESIGN.md` — building or extending any EverPass HTML surface: decks, presentations, panels.
+
+These four are layer-1 (identity/voice/audience/visual — tool-agnostic, reusable across
+Claude Code/Antigravity/etc.), distinct from this file and `.claude/rules/*`, which are
+layer-1 *rules*. A task can need one, several, or none of the four; a routine dashboard
+data edit needs none of them.
+
 ## 12. Tasks scaffold
 
 - `tasks/todo.md` — small set (3–5) of active workstreams. Not a full TASKS.md dump.

@@ -35,6 +35,55 @@ All Gmail MCP actions are constrained to `label:"EverPass"`. The label is applie
 - Required scopes: `repo`, `read:user`
 - Install scope: user-level (Windows env var), not project-local
 
+## Higgsfield MCP server — AI generation (image / video / audio / 3D / sites / games)
+
+Connected MCP server for AI generation. Tools are namespaced `mcp__<higgsfield-server-id>__*`
+(server id rotates per install; check the live tool list rather than hardcoding it here).
+
+| Category | Tools |
+|---|---|
+| Core generation | `generate_image`, `generate_video`, `generate_audio`, `generate_3d` |
+| Model routing | `models_explore` (call with `action:'recommend'` when the right model isn't obvious) |
+| Edit existing asset (prefer over re-generating) | `upscale_image` / `upscale_video`, `outpaint_image`, `reframe`, `remove_background`, `motion_control` |
+| Templated multi-step video (explainer, ad, UGC, podcast, etc.) | `get_workflow_instructions` (no-arg call first for the catalog, then by name) + `get_workflow_bundle_file` for bundled assets |
+| Analysis | `virality_predictor` (engagement/attention/hook-strength/retention scoring), `video_analysis_create`/`status`/`jobs` |
+| Voice | `create_voice`, `create_voice_from_confirmed_audio`, `voice_change`, `dubbing` |
+| Publishing | `create_website`/`deploy_website`/`publish_website`; `deploy_game`/`publish_game` |
+| Account | `show_plans_and_credits`, `balance`, `transactions`, `list_workspaces`/`select_workspace` |
+
+### Connection & auth
+
+- **Connection surface:** claude.ai custom connector, not a local MCP config in this repo. Connector URL comes from the Higgsfield account settings page (higgsfield.ai). Already connected at the claude.ai account level as of 2026-07-06, confirmed by live tool use in-session.
+- **Auth model:** OAuth via claude.ai. May require per-session re-approval. Observed failure mode: tool calls returning "requires approval" in non-interactive/headless sessions. This is expected given the OAuth model, not a bug to chase.
+- **Windows Claude Code CLI status:** unknown/unverified from this repo. See the operator checklist below.
+
+**Local-media caveat:** remote MCP tools cannot read a file the user attached in Claude
+chat. For local photo/video/audio input, use `media_upload_widget` (Apps-UI-capable
+clients) or `media_upload` / `media_import_url` — never ask the user to attach it in chat.
+
+### Operator checklist
+
+- [ ] Verify or add the Higgsfield connector in the Windows Claude Code CLI itself: run
+      `claude mcp` in an interactive session. This is the one thing that cannot be
+      confirmed or done from this repo, or from a scripted/headless session.
+- [ ] Confirm the server shows connected before relying on it (tool list has a live
+      `mcp__<id>__*` block for Higgsfield, not just this doc).
+- [ ] Run `models_explore(action:'recommend')` before `generate_*` if the right model isn't
+      already obvious from the ask.
+- [ ] For a refinement of existing output, use the matching edit tool (upscale / outpaint /
+      reframe / remove_background / motion_control) instead of regenerating from scratch.
+- [ ] For any templated video ask (explainer, ad, UGC, podcast, etc.), call
+      `get_workflow_instructions` with no args to see the current catalog before assuming a
+      workflow exists or guessing which one fits.
+- [ ] Check `show_plans_and_credits` / `balance` before a generation batch that could burn
+      meaningful credit.
+- [ ] Per the premium-creative-tool rule: on a request that calls for premium/cinematic/
+      motion-first output, attempt generation before falling back to CSS/SVG-only motion —
+      if it fails, report the specific blocker (auth, credits, tool error) rather than
+      silently downgrading.
+- [ ] Local files the user wants generated from: use `media_upload_widget`, don't ask them
+      to attach it in chat.
+
 ## Known cosmetic issue
 
 The Claude Code auto-update banner sometimes shows an "update available" notice when the installed version already matches the latest npm release. This is cosmetic — verify with `npm view @anthropic-ai/claude-code version` against the installed version before chasing it.

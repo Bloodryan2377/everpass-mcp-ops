@@ -1,8 +1,8 @@
 {
-  "session_id": "a1fd16d1-b222-5b1b-8d97-2673fbe1cead",
-  "host": "vm",
-  "branch": "claude/self-improvement-loop-complete-3b7s3k",
-  "acquired_utc": "2026-06-30T04:28:29Z",
-  "heartbeat_utc": "2026-06-30T04:28:29Z",
+  "session_id": "fable-controller-fills",
+  "host": "Everpass1",
+  "branch": "claude/video-summary-fable-handoff-039c5h",
+  "acquired_utc": "2026-07-06T14:51:41Z",
+  "heartbeat_utc": "2026-07-06T14:51:41Z",
   "state": "released"
 }
