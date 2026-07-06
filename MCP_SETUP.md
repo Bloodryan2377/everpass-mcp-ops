@@ -51,12 +51,21 @@ Connected MCP server for AI generation. Tools are namespaced `mcp__<higgsfield-s
 | Publishing | `create_website`/`deploy_website`/`publish_website`; `deploy_game`/`publish_game` |
 | Account | `show_plans_and_credits`, `balance`, `transactions`, `list_workspaces`/`select_workspace` |
 
+### Connection & auth
+
+- **Connection surface:** claude.ai custom connector, not a local MCP config in this repo. Connector URL comes from the Higgsfield account settings page (higgsfield.ai). Already connected at the claude.ai account level as of 2026-07-06, confirmed by live tool use in-session.
+- **Auth model:** OAuth via claude.ai. May require per-session re-approval. Observed failure mode: tool calls returning "requires approval" in non-interactive/headless sessions. This is expected given the OAuth model, not a bug to chase.
+- **Windows Claude Code CLI status:** unknown/unverified from this repo. See the operator checklist below.
+
 **Local-media caveat:** remote MCP tools cannot read a file the user attached in Claude
 chat. For local photo/video/audio input, use `media_upload_widget` (Apps-UI-capable
 clients) or `media_upload` / `media_import_url` — never ask the user to attach it in chat.
 
 ### Operator checklist
 
+- [ ] Verify or add the Higgsfield connector in the Windows Claude Code CLI itself: run
+      `claude mcp` in an interactive session. This is the one thing that cannot be
+      confirmed or done from this repo, or from a scripted/headless session.
 - [ ] Confirm the server shows connected before relying on it (tool list has a live
       `mcp__<id>__*` block for Higgsfield, not just this doc).
 - [ ] Run `models_explore(action:'recommend')` before `generate_*` if the right model isn't
