@@ -46,9 +46,22 @@ one-line answers followed by support · active voice · "as of <date>"
 - Individual names in anything Tier 3
 - Undated claims about fast-moving deal state
 
-<!-- NEEDS RYAN INPUT: your personal never-use list — specific words/phrasings that make
-     you wince when you see them in a draft. Also: preferred sign-offs and openers for
-     partner email drafts, if you have standing ones. -->
+**Ryan's never-use list (documented across standing feedback, compiled 2026-07-06):**
+- Em dashes in authored text: absolute ban; comma, period, colon, or parentheses instead.
+- AI-fingerprint vocabulary beyond the superlatives above: supercharge, delve, elevate,
+  robust, leverage-as-verb in external copy.
+- AI openers/closers: "Certainly", "Great question", "Happy to", "I hope this helps",
+  "Let me know if", "Feel free to".
+- Filler hedges: just, really, basically, actually, simply.
+- Splashy/hype tone anywhere: plain executive voice always.
+- Emoji in deliverables.
+- His coined terms (Ruthless Sequencing, Invasion Currency, Event Stack) are exact:
+  never altered, never paraphrased.
+- Internal exec emails are the one place polish is WRONG: keep his real-time hedging
+  ("I believe", "I think"); authentic thinking-out-loud beats finished prose there.
+
+<!-- NEEDS RYAN INPUT (still open): preferred sign-offs and openers for partner email
+     drafts, if you have standing ones. -->
 
 ## Sentence mechanics
 

@@ -43,11 +43,21 @@ named here so content can express them:
 
 ## Beliefs about the industry
 
-<!-- NEEDS RYAN INPUT: 2–4 beliefs you hold about sports media / streaming / the
-     out-of-home venue business that are NOT consensus. Examples of the shape (not the
-     content): "rights fragmentation helps venues, not hurts them", "the venue is the last
-     un-personalized screen", etc. These are what make EverPass narrative sound like a
-     point of view instead of a press release. -->
+Ryan's documented, coined strategic concepts (his terms, exact, never altered or
+paraphrased; usable as point-of-view anchors in narrative):
+
+- **Ruthless Sequencing**
+- **Invasion Currency**
+- **Event Stack**
+
+The full definitions live in the EverPass runtime corpus (partner decks and strategy
+docs); when one is used in content, pull its definition from the source deck that coined
+it, never from memory.
+
+<!-- NEEDS RYAN INPUT (still open): 2-4 additional non-consensus beliefs about sports
+     media / streaming / the out-of-home venue business, in your own words, beyond the
+     coined concepts above. These make EverPass narrative sound like a point of view
+     instead of a press release. -->
 
 ## Defining moments
 
