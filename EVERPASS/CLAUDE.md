@@ -100,15 +100,13 @@ Path-scoped rule files (auto-loaded when matching files are touched) live at `.c
 ### Layer-1 identity files (selective-load)
 
 Four tool-agnostic identity files live at the EVERPASS root. Each states its own trigger
-in its header — this table exists so a session can route to the right file(s) without
+in its header — this list exists so a session can route to the right file(s) without
 opening all four. Load only what the task needs, not the whole set every time:
 
-| File | Load when |
-|---|---|
-| `SOUL.md` | Producing external-facing narrative, positioning, or any artifact that speaks *as* EverPass rather than merely *about* a task. |
-| `VOICE.md` | Any content-creation task: decks, briefs, partner communications, dashboard narrative, email drafts. |
-| `AUDIENCE.md` | Creating any artifact with a reader other than the current session: decks, briefs, partner drafts, dashboard narrative. Name the tier first. |
-| `DESIGN.md` | Building or extending any EverPass HTML surface: decks, presentations, panels. |
+- `SOUL.md` — producing external-facing narrative, positioning, or any artifact that speaks *as* EverPass rather than merely *about* a task.
+- `VOICE.md` — any content-creation task: decks, briefs, partner communications, dashboard narrative, email drafts.
+- `AUDIENCE.md` — creating any artifact with a reader other than the current session: decks, briefs, partner drafts, dashboard narrative. Name the tier first.
+- `DESIGN.md` — building or extending any EverPass HTML surface: decks, presentations, panels.
 
 These four are layer-1 (identity/voice/audience/visual — tool-agnostic, reusable across
 Claude Code/Antigravity/etc.), distinct from this file and `.claude/rules/*`, which are
