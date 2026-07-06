@@ -6,5 +6,13 @@
     "title": "Reconsider storing the session lock in git (branch churn / runtime state on main)",
     "detail": "session-guard pushes .active-session.json on every acquire/release/heartbeat, adding commits and putting transient runtime state into version control (it rode into main via #4). Evaluate a lighter coordination point: a dedicated non-merged ref, a GitHub lock issue/label, or a PR comment. HIGH because it changes the core cross-session coordination mechanism. Left queued for Ryan's review.",
     "status": "pending"
+  },
+  {
+    "id": "SI-0006",
+    "ts": "2026-07-06T02:32:37Z",
+    "impact": "HIGH",
+    "title": "Adopt SOUL/VOICE/AUDIENCE/DESIGN as standing layer-1 identity pattern; define scaffold-to-runtime promotion",
+    "detail": "This branch adds EVERPASS/DESIGN.md and wires CLAUDE.md $11 to route four layer-1 identity files (SOUL/VOICE/AUDIENCE/DESIGN). Two things worth a standing decision: (1) whether this four-file pattern should be the permanent convention for any future EverPass identity/brand work, extended verbatim rather than re-derived each time; (2) confirmed real gap while doing this work -- the live runtime tree at 'C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\CLAUDE.md' line 86 still has the pre-Task-1 $11 (no SOUL/VOICE/AUDIENCE/DESIGN, no layer-1 routing table) even though this repo (the scaffold, per OPERATOR-NOTES.md) is now ahead on branch claude/video-summary-fable-handoff-039c5h. OPERATOR-NOTES.md frames the repo as scaffold and OneDrive as runtime but documents no promotion process between them. HIGH because it touches the source-of-truth model ($3) and a live, in-use config file Ryan works from daily -- needs his call on whether/how to promote, not an autonomous copy.",
+    "status": "pending"
   }
 ]
