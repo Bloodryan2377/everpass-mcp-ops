@@ -57,9 +57,12 @@ because nothing ever synced them.
   routing missing from runtime; Karpathy principles missing from scaffold) stay open
   until Ryan runs this process on them. Flagged here, not applied.
 
-## Open question
+## Threshold (decided 2026-07-06)
 
-<!-- NEEDS RYAN INPUT: should a promotion this size (a handful of lines) go through this
-     full per-hunk-approval process every time, or is there a threshold below which
-     you'd rather Claude just apply it and tell you after (for example: non-HARD,
-     additive-only, single-section changes)? Left open rather than assumed. -->
+Every promotion goes through the full per-hunk-approval process, regardless of size.
+There is no auto-apply-and-tell-after threshold. The runtime file is a live, daily-use
+HARD-rule surface; this mirrors the standing self-improve doctrine, where HIGH-risk
+classes never self-apply and only Ryan can bless a class for future auto-apply
+(`approve-always`). If promotion volume ever makes per-hunk approval a real burden,
+Ryan can bless a narrow class (for example: non-HARD, additive-only, single-section)
+at that point; do not propose or assume one before he does.
