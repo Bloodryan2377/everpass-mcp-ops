@@ -16,11 +16,15 @@ personal-brand exercise doesn't get built by fabricating answers — the same fa
 2. **Never fabricate an answer to fill a placeholder.** Every `NEEDS RYAN INPUT` marker
    in `SOUL.md`, `VOICE.md`, `AUDIENCE.md`, or `DESIGN.md` (this directory) stays exactly
    as-is until Ryan answers it directly. An invented answer is worse than a visible gap.
-3. **Committed-to-repo vs. local-only is not yet decided.** This scaffold ships with
-   placeholders only — nothing sensitive yet. Before real answers go into those files,
-   Ryan should decide whether completed answers get committed to this repo like
-   everything else, or kept local/gitignored. Default to asking, not assuming, when that
-   moment comes.
+3. **Filled answers are local-only by default (decided by Ryan, 2026-07-06).** The
+   scaffold with `NEEDS RYAN INPUT` placeholders is what lives in this repo. Once Ryan
+   fills real answers into `SOUL.md`, `VOICE.md`, `AUDIENCE.md`, or `DESIGN.md`, those
+   filled versions stay on his machine and are NEVER committed or pushed unless Ryan
+   explicitly approves that specific commit. A session that finds filled content in
+   these files treats it as uncommittable working state: exclude it from staging
+   (`git add` everything else by path, never `git add -A` in this directory) and say so
+   in the session report. Rule 5's committed-and-pushed definition of done applies to
+   the scaffold and rules here, not to filled personal answers.
 4. **Never treat `C:\Users\ryan\Desktop` as a project root or scaffold target.** Carried
    over unchanged from `EVERPASS/CLAUDE.md` section 1: this is about Ryan's own
    workspace hygiene, not EverPass governance, so it applies here too.
