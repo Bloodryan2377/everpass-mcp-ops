@@ -1,8 +1,8 @@
 {
-  "session_id": "fable-controller-decisions",
+  "session_id": "fable-controller-fills",
   "host": "Everpass1",
   "branch": "claude/video-summary-fable-handoff-039c5h",
-  "acquired_utc": "2026-07-06T14:08:40Z",
-  "heartbeat_utc": "2026-07-06T14:08:40Z",
-  "state": "released"
+  "acquired_utc": "2026-07-06T14:51:30Z",
+  "heartbeat_utc": "2026-07-06T14:51:30Z",
+  "state": "active"
 }
