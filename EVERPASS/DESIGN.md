@@ -13,6 +13,40 @@ marked `NEEDS RYAN INPUT`, never guessed.
 
 ---
 
+## Token source status: flagged, not resolved (NEEDS RYAN INPUT)
+
+Auditing this file against `GOLD-STANDARD-CLAUDE-CODE.md` (the locked, 2026-06-10
+presentation baseline; canonical copy at `EVERPASS TOOLS/WEEKLY OUTPUTS/library/
+goldstandard/GOLD-STANDARD-CLAUDE-CODE.md`) surfaced a conflict this file does not
+resolve on its own:
+
+- **Gold Standard's own header states:** "Supersedes the YTTV
+  `everpass-presentation-goldstandard.html` (now ALTERNATE) and the DAZN dark-glass
+  `everpass-presentation-shell.html` (now LEGACY)." (GOLD-STANDARD-CLAUDE-CODE.md, line 5)
+- **The two token sets differ:** bg `#0A0F14` (Gold Standard) vs. `#0b0f14` (shell, near
+  identical); accent is teal `#2FA5B0` in Gold Standard, with gold `#F5D547` as a
+  *secondary* highlight, vs. this file's single gold `#d4af37` accent and no second
+  accent at all; typography is Inter (one family) in Gold Standard vs. this file's
+  two-typeface system (Georgia/Source Serif titles, system sans body).
+- **The shell file's mtime is 2026-04-21,** before the Gold Standard lock date
+  (2026-06-10): consistent with an earlier iteration Gold Standard superseded, not a
+  deliberately separate surface.
+
+This reads as the shell tokens being stale, not a second legitimate surface (the shell is
+a named, superseded predecessor of the same surface type, presentation decks, not a
+different surface like dashboard/cockpit). Flagging rather than swapping the palette out
+during an unattended overnight run.
+
+**Ryan, pick one:**
+1. Point this file at the Gold Standard tokens (section 1 of GOLD-STANDARD-CLAUDE-CODE.md)
+   as canonical for EverPass presentation decks, and relabel the table below "shell
+   tokens: historical, superseded 2026-06-10, do not use for new decks."
+2. Say so if `everpass-presentation-shell.html` is still intentionally in active use for
+   something Gold Standard doesn't cover, and this file should keep tracking it as a live
+   (if secondary) surface.
+
+Either answer is fine: the gap is not knowing which, not the tokens themselves.
+
 ## Principles (derived from the shell, not aspirational)
 
 1. **Dark canvas, quiet chrome.** Near-black background, off-white text, a muted
