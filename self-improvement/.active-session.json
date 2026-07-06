@@ -2,7 +2,7 @@
   "session_id": "fable-controller-decisions",
   "host": "Everpass1",
   "branch": "claude/video-summary-fable-handoff-039c5h",
-  "acquired_utc": "2026-07-06T14:06:07Z",
-  "heartbeat_utc": "2026-07-06T14:06:07Z",
-  "state": "active"
+  "acquired_utc": "2026-07-06T14:08:40Z",
+  "heartbeat_utc": "2026-07-06T14:08:40Z",
+  "state": "released"
 }
