@@ -1,75 +1,121 @@
 {
   "schema": "epc-meetings/v1",
-  "source": "claude-scheduled-zapier-mcp",
-  "generated_at": "2026-06-01T15:40:35.293267+00:00",
-  "errors": [],
-  "date": "2026-06-02",
+  "source": "live-refresh-graph-calendar",
+  "generated_at": "2026-07-10T04:31:12Z",
+  "date": "2026-07-10",
+  "available": true,
+  "meeting_count": 10,
   "meetings": [
     {
-      "subject": "Weekly Catchup",
-      "start": "11:30",
-      "end": "12:00",
-      "start_iso": "2026-06-02T11:30:00-04:00",
+      "start": "2026-07-10T10:30:00.0000000",
+      "end": "2026-07-10T11:00:00.0000000",
+      "subject": "Chat Data",
       "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Melissa Herrington"
-      ],
-      "isCancelled": false
+      "organizer": "Will Ruiz",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGM2NjM0ODAtZDdjZS00YTRmLThjNGMtZWQ4ZTA5NmZiZWEz%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22bcaa07f0-f553-49e0-8fe8-62e8ab95a40a%22%7d",
+      "categories": [],
+      "body_preview": "________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.com/meet/210348073505059?p=xi4rlsSBnLTctckUG1\r\nMeeting ID: 210 "
     },
     {
-      "subject": "Management Sync",
-      "start": "12:00",
-      "end": "13:30",
-      "start_iso": "2026-06-02T12:00:00-04:00",
-      "location": "CT - Conference Room",
-      "attendees": [
-        "Alex Kaplan",
-        "Bryan Icenhower",
-        "Alex Chan",
-        "Tim Marangola",
-        "Amy Schiller",
-        "Stephen Tucker"
-      ],
-      "isCancelled": false
+      "start": "2026-07-10T11:00:00.0000000",
+      "end": "2026-07-10T11:30:00.0000000",
+      "subject": "EverPass & Monumental Launch Timing",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Zachary Bernheimer",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTU3YzNhNzYtZmVlOC00ZWZiLWE1MjgtZGM5M2FkMTA1OGRh%40thread.v2/0?context=%7b%22Tid%22%3a%226cf54b06-fc3c-4374-8ca6-cb54552237e0%22%2c%22Oid%22%3a%22629ed9c4-9cc8-4dc9-9162-6d164161323c%22%7d",
+      "categories": [],
+      "body_preview": "________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.com/meet/241095045045456?p=ovxfJagC0HPSxDS4WA\r\nMeeting ID: 241 "
     },
     {
-      "subject": "Dom Collingwood x Ryan Blood Intro",
-      "start": "12:30",
-      "end": "12:55",
-      "start_iso": "2026-06-02T12:30:00-04:00",
+      "start": "2026-07-10T11:30:00.0000000",
+      "end": "2026-07-10T12:00:00.0000000",
+      "subject": "Connected TV App Office Hours",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Trung Luu",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjUxYjVmZGUtYzRlOS00NzVlLTgyY2YtMWY2NWE0NDczYmI3%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%221cdf314b-f835-4438-9fbf-92be910143cf%22%7d",
+      "categories": [],
+      "body_preview": "Session for anyone who wants to attend to ask questions on the connected TV app. Feel free to send questions to me in advance. Thanks.\r\n\r\n______________________________________________________________"
+    },
+    {
+      "start": "2026-07-10T12:00:00.0000000",
+      "end": "2026-07-10T13:00:00.0000000",
+      "subject": "NFLST Readiness Meeting",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Alex Kaplan",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGUxYzRlMGUtYzcxZi00ZGM3LWE2OTgtYmJjYWViMzhmZjZl%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%225b805840-6ed4-4112-809f-9e77c5f5109e%22%7d",
+      "categories": [],
+      "body_preview": "________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.com/meet/2507214752764?p=YEZrFQmkPnJf1lSuvL\r\nMeeting ID: 250 72"
+    },
+    {
+      "start": "2026-07-10T13:00:00.0000000",
+      "end": "2026-07-10T13:30:00.0000000",
+      "subject": "Marketing/Content catchup",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Ryan Blood",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MmIwMWIxOWMtZTc0MS00YmUxLTk2M2UtN2I4N2I5MjcwN2E5%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%220d5c544e-1c38-4e0c-88de-3bfb1eb80422%22%7d",
+      "categories": [],
+      "body_preview": "We have so many ongoing work streams that I thought it would be helpful to have a standing meeting.  We can cancel and move as needed.\r\n________________________________________________________________"
+    },
+    {
+      "start": "2026-07-10T13:30:00.0000000",
+      "end": "2026-07-10T13:45:00.0000000",
+      "subject": "New Hire Connect",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Kevin Jensen",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzA1ZTUyOTctNTQ5OC00YzMxLTk2NjItNjgxNWI5MzQwOWVl%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%223407b0de-12aa-4c52-9d4b-afc1b9c80503%22%7d",
+      "categories": [],
+      "body_preview": "Hey Ryan,\r\n\r\nSetting up time to connect as you suggested on the Content Overview presentation. Looking forward to it.\r\n\r\n_______________________________________________________________________________"
+    },
+    {
+      "start": "2026-07-10T14:00:00.0000000",
+      "end": "2026-07-10T15:00:00.0000000",
+      "subject": "Canceled: NFST Readiness Meeting",
       "location": "",
-      "attendees": [
-        "Dominic Collingwood",
-        "Ryan Blood"
-      ],
-      "isCancelled": false
+      "organizer": "Alex Kaplan",
+      "is_online": false,
+      "join_url": "",
+      "categories": [],
+      "body_preview": "Canceling this one because I cannot add teams to it."
     },
     {
-      "subject": "Weekly Touch Base",
-      "start": "14:30",
-      "end": "15:00",
-      "start_iso": "2026-06-02T14:30:00-04:00",
+      "start": "2026-07-10T14:00:00.0000000",
+      "end": "2026-07-10T14:30:00.0000000",
+      "subject": "Weekly Content Touch Base: key EP execs only (quick) - DO NOT FORWARD",
       "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Mary Karol",
-        "Amy Schiller"
-      ],
-      "isCancelled": false
+      "organizer": "Ryan Blood",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MzJiZGEzNmQtMjZiZC00MzQxLWJkM2MtYjM0ZmQyMmVlYmUx%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%220d5c544e-1c38-4e0c-88de-3bfb1eb80422%22%7d",
+      "categories": [],
+      "body_preview": "Moving to better accommodate schedules\r\n\r\n\r\nDO NOT FORWARD OR ADD INVITEES. The Content Pipeline meeting was designed as a focused forum for a small group of key executives to share real-time visibili"
     },
     {
-      "subject": "FW: EverPass 2026/2027 Launch",
-      "start": "15:00",
-      "end": "16:00",
-      "start_iso": "2026-06-02T15:00:00-04:00",
-      "location": "Webex",
-      "attendees": [
-        "Ligocki, Nicholas",
-        "Ryan Blood",
-        "Wagner, Matthew",
-        "Kate Frydryk"
-      ],
-      "isCancelled": false
+      "start": "2026-07-10T14:30:00.0000000",
+      "end": "2026-07-10T15:00:00.0000000",
+      "subject": "Ryan/ Brandon 1 on 1 Meeting",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Brandon Banova",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjQwODYyM2QtYThjMy00ODNjLWJjM2QtYzEwZTM1Njc4NmNj%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22777b695e-4971-4427-b227-6315e312f8c3%22%7d",
+      "categories": [],
+      "body_preview": "Hi Ryan, I just threw this in an open spot, I'm flexible if it needs to be moved. Thanks!\r\n\r\n________________________________________________________________________________\r\nMicrosoft Teams meeting\r\n"
+    },
+    {
+      "start": "2026-07-10T16:30:00.0000000",
+      "end": "2026-07-10T17:00:00.0000000",
+      "subject": "Netflix NFL Pack Project Call",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Anna Hewitt",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTIyOTE0ZDUtN2JlYy00ZjUyLTg2NWYtMjIwZjE5ZWY1YjVm%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22a4a17867-3eda-4738-bf04-2fe69e6b28c4%22%7d",
+      "categories": [],
+      "body_preview": "Agenda\r\n\r\n  1.\r\nPricing\r\n  2.\r\nSystem Updates Needed\r\n     *\r\nStripe\r\n     *\r\nSalesforce\r\n     *\r\nEvergent\r\n     *\r\nNetSuite\r\n  3.\r\nEvents Scheduled in Manager\r\n  4.\r\nAPI Connection/Signal Testing\r\n  "
     }
   ],
-  "count": 5
+  "errors": []
 }

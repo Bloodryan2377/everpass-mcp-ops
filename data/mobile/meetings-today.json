@@ -1,75 +1,66 @@
 {
   "schema": "epc-meetings/v1",
-  "source": "claude-scheduled-zapier-mcp",
-  "generated_at": "2026-06-01T15:40:35.293267+00:00",
-  "errors": [],
-  "date": "2026-06-01",
+  "source": "live-refresh-graph-calendar",
+  "generated_at": "2026-07-10T04:31:12Z",
+  "date": "2026-07-09",
+  "available": true,
+  "meeting_count": 5,
   "meetings": [
     {
+      "start": "2026-07-09T12:00:00.0000000",
+      "end": "2026-07-09T12:30:00.0000000",
       "subject": "Cross Functional Standup",
-      "start": "12:00",
-      "end": "12:30",
-      "start_iso": "2026-06-01T12:00:00-04:00",
       "location": "CT - Conference Room",
-      "attendees": [
-        "Anna Hewitt",
-        "Alex Chan",
-        "Christi DeVed",
-        "Ryan Blood"
-      ],
-      "isCancelled": false
+      "organizer": "Anna Hewitt",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTJmMjBjZjQtNTUzOC00ZmYyLTgwYmItZWJkYzg0OWNkZWY5%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22a4a17867-3eda-4738-bf04-2fe69e6b28c4%22%7d",
+      "categories": [],
+      "body_preview": "Please do not forward this invite. If you would like to add someone to this group or have someone join for certain topics, reach out and I will handle.\r\n\r\n_____________________________________________"
     },
     {
-      "subject": "Content Deals/Finance Touch Base",
-      "start": "13:30",
-      "end": "14:00",
-      "start_iso": "2026-06-01T13:30:00-04:00",
+      "start": "2026-07-09T12:30:00.0000000",
+      "end": "2026-07-09T13:00:00.0000000",
+      "subject": "Weekly Charter Sync: 2026 NFL Season Readiness",
       "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Alex Kaplan",
-        "Stephen Tucker",
-        "Alex Chan"
-      ],
-      "isCancelled": false
+      "organizer": "Kate Frydryk",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDk1ZmJjMGItZjlkOC00MTEwLThkZmQtNjlmNjMxMDk2NjAy%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22f96edbc5-a159-40bc-adad-62a57df63ebd%22%7d",
+      "categories": [],
+      "body_preview": "Grabbing time to discuss general Charter readiness for the 2026 NFL season. Topics to include:\r\n\r\n  *\r\nHardware readiness (Xumo, Fire TV, and/or Gateway)\r\n  *\r\nCSV Sales\r\n  *\r\nSystems Integration Read"
     },
     {
-      "subject": "Marketing/Content catchup",
-      "start": "15:00",
-      "end": "15:30",
-      "start_iso": "2026-06-01T15:00:00-04:00",
+      "start": "2026-07-09T13:00:00.0000000",
+      "end": "2026-07-09T14:00:00.0000000",
+      "subject": "Weekly Coffee",
       "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Christi DeVed",
-        "Mackenzie Matheson"
-      ],
-      "isCancelled": false
+      "organizer": "Ryan Blood",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTVjMTQxNmYtMjkwMS00ZmU3LWE3NTEtZTM0MDViMTMzNTgz%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%220d5c544e-1c38-4e0c-88de-3bfb1eb80422%22%7d",
+      "categories": [],
+      "body_preview": "________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.com/meet/230595809248113?p=vfo7ypZmvgQHLXqEx1\r\nMeeting ID: 230 "
     },
     {
-      "subject": "Auditing, Conversion and related possibilities; VFT Solutions with EverPass",
-      "start": "16:00",
-      "end": "16:30",
-      "start_iso": "2026-06-01T16:00:00-04:00",
+      "start": "2026-07-09T14:30:00.0000000",
+      "end": "2026-07-09T15:00:00.0000000",
+      "subject": "FW: Hardware GTM Standup",
       "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Julie Lonstein",
-        "Ryan Blood",
-        "Wayne Lonstein"
-      ],
-      "isCancelled": false
+      "organizer": "Joshua Horowitz",
+      "is_online": true,
+      "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODY5YTBlZjktYTZjYS00ZWUzLWIxM2QtNzM2YzdhZjU4ODc3%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22d36a04d1-f33d-48f3-894f-0bb86138de90%22%7d",
+      "categories": [],
+      "body_preview": "________________________________\r\nFrom: Joshua Horowitz <jhorowitz@EverPass.com>\r\nSent: Thursday, February 5, 2026 9:01:42 AM (UTC-08:00) Pacific Time (US & Canada)\r\nTo: Joshua Horowitz <jhorowitz@Eve"
     },
     {
-      "subject": "(no subject)",
-      "start": "17:30",
-      "end": "18:00",
-      "start_iso": "2026-06-01T17:30:00-04:00",
-      "location": "",
-      "attendees": [
-        "Horacio Prieto",
-        "Noah Fischbach",
-        "Ryan Karstad"
-      ],
-      "isCancelled": false
+      "start": "2026-07-09T16:30:00.0000000",
+      "end": "2026-07-09T17:00:00.0000000",
+      "subject": "BC / RB",
+      "location": "BC to call RB",
+      "organizer": "Cicchillo, Brett",
+      "is_online": false,
+      "join_url": "",
+      "categories": [],
+      "body_preview": ""
     }
   ],
-  "count": 5
+  "errors": []
 }

@@ -1,41 +1,42 @@
 {
   "schema": "epc-mobile-status/v1",
-  "generated_at": "2026-06-06T05:44:29Z",
+  "generated_at": "2026-07-10T04:48:52Z",
   "bridge": {
     "version": null,
     "last_run_status": "idle",
-    "last_run_id": "run-20260531-001-b7d4",
-    "last_processed_at": "2026-05-19T04:10:11Z",
+    "last_run_id": null,
+    "last_processed_at": null,
     "counts": {},
     "last_artifact": null
   },
   "morning": {
-    "run_date": "2026-06-05",
+    "run_date": "2026-07-09",
     "overall_status": "failed",
     "cockpit_status": "success",
-    "drive_mirror_status": "partial",
+    "drive_mirror_status": "failed",
     "notebooklm_status": "failed",
     "scheduler_status": "success",
     "dashboard_status": "partial",
     "failing_checks": [
       "drive_stable_mirror",
+      "drive_dated_mirror",
       "notebooklm_sync",
       "dashboard_health"
     ]
   },
   "selfverify": {
-    "overall": "PASS",
+    "overall": "FAIL",
     "counts": {
-      "pass": 39,
+      "pass": 38,
       "warn": 0,
-      "fail": 0
+      "fail": 1
     },
-    "generated_at": "2026-06-05T14:00:07Z",
-    "report_filename": "everpass-bridge-and-mobile-health-2026-06-05.json",
+    "generated_at": "2026-07-06T14:05:31Z",
+    "report_filename": "everpass-bridge-and-mobile-health-2026-07-06.json",
     "report_present": true
   },
   "freshness": {
-    "bridge_status_mtime": "2026-06-05T15:55:02Z",
-    "morning_status_mtime": "2026-06-06T05:44:28Z"
+    "bridge_status_mtime": "2026-07-08T03:55:01Z",
+    "morning_status_mtime": "2026-07-10T01:15:07Z"
   }
 }

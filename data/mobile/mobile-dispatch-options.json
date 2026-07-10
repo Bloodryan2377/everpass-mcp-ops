@@ -1,6 +1,6 @@
 {
   "schema": "epc-mobile-dispatch-options/v1",
-  "generated_at": "2026-06-06T05:44:29Z",
+  "generated_at": "2026-07-10T04:48:52Z",
   "request_kinds": [],
   "partners": [
     {
@@ -211,6 +211,71 @@
     {
       "id": "roku",
       "title": "Roku",
+      "type_label": "Content property"
+    },
+    {
+      "id": "apmc",
+      "title": "Apmc",
+      "type_label": "Content property"
+    },
+    {
+      "id": "dronetv-engage",
+      "title": "Dronetv Engage",
+      "type_label": "Content property"
+    },
+    {
+      "id": "everbloom",
+      "title": "Everbloom",
+      "type_label": "Content property"
+    },
+    {
+      "id": "flosports",
+      "title": "Flosports",
+      "type_label": "Content property"
+    },
+    {
+      "id": "golf",
+      "title": "Golf",
+      "type_label": "Content property"
+    },
+    {
+      "id": "jhp",
+      "title": "Jhp",
+      "type_label": "Content property"
+    },
+    {
+      "id": "music-choice",
+      "title": "Music Choice",
+      "type_label": "Content property"
+    },
+    {
+      "id": "netcomtv",
+      "title": "Netcomtv",
+      "type_label": "Content property"
+    },
+    {
+      "id": "pokergo",
+      "title": "Pokergo",
+      "type_label": "Content property"
+    },
+    {
+      "id": "possible-new-content",
+      "title": "Possible New Content",
+      "type_label": "Content property"
+    },
+    {
+      "id": "possible-new-core-content",
+      "title": "Possible New Core Content",
+      "type_label": "Content property"
+    },
+    {
+      "id": "vft",
+      "title": "Vft",
+      "type_label": "Content property"
+    },
+    {
+      "id": "vft-solutions",
+      "title": "Vft Solutions",
       "type_label": "Content property"
     }
   ],

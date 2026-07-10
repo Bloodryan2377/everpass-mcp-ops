@@ -1,0 +1,713 @@
+{
+  "schema": "epc-mobile-cc/v1",
+  "generated_at": "2026-07-10T04:48:52Z",
+  "freshness": {
+    "available": true,
+    "overall": "PASS",
+    "generated_at": "2026-07-10T04:00:54+00:00",
+    "age_hours": 0.8,
+    "user_facing_red": [],
+    "user_facing_amber": [],
+    "totals": {
+      "total": 37,
+      "fresh": 36,
+      "warn": 0,
+      "stale": 1,
+      "missing": 0
+    },
+    "thresholds_hours": {
+      "fresh_max": 6,
+      "stale_min_exclusive": 12
+    }
+  },
+  "intel_drift": {
+    "overall": "WARN",
+    "red": 0,
+    "amber": 13,
+    "flags": [],
+    "generated_at": "2026-07-10T04:00:54Z"
+  },
+  "counts": {
+    "partners": 55,
+    "contracts": 68,
+    "open_items": 214,
+    "overdue": 7,
+    "high": 49,
+    "in_negotiation": 27,
+    "meetings_today": 5
+  },
+  "decision_queue": [
+    {
+      "partner": "MLB · .TV + Linear",
+      "partner_slug": "mlb",
+      "text": "Counter 6/11: Single-turn response: set the MG figure, the ad-split, and a Gap-Fill annual cap; launch March 2027",
+      "due": "2026-03-20",
+      "priority": "high",
+      "category": "Content",
+      "owner": "BD",
+      "overdue": true
+    },
+    {
+      "partner": "BKFC",
+      "partner_slug": "bkfc",
+      "text": "New intro: Casino-driven intro; parties connecting on possible partnership",
+      "due": "2026-06-08",
+      "priority": "high",
+      "category": "New Opp",
+      "owner": "CCO",
+      "overdue": true
+    },
+    {
+      "partner": "Charter / Spectrum",
+      "partner_slug": "charter",
+      "text": "Signed: Executed 6/10. Ops transition; progress Chili’s co-sell + Xumo app; SMB FCO docs optional (Option #1)",
+      "due": "2026-06-10",
+      "priority": "high",
+      "category": "Distribution",
+      "owner": "Exec + Ops",
+      "overdue": true
+    },
+    {
+      "partner": "Netflix PPV / Summer League",
+      "partner_slug": "netflix",
+      "text": "Signed: PPV ops lead (Jun 15); SL scheduler handoff (Jul 1)",
+      "due": "2026-06-15",
+      "priority": "high",
+      "category": "Content",
+      "owner": "BD + Ops",
+      "overdue": true
+    },
+    {
+      "partner": "Connected TVs",
+      "partner_slug": "connected",
+      "text": "Live: Clear LG QA defects (App ID 1290932 / Defect Issue); B2B hospitality parked to ~Oct whiteboard",
+      "due": "2026-06-23",
+      "priority": "high",
+      "category": "Distribution",
+      "owner": "Product + Eng",
+      "overdue": true
+    },
+    {
+      "partner": "AccuWeather",
+      "partner_slug": "accuweather",
+      "text": "Signed: Provide AP contact; confirm launch date",
+      "due": "2026-07-01",
+      "priority": "high",
+      "category": "Content",
+      "owner": "Content Ops",
+      "overdue": true
+    },
+    {
+      "partner": "NBA League Pass",
+      "partner_slug": "nba",
+      "text": "Pre-sell live: Hold the week-of-7/7 tipoff; term-sheet call 6/23 (Cicchillo); pre-sell bundled with Sunday Ticket + ESPN+",
+      "due": "2026-07-07",
+      "priority": "high",
+      "category": "Content",
+      "owner": "Eng + Sales",
+      "overdue": true
+    },
+    {
+      "partner": "Mediacom",
+      "partner_slug": "mediacom",
+      "text": "Referral pilot: Referral/BYOD pilot sent 6/22; Finance sets the referral rates; attribution is the open item",
+      "due": "2026-07-10",
+      "priority": "high",
+      "category": "Distribution",
+      "owner": "Finance + Exec",
+      "overdue": false
+    },
+    {
+      "partner": "NHL · Center Ice",
+      "partner_slug": "nhl",
+      "text": "Uplynk: Ops/product confirm the Uplynk delivery cost (vs the NBA assessment) + pricing; off-the-top is a non-starter",
+      "due": "2026-07-10",
+      "priority": "high",
+      "category": "Content",
+      "owner": "Ops + Product",
+      "overdue": false
+    },
+    {
+      "partner": "NESN",
+      "partner_slug": "nesn",
+      "text": "v22 · MG impasse: Send counter holding the performance threshold (no cash MG); conform launch to earlier-of; accept MFN simplification",
+      "due": "2026-07-10",
+      "priority": "high",
+      "category": "Content",
+      "owner": "BD",
+      "overdue": false
+    },
+    {
+      "partner": "Disney / ESPN",
+      "partner_slug": "disney",
+      "text": "Counter · internal review: Revised proposal back on our paper; Finance sets the MG floor (bracketed) + confirm the casino counter, then back to Disney",
+      "due": "2026-07-10",
+      "priority": "high",
+      "category": "Content",
+      "owner": "Finance + BD",
+      "overdue": false
+    },
+    {
+      "partner": "Apple",
+      "partner_slug": "apple",
+      "text": "EverPass Is Not Exclusive for Small Venues; Effective Exclusivity Exists at Scale — DIRECTV FOR BUSINESS simultaneously distributes Apple TV F1, MLS, and MLB Friday Night Baseball to 300,000+ commercial venues; however, DIRECTV streaming has a 20-TV cap, mean…",
+      "due": "",
+      "priority": "high",
+      "category": "CTV",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Deltatre",
+      "partner_slug": "deltatre",
+      "text": "Per-Event Fee Is $1,800 Up to 1,500 Concurrent Endpoints; Annual Service Fee Is $30,000 — Fixed fees: one-time activation fee of $20,000; annual service fee of $30,000; variable fees: $1,800 per live event (up to 1,500 concurrent delivery endpoints per event)…",
+      "due": "",
+      "priority": "high",
+      "category": "Tech",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Dish",
+      "partner_slug": "dish",
+      "text": "Day-1 Dish Partnership Exploration Held — Charter-Parallel Model Receptive — First substantive packaging conversation between EP and Dish Business. Attendees: Andy, Kate (Dish); Ryan Blood, Alex Kaplan (EP). Sling Orange commercialization path closed by Dish…",
+      "due": "",
+      "priority": "high",
+      "category": "Other",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Dish",
+      "partner_slug": "dish",
+      "text": "Sling Orange / Blue Commercial Rights — Closed Path — Dish confirmed directly on call: Sling TV is strictly residential, no commercial public-performance rights, structurally never pursued commercial. Prior Sling commercialization thesis is dead. Move on.",
+      "due": "",
+      "priority": "high",
+      "category": "Other",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Dish",
+      "partner_slug": "dish",
+      "text": "Hardware Safe Harbor Identified as Key Unlock for Dish — SMARTBOX2 / OnStream / EVOLVE qualify as partner endpoint under Charter framework. EP-closed enterprise deals → flat hardware provisioning fee to Dish, EP retains subscription revenue. Hospitality / hot…",
+      "due": "",
+      "priority": "high",
+      "category": "Other",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Dish",
+      "partner_slug": "dish",
+      "text": "Hybrid Hardware Path = Active Design Question — Andy framing: \"It's a really cool hybrid model with different margins. It involves a lot of product and tech collaboration. It's not wild though.\" Two delivery surfaces side-by-side: Dish satellite hardware for…",
+      "due": "",
+      "priority": "high",
+      "category": "Other",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Fox",
+      "partner_slug": "fox",
+      "text": "No Deal in Place; FOX Is the Only Major Broadcast Sports Provider Without an EverPass Agreement — FOX verbally committed EverPass as preferred commercial launch partner for Fox One DTC in July 2025; discussions stalled in November 2025 with no formal response…",
+      "due": "",
+      "priority": "high",
+      "category": "Broadcast",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "ION Sports",
+      "partner_slug": "ion_sports",
+      "text": "Economics Gap: Zero-Fee vs. Paid-Per-Sub — EverPass proposes zero license fee with ad pass-through as consideration; Scripps Term Sheet requires paid per-sub fees at a rate card not yet provided. Neither side has moved and no counterpart economic draft exists.",
+      "due": "",
+      "priority": "high",
+      "category": "Broadcast",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "NHL",
+      "partner_slug": "nhl",
+      "text": "Revenue Share Structure Has a Tiered Waterfall with Blanks; NHL Must Provide SRP and Rate Card — Revenue model: EverPass pays NHL 100% of Net Revenues up to a blank first threshold; retains 100% between a blank lower and upper band; pays NHL 70% (or MFN perce…",
+      "due": "",
+      "priority": "high",
+      "category": "League",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Paramount",
+      "partner_slug": "paramount",
+      "text": "Pre-Merger Window Is Peak Leverage for UFC Numbered Events Expansion — TKO/UFC investor relationship creates warm EverPass negotiating position; Paramount+ is now #1 sports SVOD platform by content volume (219% YoY growth driven by TKO UFC deal at undisclosed…",
+      "due": "",
+      "priority": "high",
+      "category": "Streaming",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Pokergo",
+      "partner_slug": "pokergo",
+      "text": "Economics: 50/50 Revenue Split, 20% Hard Deduction Cap (80% Net Floor) — 50/50 split unchanged; aggregate deductions hard-capped at 20% (net floor 80% of gross); internal/overhead/intercompany charges non-deductible; PokerGO retains full ad control/revenue un…",
+      "due": "",
+      "priority": "high",
+      "category": "Other",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Touchtunes",
+      "partner_slug": "touchtunes",
+      "text": "60-Day SMB Referral Pilot Framework Proposed; 65,000-Location Network Is the Strategic Prize — TouchTunes operates the largest in-venue interactive entertainment network in North America at 65,000+ locations; EverPass proposed a 60-day validation pilot (Pilot…",
+      "due": "",
+      "priority": "high",
+      "category": "Tech",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Touchtunes",
+      "partner_slug": "touchtunes",
+      "text": "Pilot Targets Independent SMB Venues in 3-5 DMAs; National Chains Excluded — Pilot venue eligibility: independent bars and restaurants with 1-9 locations in 3-5 DMAs with active EverPass sales coverage; venues already in EverPass pipeline are excluded; sports…",
+      "due": "",
+      "priority": "high",
+      "category": "Tech",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "UFC",
+      "partner_slug": "ufc",
+      "text": "Full ~67-Event Bundle Paused on Both Sides to Contain $1,800/Event Deltatre Cost — Deltatre charges $1,800 flat per live event ingested; the full bundle (Numbered PPV + Fight Nights + Zuffa Boxing + BJJ + PowerSlap) would run over $120K per year in backend fe…",
+      "due": "",
+      "priority": "high",
+      "category": "League",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Versant",
+      "partner_slug": "versant",
+      "text": "Term Sheet Drafted for 7 Cable Networks Including Golf Channel; Rates Not Yet Agreed — Versant-EverPass License Term Sheet covers: USA Network, CNBC, MS NOW (formerly MSNBC), Oxygen, E!, SYFY, and Golf Channel; term runs 3 years from execution with auto-renew…",
+      "due": "",
+      "priority": "high",
+      "category": "Broadcast",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Versant",
+      "partner_slug": "versant",
+      "text": "MFN Protection Included; Versant Must Offer EverPass No-Worse Terms Than Any Other Commercial Distributor — Economic MFN clause requires Versant to notify EverPass within 10 business days of making more favorable terms available to any other commercial distri…",
+      "due": "",
+      "priority": "high",
+      "category": "Broadcast",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "YES",
+      "partner_slug": "yes",
+      "text": "Exhibit B Per-Device Multiplier Dispute Blocking Package Launch — Signed Exhibit B language changed the package pricing multiplier base from per-unit (venue) to \"per unit and/or physically connected devices\" without being flagged during negotiation; a bar wit…",
+      "due": "",
+      "priority": "high",
+      "category": "RSN",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "YES",
+      "partner_slug": "yes",
+      "text": "Deal Is Structurally Unprofitable at Projected Subscriber Counts — 6-year model (April 2026 to March 2032) projects -$264,176 cumulative gross loss; YES license fee consumes 87.4% of Year 1 revenue at blended $151.48/sub/month versus $173.31 ARPU; breakeven r…",
+      "due": "",
+      "priority": "high",
+      "category": "RSN",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Netflix",
+      "partner_slug": "netflix",
+      "text": "Netflix",
+      "due": "",
+      "priority": "high",
+      "category": "Tracker",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "CHSN",
+      "partner_slug": "chsn",
+      "text": "CHSN",
+      "due": "",
+      "priority": "high",
+      "category": "Tracker",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Marquee",
+      "partner_slug": "marquee",
+      "text": "Go/No-Go Decision Pending After April 10 Exec Meeting — EverPass CEO Alex Kaplan signed the execution copy; Marquee counter-signature is outstanding pending Ryan Blood's go/no-go communication to Lee Schlazer (Sinclair SVP Distribution) following the April 10…",
+      "due": "April 10",
+      "priority": "high",
+      "category": "RSN",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "YES",
+      "partner_slug": "yes",
+      "text": "YES Acknowledges Issue; Deprioritizing Due to Opening Day — Jason Feneque responded April 10 that YES is \"on the rail\" with the agreement and would give the matter appropriate attention when Opening Day/Week activity subsides; the status is acknowledged but n…",
+      "due": "April 10",
+      "priority": "high",
+      "category": "RSN",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "WBD",
+      "partner_slug": "wbd",
+      "text": "Rates Still Withheld — WBD Conditioning Economics on Tech Alignment — As of April 11, 2026, WBD (Harris Hoffberg) has not provided per-service monthly license fee rates; WBD is conditioning rate disclosure on completion of a technical questionnaire and alignm…",
+      "due": "April 11, 2026",
+      "priority": "high",
+      "category": "Broadcast",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "MSG/Gotham",
+      "partner_slug": "msg_gotham",
+      "text": "April 12, 2026 Clean Draft Circulated; Multimillion-Dollar MG Remains Unresolved — EverPass circulated a revised clean distribution agreement draft (EP 4.12.26) that retained EverPass's position of a lower MG level framed as a termination right rather than a…",
+      "due": "April 12, 2026",
+      "priority": "high",
+      "category": "RSN",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "MSG/Gotham",
+      "partner_slug": "msg_gotham",
+      "text": "EverPass Counter-Proposal: $10.50/Month Package Rate With 5% Annual Escalator; $300K MG Combined Years 1-2 — The April 12, 2026 email from Ryan Blood to MSG summarized EverPass's current offer: package rate set at $10.50 per commercial establishment per month…",
+      "due": "April 12, 2026",
+      "priority": "high",
+      "category": "RSN",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Paramount",
+      "partner_slug": "paramount",
+      "text": "Paramount-WBD Merger Regulatory Risk: UK CMA Phase 1 Probe and DOJ Subpoenas Active — UK CMA opened a Phase 1 probe April 13, 2026; DOJ issued subpoenas March 27, 2026; Q3 2026 merger close is uncertain; any Paramount agreement signed pre-merger may require r…",
+      "due": "April 13, 2026",
+      "priority": "high",
+      "category": "Streaming",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Marquee",
+      "partner_slug": "marquee",
+      "text": "A La Carte-Only Structure Produces Projected Operating Loss — Sinclair's April 3 redline struck all packaging provisions (base package mandate, tag-along right, Exhibit B package rate); standalone a la carte at $37.50 to $75.00 per FCO tier requires 537 subsc…",
+      "due": "April 3",
+      "priority": "high",
+      "category": "RSN",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Monumental",
+      "partner_slug": "monumental",
+      "text": "Term Sheet at Final Version; EverPass Circulated Execution Draft April 9, 2026 — Ryan Blood sent what was characterized as \"what I think should be the final version for execution\" to Zachary Bernheimer (MSN) on April 9, 2026 with updated tech specs aligned to…",
+      "due": "April 9, 2026",
+      "priority": "high",
+      "category": "RSN",
+      "owner": "",
+      "overdue": false
+    },
+    {
+      "partner": "Monumental",
+      "partner_slug": "monumental",
+      "text": "MFN Clause on Future RSN Minimum Guarantees Constrains All Subsequent RSN Deals — The April 9, 2026 term sheet contains a forward-looking MFN: if EverPass enters any subsequent RSN agreement containing a minimum guarantee structure, Monumental must be notifie…",
+      "due": "April 9, 2026",
+      "priority": "high",
+      "category": "RSN",
+      "owner": "",
+      "overdue": false
+    }
+  ],
+  "decision_queue_counts": {
+    "total": 214,
+    "overdue": 7,
+    "high": 49,
+    "med": 98
+  },
+  "deals": [
+    {
+      "partner": "MLB · .TV + Linear",
+      "next_action": "Counter 6/11: Single-turn response: set the MG figure, the ad-split, and a Gap-Fill annual cap; launch March 2027",
+      "due": "2026-03-20",
+      "priority": "high",
+      "overdue": true
+    },
+    {
+      "partner": "BKFC",
+      "next_action": "New intro: Casino-driven intro; parties connecting on possible partnership",
+      "due": "2026-06-08",
+      "priority": "high",
+      "overdue": true
+    },
+    {
+      "partner": "Charter / Spectrum",
+      "next_action": "Signed: Executed 6/10. Ops transition; progress Chili’s co-sell + Xumo app; SMB FCO docs optional (Option #1)",
+      "due": "2026-06-10",
+      "priority": "high",
+      "overdue": true
+    },
+    {
+      "partner": "Netflix PPV / Summer League",
+      "next_action": "Signed: PPV ops lead (Jun 15); SL scheduler handoff (Jul 1)",
+      "due": "2026-06-15",
+      "priority": "high",
+      "overdue": true
+    },
+    {
+      "partner": "Connected TVs",
+      "next_action": "Live: Clear LG QA defects (App ID 1290932 / Defect Issue); B2B hospitality parked to ~Oct whiteboard",
+      "due": "2026-06-23",
+      "priority": "high",
+      "overdue": true
+    },
+    {
+      "partner": "AccuWeather",
+      "next_action": "Signed: Provide AP contact; confirm launch date",
+      "due": "2026-07-01",
+      "priority": "high",
+      "overdue": true
+    },
+    {
+      "partner": "NBA League Pass",
+      "next_action": "Pre-sell live: Hold the week-of-7/7 tipoff; term-sheet call 6/23 (Cicchillo); pre-sell bundled with Sunday Ticket + ESPN+",
+      "due": "2026-07-07",
+      "priority": "high",
+      "overdue": true
+    },
+    {
+      "partner": "Mediacom",
+      "next_action": "Referral pilot: Referral/BYOD pilot sent 6/22; Finance sets the referral rates; attribution is the open item",
+      "due": "2026-07-10",
+      "priority": "high",
+      "overdue": false
+    },
+    {
+      "partner": "NHL · Center Ice",
+      "next_action": "Uplynk: Ops/product confirm the Uplynk delivery cost (vs the NBA assessment) + pricing; off-the-top is a non-starter",
+      "due": "2026-07-10",
+      "priority": "high",
+      "overdue": false
+    },
+    {
+      "partner": "NESN",
+      "next_action": "v22 · MG impasse: Send counter holding the performance threshold (no cash MG); conform launch to earlier-of; accept MFN simplification",
+      "due": "2026-07-10",
+      "priority": "high",
+      "overdue": false
+    },
+    {
+      "partner": "Disney / ESPN",
+      "next_action": "Counter · internal review: Revised proposal back on our paper; Finance sets the MG floor (bracketed) + confirm the casino counter, then back to Disney",
+      "due": "2026-07-10",
+      "priority": "high",
+      "overdue": false
+    },
+    {
+      "partner": "Monumental",
+      "next_action": "Term Sheet at Final Version; EverPass Circulated Execution Draft April 9, 2026 — Ryan Blood sent what was characterized as \"what I think should be the final version for execution\" to Zachary Bernheimer (MSN) on April 9, 2026 with updated tech specs aligned to…",
+      "due": "April 9, 2026",
+      "priority": "high",
+      "overdue": false
+    },
+    {
+      "partner": "MSG/Gotham",
+      "next_action": "April 12, 2026 Clean Draft Circulated; Multimillion-Dollar MG Remains Unresolved — EverPass circulated a revised clean distribution agreement draft (EP 4.12.26) that retained EverPass's position of a lower MG level framed as a termination right rather than a…",
+      "due": "April 12, 2026",
+      "priority": "high",
+      "overdue": false
+    },
+    {
+      "partner": "Apple",
+      "next_action": "EverPass Is Not Exclusive for Small Venues; Effective Exclusivity Exists at Scale — DIRECTV FOR BUSINESS simultaneously distributes Apple TV F1, MLS, and MLB Friday Night Baseball to 300,000+ commercial venues; however, DIRECTV streaming has a 20-TV cap, mean…",
+      "due": "",
+      "priority": "high",
+      "overdue": false
+    }
+  ],
+  "meetings": {
+    "today": {
+      "date": "2026-07-09",
+      "available": true,
+      "count": 5,
+      "items": [
+        {
+          "start_local": "2026-07-09T12:00:00.0000000",
+          "title": "Cross Functional Standup",
+          "partner": "Anna Hewitt",
+          "location": "CT - Conference Room",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTJmMjBjZjQtNTUzOC00ZmYyLTgwYmItZWJkYzg0OWNkZWY5%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22a4a17867-3eda-4738-bf04-2fe69e6b28c4%22%7d"
+        },
+        {
+          "start_local": "2026-07-09T12:30:00.0000000",
+          "title": "Weekly Charter Sync: 2026 NFL Season Readiness",
+          "partner": "Kate Frydryk",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDk1ZmJjMGItZjlkOC00MTEwLThkZmQtNjlmNjMxMDk2NjAy%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22f96edbc5-a159-40bc-adad-62a57df63ebd%22%7d"
+        },
+        {
+          "start_local": "2026-07-09T13:00:00.0000000",
+          "title": "Weekly Coffee",
+          "partner": "Ryan Blood",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTVjMTQxNmYtMjkwMS00ZmU3LWE3NTEtZTM0MDViMTMzNTgz%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%220d5c544e-1c38-4e0c-88de-3bfb1eb80422%22%7d"
+        },
+        {
+          "start_local": "2026-07-09T14:30:00.0000000",
+          "title": "FW: Hardware GTM Standup",
+          "partner": "Joshua Horowitz",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODY5YTBlZjktYTZjYS00ZWUzLWIxM2QtNzM2YzdhZjU4ODc3%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22d36a04d1-f33d-48f3-894f-0bb86138de90%22%7d"
+        },
+        {
+          "start_local": "2026-07-09T16:30:00.0000000",
+          "title": "BC / RB",
+          "partner": "Cicchillo, Brett",
+          "location": "BC to call RB",
+          "join_url": ""
+        }
+      ]
+    },
+    "tomorrow": {
+      "date": "2026-07-10",
+      "available": true,
+      "count": 10,
+      "items": [
+        {
+          "start_local": "2026-07-10T10:30:00.0000000",
+          "title": "Chat Data",
+          "partner": "Will Ruiz",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGM2NjM0ODAtZDdjZS00YTRmLThjNGMtZWQ4ZTA5NmZiZWEz%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22bcaa07f0-f553-49e0-8fe8-62e8ab95a40a%22%7d"
+        },
+        {
+          "start_local": "2026-07-10T11:00:00.0000000",
+          "title": "EverPass & Monumental Launch Timing",
+          "partner": "Zachary Bernheimer",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTU3YzNhNzYtZmVlOC00ZWZiLWE1MjgtZGM5M2FkMTA1OGRh%40thread.v2/0?context=%7b%22Tid%22%3a%226cf54b06-fc3c-4374-8ca6-cb54552237e0%22%2c%22Oid%22%3a%22629ed9c4-9cc8-4dc9-9162-6d164161323c%22%7d"
+        },
+        {
+          "start_local": "2026-07-10T11:30:00.0000000",
+          "title": "Connected TV App Office Hours",
+          "partner": "Trung Luu",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjUxYjVmZGUtYzRlOS00NzVlLTgyY2YtMWY2NWE0NDczYmI3%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%221cdf314b-f835-4438-9fbf-92be910143cf%22%7d"
+        },
+        {
+          "start_local": "2026-07-10T12:00:00.0000000",
+          "title": "NFLST Readiness Meeting",
+          "partner": "Alex Kaplan",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGUxYzRlMGUtYzcxZi00ZGM3LWE2OTgtYmJjYWViMzhmZjZl%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%225b805840-6ed4-4112-809f-9e77c5f5109e%22%7d"
+        },
+        {
+          "start_local": "2026-07-10T13:00:00.0000000",
+          "title": "Marketing/Content catchup",
+          "partner": "Ryan Blood",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MmIwMWIxOWMtZTc0MS00YmUxLTk2M2UtN2I4N2I5MjcwN2E5%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%220d5c544e-1c38-4e0c-88de-3bfb1eb80422%22%7d"
+        },
+        {
+          "start_local": "2026-07-10T13:30:00.0000000",
+          "title": "New Hire Connect",
+          "partner": "Kevin Jensen",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzA1ZTUyOTctNTQ5OC00YzMxLTk2NjItNjgxNWI5MzQwOWVl%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%223407b0de-12aa-4c52-9d4b-afc1b9c80503%22%7d"
+        },
+        {
+          "start_local": "2026-07-10T14:00:00.0000000",
+          "title": "Canceled: NFST Readiness Meeting",
+          "partner": "Alex Kaplan",
+          "location": "",
+          "join_url": ""
+        },
+        {
+          "start_local": "2026-07-10T14:00:00.0000000",
+          "title": "Weekly Content Touch Base: key EP execs only (quick) - DO NOT FORWARD",
+          "partner": "Ryan Blood",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MzJiZGEzNmQtMjZiZC00MzQxLWJkM2MtYjM0ZmQyMmVlYmUx%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%220d5c544e-1c38-4e0c-88de-3bfb1eb80422%22%7d"
+        },
+        {
+          "start_local": "2026-07-10T14:30:00.0000000",
+          "title": "Ryan/ Brandon 1 on 1 Meeting",
+          "partner": "Brandon Banova",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjQwODYyM2QtYThjMy00ODNjLWJjM2QtYzEwZTM1Njc4NmNj%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22777b695e-4971-4427-b227-6315e312f8c3%22%7d"
+        },
+        {
+          "start_local": "2026-07-10T16:30:00.0000000",
+          "title": "Netflix NFL Pack Project Call",
+          "partner": "Anna Hewitt",
+          "location": "Microsoft Teams Meeting",
+          "join_url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTIyOTE0ZDUtN2JlYy00ZjUyLTg2NWYtMjIwZjE5ZWY1YjVm%40thread.v2/0?context=%7b%22Tid%22%3a%2273b7b4c9-3289-437b-b4e5-e0fc889aa93b%22%2c%22Oid%22%3a%22a4a17867-3eda-4738-bf04-2fe69e6b28c4%22%7d"
+        }
+      ]
+    }
+  },
+  "morning_brief": {
+    "available": true,
+    "date": "2026-07-09",
+    "line_count": 86,
+    "truncated": true,
+    "preview": "---\n# EverPass Morning Brief — Thursday, July 9, 2026\n\n## Critical / Time-Sensitive\n\n1. [NETFLIX] — Execution version signed; two watch items still need confirmation\n   Research feed (7/10 dated artifact, already in hand) shows Effective Date now locked at July 10, 2026, resolving the long-open blank field. However, two risk items are NOT confirmed resolved in the execution text: the $150K liability cap (§13(d)-(e)) and NFL approval of the Loyalty Credit construct (§4(f)/(g)). MGs unchanged: $750K 2026 / $900K 2027, greater of MG or 70% Net Revenue. September 10, 2026 (Rams vs. 49ers, Melbourne) is the hard backstop, ~63 days out.\n   Action: Confirm with Legal that §13(d)-(e) liability cap language is final. Push NFL Loyalty Credit approval to closed. Confirm EP internal sign-off on $900K Y2 MG with Finance/exec. Confirm §4(c-1) boxing replacement status ($250K max exposure, payable BY EverPass TO Netflix, due Oct 1, 2026). Deadline: EOD today.\n\n2. [NBA] — Counter live with NBA; Finance sign-off status needs re-verification\n   7/9 correction: prior 7/7 record that counter was \"finalized internally\" was inaccurate — the current EP counter (7.07 CLEAN) is live and already with the NBA. Brett Cicchillo replied 7/8: \"I get the issue, let's [continue]\" — momentum is live. Combined Y1 MG = $2.0M (NBA $1.5M / WNBA $500K). WNBA Y2 MG = greater of $250K or 150% of Y1 WNBA League Share paid (CFO revision 7/1, no cap). Combined CY1 EBITDA = −$830K; breakeven ~1,210 combined accounts.\n   Action: Confirm Finance/RedBird sign-off status was obtained before the 7.07 CLEAN counter went out…",
+    "url": "./MORNING-BRIEF-LATEST.html"
+  },
+  "contract": {
+    "available": true,
+    "total": 68,
+    "by_status": {
+      "In Negotiation": 27,
+      "Executed": 26,
+      "Form": 8,
+      "Exploratory - no deal terms sent": 3,
+      "Executed 2026-05-28 (DocuSign-completed; fully executed)": 1,
+      "Expired (term lapsed)": 1,
+      "Terms Agreed - Pending Signature": 1,
+      "Exploratory - framework sent, no deal terms": 1
+    },
+    "by_type": {
+      "Content Licensing": 26,
+      "Term Sheet": 11,
+      "Strategic Distribution": 5,
+      "Agreement": 5,
+      "Unknown": 4,
+      "PPV / Event-Based": 3
+    },
+    "by_payment_direction": {
+      "EverPass → Counterparty": 46,
+      "Unknown": 9,
+      "No payments / Strategic": 7,
+      "Counterparty → EverPass": 3,
+      "Bidirectional (EverPass pays referral fees; Charter remits Charter Sales subscription fees)": 1,
+      "EverPass → Counterparty (referral fees)": 1,
+      "None (non-IAP 0%)": 1
+    },
+    "generated_at": "2026-07-10T01:00:07Z"
+  },
+  "links": {
+    "dashboard": "https://dashboard.everpasspipeline.com",
+    "gonogo": "https://dashboard.everpasspipeline.com/go-no-go"
+  },
+  "pipeline_last_run": "2026-07-07T06:00:59Z"
+}

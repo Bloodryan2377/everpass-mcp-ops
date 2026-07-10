@@ -1,18 +1,18 @@
 {
   "schema": "epc-freshness/v1",
-  "generated_at": "2026-06-06T05:43:32+00:00",
+  "generated_at": "2026-07-10T04:00:54+00:00",
   "rule": "user-facing artifacts must be <= 12h old; warn at 6h",
   "thresholds_hours": {
     "fresh_max": 6,
     "stale_min_exclusive": 12
   },
-  "duration_s": 21.47,
+  "duration_s": 40.35,
   "ran_rebuilds": true,
   "totals": {
-    "total": 32,
-    "fresh": 32,
+    "total": 37,
+    "fresh": 36,
     "warn": 0,
-    "stale": 0,
+    "stale": 1,
     "missing": 0
   },
   "user_facing_red": [],
@@ -21,6 +21,7 @@
   "backend_facing_amber": [],
   "overall": "PASS",
   "backend_overall": "PASS",
+  "stale_terms": [],
   "artifacts": [
     {
       "key": "cockpit_data_json",
@@ -33,16 +34,70 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0003157752777777778,
-        "as_of": "2026-06-06T05:43:09+00:00"
+        "age_hours": 2.7520604591666666,
+        "as_of": "2026-07-10T01:15:06+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0003164933333333333,
-        "as_of": "2026-06-06T05:43:09+00:00"
+        "age_hours": 2.752270461388889,
+        "as_of": "2026-07-10T01:15:06+00:00"
       },
       "manual_action": null,
       "notes": null,
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "command_center_status_json",
+      "category": "cockpit",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\command-center-status.json",
+      "user_facing": true,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 3.002504079722222,
+        "as_of": "2026-07-10T01:00:08+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 3.0027140797222223,
+        "as_of": "2026-07-10T01:00:08+00:00"
+      },
+      "manual_action": null,
+      "notes": "Command Center single-truth verdict (epc-command-center-status/v1). Rebuild = full conductor: refreshes cockpit-data, morning-status, wiki-updates, decision-queue, tracker-alerts, pipeline-state, cockpit-tiles, meeting-prep, eod-status, then folds the freshness/chain/intel/econ/executed guards into one SYSTEM verdict (CURRENT/ATTENTION/STALE). The Command Center UI reads this for its top SYSTEM STATUS banner. Installed 2026-06-19 (CC = chained always-fresh SoT view; reverses the 2026-06-11 cockpit-retired stance for command-center-v2.html).",
+      "thresholds_hours": {
+        "fresh_max": 6.0,
+        "stale_min_exclusive": 12.0,
+        "is_override": false
+      }
+    },
+    {
+      "key": "system_map_md",
+      "category": "data",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Operating Manual\\EVERPASS-SYSTEM-MAP.md",
+      "user_facing": false,
+      "manual_only": false,
+      "optional": false,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 2.751777738611111,
+        "as_of": "2026-07-10T01:15:07+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 2.7519877377777777,
+        "as_of": "2026-07-10T01:15:07+00:00"
+      },
+      "manual_action": null,
+      "notes": "GROUND-TRUTH system map (anti-drift Rule 0). Generated from chain_surfaces.json + chain_anchor.json + freshness-status.json by build_system_map.py. Read FIRST on any EverPass task; surfaced every EverPass turn by the everpass-system-map.mjs hook.",
       "thresholds_hours": {
         "fresh_max": 6.0,
         "stale_min_exclusive": 12.0,
@@ -53,54 +108,54 @@
       "key": "meetings_today_json",
       "category": "cockpit",
       "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\meetings-today.json",
-      "user_facing": true,
-      "manual_only": false,
+      "user_facing": false,
+      "manual_only": true,
       "optional": false,
       "rebuilt": false,
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0031829880555555557,
-        "as_of": "2026-06-06T05:42:59+00:00"
+        "age_hours": 0.4835694697222222,
+        "as_of": "2026-07-10T03:31:13+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0031837119444444446,
-        "as_of": "2026-06-06T05:42:59+00:00"
+        "age_hours": 0.4837794688888889,
+        "as_of": "2026-07-10T03:31:13+00:00"
       },
       "manual_action": null,
-      "notes": null,
+      "notes": "Outlook calendar feed. gws/Google Calendar is DEAD; legacy build-meetings-today.py wrote empty (local_date=None) => content-stale, which FAILed the chip. Backend-only now: no live user-facing surface renders meetings since the cockpit Today panel was removed + cockpit retired (2026-06-06); it only feeds the morning brief's calendar section. Populate from Microsoft Outlook via Zapier get_calendar_events_in_date_range inside a Claude session (manual until a headless Outlook poller is wired). manual_only stops the dead-Google rebuild from clobbering the Outlook data.",
       "thresholds_hours": {
-        "fresh_max": 6.0,
-        "stale_min_exclusive": 12.0,
-        "is_override": false
+        "fresh_max": 24.0,
+        "stale_min_exclusive": 48.0,
+        "is_override": true
       }
     },
     {
       "key": "meetings_tomorrow_json",
       "category": "cockpit",
       "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\meetings-tomorrow.json",
-      "user_facing": true,
-      "manual_only": false,
+      "user_facing": false,
+      "manual_only": true,
       "optional": false,
       "rebuilt": false,
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0031824425,
-        "as_of": "2026-06-06T05:42:59+00:00"
+        "age_hours": 0.4833984708333333,
+        "as_of": "2026-07-10T03:31:13+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0031831716666666666,
-        "as_of": "2026-06-06T05:42:59+00:00"
+        "age_hours": 0.4836087475,
+        "as_of": "2026-07-10T03:31:13+00:00"
       },
       "manual_action": null,
-      "notes": null,
+      "notes": "See meetings_today_json. Outlook feed, backend-only, manual Zapier pull (gws Calendar dead).",
       "thresholds_hours": {
-        "fresh_max": 6.0,
-        "stale_min_exclusive": 12.0,
-        "is_override": false
+        "fresh_max": 24.0,
+        "stale_min_exclusive": 48.0,
+        "is_override": true
       }
     },
     {
@@ -114,13 +169,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0001236888888888889,
-        "as_of": "2026-06-06T05:43:10+00:00"
+        "age_hours": 2.7519276216666664,
+        "as_of": "2026-07-10T01:15:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.00012442,
-        "as_of": "2026-06-06T05:43:10+00:00"
+        "age_hours": 2.7521378983333333,
+        "as_of": "2026-07-10T01:15:07+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -141,13 +196,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.00027720305555555555,
-        "as_of": "2026-06-06T05:43:09+00:00"
+        "age_hours": 0.00015595333333333334,
+        "as_of": "2026-07-10T04:00:13+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0002779369444444444,
-        "as_of": "2026-06-06T05:43:09+00:00"
+        "age_hours": 0.00036623,
+        "as_of": "2026-07-10T04:00:13+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -155,6 +210,33 @@
         "fresh_max": 6.0,
         "stale_min_exclusive": 12.0,
         "is_override": false
+      }
+    },
+    {
+      "key": "brief_audio_status_json",
+      "category": "data",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\health\\audio-status.json",
+      "user_facing": false,
+      "manual_only": true,
+      "optional": true,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 2.0775270355555553,
+        "as_of": "2026-07-10T01:55:35+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 2.0777370344444446,
+        "as_of": "2026-07-10T01:55:35+00:00"
+      },
+      "manual_action": "python Scripts/run_brief_audio.py --mode morning|eod",
+      "notes": "Brief->Audio pipeline status (NotebookLM Audio Overviews -> private podcast feed). Written by record_audio_status.py after run_brief_audio.py. Spec: Operating Manual/BRIEF-AUDIO-PIPELINE.md. Scheduled tasks: 'EverPass Brief Audio - Morning/EOD'.",
+      "thresholds_hours": {
+        "fresh_max": 26.0,
+        "stale_min_exclusive": 30.0,
+        "is_override": true
       }
     },
     {
@@ -168,13 +250,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.003182197777777778,
-        "as_of": "2026-06-06T05:42:59+00:00"
+        "age_hours": 2.749451669722222,
+        "as_of": "2026-07-10T01:15:16+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0031829369444444445,
-        "as_of": "2026-06-06T05:42:59+00:00"
+        "age_hours": 2.749661668611111,
+        "as_of": "2026-07-10T01:15:16+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -191,17 +273,22 @@
       "user_facing": false,
       "manual_only": false,
       "optional": false,
-      "rebuilt": false,
-      "rebuild_result": null,
+      "rebuilt": true,
+      "rebuild_result": {
+        "ok": true,
+        "rc": 0,
+        "stderr": "",
+        "stdout": "WROTE C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\outlook-recent.json (445 bytes)\r\nWROTE C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Dashboard\\dashboard-deploy\\data\\mobile\\outlook-recent.json (445 bytes)\r\n"
+      },
       "pre": {
-        "status": "fresh",
-        "age_hours": 9.934870451388887,
-        "as_of": "2026-06-05T19:47:05+00:00"
+        "status": "warn",
+        "age_hours": 72.02987786944445,
+        "as_of": "2026-07-07T03:58:26+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 9.934871191666666,
-        "as_of": "2026-06-05T19:47:05+00:00"
+        "age_hours": 1.8625277777777778e-05,
+        "as_of": "2026-07-10T04:00:14+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -222,13 +309,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.00011436222222222223,
-        "as_of": "2026-06-06T05:43:10+00:00"
+        "age_hours": 2.7518793483333335,
+        "as_of": "2026-07-10T01:15:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.00011510249999999999,
-        "as_of": "2026-06-06T05:43:10+00:00"
+        "age_hours": 2.7520964111111113,
+        "as_of": "2026-07-10T01:15:07+00:00"
       },
       "manual_action": null,
       "notes": "Cockpit RED-tier health check reads this. Auto-rebuilt by freshness enforcer + cockpit.cmd builder chain.",
@@ -249,13 +336,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.71290746,
-        "as_of": "2026-06-06T04:00:24+00:00"
+        "age_hours": 0.0010650191666666667,
+        "as_of": "2026-07-10T04:00:10+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.7129082002777778,
-        "as_of": "2026-06-06T04:00:24+00:00"
+        "age_hours": 0.0012820819444444445,
+        "as_of": "2026-07-10T04:00:10+00:00"
       },
       "manual_action": null,
       "notes": "Hot action queue surfaced ABOVE partnerTodos in cockpit DQ. Written by intake/inbound_router.py. Optional \u2014 empty file OK if no inbounds pending.",
@@ -276,13 +363,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.0004654036111111111,
-        "as_of": "2026-06-06T05:43:09+00:00"
+        "age_hours": 2.752255799722222,
+        "as_of": "2026-07-10T01:15:06+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.0004661175,
-        "as_of": "2026-06-06T05:43:09+00:00"
+        "age_hours": 2.75247231,
+        "as_of": "2026-07-10T01:15:06+00:00"
       },
       "manual_action": null,
       "notes": "Cockpit Decision Queue. LEADS with the weekly exec deck Action Register (weekly-pdf/weekly-everpass.html #act-register, kind=weekly) + insights + tracker. Regenerated FIRST by the build-cockpit-state orchestrator (before cockpit_data merges it) and auto-healed here. build-decision-queue.py exits nonzero if the weekly source exists but parses 0 items, so a broken parser/source surfaces instead of drifting silent.",
@@ -303,16 +390,16 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.5476719099999998,
-        "as_of": "2026-06-06T04:10:19+00:00"
+        "age_hours": 2.3807530602777778,
+        "as_of": "2026-07-10T01:37:23+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.5476726247222223,
-        "as_of": "2026-06-06T04:10:19+00:00"
+        "age_hours": 2.3809695705555556,
+        "as_of": "2026-07-10T01:37:23+00:00"
       },
       "manual_action": null,
-      "notes": "LLM-generated morning brief. Rebuilt by build-morning-brief.py via Anthropic API. Daily cadence (5:50 AM task); 24h/36h thresholds match that cadence.",
+      "notes": "LLM-generated morning brief. Rebuilt by build-morning-brief.py via Anthropic API. Daily cadence (5:50 AM task); 24h/36h thresholds match that cadence. Rebuild timeout 300s (2026-06-06): the API build can exceed 120s and was timing out, leaving a daily afternoon amber.",
       "thresholds_hours": {
         "fresh_max": 6.0,
         "stale_min_exclusive": 12.0,
@@ -330,13 +417,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 3.0660436691666666,
-        "as_of": "2026-06-06T02:39:12+00:00"
+        "age_hours": 1.7244248919444443,
+        "as_of": "2026-07-10T02:16:46+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 3.0660443883333333,
-        "as_of": "2026-06-06T02:39:12+00:00"
+        "age_hours": 1.7246414008333333,
+        "as_of": "2026-07-10T02:16:46+00:00"
       },
       "manual_action": null,
       "notes": "Hermes-pattern proactive improvement brief. Daily cadence via 'EverPass Nightly Reflection' Win Scheduled Task at 07:00 local. 2-3 items max. Cockpit reads this for the Nightly Reflection banner card.",
@@ -357,13 +444,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.5457125719444444,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 4.809994737777778,
+        "as_of": "2026-07-09T23:11:38+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.545713286388889,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 4.8102113,
+        "as_of": "2026-07-09T23:11:38+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -384,13 +471,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.5457131394444446,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 4.809995293055556,
+        "as_of": "2026-07-09T23:11:38+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.545713852222222,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 4.810211855277777,
+        "as_of": "2026-07-09T23:11:38+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -411,13 +498,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.545784208611111,
-        "as_of": "2026-06-06T04:10:25+00:00"
+        "age_hours": 2.7517519455555557,
+        "as_of": "2026-07-10T01:15:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.5457849197222224,
-        "as_of": "2026-06-06T04:10:25+00:00"
+        "age_hours": 2.75196823,
+        "as_of": "2026-07-10T01:15:07+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -438,13 +525,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.5456741752777778,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 3.0019186877777777,
+        "as_of": "2026-07-10T01:00:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.5456748861111111,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 3.002134972222222,
+        "as_of": "2026-07-10T01:00:07+00:00"
       },
       "manual_action": null,
       "notes": "xlsx -> JSON detail export (everpass-contract-master/v1). Source: Contract Master.xlsx.",
@@ -465,13 +552,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.5456721666666666,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 3.001910631111111,
+        "as_of": "2026-07-10T01:00:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.5456728755555555,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 3.002126915555556,
+        "as_of": "2026-07-10T01:00:07+00:00"
       },
       "manual_action": null,
       "notes": "xlsx -> JSON summary export (everpass-contract-summary/v1). Source: Contract Master.xlsx.",
@@ -492,13 +579,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.5457433438888888,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 3.0019788552777777,
+        "as_of": "2026-07-10T01:00:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.5457440491666665,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 3.0021951411111107,
+        "as_of": "2026-07-10T01:00:07+00:00"
       },
       "manual_action": null,
       "notes": "Tier 0 snapshot anchor (epc-contract-master-snapshot/v1). Cockpit reads this for the 'Contracts data as of' badge.",
@@ -519,13 +606,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.5457433958333333,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 3.001979133611111,
+        "as_of": "2026-07-10T01:00:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.5457440958333333,
-        "as_of": "2026-06-06T04:10:26+00:00"
+        "age_hours": 3.0021951411111107,
+        "as_of": "2026-07-10T01:00:07+00:00"
       },
       "manual_action": null,
       "notes": "Per-partner Deal Brain rollup (epc-deal-brain-summary/v1). Future Ask deal-fact answerer reads this for cheap partner lookups.",
@@ -546,13 +633,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.545788407222222,
-        "as_of": "2026-06-06T04:10:25+00:00"
+        "age_hours": 2.7516998475000003,
+        "as_of": "2026-07-10T01:15:08+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.54578911,
-        "as_of": "2026-06-06T04:10:25+00:00"
+        "age_hours": 2.751915855,
+        "as_of": "2026-07-10T01:15:08+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -573,13 +660,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 3.0660132075,
-        "as_of": "2026-06-06T02:39:13+00:00"
+        "age_hours": 2.7516992933333335,
+        "as_of": "2026-07-10T01:15:08+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 3.0660139175,
-        "as_of": "2026-06-06T02:39:13+00:00"
+        "age_hours": 2.7519153008333332,
+        "as_of": "2026-07-10T01:15:08+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -595,21 +682,21 @@
       "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\chatgpt-bridge\\bridge-status.json",
       "user_facing": false,
       "manual_only": true,
-      "optional": false,
+      "optional": true,
       "rebuilt": false,
       "rebuild_result": null,
       "pre": {
-        "status": "fresh",
-        "age_hours": 13.802406445,
-        "as_of": "2026-06-05T15:55:02+00:00"
+        "status": "stale",
+        "age_hours": 48.086788937499996,
+        "as_of": "2026-07-08T03:55:01+00:00"
       },
       "post": {
-        "status": "fresh",
-        "age_hours": 13.802407153055556,
-        "as_of": "2026-06-05T15:55:02+00:00"
+        "status": "stale",
+        "age_hours": 48.0870046675,
+        "as_of": "2026-07-08T03:55:01+00:00"
       },
-      "manual_action": "ChatGPT bridge daily drain runs 8:55 AM via the `chatgpt-bridge-daily-drain` scheduled task. If this artifact is stale (>36h), check that task's last-run/result.",
-      "notes": "Daily-cadence backend artifact. Refreshed by chatgpt-bridge-daily-drain (8:55 AM). Per-artifact thresholds (fresh<=24h, stale>36h) align with that cadence; not user-facing, never affects cockpit/mobile chip color.",
+      "manual_action": "RETIRED 2026-07-08 (Ryan directive: stop purposeless ChatGPT-bridge watchers). The `EverPass ChatGPT Bridge Heartbeat`, `EverPass Ask Watcher`, and `EverPass Bridge+Mobile Self-Verify` scheduled tasks are DISABLED. Re-enable the tasks and set optional=False here to reactivate the bridge legs.",
+      "notes": "RETIRED 2026-07-08. ChatGPT bridge watcher tasks disabled per Ryan (bridge inbox drain is manual-only via chatgpt-inbox-process-local skill; heartbeat existed only to mask staleness). Leg kept as optional so history/tools referencing the key do not break.",
       "thresholds_hours": {
         "fresh_max": 24.0,
         "stale_min_exclusive": 36.0,
@@ -627,13 +714,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.5457890005555555,
-        "as_of": "2026-06-06T04:10:25+00:00"
+        "age_hours": 2.751721102222222,
+        "as_of": "2026-07-10T01:15:07+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.5457897072222222,
-        "as_of": "2026-06-06T04:10:25+00:00"
+        "age_hours": 2.7519530588888887,
+        "as_of": "2026-07-10T01:15:07+00:00"
       },
       "manual_action": null,
       "notes": null,
@@ -654,13 +741,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.7183589663888889,
-        "as_of": "2026-06-06T05:00:04+00:00"
+        "age_hours": 0.0028741902777777778,
+        "as_of": "2026-07-10T04:00:03+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.7183596713888889,
-        "as_of": "2026-06-06T05:00:04+00:00"
+        "age_hours": 0.0031061469444444443,
+        "as_of": "2026-07-10T04:00:03+00:00"
       },
       "manual_action": null,
       "notes": "State file updates only when the watcher ticks AND the inbox has new files. Stale state with empty inbox is OK; stale state with files in inbox is a real backlog.",
@@ -681,13 +768,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.7183636683333333,
-        "as_of": "2026-06-06T05:00:04+00:00"
+        "age_hours": 0.0028753019444444443,
+        "as_of": "2026-07-10T04:00:03+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.7183643694444445,
-        "as_of": "2026-06-06T05:00:04+00:00"
+        "age_hours": 0.003107258611111111,
+        "as_of": "2026-07-10T04:00:03+00:00"
       },
       "manual_action": null,
       "notes": "Log mtime advances on every tick. If watcher is scheduled, this is a heartbeat.",
@@ -708,13 +795,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 15.219076852222223,
-        "as_of": "2026-06-05T14:30:02+00:00"
+        "age_hours": 13.502813578055555,
+        "as_of": "2026-07-09T14:30:04+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 15.219077547777777,
-        "as_of": "2026-06-05T14:30:02+00:00"
+        "age_hours": 13.503045347222223,
+        "as_of": "2026-07-09T14:30:04+00:00"
       },
       "manual_action": null,
       "notes": "Export chain manifest (everpass-exports-manifest/v1). Rebuilt by build_exports.py from wiki/partners/ + Partner Insights/ + contract-master-data.json. Outputs: briefs/, obsidian/, notebooklm/ under AI Related/exports/. Per-artifact thresholds (fresh<=24h, stale>36h) match the once-daily build cadence.",
@@ -735,13 +822,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 1.7127915352777778,
-        "as_of": "2026-06-06T04:00:24+00:00"
+        "age_hours": 7.611555555555555e-05,
+        "as_of": "2026-07-10T04:00:13+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 1.7127922330555556,
-        "as_of": "2026-06-06T04:00:24+00:00"
+        "age_hours": 0.0003078847222222222,
+        "as_of": "2026-07-10T04:00:13+00:00"
       },
       "manual_action": null,
       "notes": "Sentinel for build-dashboard-sync.py. Patches goNoGoData partner headers in the main pipeline dashboard HTML from contract-master-data.json + dashboard-partner-overrides.json. Runs every 6h via run-partner-chain.cmd.",
@@ -754,7 +841,7 @@
     {
       "key": "daily_log",
       "category": "data",
-      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\daily\\2026-06-05.md",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\AI Related\\daily\\2026-07-09.md",
       "user_facing": false,
       "manual_only": false,
       "optional": true,
@@ -762,13 +849,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 0.5769974225,
-        "as_of": "2026-06-06T05:08:33+00:00"
+        "age_hours": 0.14787159583333334,
+        "as_of": "2026-07-10T03:51:21+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 0.576998118888889,
-        "as_of": "2026-06-06T05:08:33+00:00"
+        "age_hours": 0.14810392194444444,
+        "as_of": "2026-07-10T03:51:21+00:00"
       },
       "manual_action": null,
       "notes": "Session-end compound memory log. One file per day in AI Related/daily/.",
@@ -789,13 +876,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 154.25041553083332,
-        "as_of": "2026-05-30T19:28:09+00:00"
+        "age_hours": 72.02647173222222,
+        "as_of": "2026-07-07T03:58:38+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 154.25041622722222,
-        "as_of": "2026-05-30T19:28:09+00:00"
+        "age_hours": 72.02670378083333,
+        "as_of": "2026-07-07T03:58:38+00:00"
       },
       "manual_action": null,
       "notes": "agent-browser macro telemetry feed. Updated on-demand by Browser Agent tab in AOS Command Center; enforcer keeps it fresh with a marked _freshness_heartbeat row when idle. Public mirror at everpass-agent-browser.vercel.app refreshed via _apps/everpass-agent-browser-ui/deploy.cmd.",
@@ -816,13 +903,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 154.33272190888889,
-        "as_of": "2026-05-30T19:23:12+00:00"
+        "age_hours": 92.19713631750001,
+        "as_of": "2026-07-06T07:48:24+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 154.33272260472225,
-        "as_of": "2026-05-30T19:23:12+00:00"
+        "age_hours": 92.19736864361111,
+        "as_of": "2026-07-06T07:48:24+00:00"
       },
       "manual_action": "Run: python \"EVERPASS TOOLS\\Scripts\\build_partner_notebook_map.py\" --headless\nRequires: authenticated Playwright profile at AI Related/.notebooklm-profile/\nFirst-time auth: python \"EVERPASS TOOLS\\Scripts\\notebooklm_auth_setup.py\"",
       "notes": "Partner\u2192NotebookLM ID mapping for Email Research Agent. Built by build_partner_notebook_map.py (Playwright headless, weekly). After rebuild, run generate_n8n_domain_map.py and paste output into n8n 'Match Partner' Code node. Set manual_only=False and add rebuild_cmd once auth-refresh automation is wired.",
@@ -833,9 +920,9 @@
       }
     },
     {
-      "key": "weekly_everpass_standalone",
+      "key": "content_bookend_review",
       "category": "data",
-      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\weekly-pdf\\weekly-everpass-standalone.html",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Weekly Outputs\\recurring\\content-pipeline\\content-bookend-review-latest.html",
       "user_facing": false,
       "manual_only": false,
       "optional": true,
@@ -843,19 +930,19 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 4.218816687222222,
-        "as_of": "2026-06-06T01:30:02+00:00"
+        "age_hours": 149.0026031725,
+        "as_of": "2026-07-03T23:00:04+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 4.218817381666667,
-        "as_of": "2026-06-06T01:30:02+00:00"
+        "age_hours": 149.00283577666667,
+        "as_of": "2026-07-03T23:00:04+00:00"
       },
       "manual_action": null,
-      "notes": "NEW Winston weekly deck deployed to weekly.everpasspipeline.com (site 931a24c5). Re-synced curated source -> standalone+PDF -> Netlify by build-weekly-everpass.py (scheduled task 'EverPass Weekly Content Update', nightly EOD) + on-demand via the /build-weekly-everpass skill. Editorial prose authored by humans/skill; this job guarantees deploy + freshness stamp. Legacy build-weekly-content-update.py is retired.",
+      "notes": "Content Pipeline weekly bookend (Fri week-in-review). Assembler build_content_bookend.py reads RAID + partnerships-delta + this-week OPERATOR-UPDATEs + contract-master-summary -> 2-panel HTML in Weekly Outputs/recurring/content-pipeline/. Scheduled tasks 'EverPass Content Bookend Mon' (07:00, --mode ahead) + '...Fri' (16:00, --mode review). Internal ops, no external send. Companion ahead-latest is the Monday view.",
       "thresholds_hours": {
-        "fresh_max": 30.0,
-        "stale_min_exclusive": 192.0,
+        "fresh_max": 192.0,
+        "stale_min_exclusive": 264.0,
         "is_override": true
       }
     },
@@ -870,13 +957,13 @@
       "rebuild_result": null,
       "pre": {
         "status": "fresh",
-        "age_hours": 8.058320465,
-        "as_of": "2026-06-05T21:39:40+00:00"
+        "age_hours": 3.0016282516666664,
+        "as_of": "2026-07-10T01:00:08+00:00"
       },
       "post": {
         "status": "fresh",
-        "age_hours": 8.058321166944445,
-        "as_of": "2026-06-05T21:39:40+00:00"
+        "age_hours": 3.0018608558333337,
+        "as_of": "2026-07-10T01:00:08+00:00"
       },
       "manual_action": null,
       "notes": "Truth feed replacing the old hardcoded 'Pipeline state' rows + dead Samsung counter in agentic-os-command-center.html. Carries last_full_refresh age + stale flag + real daily-log events. Rebuilt by build_pipeline_state.py; the full-extraction marker is stamped via build_pipeline_state.py --mark-full-refresh.",
@@ -885,6 +972,1441 @@
         "stale_min_exclusive": 48.0,
         "is_override": true
       }
+    },
+    {
+      "key": "viewership_node_manifest",
+      "category": "data",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\Financial, Product, Data, EP Info\\Viewership\\_canon\\viewership-manifest.json",
+      "user_facing": false,
+      "manual_only": false,
+      "optional": true,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 258.6704503447222,
+        "as_of": "2026-06-29T16:20:00+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 258.6706818372222,
+        "as_of": "2026-06-29T16:20:00+00:00"
+      },
+      "manual_action": null,
+      "notes": "Machine manifest for the Viewership node (Financial, Product, Data, EP Info/Viewership/). Rebuilt by build_viewership_node.py (organizes provider buckets, regenerates .converted.md, writes this manifest). Monthly cadence: partner viewership reports land ~30 days after month-end, so a 35d/45d envelope, NOT the 12h user-facing rule (this is a non-user-facing grounding layer). The curated index viewership-canon.md is hand-maintained and not tracked here. Queryable corpus = NotebookLM cd685c42; prior corpus mirrored in 1d35d462.",
+      "thresholds_hours": {
+        "fresh_max": 840.0,
+        "stale_min_exclusive": 1080.0,
+        "is_override": true
+      }
+    },
+    {
+      "key": "deal_bank_diff",
+      "category": "data",
+      "path": "C:\\Users\\ryan\\OneDrive - EverPass Media\\EVERPASS\\EVERPASS TOOLS\\Cockpit\\deal-bank-diff.json",
+      "user_facing": false,
+      "manual_only": true,
+      "optional": true,
+      "rebuilt": false,
+      "rebuild_result": null,
+      "pre": {
+        "status": "fresh",
+        "age_hours": 28.47531552194444,
+        "as_of": "2026-07-08T23:31:43+00:00"
+      },
+      "post": {
+        "status": "fresh",
+        "age_hours": 28.475546737222224,
+        "as_of": "2026-07-08T23:31:43+00:00"
+      },
+      "manual_action": "Run the deal-bank-weekly-diff skill (agent browser): query NotebookLM 1d35d462 with the fixed question set, write answers JSON, then `python Scripts/deal_bank_diff.py --diff <answers.json>`. The weekly task 'EverPass Deal Bank Weekly Diff' enqueues Cockpit/deal-bank-diff-request.json.",
+      "notes": "R5 chain-redesign weekly deal-bank diff. Delta-only: only fields where the finance notebook (1d35d462) disagrees with DATA_EXPORTS/deal_brain_summary.json canon are surfaced (canon value vs notebook value vs citation). Canon always wins; never written from a notebook answer. Engine: Scripts/deal_bank_diff.py.",
+      "thresholds_hours": {
+        "fresh_max": 192.0,
+        "stale_min_exclusive": 384.0,
+        "is_override": true
+      }
     }
-  ]
+  ],
+  "intel_drift": {
+    "overall": "WARN",
+    "counts": {
+      "red": 0,
+      "amber": 13,
+      "green": 20,
+      "evaluated": 33
+    },
+    "red": [],
+    "amber": [
+      "accuweather",
+      "amazon",
+      "apmc",
+      "apple",
+      "bkfc",
+      "deltatre",
+      "disney",
+      "flosports",
+      "monumental",
+      "pokergo",
+      "ufc",
+      "yes",
+      "yttv"
+    ],
+    "generated_at": "2026-07-10T04:00:54Z"
+  },
+  "chain_coverage": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0,
+      "findings": 0,
+      "active_partners": 20
+    },
+    "findings": [],
+    "generated_at": "2026-07-10T04:00:55Z"
+  },
+  "executed_coverage": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0,
+      "checked": 14
+    },
+    "findings": [],
+    "generated_at": "2026-07-10T04:01:04Z"
+  },
+  "econ_drift": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "files_checked": 81,
+      "partners": 10
+    },
+    "findings": [],
+    "generated_at": "2026-07-09T21:01:04-07:00"
+  },
+  "recency": {
+    "overall": "WARN",
+    "counts": {
+      "red": 0,
+      "amber": 2,
+      "partners": 17
+    },
+    "findings": [
+      {
+        "severity": "AMBER",
+        "check": "current-figure-absent",
+        "slug": "market",
+        "surface": "EverPass Media _ Content Pipeline Decision-Making Dashboard.html",
+        "pattern": "$19.99-$249.99",
+        "detail": "current figure '$19.99-$249.99' for market is NOT present on the live dashboard; the surface may not reflect the anchor."
+      },
+      {
+        "severity": "AMBER",
+        "check": "anchor-heartbeat-stale",
+        "detail": "last full-chain refresh was 13d ago (> 7d); re-confirm the chain is current."
+      }
+    ],
+    "generated_at": "2026-07-09T21:01:09-07:00"
+  },
+  "structured_join": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "rows_checked": 14,
+      "files": 3
+    },
+    "findings": [],
+    "generated_at": "2026-07-09T21:01:11"
+  },
+  "surface_health": {
+    "overall": "PASS",
+    "broken": 0,
+    "total": 21,
+    "generated_at": "2026-07-09T21:01:37"
+  },
+  "artifacts_drift": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0
+    },
+    "findings": [],
+    "generated_at": "2026-07-09T21:01:38"
+  },
+  "loop_status": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0,
+      "loops": 27,
+      "active": 23
+    },
+    "findings": [],
+    "generated_at": "2026-07-09T21:01:38"
+  },
+  "evolution_status": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0,
+      "incidents": 110,
+      "open": 6
+    },
+    "findings": [],
+    "generated_at": "2026-07-09T21:01:38"
+  },
+  "private_hold_status": {
+    "overall": "PASS",
+    "red": 0,
+    "hits": [],
+    "checked": [
+      "Cockpit\\_support\\docs\\MORNING-BRIEF-LATEST.html",
+      "Cockpit\\_support\\docs\\EOD-BRIEF-LATEST.html",
+      "Cockpit\\MORNING-BRIEF-LATEST.html",
+      "Dashboard\\EverPass Media _ Content Pipeline Decision-Making Dashboard.html",
+      "Dashboard\\dashboard-deploy\\index.html",
+      "Dashboard\\contentpipeline-deploy\\index.html",
+      "Weekly Outputs\\recurring\\weekly\\weekly-everpass-2026-07-08.html"
+    ]
+  },
+  "external_leak": {
+    "overall": "WARN",
+    "counts": {
+      "red": 0,
+      "amber": 1,
+      "decks": 21,
+      "scanned": 16
+    },
+    "findings": [
+      {
+        "severity": "AMBER",
+        "deck": "yttv-gtm",
+        "detail": "possible internal language on an external surface: '$<n> illustrative' in CONTENT PARTNERSHIPS/Platform Partners/YTTV/Sales, Product, Ops/yttv-gtm-presenter-goldstandard.html"
+      }
+    ],
+    "generated_at": "2026-07-09T21:01:38"
+  },
+  "print_media": {
+    "overall": "WARN",
+    "counts": {
+      "red": 0,
+      "amber": 37,
+      "decks": 21,
+      "scanned": 18
+    },
+    "findings": [
+      {
+        "severity": "AMBER",
+        "deck": "dazn-rsn-alt",
+        "detail": "unscoped width media query '@media (max-width:880px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in CONTENT PARTNERSHIPS/RSNs/EverPass-DAZN-RSN-Commercial-Layer-ALT.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "local-rights",
+        "detail": "unscoped width media query '@media (max-width:880px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in CONTENT PARTNERSHIPS/RSNs/Local-Sports-Commercial-Layer-Template.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "dazn-rsn",
+        "detail": "unscoped width media query '@media (max-width:880px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in CONTENT PARTNERSHIPS/RSNs/EverPass-DAZN-RSN-Commercial-Layer.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "dazn-execution",
+        "detail": "unscoped width media query '@media (max-width:880px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in CONTENT PARTNERSHIPS/Platform Partners/DAZN/Sales, Product, Ops/EverPass-DAZN-Execution-Migration-Framework.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "charter-deal",
+        "detail": "unscoped width media query '@media (max-width:780px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in CONTENT PARTNERSHIPS/Platform Partners/CHARTER/Negotiation/Executive & Companion Materials/Charter-2026-Amendment-Internal-Deal-Summary.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "charter-deal",
+        "detail": "unscoped width media query '@media (max-width:520px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in CONTENT PARTNERSHIPS/Platform Partners/CHARTER/Negotiation/Executive & Companion Materials/Charter-2026-Amendment-Internal-Deal-Summary.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "charter-sales",
+        "detail": "unscoped width media query '@media (max-width:1024px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in CONTENT PARTNERSHIPS/Platform Partners/CHARTER/Sales, Product, Ops/EverPass _ Charter _ Sales Flow Tool _ EXECUTED 2026-06-10.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "charter-sales",
+        "detail": "unscoped width media query '@media (max-width:768px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in CONTENT PARTNERSHIPS/Platform Partners/CHARTER/Sales, Product, Ops/EverPass _ Charter _ Sales Flow Tool _ EXECUTED 2026-06-10.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "charter-sales",
+        "detail": "unscoped width media query '@media (max-width:480px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in CONTENT PARTNERSHIPS/Platform Partners/CHARTER/Sales, Product, Ops/EverPass _ Charter _ Sales Flow Tool _ EXECUTED 2026-06-10.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "content101",
+        "detail": "unscoped width media query '@media (max-width: 960px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Weekly Outputs/one-off/content-101/Content 101/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "content101",
+        "detail": "unscoped width media query '@media (max-width: 960px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Weekly Outputs/one-off/content-101/Content 101/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "content101",
+        "detail": "unscoped width media query '@media (max-width: 960px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Weekly Outputs/one-off/content-101/Content 101/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "content101",
+        "detail": "unscoped width media query '@media (max-width: 720px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Weekly Outputs/one-off/content-101/Content 101/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "content101",
+        "detail": "unscoped width media query '@media (max-width: 960px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Weekly Outputs/one-off/content-101/Content 101/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "viewership",
+        "detail": "unscoped width media query '@media (max-width:1100px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in Financial, Product, Data, EP Info/Viewership/command-center/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "viewership",
+        "detail": "unscoped width media query '@media (max-width:640px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in Financial, Product, Data, EP Info/Viewership/command-center/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "viewership",
+        "detail": "unscoped width media query '@media (max-width:760px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in Financial, Product, Data, EP Info/Viewership/command-center/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "viewership",
+        "detail": "unscoped width media query '@media (max-width:720px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in Financial, Product, Data, EP Info/Viewership/command-center/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "viewership",
+        "detail": "unscoped width media query '@media (max-width:880px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in Financial, Product, Data, EP Info/Viewership/command-center/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "viewership",
+        "detail": "unscoped width media query '@media (max-width:640px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in Financial, Product, Data, EP Info/Viewership/command-center/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:1024px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:768px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:480px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:1024px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:768px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:480px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:768px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:820px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:900px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:760px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:820px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:1024px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:768px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:480px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:960px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:960px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      },
+      {
+        "severity": "AMBER",
+        "deck": "contentpipeline",
+        "detail": "unscoped width media query '@media (max-width:920px)' applies to print/PDF too (scope it 'screen and (...)' if this deck is PDF-exported) in EVERPASS TOOLS/Dashboard/contentpipeline-deploy/index.html"
+      }
+    ],
+    "generated_at": "2026-07-09T21:01:38"
+  },
+  "kb_health": {
+    "overall": "WARN",
+    "counts": {
+      "red": 0,
+      "amber": 136,
+      "files": 221
+    },
+    "findings": [
+      {
+        "severity": "AMBER",
+        "item": "reference_higgsfield_ai.md",
+        "detail": "reference memory has no URL/path in body (attribution gap)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "MEMORY.md",
+        "detail": "index points to missing out-of-dir file: ../../../../../.claude/skills/self-improve/SKILL.md"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_cockpit_oom_guardrails.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "decision_remote_control_adopted_2026-06-07.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_browser_automation_guardrails.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_claude_cli_batch_hijack.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_cockpit_first.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_compute_dont_recall.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_dashboard_weekly_deploy_cadence.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_everpass_maintenance_mode.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_everpass_output_guardrail.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_everpass_presentation_skill_trigger.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_fewer_permission_prompts_global.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_finance_comms_no_domain_lecturing.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_fix_immediately.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_forecast_headline_not_seasonality.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_frontmatter_sync_policy.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_lead_with_best_recent.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_legal_doc_review_quality.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_legal_routing_chained.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_lg_staging_freeze.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_never_use_redbird.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_no_em_dashes.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_notebooklm_playwright_capture.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_partner_output_folder_placement.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_pdf_export_standard.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_playwright_cli.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_pocock_patterns_adopted.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_prep_panel_offer.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_round_external_figures.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_routine_failures_battery_and_parens.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_scheduled_task_timing.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_skill_gotchas_and_automate_augment.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_status_word_closed_no_gate.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_weekly_exec_meeting_three_files.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_weekly_leavebehind_standard.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_weekly_no_owner_source.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "fix_injector_escape_apostrophe.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "governance_cockpit_sync_doctrine.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "governance_update_classification.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "notebook_lm_sweep_resume_2026-04-18.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "procedure_claude_relaunch_prep.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_agent_browser_integration.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_agentic_os_command_center.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_aos_phone_connectivity.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_ask_watcher_scheduled_task.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_bkfc_vft_onboarding_2026-06-08.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_broadcast_ops_forecast_monthly.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_chain_bulletproof_2026-05-16.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_daily_update_module.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_mission_control_2026-05-23.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_nflst_sales_performance_chain.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_overnight_audit_2026-06-11.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_partner_insights_bridge.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_research_agent.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_sub_forecast_chain.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_weekly_outputs_consolidation_2026-06-10.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "rag_anything_install.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_build_notebooklm_corpus.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_content_pipeline_team_drive.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_dns_cloudflare_2026-05-19.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_ep_final_polish_skill.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_everpass_prep_summary_template.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_everpass_presentation_shell_2026-05-19.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_kb_health_guard.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_loop_authoring_template.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_negotiation_update_deck_baseline.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_rag_retrieval_gate.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_session_review_and_behavior.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_staleness_diagnostic.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "rsn_helper_v1_checkpoint.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "scheduled_task_status.md",
+        "detail": "memory file not referenced in MEMORY.md (orphan \u2014 add an index pointer)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_auto_pipeline_injector_2026-05-23.md",
+        "detail": "unresolved [[feedback-fix-immediately]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_auto_pipeline_injector_2026-05-23.md",
+        "detail": "unresolved [[feedback-full-automation-doctrine]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_dashboard_truth_guard.md",
+        "detail": "unresolved [[architecture_econ_drift_guard]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_deal_brain_product_truth.md",
+        "detail": "unresolved [[reference-deal-brain-ppv-oom-autoconsult]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_deck_interactivity_guard.md",
+        "detail": "unresolved [[presentation_goldstandard]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_deck_interactivity_guard.md",
+        "detail": "unresolved [[everpass-presentation auto-trigger]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_opus_bridge_2026-07-06.md",
+        "detail": "unresolved [[FABLE-HANDOFF-2026-07-07-lastday-videos]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_skill_router.md",
+        "detail": "unresolved [[feedback_fable_operating_procedure]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "architecture_tier4_agent_memory.md",
+        "detail": "unresolved [[architecture_recency_anchor.md]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_audience_first.md",
+        "detail": "unresolved [[verify-never-assume]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_audience_first.md",
+        "detail": "unresolved [[deliver-word-not-markdown]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_compute_dont_recall.md",
+        "detail": "unresolved [[project_streamtv_2026_artifacts]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_content_true_visuals.md",
+        "detail": "unresolved [[reference_evl089_motion_layer]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_everpass_output_guardrail.md",
+        "detail": "unresolved [[feedback-autonomous-execution-default]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_exec_output_contract.md",
+        "detail": "unresolved [[feedback_full_automation_doctrine]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_lead_with_best_recent.md",
+        "detail": "unresolved [[feedback-agreement-recency-governs]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_marketing_confident_narrative.md",
+        "detail": "unresolved [[feedback_source_fidelity_copy]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_marketing_confident_narrative.md",
+        "detail": "unresolved [[feedback_no_infer_invent]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_missing_info_check_order.md",
+        "detail": "unresolved [[feedback_folder_path_source_of_truth]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_netlify_verify_site_id.md",
+        "detail": "unresolved [[project_streamtv_2026_artifacts]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_partner_output_folder_placement.md",
+        "detail": "unresolved [[feedback-everpass-tools-folder-governance]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_prep_panel_offer.md",
+        "detail": "unresolved [[ep-meeting-prep]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_round_external_figures.md",
+        "detail": "unresolved [[verify-never-assume]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_round_external_figures.md",
+        "detail": "unresolved [[forecast-headline-not-seasonality]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_routine_failures_battery_and_parens.md",
+        "detail": "unresolved [[incident-routines-path-rot-2026-05-23]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_show_dont_just_tell.md",
+        "detail": "unresolved [[Real-Logos-Only Rule]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_skill_gotchas_and_automate_augment.md",
+        "detail": "unresolved [[skill-from-masters]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_source_fidelity_copy.md",
+        "detail": "unresolved [[no-splashy-plain-voice]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_source_fidelity_copy.md",
+        "detail": "unresolved [[verify-never-assume]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_two_account_split.md",
+        "detail": "unresolved [[feedback_fable_operating_procedure]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_verify_live_never_infer_file_state.md",
+        "detail": "unresolved [[feedback-compute-dont-recall]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_verify_live_never_infer_file_state.md",
+        "detail": "unresolved [[reference-netlify-cwd-flag]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_verify_never_assume.md",
+        "detail": "unresolved [[feedback-synced-claim-gate]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_verify_never_assume.md",
+        "detail": "unresolved [[architecture-recency-anchor]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_verify_rendered_output.md",
+        "detail": "unresolved [[render_html_pdf-helper]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_verify_rendered_output.md",
+        "detail": "unresolved [[pdf-export-standard]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_verify_rendered_output.md",
+        "detail": "unresolved [[deck_clipcheck]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_weekly_exec_meeting_three_files.md",
+        "detail": "unresolved [[everpass-output-guardrail]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_weekly_exec_meeting_three_files.md",
+        "detail": "unresolved [[ep-meeting-prep]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "feedback_weekly_exec_meeting_three_files.md",
+        "detail": "unresolved [[content-touchbase-kit]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_broadcast_ops_forecast_monthly.md",
+        "detail": "unresolved [[deal-brain-product-truth]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_chain_redesign_reliability_legs.md",
+        "detail": "unresolved [[architecture_scheduled_task_conditions_fix]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_comcast_status_2026-06-24.md",
+        "detail": "unresolved [[comcast_insights.md OPERATOR-UPDATE 2026-06-24]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_dashboard_primary_surface.md",
+        "detail": "unresolved [[architecture_cockpit_retired]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_directv_legal_dispute.md",
+        "detail": "unresolved [[project_streamtv_2026_artifacts]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_living_system_rebuild_2026-07-09.md",
+        "detail": "unresolved [[feedback_fable_operating_procedure]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_overnight_audit_2026-06-11.md",
+        "detail": "unresolved [[fix-immediately]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "project_overnight_audit_2026-06-11.md",
+        "detail": "unresolved [[executed-deal-chain]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_content101_site.md",
+        "detail": "unresolved [[reference-presentation-goldstandard]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_design_system_v6.md",
+        "detail": "unresolved [[skill-from-masters]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_ep_counterparty_pretest.md",
+        "detail": "unresolved [[skill-from-masters]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_ep_final_polish_skill.md",
+        "detail": "unresolved [[feedback-no-individual-names-external]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_ep_final_polish_skill.md",
+        "detail": "unresolved [[skill-from-masters]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_executive_overview_template.md",
+        "detail": "unresolved [[reference-everpass-prep-summary-template]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_external_doc_preflight.md",
+        "detail": "unresolved [[architecture-recency-anchor]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_external_onepager_template.md",
+        "detail": "unresolved [[reference-everpass-prep-summary-template]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_instagram_web_posting_constraints.md",
+        "detail": "unresolved [[project_ai_operator_os_kit]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_kb_health_guard.md",
+        "detail": "unresolved [[wikilinks]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_kb_health_guard.md",
+        "detail": "unresolved [[consolidate-memory]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_netlify_cwd_flag.md",
+        "detail": "unresolved [[feedback-compute-dont-recall]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_notebooklm_to_html_playbook.md",
+        "detail": "unresolved [[everpass-output-guardrail]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "reference_notebooklm_to_html_playbook.md",
+        "detail": "unresolved [[notebooklm-auto-upload]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "user_ryan_career_arc.md",
+        "detail": "unresolved [[project_streamtv_2026_artifacts]] \u2014 no memory defines that slug (backlog marker)"
+      },
+      {
+        "severity": "AMBER",
+        "item": "user_social_channels_li_ig_only.md",
+        "detail": "unresolved [[project_ai_operator_os_kit]] \u2014 no memory defines that slug (backlog marker)"
+      }
+    ],
+    "generated_at": "2026-07-09T21:01:38"
+  },
+  "deck_audio_status": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0
+    },
+    "findings": [
+      {
+        "severity": "OK",
+        "deck": "content101",
+        "check": "ok",
+        "detail": "27 slides == 27 audio files, sequential, captions aligned"
+      }
+    ],
+    "generated_at": "2026-07-09T21:01:38"
+  },
+  "deck_interactivity_status": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "decks": 3
+    },
+    "findings": [
+      {
+        "severity": "OK",
+        "deck": "3 decks",
+        "check": "ok",
+        "detail": "no unscoped presenter/zoom hide rules"
+      }
+    ],
+    "generated_at": "2026-07-09T21:01:38"
+  },
+  "basis_provenance": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0
+    },
+    "findings": [],
+    "generated_at": "2026-07-09T21:01:38.807432-07:00"
+  },
+  "deck_ledger_status": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0,
+      "executed_claims_checked": 78
+    },
+    "findings": [
+      {
+        "severity": "INFO",
+        "deck": "everpass-2026-ytd-the-case-for-the-team.html",
+        "detail": "non-CM execution class [app-publish], not a Contract Master deal: 'LG' (App publishing \u2014 LG Content Store (personally executed))"
+      },
+      {
+        "severity": "INFO",
+        "deck": "everpass-2026-ytd-the-case-for-the-team.html",
+        "detail": "non-CM execution class [app-publish], not a Contract Master deal: 'Google / Chrome' (App publishing \u2014 Chrome / Google (personally executed))"
+      },
+      {
+        "severity": "INFO",
+        "deck": "everpass-2026-ytd-the-case-for-the-team.html",
+        "detail": "non-CM execution class [nda], not a Contract Master deal: 'Mediacom' (NDA executed)"
+      },
+      {
+        "severity": "INFO",
+        "deck": "everpass-2026-ytd-the-case-for-the-team.html",
+        "detail": "non-CM execution class [nda], not a Contract Master deal: 'Confidential' (NDA executed (counterparty under NDA))"
+      },
+      {
+        "severity": "INFO",
+        "deck": "everpass-2026-ytd-the-case-for-the-team.html",
+        "detail": "non-CM execution class [nda], not a Contract Master deal: 'Confidential' (NDA executed (counterparty under NDA))"
+      }
+    ],
+    "generated_at": "2026-07-09T21:01:38"
+  },
+  "deploy_freshness": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0,
+      "ok": 23,
+      "total": 23
+    },
+    "findings": [
+      {
+        "severity": "INFO",
+        "slug": "weekly",
+        "url": "https://weekly.everpasspipeline.com",
+        "detail": "retired from live chain (EVERPASS-SYSTEM-MAP.md) -> not gated on deploy freshness"
+      }
+    ],
+    "generated_at": "2026-07-09T21:01:38-07:00"
+  },
+  "vestige_memory": {
+    "overall": "FAIL",
+    "checks": [
+      {
+        "check": "vestige_health",
+        "status": "FAIL",
+        "detail": "0 memories in store"
+      },
+      {
+        "check": "anchors_present",
+        "status": "FAIL",
+        "detail": "missing accuracy anchors: CONFLICT HIERARCHY, ECONOMICS ACCURACY, RETIRED FIGURES, MEMORY SUBSTRATE"
+      },
+      {
+        "check": "chain_inputs_intact",
+        "status": "PASS",
+        "detail": "chain_anchor.json OK; econ_canon.json OK"
+      },
+      {
+        "check": "memory_md_budget",
+        "status": "PASS",
+        "detail": "22502 / 23552 bytes"
+      },
+      {
+        "check": "backup_present",
+        "status": "PASS",
+        "detail": "1 backup(s)"
+      },
+      {
+        "check": "embeddings",
+        "status": "WARN",
+        "detail": "0% embedding coverage (keyword recall works regardless)"
+      }
+    ],
+    "generated_at": "2026-07-10T04:01:39.519961+00:00"
+  },
+  "anchor_lag": {
+    "overall": "FAIL",
+    "red": 9,
+    "amber": 0,
+    "generated_at": "2026-07-09T21:01:41.084018"
+  },
+  "dashboard_truth": {
+    "overall": "WARN",
+    "counts": {
+      "red": 0,
+      "amber": 108,
+      "partners": 49
+    },
+    "generated_at": "2026-07-09T21:01:41-07:00"
+  },
+  "export_drift": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0,
+      "files_scanned": 211
+    },
+    "generated_at": "2026-07-09T21:01:41-07:00"
+  },
+  "context_creep": {
+    "overall": "WARN",
+    "checks": [
+      {
+        "name": "claude_md",
+        "status": "WARN",
+        "bytes": 30703,
+        "budget": 26000,
+        "fix": "Scripts/memory_index_compact.py-style compaction (report only)",
+        "message": "claude_md: 30,703 B exceeds budget 26,000 B \u2014 compact via Scripts/memory_index_compact.py-style compaction (report only) (never delete rules)"
+      },
+      {
+        "name": "memory_md",
+        "status": "PASS",
+        "bytes": 22502,
+        "budget": 23552,
+        "message": "memory_md: 22,502 B within budget 23,552 B"
+      },
+      {
+        "name": "global_memory_md",
+        "status": "PASS",
+        "bytes": 3193,
+        "budget": 8000,
+        "message": "global_memory_md: 3,193 B within budget 8,000 B"
+      },
+      {
+        "name": "hook_footprint",
+        "status": "WARN",
+        "entries": 46,
+        "budget_entries": 40,
+        "bytes": 2192146,
+        "budget_bytes": 614400,
+        "message": "hook_footprint: 46 entries, 2,192,146 B under hooks/ \u2014 46 hook entries > 40; 2,192,146 B in hooks/ > 614,400 B (report only)"
+      },
+      {
+        "name": "skill_bloat",
+        "status": "PASS",
+        "budget": 15360,
+        "candidate_count": 18,
+        "candidates": [
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\graphify\\SKILL.md",
+            "bytes": 56972
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\content-intelligence-extraction\\SKILL.md",
+            "bytes": 55065
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\content-intelligence-extraction-workspace\\skill-snapshot\\SKILL.md",
+            "bytes": 34028
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\humanizer\\SKILL.md",
+            "bytes": 32596
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\notebooklm\\SKILL.md",
+            "bytes": 28861
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\ep-redline\\SKILL.md",
+            "bytes": 28538
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\everpass-presentation\\SKILL.md",
+            "bytes": 24767
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\economics-to-notebooklm\\SKILL.md",
+            "bytes": 23337
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\html-to-netlify-share\\SKILL.md",
+            "bytes": 22761
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\everpass-mode\\SKILL.md",
+            "bytes": 21660
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\ep-redline-workspace\\iteration-1\\SKILL.md",
+            "bytes": 20086
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\watch\\SKILL.md",
+            "bytes": 19570
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\full-pipeline-refresh\\SKILL.md",
+            "bytes": 18854
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\contract-master\\SKILL.md",
+            "bytes": 17786
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\build-notebooklm-corpus\\SKILL.md",
+            "bytes": 17367
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\everpass-mode-workspace\\iteration-1\\SKILL.md",
+            "bytes": 16364
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\nightly-partner-sync\\SKILL.md",
+            "bytes": 15805
+          },
+          {
+            "path": "C:\\Users\\ryan\\.claude\\skills\\full-pipeline-refresh-workspace\\iteration-1\\SKILL.md",
+            "bytes": 15503
+          }
+        ],
+        "message": "skill_bloat: 18 SKILL.md over 15,360 B (compression candidates, report only \u2014 guard never modifies skills)"
+      }
+    ],
+    "generated_at": "2026-07-09T21:01:42-07:00"
+  },
+  "scheduled_task": {
+    "overall": "WARN",
+    "counts": {
+      "red": 0,
+      "amber": 1,
+      "tasks": 44,
+      "disabled": 0,
+      "core_disabled": 0
+    },
+    "findings": [
+      {
+        "severity": "AMBER",
+        "task": "EverPass Cockpit Full Sync",
+        "detail": "CORE task Enabled but last ran 35h ago (> 30h) \u2014 may not be firing."
+      }
+    ],
+    "generated_at": "2026-07-10T04:01:42+00:00"
+  },
+  "notebook_auth": {
+    "overall": "PASS",
+    "counts": {
+      "red": 0,
+      "amber": 0,
+      "tracked": 3
+    },
+    "findings": [],
+    "generated_at": "2026-07-10T04:01:46+00:00"
+  },
+  "canary": {
+    "overall": "WARN",
+    "counts": {
+      "red": 0,
+      "amber": 2,
+      "pipelines": 9
+    },
+    "findings": [
+      {
+        "severity": "AMBER",
+        "pipeline": "outlook_poller",
+        "detail": "task last run failed (rc=267009); see scheduled-task guard"
+      },
+      {
+        "severity": "AMBER",
+        "pipeline": "propagate_heavy",
+        "detail": "task last run failed (rc=267009); see scheduled-task guard"
+      }
+    ],
+    "generated_at": "2026-07-10T04:01:46+00:00"
+  },
+  "outlook_delta": {
+    "overall": "PASS",
+    "counts": {
+      "ledger_gap": 19,
+      "pending_not_yet_polled": 2,
+      "window_msgs": 112,
+      "seen_ids": 500
+    },
+    "findings": [],
+    "cached": true,
+    "generated_at": "2026-07-10T04:01:46+00:00"
+  }
 }
