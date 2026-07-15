@@ -5,8 +5,8 @@
 
 .DESCRIPTION
   Installs Repomix, official Anthropic skills, marketing skills, NotebookLM skill,
-  Obsidian skills (optional), and clones ECC for install.ps1. Does NOT overwrite
-  existing skills or EverPass hooks. Does NOT start Docker platforms by default.
+  Obsidian skills (optional), ECC, best-tool-router, and SessionStart banner merge.
+  Does NOT overwrite existing skills or EverPass hooks. Does NOT start Docker platforms by default.
 
 .NOTES
   Run from elevated or normal user PowerShell:
@@ -16,6 +16,8 @@
     -SkipMarketing    Skip marketing skills
     -WithObsidian     Install Obsidian skills
     -WithAwesomeClone Clone awesome-claude-skills catalog only (no mass install)
+    -SkipBannerMerge   Do not merge SessionStart banner into settings.json
+    -OpsRepo           Path to everpass-mcp-ops clone (default Windows path)
 #>
 
 [CmdletBinding()]
@@ -23,7 +25,9 @@ param(
   [switch]$SkipEcc,
   [switch]$SkipMarketing,
   [switch]$WithObsidian,
-  [switch]$WithAwesomeClone
+  [switch]$WithAwesomeClone,
+  [switch]$SkipBannerMerge,
+  [string]$OpsRepo = 'C:\Users\ryan\code\everpass-mcp-ops'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -196,6 +200,43 @@ if (-not $SkipEcc) {
   Write-Log "After ECC: re-check settings.json hooks vs backup $settings.bak-$Ts"
 }
 
+
+# --- best-tool-router deploy ---
+$scriptDir = $PSScriptRoot
+if (-not $scriptDir) { $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path }
+$routerSrc = Join-Path $OpsRepo 'claude-productivity-stack\skills\best-tool-router\SKILL.md'
+$routerSrcAlt = Join-Path $scriptDir 'skills\best-tool-router\SKILL.md'
+if (-not (Test-Path -LiteralPath $routerSrc) -and (Test-Path -LiteralPath $routerSrcAlt)) {
+  $routerSrc = $routerSrcAlt
+}
+$routerDstDir = Join-Path $SkillsDir 'best-tool-router'
+if (Test-Path -LiteralPath $routerSrc) {
+  New-Item -ItemType Directory -Force -Path $routerDstDir | Out-Null
+  Copy-Item -Force -LiteralPath $routerSrc -Destination (Join-Path $routerDstDir 'SKILL.md')
+  Write-Log "DEPLOYED best-tool-router -> $routerDstDir"
+} else {
+  Write-Log "WARN best-tool-router SKILL.md not found at $routerSrc"
+}
+
+# --- SessionStart banner merge ---
+if (-not $SkipBannerMerge) {
+  $mergeScript = Join-Path $OpsRepo 'scripts\merge-session-banner.ps1'
+  $mergeAlt = Join-Path (Split-Path $scriptDir -Parent) 'scripts\merge-session-banner.ps1'
+  if (-not (Test-Path -LiteralPath $mergeScript) -and (Test-Path -LiteralPath $mergeAlt)) {
+    $mergeScript = $mergeAlt
+  }
+  if (Test-Path -LiteralPath $mergeScript) {
+    Write-Log "Merging SessionStart stack banner via $mergeScript"
+    try {
+      & powershell -NoProfile -ExecutionPolicy Bypass -File $mergeScript 2>&1 | Out-String | ForEach-Object { Write-Log $_.TrimEnd() }
+    } catch {
+      Write-Log "WARN banner merge: $_"
+    }
+  } else {
+    Write-Log "WARN merge-session-banner.ps1 not found"
+  }
+}
+
 # --- Summary ---
 Write-Log "=== Skills now under $SkillsDir ==="
 Get-ChildItem -Directory $SkillsDir -ErrorAction SilentlyContinue | ForEach-Object {
@@ -203,7 +244,7 @@ Get-ChildItem -Directory $SkillsDir -ErrorAction SilentlyContinue | ForEach-Obje
 }
 
 Write-Log "=== DONE ==="
-Write-Log "Next: restart Claude Code; run smoke tests; commit results under everpass-mcp-ops/claude-productivity-stack/"
+Write-Log "Next: restart Claude Code; run ONE-PASTE audit or open CLAUDE-CODE-ONE-PASTE-SETUP.md Phase 6"
 Write-Host ""
 Write-Host "Log: $Log"
 Write-Host "If ECC touched settings.json, merge EverPass hooks back from backup."

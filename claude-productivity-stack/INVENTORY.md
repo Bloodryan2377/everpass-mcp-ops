@@ -55,11 +55,13 @@ C:\Users\ryan\code\everpass-mcp-ops\   # this tracking repo
 
 ## Related files
 
-- [CLAUDE-CODE-INSTALL-PROMPT.md](./CLAUDE-CODE-INSTALL-PROMPT.md) — paste into Claude Code to install
-- [CLAUDE-CODE-OPS-UPDATE-PROMPT.md](./CLAUDE-CODE-OPS-UPDATE-PROMPT.md) — paste next: always-on best-tool router, rules, memory, insights
+- **[CLAUDE-CODE-ONE-PASTE-SETUP.md](./CLAUDE-CODE-ONE-PASTE-SETUP.md)** — single paste: install + ops + deploy router + banner merge + audit
+- [AUDIT-RESULTS.md](./AUDIT-RESULTS.md) — verification gate after setup
 - [USAGE.md](./USAGE.md) — when to use each tool
 - [INSIGHTS.md](./INSIGHTS.md) — operational lessons + miss log
 - [CAPABILITY-MATRIX.md](./CAPABILITY-MATRIX.md) — live install inventory
-- [install-stack.ps1](./install-stack.ps1) — idempotent Windows installer (P0/P1)
-- [skills/best-tool-router/SKILL.md](./skills/best-tool-router/SKILL.md) — router skill
+- [install-stack.ps1](./install-stack.ps1) — idempotent Windows installer (P0/P1 + router + banner)
+- [skills/best-tool-router/SKILL.md](./skills/best-tool-router/SKILL.md) — router skill (deployed to `~/.claude/skills`)
 - Rule: `EVERPASS/.claude/rules/productivity-stack.md`
+- Banner merge: `scripts/merge-session-banner.ps1` · snippet `hooks/sessionStart-stack-banner.json`
+- Legacy (optional): [install-only](./CLAUDE-CODE-INSTALL-PROMPT.md) · [ops-only](./CLAUDE-CODE-OPS-UPDATE-PROMPT.md)
