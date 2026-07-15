@@ -56,5 +56,10 @@ C:\Users\ryan\code\everpass-mcp-ops\   # this tracking repo
 ## Related files
 
 - [CLAUDE-CODE-INSTALL-PROMPT.md](./CLAUDE-CODE-INSTALL-PROMPT.md) — paste into Claude Code to install
+- [CLAUDE-CODE-OPS-UPDATE-PROMPT.md](./CLAUDE-CODE-OPS-UPDATE-PROMPT.md) — paste next: always-on best-tool router, rules, memory, insights
 - [USAGE.md](./USAGE.md) — when to use each tool
+- [INSIGHTS.md](./INSIGHTS.md) — operational lessons + miss log
+- [CAPABILITY-MATRIX.md](./CAPABILITY-MATRIX.md) — live install inventory
 - [install-stack.ps1](./install-stack.ps1) — idempotent Windows installer (P0/P1)
+- [skills/best-tool-router/SKILL.md](./skills/best-tool-router/SKILL.md) — router skill
+- Rule: `EVERPASS/.claude/rules/productivity-stack.md`
