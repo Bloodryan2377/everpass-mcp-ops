@@ -8,6 +8,16 @@ This repo is the central place to track the Claude Code MCP + Zapier + GitHub wi
 - How email is scoped so automations only touch EverPass traffic.
 - Repeatable sanity-check procedures for each integration.
 - Next-step ideas for end-to-end workflows.
+- Claude Code productivity stack inventory and install prompt (skills, ECC, Repomix, marketing, NotebookLM). See [claude-productivity-stack/](claude-productivity-stack/).
+
+### Claude productivity stack (quick links)
+
+- [Install prompt for Claude Code](claude-productivity-stack/CLAUDE-CODE-INSTALL-PROMPT.md) — paste into Claude Code on Windows to install/wire the stack
+- [Inventory](claude-productivity-stack/INVENTORY.md) — the 10 repos, priorities, EverPass mapping
+- [Usage cheat sheet](claude-productivity-stack/USAGE.md)
+- [install-stack.ps1](claude-productivity-stack/install-stack.ps1) — idempotent P0/P1 Windows installer
+
+**Note:** Article list item “Everything Claude Code” is now canonical as [affaan-m/ECC](https://github.com/affaan-m/ECC). Install only from official ECC sources.
 
 The code of record is the live Claude Code config on my Windows box; this repo is the human-readable mirror.
 

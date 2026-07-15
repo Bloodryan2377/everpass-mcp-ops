@@ -24,3 +24,13 @@ Backlog of next-step workflow ideas for the EverPass MCP stack. Unordered — pr
 - [ ] Decide whether to re-enable Superhuman Mail MCP (default: no).
 - [ ] Document the PAT rotation cadence and expiry.
 - [ ] Audit Gmail filter coverage periodically — confirm no `@everpass.com` mail is escaping the `EverPass` label.
+
+## Claude productivity stack
+
+- [ ] Run `claude-productivity-stack/install-stack.ps1` on Windows (or paste CLAUDE-CODE-INSTALL-PROMPT.md into Claude Code).
+- [ ] Smoke-test skills after install; write results to `claude-productivity-stack/SMOKE-TEST.md`.
+- [ ] Merge ECC settings.json changes carefully — preserve dashboard PostToolUse + Desktop protect hooks.
+- [ ] Select 5–10 skills from awesome-claude-skills after reading each SKILL.md (no bulk install).
+- [ ] Set Obsidian vault path if/when using obsidian skills.
+- [ ] Decide whether Flowise/Dify/Onyx get a weekend Docker trial; default is staged-not-running.
+- [ ] Review ECC MCP candidates; enable at most 3 that complement Zapier/GitHub/Higgsfield.
