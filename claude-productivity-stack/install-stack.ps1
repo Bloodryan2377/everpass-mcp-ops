@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 <#
 .SYNOPSIS
   Idempotent P0/P1 install for Claude Code productivity stack (Windows).
@@ -192,7 +192,7 @@ if (-not $SkipEcc) {
     try {
       & powershell -ExecutionPolicy Bypass -File $eccInstall 2>&1 | Out-String | ForEach-Object { Write-Log $_.TrimEnd() }
     } catch {
-      Write-Log "WARN ECC installer: $_ — run manually: $eccInstall"
+      Write-Log ('WARN ECC installer: ' + $_.Exception.Message + ' - run manually: ' + $eccInstall)
     }
   } else {
     Write-Log "WARN ECC install.ps1 not found"
@@ -230,7 +230,7 @@ if (-not $SkipBannerMerge) {
     try {
       & powershell -NoProfile -ExecutionPolicy Bypass -File $mergeScript 2>&1 | Out-String | ForEach-Object { Write-Log $_.TrimEnd() }
     } catch {
-      Write-Log "WARN banner merge: $_"
+      Write-Log ('WARN banner merge: ' + $_.Exception.Message)
     }
   } else {
     Write-Log "WARN merge-session-banner.ps1 not found"
