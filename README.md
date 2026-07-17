@@ -52,3 +52,7 @@ These are the lightweight end-to-end checks I run after any MCP or credential ch
 - **Gmail:** search within `label:"EverPass"`, open a message, create a draft reply, confirm the draft appears in Gmail UI.
 
 See [MCP_SETUP.md](MCP_SETUP.md) for the detailed technical layout and [TODO.md](TODO.md) for the next-step backlog.
+
+## Recovery / resume
+
+To bring the chain back to `CURRENT` after a pause, run [RECOVERY-RUNBOOK.md](RECOVERY-RUNBOOK.md) — a bounded, batched refresh sequence for the local Claude Code / Fable control plane on the Windows runtime tree (this repo is the scaffold; the refresh scripts and dashboard live in OneDrive).
