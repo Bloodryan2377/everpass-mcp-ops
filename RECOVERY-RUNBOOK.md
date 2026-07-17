@@ -78,19 +78,37 @@ are missing — report and stop; do not force a refresh.
 These are the deterministic (non-LLM) legs named in the Command Center remediation text.
 Run in order; each is idempotent and safe to re-run.
 
-1. Sync the dashboard `.bak` to the current live file (backup-follows-live rule) before any
+> **HARD GATE (Batch 1 blocker) — correct EverPass Outlook mailbox pull.** Because Outlook is
+> the top of the conflict order (`Outlook > on-disk current files > chain_anchor > econ_canon >
+> memory`) and email is the primary "latest insight" stream (CLAUDE.md §4), Batch 1 may not
+> proceed until a fresh pull from the **correct EverPass mailbox** (`rblood@everpass.com`,
+> scoped to `label:"EverPass"`) has been confirmed. Verify you are pulling the actual EverPass
+> mailbox, not a wrong/stale connected account. If the correct mailbox cannot be confirmed as
+> pulled, **STOP** and report — do not run the deterministic legs against a chain that Outlook
+> has not refreshed.
+>
+> **Status recorded during this audit (2026-07-17):** the Computer-connected Outlook returned
+> **zero post-2026-07-10 emails**. Because that pull produced no new mail, **no email resync was
+> performed or claimed here** — the mailbox freshness gate is therefore **not yet satisfied** and
+> must be re-run on the live box against the correct EverPass mailbox before Batch 1 continues.
+
+1. **Confirm the Outlook hard gate above is satisfied** (correct EverPass mailbox pulled). If
+   the only available pull is the zero-post-2026-07-10 result noted above, stop and escalate —
+   do not substitute memory/anchor/canon for the missing mail.
+2. Sync the dashboard `.bak` to the current live file (backup-follows-live rule) before any
    pipeline touch.
-2. `python Scripts\freshness_enforcer.py` — capture the baseline verdict (exit 0 PASS / 1 WARN
+3. `python Scripts\freshness_enforcer.py` — capture the baseline verdict (exit 0 PASS / 1 WARN
    / 2 FAIL).
-3. `python Scripts\build_contract_snapshots.py` — clears the `contract-summary (stale)` leg.
-4. `python Scripts\build_command_center.py` — Gate-2 Step-8 conductor; rebuilds the Command
+4. `python Scripts\build_contract_snapshots.py` — clears the `contract-summary (stale)` leg.
+5. `python Scripts\build_command_center.py` — Gate-2 Step-8 conductor; rebuilds the Command
    Center feeds and clears `guard:freshness=WARN` / `guard:intel=WARN` for the deterministic feeds.
-5. `python Scripts\freshness_enforcer.py` — re-run to re-evaluate after the rebuild.
-6. Re-read `Cockpit\command-center-status.json`; confirm the status line moved toward `CURRENT`
+6. `python Scripts\freshness_enforcer.py` — re-run to re-evaluate after the rebuild.
+7. Re-read `Cockpit\command-center-status.json`; confirm the status line moved toward `CURRENT`
    and note which feeds are still not fresh (these are the heavy/LLM feeds handled in Batch 2).
-7. **STOP. Report:** before/after freshness `overall`, fresh/total count, and the remaining
-   non-fresh feed names. If `freshness_enforcer.py` returns FAIL (rc=2), report the failing leg
-   and stop — do not paper over a FAIL.
+8. **STOP. Report:** whether the Outlook mailbox gate was satisfied (and from which mailbox),
+   before/after freshness `overall`, fresh/total count, and the remaining non-fresh feed names.
+   If `freshness_enforcer.py` returns FAIL (rc=2), report the failing leg and stop — do not
+   paper over a FAIL.
 
 **Note:** if a `contract`/`negotiation`/`exec_status` figure is what the rebuild wants to
 change, that mutation only unlocks via the control-plane sources above — do not let a
