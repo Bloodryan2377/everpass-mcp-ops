@@ -8,21 +8,6 @@ This repo is the central place to track the Claude Code MCP + Zapier + GitHub wi
 - How email is scoped so automations only touch EverPass traffic.
 - Repeatable sanity-check procedures for each integration.
 - Next-step ideas for end-to-end workflows.
-- Claude Code productivity stack inventory and install prompt (skills, ECC, Repomix, marketing, NotebookLM). See [claude-productivity-stack/](claude-productivity-stack/).
-
-### Claude productivity stack (quick links)
-
-**Primary (use this):** [ONE PASTE full setup](claude-productivity-stack/CLAUDE-CODE-ONE-PASTE-SETUP.md) — install + router + `best-tool-router` deploy + SessionStart banner merge + audit in a single Claude Code paste.
-
-- [install-stack.ps1](claude-productivity-stack/install-stack.ps1) — idempotent Windows installer (also deploys router + merges banner)
-- [merge-session-banner.ps1](scripts/merge-session-banner.ps1) — safe `settings.json` SessionStart merge
-- [sessionStart-stack-banner.json](hooks/sessionStart-stack-banner.json) — merge snippet reference
-- [AUDIT-RESULTS.md](claude-productivity-stack/AUDIT-RESULTS.md) — post-setup verification table
-- [Inventory](claude-productivity-stack/INVENTORY.md) · [Usage](claude-productivity-stack/USAGE.md) · [Capability matrix](claude-productivity-stack/CAPABILITY-MATRIX.md)
-- Always-on rule: [productivity-stack.md](EVERPASS/.claude/rules/productivity-stack.md)
-- Legacy split prompts (superseded by one-paste): [install](claude-productivity-stack/CLAUDE-CODE-INSTALL-PROMPT.md) · [ops](claude-productivity-stack/CLAUDE-CODE-OPS-UPDATE-PROMPT.md)
-
-**Note:** Article list item “Everything Claude Code” is now canonical as [affaan-m/ECC](https://github.com/affaan-m/ECC). Install only from official ECC sources.
 
 The code of record is the live Claude Code config on my Windows box; this repo is the human-readable mirror.
 
