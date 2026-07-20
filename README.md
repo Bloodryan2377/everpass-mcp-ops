@@ -19,7 +19,6 @@ This repo is the central place to track the Claude Code MCP + Zapier + GitHub wi
 - [sessionStart-stack-banner.json](hooks/sessionStart-stack-banner.json) — merge snippet reference
 - [AUDIT-RESULTS.md](claude-productivity-stack/AUDIT-RESULTS.md) — post-setup verification table
 - [Inventory](claude-productivity-stack/INVENTORY.md) · [Usage](claude-productivity-stack/USAGE.md) · [Capability matrix](claude-productivity-stack/CAPABILITY-MATRIX.md)
-- Always-on rule: [productivity-stack.md](EVERPASS/.claude/rules/productivity-stack.md)
 - Legacy split prompts (superseded by one-paste): [install](claude-productivity-stack/CLAUDE-CODE-INSTALL-PROMPT.md) · [ops](claude-productivity-stack/CLAUDE-CODE-OPS-UPDATE-PROMPT.md)
 
 **Note:** Article list item “Everything Claude Code” is now canonical as [affaan-m/ECC](https://github.com/affaan-m/ECC). Install only from official ECC sources.

@@ -90,21 +90,6 @@ Each class has a defined source of truth, edit surface, and propagation path. Ca
 | Security review | ECC security agent/skill |
 | Video / audio process | `/watch` |
 | Obsidian vault | `obsidian-*` skills |
-| Ambiguous / multi-domain / "best tool" | `best-tool-router` + rule `productivity-stack` |
-
-### 8b. Best-available rule (HARD)
-
-Before executing any non-trivial task, run the **productivity-stack router** (`EVERPASS/.claude/rules/productivity-stack.md`):
-
-1. Classify the job.
-2. Pick the first installed tool in rank order (EverPass domain skill > official skill > marketing/ECC > CLI > freestyle).
-3. Announce once: `Router: <job_class> → <tool>`.
-4. Execute with that tool. Do not freestyle a job an installed skill owns.
-5. On miss/wrong tool, queue `self-improve`.
-
-Capability inventory: `everpass-mcp-ops/claude-productivity-stack/CAPABILITY-MATRIX.md`.
-Insights: `everpass-mcp-ops/claude-productivity-stack/INSIGHTS.md`.
-Ops update prompt (re-run anytime): `claude-productivity-stack/CLAUDE-CODE-OPS-UPDATE-PROMPT.md`.
 
 ## 9. Pipeline state (current)
 
