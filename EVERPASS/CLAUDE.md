@@ -66,30 +66,11 @@ Each class has a defined source of truth, edit surface, and propagation path. Ca
 | Term sheet / LOI | `anthropic-skills:deal-term-sheet` |
 | Deal economics analysis | `anthropic-skills:negotiation-brief` |
 | NotebookLM sweep | `notebook-lm-sweep` |
-| NotebookLM Q&A / programmatic | `notebooklm` skill |
 | Pipeline refresh | `full-pipeline-refresh` |
 | Dashboard update | `anthropic-skills:pipeline-dashboard-update` |
 | Dashboard framing | `dashboard-framing-updates` |
 | Meeting prep | `anthropic-skills:meeting-prep` |
 | Session-end / "improve yourself" / "log that lesson" | `self-improve` (see `everpass-mcp-ops/self-improvement/SKILL.md`) |
-| Whole-repo / multi-file context pack | `repomix` then analyze |
-| PDF | `pdf` |
-| Word (generic) | `docx` |
-| Excel / financial model sheet | `xlsx` |
-| PowerPoint | `pptx` |
-| Frontend visual quality | `frontend-design` |
-| New MCP server | `mcp-builder` |
-| Create a skill from a SOP | `skill-creator` + `self-improve` |
-| Marketing copy | `copywriting` / `copy-editing` |
-| Cold email / sequences | `cold-email` / `emails` (drafts only) |
-| Launch / GTM | `launch` + `product-marketing` |
-| AI search visibility (AEO) | `ai-seo` |
-| CRO | `cro` |
-| Competitor / alternative pages | `competitors` / `competitor-profiling` |
-| Code review | ECC `code-reviewer` |
-| Security review | ECC security agent/skill |
-| Video / audio process | `/watch` |
-| Obsidian vault | `obsidian-*` skills |
 
 ## 9. Pipeline state (current)
 
